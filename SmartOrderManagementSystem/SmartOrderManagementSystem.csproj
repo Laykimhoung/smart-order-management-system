@@ -154,7 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Icons\" />
-    <Folder Include="Assets\Images\" />
+    <Folder Include="Assets\Images\Products\" />
     <Folder Include="Reports\Excel\" />
     <Folder Include="Reports\PDF\" />
   </ItemGroup>

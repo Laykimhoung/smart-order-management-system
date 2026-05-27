@@ -1,6 +1,6 @@
 ﻿namespace SmartOrderManagementSystem.Forms.Admin
 {
-    partial class OrderHistoryForm
+    partial class AnalysisForm
     {
         /// <summary>
         /// Required designer variable.
@@ -57,7 +57,7 @@
             this.cyberButton1.Lighting = false;
             this.cyberButton1.LinearGradient_Background = false;
             this.cyberButton1.LinearGradientPen = false;
-            this.cyberButton1.Location = new System.Drawing.Point(29, 13);
+            this.cyberButton1.Location = new System.Drawing.Point(12, 12);
             this.cyberButton1.Name = "cyberButton1";
             this.cyberButton1.PenWidth = 15;
             this.cyberButton1.Rounding = true;
@@ -66,19 +66,19 @@
             this.cyberButton1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.cyberButton1.TabIndex = 0;
             this.cyberButton1.Tag = "Cyber";
-            this.cyberButton1.TextButton = "History";
+            this.cyberButton1.TextButton = "Analysis";
             this.cyberButton1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.cyberButton1.Timer_Effect_1 = 5;
             this.cyberButton1.Timer_RGB = 300;
             // 
-            // OrderHistoryForm
+            // AnalysisForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 814);
             this.Controls.Add(this.cyberButton1);
-            this.Name = "OrderHistoryForm";
-            this.Text = "OrderHistoryForm";
+            this.Name = "AnalysisForm";
+            this.Text = "AnalysisForm";
             this.ResumeLayout(false);
 
         }

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8555CCBE-619C-412C-AEAC-077686440C9A}</ProjectGuid>
+    <ProjectGuid>{97AF9BCD-9F8C-DF5C-8338-3FF796318E70}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SmartOrderManagementSystem</RootNamespace>
     <AssemblyName>SmartOrderManagementSystem</AssemblyName>
@@ -129,6 +129,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Customer\CustomerDashboard.resx">
+      <DependentUpon>CustomerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -154,7 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\Icons\" />
-    <Folder Include="Assets\Images\Products\" />
+    <Folder Include="Assets\Images\" />
     <Folder Include="Reports\Excel\" />
     <Folder Include="Reports\PDF\" />
   </ItemGroup>

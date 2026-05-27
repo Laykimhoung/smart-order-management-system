@@ -178,7 +178,18 @@
     <Folder Include="Reports\PDF\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Forms\Staff\pic\admin_bg.png" />
+    <Content Include="Forms\Staff\pic\admin_white_bg.png" />
+    <Content Include="Forms\Staff\pic\bell_bg.png" />
     <Content Include="Forms\Staff\pic\Coffee.jpg" />
+    <Content Include="Forms\Staff\pic\coffee1.png" />
+    <Content Include="Forms\Staff\pic\date.png" />
+    <Content Include="Forms\Staff\pic\Home_bg.png" />
+    <Content Include="Forms\Staff\pic\message1.png" />
+    <Content Include="Forms\Staff\pic\order_bg.png" />
+    <Content Include="Forms\Staff\pic\report_bg.png" />
+    <Content Include="Forms\Staff\pic\setting2.png" />
+    <Content Include="Forms\Staff\pic\staff_admin.png" />
     <Content Include="SQL\SmartOrderDB.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

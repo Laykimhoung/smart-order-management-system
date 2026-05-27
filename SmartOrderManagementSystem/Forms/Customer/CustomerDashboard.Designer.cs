@@ -60,6 +60,8 @@
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCartCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblLoggedIn = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNote = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
@@ -278,16 +280,18 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNote);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.btnPlaceOrder);
             this.groupBox1.Controls.Add(this.btnClearAll);
             this.groupBox1.Controls.Add(this.btnRemoveItem);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.lvOrderItems);
             this.groupBox1.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(787, 160);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(567, 460);
+            this.groupBox1.Size = new System.Drawing.Size(567, 545);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Order:";
@@ -305,9 +309,9 @@
             // 
             this.btnPlaceOrder.BackColor = System.Drawing.Color.Blue;
             this.btnPlaceOrder.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlaceOrder.Location = new System.Drawing.Point(164, 389);
+            this.btnPlaceOrder.Location = new System.Drawing.Point(179, 485);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
-            this.btnPlaceOrder.Size = new System.Drawing.Size(259, 62);
+            this.btnPlaceOrder.Size = new System.Drawing.Size(254, 49);
             this.btnPlaceOrder.TabIndex = 4;
             this.btnPlaceOrder.Text = "Place Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = false;
@@ -315,9 +319,9 @@
             // btnClearAll
             // 
             this.btnClearAll.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearAll.Location = new System.Drawing.Point(323, 321);
+            this.btnClearAll.Location = new System.Drawing.Point(368, 424);
             this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(169, 62);
+            this.btnClearAll.Size = new System.Drawing.Size(145, 55);
             this.btnClearAll.TabIndex = 4;
             this.btnClearAll.Text = "Clear All";
             this.btnClearAll.UseVisualStyleBackColor = true;
@@ -326,9 +330,9 @@
             // 
             this.btnRemoveItem.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveItem.ForeColor = System.Drawing.Color.Red;
-            this.btnRemoveItem.Location = new System.Drawing.Point(61, 321);
+            this.btnRemoveItem.Location = new System.Drawing.Point(61, 424);
             this.btnRemoveItem.Name = "btnRemoveItem";
-            this.btnRemoveItem.Size = new System.Drawing.Size(169, 62);
+            this.btnRemoveItem.Size = new System.Drawing.Size(146, 55);
             this.btnRemoveItem.TabIndex = 4;
             this.btnRemoveItem.Text = "Remove";
             this.btnRemoveItem.UseVisualStyleBackColor = true;
@@ -405,6 +409,25 @@
             this.lblLoggedIn.Size = new System.Drawing.Size(175, 20);
             this.lblLoggedIn.Text = "Logged in as: [username]";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(54, 354);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 41);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Note:";
+            // 
+            // txtNote
+            // 
+            this.txtNote.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.Location = new System.Drawing.Point(136, 354);
+            this.txtNote.Multiline = true;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.ReadOnly = true;
+            this.txtNote.Size = new System.Drawing.Size(410, 64);
+            this.txtNote.TabIndex = 2;
+            // 
             // CustomerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -470,5 +493,7 @@
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripStatusLabel lblCartCount;
         private System.Windows.Forms.ToolStripStatusLabel lblLoggedIn;
+        private System.Windows.Forms.TextBox txtNote;
+        private System.Windows.Forms.Label label7;
     }
 }

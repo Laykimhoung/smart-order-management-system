@@ -47,21 +47,21 @@
             this.numQty = new System.Windows.Forms.NumericUpDown();
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtNote = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnRemoveItem = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lvOrderItems = new System.Windows.Forms.ListView();
-            this.Product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCartCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblLoggedIn = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtNote = new System.Windows.Forms.TextBox();
+            this.Product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lvCart = new System.Windows.Forms.ListView();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
@@ -228,10 +228,10 @@
             // txtSelectProduct
             // 
             this.txtSelectProduct.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSelectProduct.Location = new System.Drawing.Point(191, 642);
+            this.txtSelectProduct.Location = new System.Drawing.Point(181, 642);
             this.txtSelectProduct.Name = "txtSelectProduct";
             this.txtSelectProduct.ReadOnly = true;
-            this.txtSelectProduct.Size = new System.Drawing.Size(187, 30);
+            this.txtSelectProduct.Size = new System.Drawing.Size(197, 30);
             this.txtSelectProduct.TabIndex = 2;
             // 
             // label4
@@ -277,17 +277,18 @@
             this.btnAddToOrder.TabIndex = 4;
             this.btnAddToOrder.Text = "Order";
             this.btnAddToOrder.UseVisualStyleBackColor = false;
+            this.btnAddToOrder.Click += new System.EventHandler(this.btnAddToOrder_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtNote);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.btnPlaceOrder);
             this.groupBox1.Controls.Add(this.btnClearAll);
             this.groupBox1.Controls.Add(this.btnRemoveItem);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.lvOrderItems);
+            this.groupBox1.Controls.Add(this.lvCart);
             this.groupBox1.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(787, 160);
             this.groupBox1.Name = "groupBox1";
@@ -296,14 +297,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Order:";
             // 
-            // textBox2
+            // txtNote
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(368, 265);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(165, 34);
-            this.textBox2.TabIndex = 2;
+            this.txtNote.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.Location = new System.Drawing.Point(136, 354);
+            this.txtNote.Multiline = true;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.ReadOnly = true;
+            this.txtNote.Size = new System.Drawing.Size(410, 64);
+            this.txtNote.TabIndex = 2;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(368, 265);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(165, 34);
+            this.txtTotal.TabIndex = 2;
             // 
             // btnPlaceOrder
             // 
@@ -325,6 +336,7 @@
             this.btnClearAll.TabIndex = 4;
             this.btnClearAll.Text = "Clear All";
             this.btnClearAll.UseVisualStyleBackColor = true;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
             // btnRemoveItem
             // 
@@ -336,6 +348,16 @@
             this.btnRemoveItem.TabIndex = 4;
             this.btnRemoveItem.Text = "Remove";
             this.btnRemoveItem.UseVisualStyleBackColor = true;
+            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(54, 354);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 41);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Note:";
             // 
             // label6
             // 
@@ -345,38 +367,6 @@
             this.label6.Size = new System.Drawing.Size(79, 41);
             this.label6.TabIndex = 1;
             this.label6.Text = "Total:";
-            // 
-            // lvOrderItems
-            // 
-            this.lvOrderItems.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Product,
-            this.Qty,
-            this.Price});
-            this.lvOrderItems.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvOrderItems.FullRowSelect = true;
-            this.lvOrderItems.GridLines = true;
-            this.lvOrderItems.HideSelection = false;
-            this.lvOrderItems.Location = new System.Drawing.Point(27, 49);
-            this.lvOrderItems.Name = "lvOrderItems";
-            this.lvOrderItems.Size = new System.Drawing.Size(519, 194);
-            this.lvOrderItems.TabIndex = 0;
-            this.lvOrderItems.UseCompatibleStateImageBehavior = false;
-            this.lvOrderItems.View = System.Windows.Forms.View.Details;
-            // 
-            // Product
-            // 
-            this.Product.Text = "Product";
-            this.Product.Width = 205;
-            // 
-            // Qty
-            // 
-            this.Qty.Text = "Qty";
-            this.Qty.Width = 136;
-            // 
-            // Price
-            // 
-            this.Price.Text = "Price";
-            this.Price.Width = 177;
             // 
             // statusStrip1
             // 
@@ -409,24 +399,37 @@
             this.lblLoggedIn.Size = new System.Drawing.Size(175, 20);
             this.lblLoggedIn.Text = "Logged in as: [username]";
             // 
-            // label7
+            // Product
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(54, 354);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 41);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Note:";
+            this.Product.Text = "Product";
+            this.Product.Width = 205;
             // 
-            // txtNote
+            // Qty
             // 
-            this.txtNote.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNote.Location = new System.Drawing.Point(136, 354);
-            this.txtNote.Multiline = true;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.ReadOnly = true;
-            this.txtNote.Size = new System.Drawing.Size(410, 64);
-            this.txtNote.TabIndex = 2;
+            this.Qty.Text = "Qty";
+            this.Qty.Width = 136;
+            // 
+            // Price
+            // 
+            this.Price.Text = "Price";
+            this.Price.Width = 177;
+            // 
+            // lvCart
+            // 
+            this.lvCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Product,
+            this.Qty,
+            this.Price});
+            this.lvCart.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvCart.FullRowSelect = true;
+            this.lvCart.GridLines = true;
+            this.lvCart.HideSelection = false;
+            this.lvCart.Location = new System.Drawing.Point(27, 49);
+            this.lvCart.Name = "lvCart";
+            this.lvCart.Size = new System.Drawing.Size(519, 194);
+            this.lvCart.TabIndex = 0;
+            this.lvCart.UseCompatibleStateImageBehavior = false;
+            this.lvCart.View = System.Windows.Forms.View.Details;
             // 
             // CustomerDashboard
             // 
@@ -446,6 +449,7 @@
             this.Name = "CustomerDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerDashboard";
+            this.Load += new System.EventHandler(this.CustomerDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -480,11 +484,7 @@
         private System.Windows.Forms.Button btnAddToOrder;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView lvOrderItems;
-        private System.Windows.Forms.ColumnHeader Product;
-        private System.Windows.Forms.ColumnHeader Qty;
-        private System.Windows.Forms.ColumnHeader Price;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnPlaceOrder;
         private System.Windows.Forms.Button btnClearAll;
         private System.Windows.Forms.Button btnRemoveItem;
@@ -495,5 +495,9 @@
         private System.Windows.Forms.ToolStripStatusLabel lblLoggedIn;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListView lvCart;
+        private System.Windows.Forms.ColumnHeader Product;
+        private System.Windows.Forms.ColumnHeader Qty;
+        private System.Windows.Forms.ColumnHeader Price;
     }
 }

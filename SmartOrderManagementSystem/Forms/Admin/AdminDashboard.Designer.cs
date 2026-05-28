@@ -30,17 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             this.AdminForm = new ReaLTaiizor.Forms.ParrotForm();
-            this.panelSidebar = new System.Windows.Forms.Panel();
-            this.btnUser = new ReaLTaiizor.Controls.ParrotButton();
-            this.btnReport = new ReaLTaiizor.Controls.ParrotButton();
-            this.btnHome = new ReaLTaiizor.Controls.ParrotButton();
-            this.btnHistory = new ReaLTaiizor.Controls.ParrotButton();
-            this.btnAnalysis = new ReaLTaiizor.Controls.ParrotButton();
-            this.btnLogOut = new ReaLTaiizor.Controls.CyberButton();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.panelSidebar = new System.Windows.Forms.Panel();
+            this.btnLogOut = new ReaLTaiizor.Controls.CyberButton();
+            this.btnAnalysis = new ReaLTaiizor.Controls.ParrotButton();
+            this.btnHistory = new ReaLTaiizor.Controls.ParrotButton();
+            this.btnHome = new ReaLTaiizor.Controls.ParrotButton();
+            this.btnReport = new ReaLTaiizor.Controls.ParrotButton();
+            this.btnUser = new ReaLTaiizor.Controls.ParrotButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelTopbar = new ReaLTaiizor.Controls.ParrotGradientPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelAdmin = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
+            this.lbWelcome = new ReaLTaiizor.Controls.BigLabel();
             this.AdminForm.WorkingArea.SuspendLayout();
             this.AdminForm.SuspendLayout();
             this.panelSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelTopbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // AdminForm
@@ -71,6 +81,7 @@
             // AdminForm.WorkingArea
             // 
             this.AdminForm.WorkingArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.AdminForm.WorkingArea.Controls.Add(this.panelTopbar);
             this.AdminForm.WorkingArea.Controls.Add(this.panelMain);
             this.AdminForm.WorkingArea.Controls.Add(this.panelSidebar);
             this.AdminForm.WorkingArea.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -80,9 +91,19 @@
             this.AdminForm.WorkingArea.Size = new System.Drawing.Size(1600, 861);
             this.AdminForm.WorkingArea.TabIndex = 0;
             // 
+            // panelMain
+            // 
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelMain.Location = new System.Drawing.Point(250, 89);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(1350, 772);
+            this.panelMain.TabIndex = 3;
+            // 
             // panelSidebar
             // 
             this.panelSidebar.BackColor = System.Drawing.Color.Crimson;
+            this.panelSidebar.Controls.Add(this.labelAdmin);
+            this.panelSidebar.Controls.Add(this.pictureBox2);
             this.panelSidebar.Controls.Add(this.btnLogOut);
             this.panelSidebar.Controls.Add(this.btnAnalysis);
             this.panelSidebar.Controls.Add(this.btnHistory);
@@ -95,131 +116,6 @@
             this.panelSidebar.Size = new System.Drawing.Size(250, 861);
             this.panelSidebar.TabIndex = 2;
             // 
-            // btnUser
-            // 
-            this.btnUser.BackgroundColor = System.Drawing.Color.Crimson;
-            this.btnUser.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnUser.ButtonImage")));
-            this.btnUser.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.btnUser.ButtonText = "Manage Users";
-            this.btnUser.ClickBackColor = System.Drawing.Color.LimeGreen;
-            this.btnUser.ClickTextColor = System.Drawing.Color.White;
-            this.btnUser.CornerRadius = 15;
-            this.btnUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUser.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUser.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnUser.HoverBackgroundColor = System.Drawing.Color.Gold;
-            this.btnUser.HoverTextColor = System.Drawing.Color.Black;
-            this.btnUser.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.btnUser.Location = new System.Drawing.Point(12, 242);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(225, 48);
-            this.btnUser.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.btnUser.TabIndex = 9;
-            this.btnUser.TextColor = System.Drawing.Color.Black;
-            this.btnUser.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.btnUser.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
-            // 
-            // btnReport
-            // 
-            this.btnReport.BackgroundColor = System.Drawing.Color.Crimson;
-            this.btnReport.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnReport.ButtonImage")));
-            this.btnReport.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.btnReport.ButtonText = "Reports";
-            this.btnReport.ClickBackColor = System.Drawing.Color.LimeGreen;
-            this.btnReport.ClickTextColor = System.Drawing.Color.White;
-            this.btnReport.CornerRadius = 10;
-            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReport.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnReport.HoverBackgroundColor = System.Drawing.Color.Gold;
-            this.btnReport.HoverTextColor = System.Drawing.Color.Black;
-            this.btnReport.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.btnReport.Location = new System.Drawing.Point(12, 327);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(225, 48);
-            this.btnReport.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.btnReport.TabIndex = 10;
-            this.btnReport.TextColor = System.Drawing.Color.Black;
-            this.btnReport.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.btnReport.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackgroundColor = System.Drawing.Color.Crimson;
-            this.btnHome.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnHome.ButtonImage")));
-            this.btnHome.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.btnHome.ButtonText = "Dashboard";
-            this.btnHome.ClickBackColor = System.Drawing.Color.LimeGreen;
-            this.btnHome.ClickTextColor = System.Drawing.Color.White;
-            this.btnHome.CornerRadius = 15;
-            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnHome.HoverBackgroundColor = System.Drawing.Color.Gold;
-            this.btnHome.HoverTextColor = System.Drawing.Color.Black;
-            this.btnHome.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.btnHome.Location = new System.Drawing.Point(12, 157);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(225, 48);
-            this.btnHome.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.btnHome.TabIndex = 11;
-            this.btnHome.TextColor = System.Drawing.Color.Black;
-            this.btnHome.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.btnHome.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // btnHistory
-            // 
-            this.btnHistory.BackgroundColor = System.Drawing.Color.Crimson;
-            this.btnHistory.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnHistory.ButtonImage")));
-            this.btnHistory.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.btnHistory.ButtonText = "Order History";
-            this.btnHistory.ClickBackColor = System.Drawing.Color.LimeGreen;
-            this.btnHistory.ClickTextColor = System.Drawing.Color.White;
-            this.btnHistory.CornerRadius = 15;
-            this.btnHistory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHistory.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistory.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnHistory.HoverBackgroundColor = System.Drawing.Color.Gold;
-            this.btnHistory.HoverTextColor = System.Drawing.Color.Black;
-            this.btnHistory.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.btnHistory.Location = new System.Drawing.Point(12, 415);
-            this.btnHistory.Name = "btnHistory";
-            this.btnHistory.Size = new System.Drawing.Size(225, 48);
-            this.btnHistory.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.btnHistory.TabIndex = 10;
-            this.btnHistory.TextColor = System.Drawing.Color.Black;
-            this.btnHistory.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.btnHistory.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
-            // 
-            // btnAnalysis
-            // 
-            this.btnAnalysis.BackgroundColor = System.Drawing.Color.Crimson;
-            this.btnAnalysis.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnAnalysis.ButtonImage")));
-            this.btnAnalysis.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.btnAnalysis.ButtonText = "Analysis";
-            this.btnAnalysis.ClickBackColor = System.Drawing.Color.LimeGreen;
-            this.btnAnalysis.ClickTextColor = System.Drawing.Color.White;
-            this.btnAnalysis.CornerRadius = 10;
-            this.btnAnalysis.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnalysis.Font = new System.Drawing.Font("Cambria", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnalysis.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnAnalysis.HoverBackgroundColor = System.Drawing.Color.Gold;
-            this.btnAnalysis.HoverTextColor = System.Drawing.Color.Black;
-            this.btnAnalysis.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.btnAnalysis.Location = new System.Drawing.Point(12, 507);
-            this.btnAnalysis.Name = "btnAnalysis";
-            this.btnAnalysis.Size = new System.Drawing.Size(225, 48);
-            this.btnAnalysis.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.btnAnalysis.TabIndex = 10;
-            this.btnAnalysis.TextColor = System.Drawing.Color.Black;
-            this.btnAnalysis.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.btnAnalysis.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.btnAnalysis.Click += new System.EventHandler(this.btnAnalysis_Click);
-            // 
             // btnLogOut
             // 
             this.btnLogOut.Alpha = 20;
@@ -230,7 +126,7 @@
             this.btnLogOut.ColorBackground = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.btnLogOut.ColorBackground_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.btnLogOut.ColorBackground_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
-            this.btnLogOut.ColorBackground_Pen = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.btnLogOut.ColorBackground_Pen = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnLogOut.ColorLighting = System.Drawing.Color.Yellow;
             this.btnLogOut.ColorPen_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.btnLogOut.ColorPen_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
@@ -261,13 +157,223 @@
             this.btnLogOut.Timer_Effect_1 = 5;
             this.btnLogOut.Timer_RGB = 300;
             // 
-            // panelMain
+            // btnAnalysis
             // 
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(250, 0);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1350, 861);
-            this.panelMain.TabIndex = 3;
+            this.btnAnalysis.BackgroundColor = System.Drawing.Color.Crimson;
+            this.btnAnalysis.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnAnalysis.ButtonImage")));
+            this.btnAnalysis.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnAnalysis.ButtonText = "Analysis";
+            this.btnAnalysis.ClickBackColor = System.Drawing.Color.LimeGreen;
+            this.btnAnalysis.ClickTextColor = System.Drawing.Color.White;
+            this.btnAnalysis.CornerRadius = 10;
+            this.btnAnalysis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnalysis.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnalysis.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnAnalysis.HoverBackgroundColor = System.Drawing.Color.Gold;
+            this.btnAnalysis.HoverTextColor = System.Drawing.Color.Black;
+            this.btnAnalysis.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            this.btnAnalysis.Location = new System.Drawing.Point(12, 596);
+            this.btnAnalysis.Name = "btnAnalysis";
+            this.btnAnalysis.Size = new System.Drawing.Size(225, 48);
+            this.btnAnalysis.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnAnalysis.TabIndex = 10;
+            this.btnAnalysis.TextColor = System.Drawing.Color.Black;
+            this.btnAnalysis.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnAnalysis.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnAnalysis.Click += new System.EventHandler(this.btnAnalysis_Click);
+            // 
+            // btnHistory
+            // 
+            this.btnHistory.BackgroundColor = System.Drawing.Color.Crimson;
+            this.btnHistory.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnHistory.ButtonImage")));
+            this.btnHistory.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnHistory.ButtonText = "Order History";
+            this.btnHistory.ClickBackColor = System.Drawing.Color.LimeGreen;
+            this.btnHistory.ClickTextColor = System.Drawing.Color.White;
+            this.btnHistory.CornerRadius = 15;
+            this.btnHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHistory.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnHistory.HoverBackgroundColor = System.Drawing.Color.Gold;
+            this.btnHistory.HoverTextColor = System.Drawing.Color.Black;
+            this.btnHistory.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            this.btnHistory.Location = new System.Drawing.Point(12, 504);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(225, 48);
+            this.btnHistory.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnHistory.TabIndex = 10;
+            this.btnHistory.TextColor = System.Drawing.Color.Black;
+            this.btnHistory.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnHistory.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackgroundColor = System.Drawing.Color.Crimson;
+            this.btnHome.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnHome.ButtonImage")));
+            this.btnHome.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnHome.ButtonText = "Home";
+            this.btnHome.ClickBackColor = System.Drawing.Color.LimeGreen;
+            this.btnHome.ClickTextColor = System.Drawing.Color.White;
+            this.btnHome.CornerRadius = 15;
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHome.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnHome.HoverBackgroundColor = System.Drawing.Color.Gold;
+            this.btnHome.HoverTextColor = System.Drawing.Color.Black;
+            this.btnHome.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            this.btnHome.Location = new System.Drawing.Point(12, 246);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(225, 48);
+            this.btnHome.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnHome.TabIndex = 11;
+            this.btnHome.TextColor = System.Drawing.Color.Black;
+            this.btnHome.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnHome.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.BackgroundColor = System.Drawing.Color.Crimson;
+            this.btnReport.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnReport.ButtonImage")));
+            this.btnReport.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnReport.ButtonText = "Reports";
+            this.btnReport.ClickBackColor = System.Drawing.Color.LimeGreen;
+            this.btnReport.ClickTextColor = System.Drawing.Color.White;
+            this.btnReport.CornerRadius = 10;
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnReport.HoverBackgroundColor = System.Drawing.Color.Gold;
+            this.btnReport.HoverTextColor = System.Drawing.Color.Black;
+            this.btnReport.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            this.btnReport.Location = new System.Drawing.Point(12, 416);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(225, 48);
+            this.btnReport.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnReport.TabIndex = 10;
+            this.btnReport.TextColor = System.Drawing.Color.Black;
+            this.btnReport.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnReport.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // btnUser
+            // 
+            this.btnUser.BackgroundColor = System.Drawing.Color.Crimson;
+            this.btnUser.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnUser.ButtonImage")));
+            this.btnUser.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnUser.ButtonText = "Manage Users";
+            this.btnUser.ClickBackColor = System.Drawing.Color.LimeGreen;
+            this.btnUser.ClickTextColor = System.Drawing.Color.White;
+            this.btnUser.CornerRadius = 15;
+            this.btnUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUser.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUser.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnUser.HoverBackgroundColor = System.Drawing.Color.Gold;
+            this.btnUser.HoverTextColor = System.Drawing.Color.Black;
+            this.btnUser.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            this.btnUser.Location = new System.Drawing.Point(12, 331);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(225, 48);
+            this.btnUser.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnUser.TabIndex = 9;
+            this.btnUser.TextColor = System.Drawing.Color.Black;
+            this.btnUser.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnUser.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1214, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(94, 83);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panelTopbar
+            // 
+            this.panelTopbar.BottomLeft = System.Drawing.Color.Black;
+            this.panelTopbar.BottomRight = System.Drawing.Color.Black;
+            this.panelTopbar.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            this.panelTopbar.Controls.Add(this.lbWelcome);
+            this.panelTopbar.Controls.Add(this.bigLabel2);
+            this.panelTopbar.Controls.Add(this.bigLabel1);
+            this.panelTopbar.Controls.Add(this.pictureBox1);
+            this.panelTopbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTopbar.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            this.panelTopbar.Location = new System.Drawing.Point(250, 0);
+            this.panelTopbar.Name = "panelTopbar";
+            this.panelTopbar.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            this.panelTopbar.PrimerColor = System.Drawing.Color.White;
+            this.panelTopbar.Size = new System.Drawing.Size(1350, 83);
+            this.panelTopbar.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            this.panelTopbar.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
+            this.panelTopbar.TabIndex = 4;
+            this.panelTopbar.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.panelTopbar.TopLeft = System.Drawing.Color.Crimson;
+            this.panelTopbar.TopRight = System.Drawing.Color.Black;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(47, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(173, 154);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
+            // labelAdmin
+            // 
+            this.labelAdmin.AutoSize = true;
+            this.labelAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.labelAdmin.Font = new System.Drawing.Font("Stencil", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdmin.ForeColor = System.Drawing.Color.Black;
+            this.labelAdmin.Location = new System.Drawing.Point(3, 172);
+            this.labelAdmin.Name = "labelAdmin";
+            this.labelAdmin.Size = new System.Drawing.Size(217, 42);
+            this.labelAdmin.TabIndex = 15;
+            this.labelAdmin.Text = "Smart Order\r\nManagement System\r\n";
+            this.labelAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bigLabel1
+            // 
+            this.bigLabel1.AutoSize = true;
+            this.bigLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.bigLabel1.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bigLabel1.ForeColor = System.Drawing.Color.White;
+            this.bigLabel1.Location = new System.Drawing.Point(35, 27);
+            this.bigLabel1.Name = "bigLabel1";
+            this.bigLabel1.Size = new System.Drawing.Size(288, 33);
+            this.bigLabel1.TabIndex = 16;
+            this.bigLabel1.Text = "Admin DashBoard";
+            // 
+            // bigLabel2
+            // 
+            this.bigLabel2.AutoSize = true;
+            this.bigLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.bigLabel2.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bigLabel2.ForeColor = System.Drawing.Color.White;
+            this.bigLabel2.Location = new System.Drawing.Point(1101, 27);
+            this.bigLabel2.Name = "bigLabel2";
+            this.bigLabel2.Size = new System.Drawing.Size(107, 33);
+            this.bigLabel2.TabIndex = 17;
+            this.bigLabel2.Text = "Admin";
+            // 
+            // lbWelcome
+            // 
+            this.lbWelcome.AutoSize = true;
+            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lbWelcome.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWelcome.ForeColor = System.Drawing.Color.Gold;
+            this.lbWelcome.Location = new System.Drawing.Point(562, 27);
+            this.lbWelcome.Name = "lbWelcome";
+            this.lbWelcome.Size = new System.Drawing.Size(96, 33);
+            this.lbWelcome.TabIndex = 18;
+            this.lbWelcome.Text = "Home";
+            this.lbWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AdminDashboard
             // 
@@ -284,6 +390,11 @@
             this.AdminForm.WorkingArea.ResumeLayout(false);
             this.AdminForm.ResumeLayout(false);
             this.panelSidebar.ResumeLayout(false);
+            this.panelSidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelTopbar.ResumeLayout(false);
+            this.panelTopbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +410,12 @@
         private ReaLTaiizor.Controls.ParrotButton btnAnalysis;
         private ReaLTaiizor.Controls.ParrotButton btnHistory;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private ReaLTaiizor.Controls.ParrotGradientPanel panelTopbar;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private ReaLTaiizor.Controls.BigLabel labelAdmin;
+        private ReaLTaiizor.Controls.BigLabel bigLabel1;
+        private ReaLTaiizor.Controls.BigLabel bigLabel2;
+        private ReaLTaiizor.Controls.BigLabel lbWelcome;
     }
 }

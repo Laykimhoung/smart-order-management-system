@@ -57,7 +57,7 @@
             this.cyberButton1.Lighting = false;
             this.cyberButton1.LinearGradient_Background = false;
             this.cyberButton1.LinearGradientPen = false;
-            this.cyberButton1.Location = new System.Drawing.Point(44, 24);
+            this.cyberButton1.Location = new System.Drawing.Point(0, 0);
             this.cyberButton1.Name = "cyberButton1";
             this.cyberButton1.PenWidth = 15;
             this.cyberButton1.Rounding = true;
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1332, 814);
+            this.ClientSize = new System.Drawing.Size(1332, 732);
             this.Controls.Add(this.cyberButton1);
             this.Name = "ReportsForm";
             this.Text = "ReportsForm";

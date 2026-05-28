@@ -48,26 +48,31 @@ namespace SmartOrderManagementSystem.Forms.Admin
         private void btnHome_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AdminHomeForm());
+            lbWelcome.Text = "Home";
         }
 
         private void btnUser_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ManageUsersForm());
+            lbWelcome.Text = "Manage Users";
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
             OpenChildForm(new ReportsForm());
+            lbWelcome.Text = "Reports";
         }
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
             OpenChildForm(new OrderHistoryForm());
+            lbWelcome.Text = "Order History";
         }
 
         private void btnAnalysis_Click(object sender, EventArgs e)
         {
             OpenChildForm(new AnalysisForm());
+            lbWelcome.Text = "Analysis";
         }
     }
 }

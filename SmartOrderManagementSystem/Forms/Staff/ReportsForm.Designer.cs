@@ -1,6 +1,6 @@
 ﻿namespace SmartOrderManagementSystem.Forms.Staff
 {
-    partial class CustomerRecordForm
+    partial class ReportsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,24 +34,23 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Font = new System.Drawing.Font("Rockwell", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(301, 148);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 35);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Customer Record";
+            this.label1.Size = new System.Drawing.Size(108, 33);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Report";
             // 
-            // CustomerRecordForm
+            // ReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(962, 549);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CustomerRecordForm";
-            this.Text = "CustomerRecordForm";
-            this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.Name = "ReportsForm";
+            this.Text = "ReportsForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

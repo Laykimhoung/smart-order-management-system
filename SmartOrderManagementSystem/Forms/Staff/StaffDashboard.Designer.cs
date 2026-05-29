@@ -34,18 +34,18 @@
             this.Logout_btn = new ReaLTaiizor.Controls.CyberButton();
             this.bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             this.parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
-            this.Setting_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Schedule_btn = new ReaLTaiizor.Controls.ParrotButton();
+            this.Setting_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Message_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Report_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Order_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Customer_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.parrotButton1 = new ReaLTaiizor.Controls.ParrotButton();
             this.panel2 = new ReaLTaiizor.Controls.Panel();
-            this.bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
             this.Menu_btn = new ReaLTaiizor.Controls.ParrotButton();
-            this.Staff_accout_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Notification_btn = new ReaLTaiizor.Controls.ParrotButton();
+            this.Staff_accout_btn = new ReaLTaiizor.Controls.ParrotButton();
+            this.bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
             this.panel_container = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -171,31 +171,6 @@
             this.parrotPictureBox1.Text = "parrotPictureBox1";
             this.parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // Setting_btn
-            // 
-            this.Setting_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.Setting_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Setting_btn.ButtonImage")));
-            this.Setting_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.Setting_btn.ButtonText = "Setting";
-            this.Setting_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Setting_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.Setting_btn.CornerRadius = 10;
-            this.Setting_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Setting_btn.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Setting_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.Setting_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Setting_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.Setting_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Setting_btn.Location = new System.Drawing.Point(8, 548);
-            this.Setting_btn.Name = "Setting_btn";
-            this.Setting_btn.Size = new System.Drawing.Size(218, 49);
-            this.Setting_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.Setting_btn.TabIndex = 6;
-            this.Setting_btn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Setting_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.Setting_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.Setting_btn.Click += new System.EventHandler(this.Setting_btn_Click);
-            // 
             // Schedule_btn
             // 
             this.Schedule_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
@@ -220,6 +195,31 @@
             this.Schedule_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.Schedule_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.Schedule_btn.Click += new System.EventHandler(this.Schedule_btn_Click);
+            // 
+            // Setting_btn
+            // 
+            this.Setting_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.Setting_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Setting_btn.ButtonImage")));
+            this.Setting_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.Setting_btn.ButtonText = "Setting";
+            this.Setting_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
+            this.Setting_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.Setting_btn.CornerRadius = 10;
+            this.Setting_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Setting_btn.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Setting_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.Setting_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
+            this.Setting_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.Setting_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            this.Setting_btn.Location = new System.Drawing.Point(8, 548);
+            this.Setting_btn.Name = "Setting_btn";
+            this.Setting_btn.Size = new System.Drawing.Size(218, 49);
+            this.Setting_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.Setting_btn.TabIndex = 6;
+            this.Setting_btn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Setting_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.Setting_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.Setting_btn.Click += new System.EventHandler(this.Setting_btn_Click);
             // 
             // Message_btn
             // 
@@ -363,18 +363,6 @@
             this.panel2.TabIndex = 1;
             this.panel2.Text = "panel2";
             // 
-            // bigLabel2
-            // 
-            this.bigLabel2.AutoSize = true;
-            this.bigLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.bigLabel2.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bigLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.bigLabel2.Location = new System.Drawing.Point(313, 9);
-            this.bigLabel2.Name = "bigLabel2";
-            this.bigLabel2.Size = new System.Drawing.Size(248, 32);
-            this.bigLabel2.TabIndex = 10;
-            this.bigLabel2.Text = "Staff DashBoard";
-            // 
             // Menu_btn
             // 
             this.Menu_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
@@ -397,6 +385,29 @@
             this.Menu_btn.TextColor = System.Drawing.Color.DodgerBlue;
             this.Menu_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.Menu_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            // 
+            // Notification_btn
+            // 
+            this.Notification_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            this.Notification_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Notification_btn.ButtonImage")));
+            this.Notification_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.Notification_btn.ButtonText = "";
+            this.Notification_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
+            this.Notification_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.Notification_btn.CornerRadius = 10;
+            this.Notification_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Notification_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.Notification_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
+            this.Notification_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.Notification_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            this.Notification_btn.Location = new System.Drawing.Point(892, -2);
+            this.Notification_btn.Name = "Notification_btn";
+            this.Notification_btn.Size = new System.Drawing.Size(65, 70);
+            this.Notification_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.Notification_btn.TabIndex = 3;
+            this.Notification_btn.TextColor = System.Drawing.Color.DodgerBlue;
+            this.Notification_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.Notification_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // Staff_accout_btn
             // 
@@ -422,32 +433,21 @@
             this.Staff_accout_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.Staff_accout_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
-            // Notification_btn
+            // bigLabel2
             // 
-            this.Notification_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            this.Notification_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Notification_btn.ButtonImage")));
-            this.Notification_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.Notification_btn.ButtonText = "";
-            this.Notification_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Notification_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.Notification_btn.CornerRadius = 10;
-            this.Notification_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Notification_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.Notification_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Notification_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.Notification_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Notification_btn.Location = new System.Drawing.Point(892, -2);
-            this.Notification_btn.Name = "Notification_btn";
-            this.Notification_btn.Size = new System.Drawing.Size(65, 70);
-            this.Notification_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.Notification_btn.TabIndex = 3;
-            this.Notification_btn.TextColor = System.Drawing.Color.DodgerBlue;
-            this.Notification_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.Notification_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.bigLabel2.AutoSize = true;
+            this.bigLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.bigLabel2.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bigLabel2.ForeColor = System.Drawing.Color.Gray;
+            this.bigLabel2.Location = new System.Drawing.Point(313, 9);
+            this.bigLabel2.Name = "bigLabel2";
+            this.bigLabel2.Size = new System.Drawing.Size(248, 32);
+            this.bigLabel2.TabIndex = 10;
+            this.bigLabel2.Text = "Staff DashBoard";
             // 
             // panel_container
             // 
-            this.panel_container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.panel_container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(60)))), ((int)(((byte)(66)))));
             this.panel_container.Location = new System.Drawing.Point(239, 68);
             this.panel_container.Name = "panel_container";
             this.panel_container.Size = new System.Drawing.Size(899, 679);

@@ -54,14 +54,15 @@
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.lvCart = new System.Windows.Forms.ListView();
+            this.Product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCartCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblLoggedIn = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvCart = new System.Windows.Forms.ListView();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
@@ -326,6 +327,7 @@
             this.btnPlaceOrder.TabIndex = 4;
             this.btnPlaceOrder.Text = "Place Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = false;
+            this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
             // 
             // btnClearAll
             // 
@@ -368,6 +370,38 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Total:";
             // 
+            // lvCart
+            // 
+            this.lvCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Product,
+            this.Qty,
+            this.Price});
+            this.lvCart.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvCart.FullRowSelect = true;
+            this.lvCart.GridLines = true;
+            this.lvCart.HideSelection = false;
+            this.lvCart.Location = new System.Drawing.Point(27, 49);
+            this.lvCart.Name = "lvCart";
+            this.lvCart.Size = new System.Drawing.Size(519, 194);
+            this.lvCart.TabIndex = 0;
+            this.lvCart.UseCompatibleStateImageBehavior = false;
+            this.lvCart.View = System.Windows.Forms.View.Details;
+            // 
+            // Product
+            // 
+            this.Product.Text = "Product";
+            this.Product.Width = 205;
+            // 
+            // Qty
+            // 
+            this.Qty.Text = "Qty";
+            this.Qty.Width = 136;
+            // 
+            // Price
+            // 
+            this.Price.Text = "Price";
+            this.Price.Width = 177;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -399,37 +433,16 @@
             this.lblLoggedIn.Size = new System.Drawing.Size(175, 20);
             this.lblLoggedIn.Text = "Logged in as: [username]";
             // 
-            // Product
+            // btnLogOut
             // 
-            this.Product.Text = "Product";
-            this.Product.Width = 205;
-            // 
-            // Qty
-            // 
-            this.Qty.Text = "Qty";
-            this.Qty.Width = 136;
-            // 
-            // Price
-            // 
-            this.Price.Text = "Price";
-            this.Price.Width = 177;
-            // 
-            // lvCart
-            // 
-            this.lvCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Product,
-            this.Qty,
-            this.Price});
-            this.lvCart.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvCart.FullRowSelect = true;
-            this.lvCart.GridLines = true;
-            this.lvCart.HideSelection = false;
-            this.lvCart.Location = new System.Drawing.Point(27, 49);
-            this.lvCart.Name = "lvCart";
-            this.lvCart.Size = new System.Drawing.Size(519, 194);
-            this.lvCart.TabIndex = 0;
-            this.lvCart.UseCompatibleStateImageBehavior = false;
-            this.lvCart.View = System.Windows.Forms.View.Details;
+            this.btnLogOut.BackColor = System.Drawing.Color.Red;
+            this.btnLogOut.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(1200, 86);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(154, 41);
+            this.btnLogOut.TabIndex = 5;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
             // 
             // CustomerDashboard
             // 
@@ -437,6 +450,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1379, 734);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAddToOrder);
@@ -499,5 +513,6 @@
         private System.Windows.Forms.ColumnHeader Product;
         private System.Windows.Forms.ColumnHeader Qty;
         private System.Windows.Forms.ColumnHeader Price;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

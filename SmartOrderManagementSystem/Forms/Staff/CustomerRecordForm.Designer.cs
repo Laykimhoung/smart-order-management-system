@@ -38,7 +38,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(3, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(259, 35);
             this.label1.TabIndex = 1;
@@ -47,11 +47,11 @@
             // Customer_datagrideview
             // 
             this.Customer_datagrideview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Customer_datagrideview.Location = new System.Drawing.Point(9, 87);
+            this.Customer_datagrideview.Location = new System.Drawing.Point(9, 121);
             this.Customer_datagrideview.Name = "Customer_datagrideview";
             this.Customer_datagrideview.RowHeadersWidth = 51;
             this.Customer_datagrideview.RowTemplate.Height = 24;
-            this.Customer_datagrideview.Size = new System.Drawing.Size(878, 580);
+            this.Customer_datagrideview.Size = new System.Drawing.Size(1279, 580);
             this.Customer_datagrideview.TabIndex = 2;
             // 
             // CustomerRecordForm
@@ -59,7 +59,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(899, 679);
+            this.ClientSize = new System.Drawing.Size(1300, 763);
             this.Controls.Add(this.Customer_datagrideview);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

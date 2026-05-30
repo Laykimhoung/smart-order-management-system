@@ -69,7 +69,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(5);
-            this.panel1.Size = new System.Drawing.Size(240, 748);
+            this.panel1.Size = new System.Drawing.Size(240, 831);
             this.panel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel1.TabIndex = 0;
             this.panel1.Text = "panel1";
@@ -358,7 +358,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(1138, 68);
+            this.panel2.Size = new System.Drawing.Size(1539, 68);
             this.panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel2.TabIndex = 1;
             this.panel2.Text = "panel2";
@@ -400,7 +400,7 @@
             this.Notification_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Notification_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Notification_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Notification_btn.Location = new System.Drawing.Point(915, -2);
+            this.Notification_btn.Location = new System.Drawing.Point(1316, -2);
             this.Notification_btn.Name = "Notification_btn";
             this.Notification_btn.Size = new System.Drawing.Size(65, 70);
             this.Notification_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -424,7 +424,7 @@
             this.Staff_accout_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Staff_accout_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Staff_accout_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Staff_accout_btn.Location = new System.Drawing.Point(986, 7);
+            this.Staff_accout_btn.Location = new System.Drawing.Point(1387, 8);
             this.Staff_accout_btn.Name = "Staff_accout_btn";
             this.Staff_accout_btn.Size = new System.Drawing.Size(140, 55);
             this.Staff_accout_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -450,7 +450,7 @@
             this.panel_container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(60)))), ((int)(((byte)(66)))));
             this.panel_container.Location = new System.Drawing.Point(239, 68);
             this.panel_container.Name = "panel_container";
-            this.panel_container.Size = new System.Drawing.Size(899, 679);
+            this.panel_container.Size = new System.Drawing.Size(1300, 763);
             this.panel_container.TabIndex = 2;
             // 
             // StaffDashboard
@@ -458,7 +458,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1138, 748);
+            this.ClientSize = new System.Drawing.Size(1539, 831);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_container);

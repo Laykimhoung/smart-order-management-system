@@ -48,10 +48,6 @@
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lvCart = new System.Windows.Forms.ListView();
-            this.Product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCartCount = new System.Windows.Forms.ToolStripStatusLabel();
@@ -59,10 +55,12 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.flpProducts = new System.Windows.Forms.FlowLayoutPanel();
             this.flpCategories = new System.Windows.Forms.FlowLayoutPanel();
+            this.dgvCart = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -208,6 +206,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dgvCart);
             this.groupBox1.Controls.Add(this.txtNote);
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.btnPlaceOrder);
@@ -215,7 +214,6 @@
             this.groupBox1.Controls.Add(this.btnRemoveItem);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.lvCart);
             this.groupBox1.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(787, 160);
             this.groupBox1.Name = "groupBox1";
@@ -237,7 +235,7 @@
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(368, 265);
+            this.txtTotal.Location = new System.Drawing.Point(368, 295);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(165, 34);
@@ -290,43 +288,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(283, 260);
+            this.label6.Location = new System.Drawing.Point(283, 290);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 41);
             this.label6.TabIndex = 1;
             this.label6.Text = "Total:";
-            // 
-            // lvCart
-            // 
-            this.lvCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Product,
-            this.Qty,
-            this.Price});
-            this.lvCart.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvCart.FullRowSelect = true;
-            this.lvCart.GridLines = true;
-            this.lvCart.HideSelection = false;
-            this.lvCart.Location = new System.Drawing.Point(27, 49);
-            this.lvCart.Name = "lvCart";
-            this.lvCart.Size = new System.Drawing.Size(519, 194);
-            this.lvCart.TabIndex = 0;
-            this.lvCart.UseCompatibleStateImageBehavior = false;
-            this.lvCart.View = System.Windows.Forms.View.Details;
-            // 
-            // Product
-            // 
-            this.Product.Text = "Product";
-            this.Product.Width = 205;
-            // 
-            // Qty
-            // 
-            this.Qty.Text = "Qty";
-            this.Qty.Width = 136;
-            // 
-            // Price
-            // 
-            this.Price.Text = "Price";
-            this.Price.Width = 177;
             // 
             // statusStrip1
             // 
@@ -384,6 +350,16 @@
             this.flpCategories.Size = new System.Drawing.Size(754, 73);
             this.flpCategories.TabIndex = 8;
             // 
+            // dgvCart
+            // 
+            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCart.Location = new System.Drawing.Point(6, 49);
+            this.dgvCart.Name = "dgvCart";
+            this.dgvCart.RowHeadersWidth = 51;
+            this.dgvCart.RowTemplate.Height = 24;
+            this.dgvCart.Size = new System.Drawing.Size(540, 238);
+            this.dgvCart.TabIndex = 5;
+            // 
             // CustomerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -412,6 +388,7 @@
             this.groupBox1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,12 +420,9 @@
         private System.Windows.Forms.ToolStripStatusLabel lblLoggedIn;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListView lvCart;
-        private System.Windows.Forms.ColumnHeader Product;
-        private System.Windows.Forms.ColumnHeader Qty;
-        private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.FlowLayoutPanel flpProducts;
         private System.Windows.Forms.FlowLayoutPanel flpCategories;
+        private System.Windows.Forms.DataGridView dgvCart;
     }
 }

@@ -12,7 +12,7 @@ namespace SmartOrderManagementSystem.Database
     {
         // Change Server name to your server name
         private static readonly string connectionString =
-            @"Server=PROTECT-ME;Database=SmartOrderManagementDB;User Id=sa;Password=sa;TrustServerCertificate=True;";
+            @"Server=PROTECT-ME;Database=SmartOrderDB;User Id=sa;Password=sa;TrustServerCertificate=True;";
 
         public static SqlConnection GetConnection()
         {

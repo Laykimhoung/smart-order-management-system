@@ -66,6 +66,7 @@
             this.Name = "CustomerRecordForm";
             this.Text = "CustomerRecordForm";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.Load += new System.EventHandler(this.CustomerRecordForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Customer_datagrideview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

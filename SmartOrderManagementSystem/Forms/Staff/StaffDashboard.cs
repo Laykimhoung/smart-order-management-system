@@ -19,7 +19,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void StaffDashboard_Load(object sender, EventArgs e)
         {
-
+            ShowSubForm(new StaffHome());
         }
         //method help to show the subform in the panel
         private void ShowSubForm(Form subForm)

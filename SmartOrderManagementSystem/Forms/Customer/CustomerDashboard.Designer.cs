@@ -372,16 +372,16 @@
             // 
             // flpProducts
             // 
-            this.flpProducts.Location = new System.Drawing.Point(12, 235);
+            this.flpProducts.Location = new System.Drawing.Point(12, 209);
             this.flpProducts.Name = "flpProducts";
-            this.flpProducts.Size = new System.Drawing.Size(754, 447);
+            this.flpProducts.Size = new System.Drawing.Size(754, 473);
             this.flpProducts.TabIndex = 7;
             // 
             // flpCategories
             // 
             this.flpCategories.Location = new System.Drawing.Point(12, 120);
             this.flpCategories.Name = "flpCategories";
-            this.flpCategories.Size = new System.Drawing.Size(754, 91);
+            this.flpCategories.Size = new System.Drawing.Size(754, 73);
             this.flpCategories.TabIndex = 8;
             // 
             // CustomerDashboard

@@ -89,7 +89,7 @@
             this.Staff_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Staff_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Staff_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Staff_btn.Location = new System.Drawing.Point(8, 332);
+            this.Staff_btn.Location = new System.Drawing.Point(15, 332);
             this.Staff_btn.Name = "Staff_btn";
             this.Staff_btn.Size = new System.Drawing.Size(218, 49);
             this.Staff_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -186,7 +186,7 @@
             this.Schedule_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Schedule_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Schedule_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Schedule_btn.Location = new System.Drawing.Point(8, 493);
+            this.Schedule_btn.Location = new System.Drawing.Point(15, 493);
             this.Schedule_btn.Name = "Schedule_btn";
             this.Schedule_btn.Size = new System.Drawing.Size(218, 49);
             this.Schedule_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -211,7 +211,7 @@
             this.Setting_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Setting_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Setting_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Setting_btn.Location = new System.Drawing.Point(8, 548);
+            this.Setting_btn.Location = new System.Drawing.Point(14, 548);
             this.Setting_btn.Name = "Setting_btn";
             this.Setting_btn.Size = new System.Drawing.Size(218, 49);
             this.Setting_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -236,7 +236,7 @@
             this.Message_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Message_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Message_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Message_btn.Location = new System.Drawing.Point(8, 442);
+            this.Message_btn.Location = new System.Drawing.Point(15, 442);
             this.Message_btn.Name = "Message_btn";
             this.Message_btn.Size = new System.Drawing.Size(218, 49);
             this.Message_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -261,7 +261,7 @@
             this.Report_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Report_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Report_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Report_btn.Location = new System.Drawing.Point(8, 387);
+            this.Report_btn.Location = new System.Drawing.Point(14, 387);
             this.Report_btn.Name = "Report_btn";
             this.Report_btn.Size = new System.Drawing.Size(218, 49);
             this.Report_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -400,7 +400,7 @@
             this.Notification_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Notification_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Notification_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Notification_btn.Location = new System.Drawing.Point(892, -2);
+            this.Notification_btn.Location = new System.Drawing.Point(915, -2);
             this.Notification_btn.Name = "Notification_btn";
             this.Notification_btn.Size = new System.Drawing.Size(65, 70);
             this.Notification_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -424,7 +424,7 @@
             this.Staff_accout_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Staff_accout_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Staff_accout_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Staff_accout_btn.Location = new System.Drawing.Point(954, 8);
+            this.Staff_accout_btn.Location = new System.Drawing.Point(986, 7);
             this.Staff_accout_btn.Name = "Staff_accout_btn";
             this.Staff_accout_btn.Size = new System.Drawing.Size(140, 55);
             this.Staff_accout_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -439,7 +439,7 @@
             this.bigLabel2.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel2.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.bigLabel2.Location = new System.Drawing.Point(313, 9);
+            this.bigLabel2.Location = new System.Drawing.Point(313, 25);
             this.bigLabel2.Name = "bigLabel2";
             this.bigLabel2.Size = new System.Drawing.Size(248, 32);
             this.bigLabel2.TabIndex = 10;

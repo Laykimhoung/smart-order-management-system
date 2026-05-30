@@ -16,5 +16,10 @@ namespace SmartOrderManagementSystem.Forms.Staff
         {
             InitializeComponent();
         }
+
+        private void CustomerRecordForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace SmartOrderManagementSystem.Forms.Staff
 {
-    public partial class CustomerRecordForm : Form
+    public partial class OrderForm : Form
     {
-        public CustomerRecordForm()
+        public OrderForm()
         {
             InitializeComponent();
-        }
-
-        private void CustomerRecordForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

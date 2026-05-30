@@ -36,12 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.All = new System.Windows.Forms.TabPage();
-            this.Coffee = new System.Windows.Forms.TabPage();
-            this.Tea = new System.Windows.Forms.TabPage();
-            this.Drink = new System.Windows.Forms.TabPage();
-            this.Dessert = new System.Windows.Forms.TabPage();
             this.txtSelectProduct = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.numQty = new System.Windows.Forms.NumericUpDown();
@@ -54,16 +48,18 @@
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.lvCart = new System.Windows.Forms.ListView();
+            this.Product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCartCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblLoggedIn = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Product = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Qty = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lvCart = new System.Windows.Forms.ListView();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.flpProducts = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpCategories = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -150,85 +146,16 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 642);
+            this.label2.Location = new System.Drawing.Point(34, 735);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 33);
             this.label2.TabIndex = 0;
             this.label2.Text = "Product Selected:";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.All);
-            this.tabControl1.Controls.Add(this.Coffee);
-            this.tabControl1.Controls.Add(this.Tea);
-            this.tabControl1.Controls.Add(this.Drink);
-            this.tabControl1.Controls.Add(this.Dessert);
-            this.tabControl1.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(25, 115);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(681, 509);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // All
-            // 
-            this.All.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.All.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.All.Location = new System.Drawing.Point(4, 45);
-            this.All.Name = "All";
-            this.All.Padding = new System.Windows.Forms.Padding(3);
-            this.All.Size = new System.Drawing.Size(673, 460);
-            this.All.TabIndex = 0;
-            this.All.Text = "All";
-            this.All.UseVisualStyleBackColor = true;
-            // 
-            // Coffee
-            // 
-            this.Coffee.Font = new System.Drawing.Font("Cooper Black", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Coffee.Location = new System.Drawing.Point(4, 45);
-            this.Coffee.Name = "Coffee";
-            this.Coffee.Padding = new System.Windows.Forms.Padding(3);
-            this.Coffee.Size = new System.Drawing.Size(673, 460);
-            this.Coffee.TabIndex = 1;
-            this.Coffee.Text = "Coffee";
-            this.Coffee.UseVisualStyleBackColor = true;
-            // 
-            // Tea
-            // 
-            this.Tea.Font = new System.Drawing.Font("Cooper Black", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tea.Location = new System.Drawing.Point(4, 45);
-            this.Tea.Name = "Tea";
-            this.Tea.Padding = new System.Windows.Forms.Padding(3);
-            this.Tea.Size = new System.Drawing.Size(673, 460);
-            this.Tea.TabIndex = 2;
-            this.Tea.Text = "Tea";
-            this.Tea.UseVisualStyleBackColor = true;
-            // 
-            // Drink
-            // 
-            this.Drink.Font = new System.Drawing.Font("Cooper Black", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Drink.Location = new System.Drawing.Point(4, 45);
-            this.Drink.Name = "Drink";
-            this.Drink.Padding = new System.Windows.Forms.Padding(3);
-            this.Drink.Size = new System.Drawing.Size(673, 460);
-            this.Drink.TabIndex = 3;
-            this.Drink.Text = "Drink";
-            this.Drink.UseVisualStyleBackColor = true;
-            // 
-            // Dessert
-            // 
-            this.Dessert.Location = new System.Drawing.Point(4, 45);
-            this.Dessert.Name = "Dessert";
-            this.Dessert.Padding = new System.Windows.Forms.Padding(3);
-            this.Dessert.Size = new System.Drawing.Size(673, 460);
-            this.Dessert.TabIndex = 4;
-            this.Dessert.Text = "Dessert";
-            this.Dessert.UseVisualStyleBackColor = true;
-            // 
             // txtSelectProduct
             // 
             this.txtSelectProduct.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSelectProduct.Location = new System.Drawing.Point(181, 642);
+            this.txtSelectProduct.Location = new System.Drawing.Point(192, 735);
             this.txtSelectProduct.Name = "txtSelectProduct";
             this.txtSelectProduct.ReadOnly = true;
             this.txtSelectProduct.Size = new System.Drawing.Size(197, 30);
@@ -238,7 +165,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(384, 642);
+            this.label4.Location = new System.Drawing.Point(395, 735);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 33);
             this.label4.TabIndex = 0;
@@ -247,7 +174,7 @@
             // numQty
             // 
             this.numQty.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numQty.Location = new System.Drawing.Point(440, 645);
+            this.numQty.Location = new System.Drawing.Point(451, 738);
             this.numQty.Maximum = new decimal(new int[] {
             99,
             0,
@@ -271,7 +198,7 @@
             // 
             this.btnAddToOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(106)))), ((int)(((byte)(197)))));
             this.btnAddToOrder.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddToOrder.Location = new System.Drawing.Point(580, 636);
+            this.btnAddToOrder.Location = new System.Drawing.Point(591, 729);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(122, 50);
             this.btnAddToOrder.TabIndex = 4;
@@ -326,6 +253,7 @@
             this.btnPlaceOrder.TabIndex = 4;
             this.btnPlaceOrder.Text = "Place Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = false;
+            this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
             // 
             // btnClearAll
             // 
@@ -368,6 +296,38 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Total:";
             // 
+            // lvCart
+            // 
+            this.lvCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Product,
+            this.Qty,
+            this.Price});
+            this.lvCart.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvCart.FullRowSelect = true;
+            this.lvCart.GridLines = true;
+            this.lvCart.HideSelection = false;
+            this.lvCart.Location = new System.Drawing.Point(27, 49);
+            this.lvCart.Name = "lvCart";
+            this.lvCart.Size = new System.Drawing.Size(519, 194);
+            this.lvCart.TabIndex = 0;
+            this.lvCart.UseCompatibleStateImageBehavior = false;
+            this.lvCart.View = System.Windows.Forms.View.Details;
+            // 
+            // Product
+            // 
+            this.Product.Text = "Product";
+            this.Product.Width = 205;
+            // 
+            // Qty
+            // 
+            this.Qty.Text = "Qty";
+            this.Qty.Width = 136;
+            // 
+            // Price
+            // 
+            this.Price.Text = "Price";
+            this.Price.Width = 177;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -375,7 +335,7 @@
             this.lblStatus,
             this.lblCartCount,
             this.lblLoggedIn});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 708);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 786);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1379, 26);
             this.statusStrip1.TabIndex = 6;
@@ -399,50 +359,45 @@
             this.lblLoggedIn.Size = new System.Drawing.Size(175, 20);
             this.lblLoggedIn.Text = "Logged in as: [username]";
             // 
-            // Product
+            // btnLogOut
             // 
-            this.Product.Text = "Product";
-            this.Product.Width = 205;
+            this.btnLogOut.BackColor = System.Drawing.Color.Red;
+            this.btnLogOut.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(1200, 86);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(154, 41);
+            this.btnLogOut.TabIndex = 5;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
             // 
-            // Qty
+            // flpProducts
             // 
-            this.Qty.Text = "Qty";
-            this.Qty.Width = 136;
+            this.flpProducts.Location = new System.Drawing.Point(12, 235);
+            this.flpProducts.Name = "flpProducts";
+            this.flpProducts.Size = new System.Drawing.Size(754, 447);
+            this.flpProducts.TabIndex = 7;
             // 
-            // Price
+            // flpCategories
             // 
-            this.Price.Text = "Price";
-            this.Price.Width = 177;
-            // 
-            // lvCart
-            // 
-            this.lvCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Product,
-            this.Qty,
-            this.Price});
-            this.lvCart.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvCart.FullRowSelect = true;
-            this.lvCart.GridLines = true;
-            this.lvCart.HideSelection = false;
-            this.lvCart.Location = new System.Drawing.Point(27, 49);
-            this.lvCart.Name = "lvCart";
-            this.lvCart.Size = new System.Drawing.Size(519, 194);
-            this.lvCart.TabIndex = 0;
-            this.lvCart.UseCompatibleStateImageBehavior = false;
-            this.lvCart.View = System.Windows.Forms.View.Details;
+            this.flpCategories.Location = new System.Drawing.Point(12, 120);
+            this.flpCategories.Name = "flpCategories";
+            this.flpCategories.Size = new System.Drawing.Size(754, 91);
+            this.flpCategories.TabIndex = 8;
             // 
             // CustomerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.ClientSize = new System.Drawing.Size(1379, 734);
+            this.ClientSize = new System.Drawing.Size(1379, 812);
+            this.Controls.Add(this.flpCategories);
+            this.Controls.Add(this.flpProducts);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAddToOrder);
             this.Controls.Add(this.numQty);
             this.Controls.Add(this.txtSelectProduct);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -452,7 +407,6 @@
             this.Load += new System.EventHandler(this.CustomerDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -472,12 +426,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage All;
-        private System.Windows.Forms.TabPage Coffee;
-        private System.Windows.Forms.TabPage Tea;
-        private System.Windows.Forms.TabPage Drink;
-        private System.Windows.Forms.TabPage Dessert;
         private System.Windows.Forms.TextBox txtSelectProduct;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numQty;
@@ -499,5 +447,8 @@
         private System.Windows.Forms.ColumnHeader Product;
         private System.Windows.Forms.ColumnHeader Qty;
         private System.Windows.Forms.ColumnHeader Price;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.FlowLayoutPanel flpProducts;
+        private System.Windows.Forms.FlowLayoutPanel flpCategories;
     }
 }

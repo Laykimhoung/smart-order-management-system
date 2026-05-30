@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace SmartOrderManagementSystem.Forms.Staff
 {
-    public partial class CustomerRecordForm : Form
+    public partial class SettingForm : Form
     {
-        public CustomerRecordForm()
+        public SettingForm()
         {
             InitializeComponent();
         }
 
-        private void CustomerRecordForm_Load(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

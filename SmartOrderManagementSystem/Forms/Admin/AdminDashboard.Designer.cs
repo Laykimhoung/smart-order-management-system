@@ -30,26 +30,26 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             this.AdminForm = new ReaLTaiizor.Forms.ParrotForm();
+            this.panelTopbar = new ReaLTaiizor.Controls.ParrotGradientPanel();
+            this.lbWelcome = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.labelAdmin = new ReaLTaiizor.Controls.BigLabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnLogOut = new ReaLTaiizor.Controls.CyberButton();
             this.btnAnalysis = new ReaLTaiizor.Controls.ParrotButton();
             this.btnHistory = new ReaLTaiizor.Controls.ParrotButton();
             this.btnHome = new ReaLTaiizor.Controls.ParrotButton();
             this.btnReport = new ReaLTaiizor.Controls.ParrotButton();
             this.btnUser = new ReaLTaiizor.Controls.ParrotButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelTopbar = new ReaLTaiizor.Controls.ParrotGradientPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.labelAdmin = new ReaLTaiizor.Controls.BigLabel();
-            this.bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
-            this.bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
-            this.lbWelcome = new ReaLTaiizor.Controls.BigLabel();
             this.AdminForm.WorkingArea.SuspendLayout();
             this.AdminForm.SuspendLayout();
-            this.panelSidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTopbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +91,76 @@
             this.AdminForm.WorkingArea.Size = new System.Drawing.Size(1600, 861);
             this.AdminForm.WorkingArea.TabIndex = 0;
             // 
+            // panelTopbar
+            // 
+            this.panelTopbar.BottomLeft = System.Drawing.Color.Black;
+            this.panelTopbar.BottomRight = System.Drawing.Color.Black;
+            this.panelTopbar.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            this.panelTopbar.Controls.Add(this.lbWelcome);
+            this.panelTopbar.Controls.Add(this.bigLabel2);
+            this.panelTopbar.Controls.Add(this.bigLabel1);
+            this.panelTopbar.Controls.Add(this.pictureBox1);
+            this.panelTopbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTopbar.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            this.panelTopbar.Location = new System.Drawing.Point(250, 0);
+            this.panelTopbar.Name = "panelTopbar";
+            this.panelTopbar.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            this.panelTopbar.PrimerColor = System.Drawing.Color.White;
+            this.panelTopbar.Size = new System.Drawing.Size(1350, 83);
+            this.panelTopbar.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            this.panelTopbar.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
+            this.panelTopbar.TabIndex = 4;
+            this.panelTopbar.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.panelTopbar.TopLeft = System.Drawing.Color.Crimson;
+            this.panelTopbar.TopRight = System.Drawing.Color.Black;
+            // 
+            // lbWelcome
+            // 
+            this.lbWelcome.AutoSize = true;
+            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lbWelcome.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWelcome.ForeColor = System.Drawing.Color.Gold;
+            this.lbWelcome.Location = new System.Drawing.Point(562, 27);
+            this.lbWelcome.Name = "lbWelcome";
+            this.lbWelcome.Size = new System.Drawing.Size(96, 33);
+            this.lbWelcome.TabIndex = 18;
+            this.lbWelcome.Text = "Home";
+            this.lbWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bigLabel2
+            // 
+            this.bigLabel2.AutoSize = true;
+            this.bigLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.bigLabel2.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bigLabel2.ForeColor = System.Drawing.Color.White;
+            this.bigLabel2.Location = new System.Drawing.Point(1101, 27);
+            this.bigLabel2.Name = "bigLabel2";
+            this.bigLabel2.Size = new System.Drawing.Size(107, 33);
+            this.bigLabel2.TabIndex = 17;
+            this.bigLabel2.Text = "Admin";
+            // 
+            // bigLabel1
+            // 
+            this.bigLabel1.AutoSize = true;
+            this.bigLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.bigLabel1.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bigLabel1.ForeColor = System.Drawing.Color.White;
+            this.bigLabel1.Location = new System.Drawing.Point(35, 27);
+            this.bigLabel1.Name = "bigLabel1";
+            this.bigLabel1.Size = new System.Drawing.Size(288, 33);
+            this.bigLabel1.TabIndex = 16;
+            this.bigLabel1.Text = "Admin DashBoard";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1214, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(94, 83);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // panelMain
             // 
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -116,6 +186,29 @@
             this.panelSidebar.Size = new System.Drawing.Size(250, 861);
             this.panelSidebar.TabIndex = 2;
             // 
+            // labelAdmin
+            // 
+            this.labelAdmin.AutoSize = true;
+            this.labelAdmin.BackColor = System.Drawing.Color.Transparent;
+            this.labelAdmin.Font = new System.Drawing.Font("Stencil", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdmin.ForeColor = System.Drawing.Color.Black;
+            this.labelAdmin.Location = new System.Drawing.Point(3, 172);
+            this.labelAdmin.Name = "labelAdmin";
+            this.labelAdmin.Size = new System.Drawing.Size(217, 42);
+            this.labelAdmin.TabIndex = 15;
+            this.labelAdmin.Text = "Smart Order\r\nManagement System\r\n";
+            this.labelAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(47, 15);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(173, 154);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
             // btnLogOut
             // 
             this.btnLogOut.Alpha = 20;
@@ -126,7 +219,7 @@
             this.btnLogOut.ColorBackground = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.btnLogOut.ColorBackground_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.btnLogOut.ColorBackground_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
-            this.btnLogOut.ColorBackground_Pen = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnLogOut.ColorBackground_Pen = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
             this.btnLogOut.ColorLighting = System.Drawing.Color.Yellow;
             this.btnLogOut.ColorPen_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.btnLogOut.ColorPen_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
@@ -155,7 +248,7 @@
             this.btnLogOut.TextButton = "Log out";
             this.btnLogOut.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.btnLogOut.Timer_Effect_1 = 5;
-            this.btnLogOut.Timer_RGB = 300;
+            this.btnLogOut.Timer_RGB = 100;
             // 
             // btnAnalysis
             // 
@@ -282,99 +375,6 @@
             this.btnUser.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1214, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(94, 83);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panelTopbar
-            // 
-            this.panelTopbar.BottomLeft = System.Drawing.Color.Black;
-            this.panelTopbar.BottomRight = System.Drawing.Color.Black;
-            this.panelTopbar.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            this.panelTopbar.Controls.Add(this.lbWelcome);
-            this.panelTopbar.Controls.Add(this.bigLabel2);
-            this.panelTopbar.Controls.Add(this.bigLabel1);
-            this.panelTopbar.Controls.Add(this.pictureBox1);
-            this.panelTopbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopbar.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            this.panelTopbar.Location = new System.Drawing.Point(250, 0);
-            this.panelTopbar.Name = "panelTopbar";
-            this.panelTopbar.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            this.panelTopbar.PrimerColor = System.Drawing.Color.White;
-            this.panelTopbar.Size = new System.Drawing.Size(1350, 83);
-            this.panelTopbar.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            this.panelTopbar.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
-            this.panelTopbar.TabIndex = 4;
-            this.panelTopbar.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.panelTopbar.TopLeft = System.Drawing.Color.Crimson;
-            this.panelTopbar.TopRight = System.Drawing.Color.Black;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(47, 15);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(173, 154);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            // 
-            // labelAdmin
-            // 
-            this.labelAdmin.AutoSize = true;
-            this.labelAdmin.BackColor = System.Drawing.Color.Transparent;
-            this.labelAdmin.Font = new System.Drawing.Font("Stencil", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAdmin.ForeColor = System.Drawing.Color.Black;
-            this.labelAdmin.Location = new System.Drawing.Point(3, 172);
-            this.labelAdmin.Name = "labelAdmin";
-            this.labelAdmin.Size = new System.Drawing.Size(217, 42);
-            this.labelAdmin.TabIndex = 15;
-            this.labelAdmin.Text = "Smart Order\r\nManagement System\r\n";
-            this.labelAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // bigLabel1
-            // 
-            this.bigLabel1.AutoSize = true;
-            this.bigLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.bigLabel1.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bigLabel1.ForeColor = System.Drawing.Color.White;
-            this.bigLabel1.Location = new System.Drawing.Point(35, 27);
-            this.bigLabel1.Name = "bigLabel1";
-            this.bigLabel1.Size = new System.Drawing.Size(288, 33);
-            this.bigLabel1.TabIndex = 16;
-            this.bigLabel1.Text = "Admin DashBoard";
-            // 
-            // bigLabel2
-            // 
-            this.bigLabel2.AutoSize = true;
-            this.bigLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.bigLabel2.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bigLabel2.ForeColor = System.Drawing.Color.White;
-            this.bigLabel2.Location = new System.Drawing.Point(1101, 27);
-            this.bigLabel2.Name = "bigLabel2";
-            this.bigLabel2.Size = new System.Drawing.Size(107, 33);
-            this.bigLabel2.TabIndex = 17;
-            this.bigLabel2.Text = "Admin";
-            // 
-            // lbWelcome
-            // 
-            this.lbWelcome.AutoSize = true;
-            this.lbWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lbWelcome.Font = new System.Drawing.Font("Stencil", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbWelcome.ForeColor = System.Drawing.Color.Gold;
-            this.lbWelcome.Location = new System.Drawing.Point(562, 27);
-            this.lbWelcome.Name = "lbWelcome";
-            this.lbWelcome.Size = new System.Drawing.Size(96, 33);
-            this.lbWelcome.TabIndex = 18;
-            this.lbWelcome.Text = "Home";
-            this.lbWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -389,11 +389,11 @@
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.AdminForm.WorkingArea.ResumeLayout(false);
             this.AdminForm.ResumeLayout(false);
-            this.panelSidebar.ResumeLayout(false);
-            this.panelSidebar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTopbar.ResumeLayout(false);
             this.panelTopbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelSidebar.ResumeLayout(false);
+            this.panelSidebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 

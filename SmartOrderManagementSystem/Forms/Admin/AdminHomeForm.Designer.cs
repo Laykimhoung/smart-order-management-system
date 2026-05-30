@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelTotalOrders = new ReaLTaiizor.Controls.ParrotGradientPanel();
@@ -44,16 +45,16 @@
             this.bigLabel8 = new ReaLTaiizor.Controls.BigLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panelSummary = new ReaLTaiizor.Controls.ParrotGradientPanel();
-            this.bigLabel12 = new ReaLTaiizor.Controls.BigLabel();
-            this.bigLabel11 = new ReaLTaiizor.Controls.BigLabel();
-            this.bigLabel10 = new ReaLTaiizor.Controls.BigLabel();
-            this.bigLabel9 = new ReaLTaiizor.Controls.BigLabel();
             this.colOrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelSummary = new ReaLTaiizor.Controls.ParrotGradientPanel();
+            this.bigLabel12 = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel11 = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel10 = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel9 = new ReaLTaiizor.Controls.BigLabel();
             this.panelTotalOrders.SuspendLayout();
             this.panelCustomers.SuspendLayout();
             this.panelStaff.SuspendLayout();
@@ -274,6 +275,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colOrderID,
@@ -289,6 +298,41 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1168, 218);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // colOrderID
+            // 
+            this.colOrderID.HeaderText = "Order ID";
+            this.colOrderID.MinimumWidth = 6;
+            this.colOrderID.Name = "colOrderID";
+            this.colOrderID.ReadOnly = true;
+            // 
+            // colCustomer
+            // 
+            this.colCustomer.HeaderText = "Customer Name";
+            this.colCustomer.MinimumWidth = 6;
+            this.colCustomer.Name = "colCustomer";
+            this.colCustomer.ReadOnly = true;
+            // 
+            // colStatus
+            // 
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.MinimumWidth = 6;
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.HeaderText = "Total Price";
+            this.colPrice.MinimumWidth = 6;
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            // 
+            // colTime
+            // 
+            this.colTime.HeaderText = "Time";
+            this.colTime.MinimumWidth = 6;
+            this.colTime.Name = "colTime";
+            this.colTime.ReadOnly = true;
             // 
             // panelSummary
             // 
@@ -359,41 +403,6 @@
             this.bigLabel9.Size = new System.Drawing.Size(173, 25);
             this.bigLabel9.TabIndex = 1;
             this.bigLabel9.Text = "Daily Summary:";
-            // 
-            // colOrderID
-            // 
-            this.colOrderID.HeaderText = "Order ID";
-            this.colOrderID.MinimumWidth = 6;
-            this.colOrderID.Name = "colOrderID";
-            this.colOrderID.ReadOnly = true;
-            // 
-            // colCustomer
-            // 
-            this.colCustomer.HeaderText = "Customer Name";
-            this.colCustomer.MinimumWidth = 6;
-            this.colCustomer.Name = "colCustomer";
-            this.colCustomer.ReadOnly = true;
-            // 
-            // colStatus
-            // 
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.MinimumWidth = 6;
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.HeaderText = "Total Price";
-            this.colPrice.MinimumWidth = 6;
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            // 
-            // colTime
-            // 
-            this.colTime.HeaderText = "Time";
-            this.colTime.MinimumWidth = 6;
-            this.colTime.Name = "colTime";
-            this.colTime.ReadOnly = true;
             // 
             // AdminHomeForm
             // 

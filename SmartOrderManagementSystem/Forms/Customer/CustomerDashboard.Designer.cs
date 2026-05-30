@@ -58,6 +58,7 @@
             this.lblLoggedIn = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.flpProducts = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpCategories = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -145,7 +146,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 642);
+            this.label2.Location = new System.Drawing.Point(34, 735);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 33);
             this.label2.TabIndex = 0;
@@ -154,7 +155,7 @@
             // txtSelectProduct
             // 
             this.txtSelectProduct.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSelectProduct.Location = new System.Drawing.Point(181, 642);
+            this.txtSelectProduct.Location = new System.Drawing.Point(192, 735);
             this.txtSelectProduct.Name = "txtSelectProduct";
             this.txtSelectProduct.ReadOnly = true;
             this.txtSelectProduct.Size = new System.Drawing.Size(197, 30);
@@ -164,7 +165,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(384, 642);
+            this.label4.Location = new System.Drawing.Point(395, 735);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 33);
             this.label4.TabIndex = 0;
@@ -173,7 +174,7 @@
             // numQty
             // 
             this.numQty.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numQty.Location = new System.Drawing.Point(440, 645);
+            this.numQty.Location = new System.Drawing.Point(451, 738);
             this.numQty.Maximum = new decimal(new int[] {
             99,
             0,
@@ -197,7 +198,7 @@
             // 
             this.btnAddToOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(106)))), ((int)(((byte)(197)))));
             this.btnAddToOrder.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddToOrder.Location = new System.Drawing.Point(580, 636);
+            this.btnAddToOrder.Location = new System.Drawing.Point(591, 729);
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.Size = new System.Drawing.Size(122, 50);
             this.btnAddToOrder.TabIndex = 4;
@@ -334,7 +335,7 @@
             this.lblStatus,
             this.lblCartCount,
             this.lblLoggedIn});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 708);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 786);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1379, 26);
             this.statusStrip1.TabIndex = 6;
@@ -371,17 +372,25 @@
             // 
             // flpProducts
             // 
-            this.flpProducts.Location = new System.Drawing.Point(12, 106);
+            this.flpProducts.Location = new System.Drawing.Point(12, 235);
             this.flpProducts.Name = "flpProducts";
-            this.flpProducts.Size = new System.Drawing.Size(747, 501);
+            this.flpProducts.Size = new System.Drawing.Size(754, 447);
             this.flpProducts.TabIndex = 7;
+            // 
+            // flpCategories
+            // 
+            this.flpCategories.Location = new System.Drawing.Point(12, 120);
+            this.flpCategories.Name = "flpCategories";
+            this.flpCategories.Size = new System.Drawing.Size(754, 91);
+            this.flpCategories.TabIndex = 8;
             // 
             // CustomerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MistyRose;
-            this.ClientSize = new System.Drawing.Size(1379, 734);
+            this.ClientSize = new System.Drawing.Size(1379, 812);
+            this.Controls.Add(this.flpCategories);
             this.Controls.Add(this.flpProducts);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.statusStrip1);
@@ -440,5 +449,6 @@
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.FlowLayoutPanel flpProducts;
+        private System.Windows.Forms.FlowLayoutPanel flpCategories;
     }
 }

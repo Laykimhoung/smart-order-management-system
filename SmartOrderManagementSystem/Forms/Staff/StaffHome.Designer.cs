@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.order_amount_lbl = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.order_amount_lbl = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.TotalCustomer_lbl = new System.Windows.Forms.Label();
@@ -82,16 +82,17 @@
             this.panel1.Size = new System.Drawing.Size(276, 174);
             this.panel1.TabIndex = 2;
             // 
-            // label3
+            // label5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Location = new System.Drawing.Point(3, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 26);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Today\'s Order";
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(117)))), ((int)(((byte)(101)))));
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label5.Location = new System.Drawing.Point(50, 115);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(179, 20);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Since opening (7:00am)";
             // 
             // order_amount_lbl
             // 
@@ -104,17 +105,16 @@
             this.order_amount_lbl.TabIndex = 1;
             this.order_amount_lbl.Text = "100";
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(117)))), ((int)(((byte)(101)))));
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label5.Location = new System.Drawing.Point(50, 115);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(179, 20);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Since opening (7:00am)";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label3.Location = new System.Drawing.Point(3, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(144, 26);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Today\'s Order";
             // 
             // panel2
             // 
@@ -213,7 +213,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Rockwell", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(27, 321);
+            this.label6.Location = new System.Drawing.Point(6, 284);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(257, 31);
             this.label6.TabIndex = 4;

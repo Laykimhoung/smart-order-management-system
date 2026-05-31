@@ -41,6 +41,7 @@
             this.numQty = new System.Windows.Forms.NumericUpDown();
             this.btnAddToOrder = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvCart = new System.Windows.Forms.DataGridView();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
@@ -55,12 +56,11 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.flpProducts = new System.Windows.Forms.FlowLayoutPanel();
             this.flpCategories = new System.Windows.Forms.FlowLayoutPanel();
-            this.dgvCart = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -222,6 +222,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Order:";
             // 
+            // dgvCart
+            // 
+            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCart.Location = new System.Drawing.Point(6, 49);
+            this.dgvCart.Name = "dgvCart";
+            this.dgvCart.RowHeadersWidth = 51;
+            this.dgvCart.RowTemplate.Height = 24;
+            this.dgvCart.Size = new System.Drawing.Size(540, 238);
+            this.dgvCart.TabIndex = 5;
+            // 
             // txtNote
             // 
             this.txtNote.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -338,9 +348,10 @@
             // 
             // flpProducts
             // 
+            this.flpProducts.AutoScroll = true;
             this.flpProducts.Location = new System.Drawing.Point(12, 209);
             this.flpProducts.Name = "flpProducts";
-            this.flpProducts.Size = new System.Drawing.Size(754, 473);
+            this.flpProducts.Size = new System.Drawing.Size(754, 503);
             this.flpProducts.TabIndex = 7;
             // 
             // flpCategories
@@ -349,16 +360,6 @@
             this.flpCategories.Name = "flpCategories";
             this.flpCategories.Size = new System.Drawing.Size(754, 73);
             this.flpCategories.TabIndex = 8;
-            // 
-            // dgvCart
-            // 
-            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Location = new System.Drawing.Point(6, 49);
-            this.dgvCart.Name = "dgvCart";
-            this.dgvCart.RowHeadersWidth = 51;
-            this.dgvCart.RowTemplate.Height = 24;
-            this.dgvCart.Size = new System.Drawing.Size(540, 238);
-            this.dgvCart.TabIndex = 5;
             // 
             // CustomerDashboard
             // 
@@ -386,9 +387,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

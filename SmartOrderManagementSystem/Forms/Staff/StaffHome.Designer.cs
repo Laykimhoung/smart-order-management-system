@@ -79,7 +79,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(33, 78);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(276, 174);
+            this.panel1.Size = new System.Drawing.Size(390, 150);
             this.panel1.TabIndex = 2;
             // 
             // label5
@@ -88,7 +88,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(117)))), ((int)(((byte)(101)))));
             this.label5.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label5.Location = new System.Drawing.Point(50, 115);
+            this.label5.Location = new System.Drawing.Point(191, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(179, 20);
             this.label5.TabIndex = 2;
@@ -99,7 +99,7 @@
             this.order_amount_lbl.AutoSize = true;
             this.order_amount_lbl.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.order_amount_lbl.ForeColor = System.Drawing.Color.White;
-            this.order_amount_lbl.Location = new System.Drawing.Point(165, 59);
+            this.order_amount_lbl.Location = new System.Drawing.Point(295, 59);
             this.order_amount_lbl.Name = "order_amount_lbl";
             this.order_amount_lbl.Size = new System.Drawing.Size(75, 42);
             this.order_amount_lbl.TabIndex = 1;
@@ -110,7 +110,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Location = new System.Drawing.Point(3, 15);
+            this.label3.Location = new System.Drawing.Point(190, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 26);
             this.label3.TabIndex = 0;
@@ -123,9 +123,9 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.TotalCustomer_lbl);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(315, 78);
+            this.panel2.Location = new System.Drawing.Point(456, 78);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(276, 174);
+            this.panel2.Size = new System.Drawing.Size(390, 150);
             this.panel2.TabIndex = 3;
             // 
             // label4
@@ -134,7 +134,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(143)))), ((int)(((byte)(101)))));
             this.label4.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label4.Location = new System.Drawing.Point(69, 115);
+            this.label4.Location = new System.Drawing.Point(167, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(179, 20);
             this.label4.TabIndex = 2;
@@ -145,7 +145,7 @@
             this.TotalCustomer_lbl.AutoSize = true;
             this.TotalCustomer_lbl.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalCustomer_lbl.ForeColor = System.Drawing.Color.White;
-            this.TotalCustomer_lbl.Location = new System.Drawing.Point(183, 59);
+            this.TotalCustomer_lbl.Location = new System.Drawing.Point(284, 59);
             this.TotalCustomer_lbl.Name = "TotalCustomer_lbl";
             this.TotalCustomer_lbl.Size = new System.Drawing.Size(75, 42);
             this.TotalCustomer_lbl.TabIndex = 1;
@@ -156,7 +156,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label7.Location = new System.Drawing.Point(3, 15);
+            this.label7.Location = new System.Drawing.Point(183, 15);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(163, 26);
             this.label7.TabIndex = 0;
@@ -169,9 +169,9 @@
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.Income_lbl);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(597, 78);
+            this.panel3.Location = new System.Drawing.Point(882, 78);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(276, 174);
+            this.panel3.Size = new System.Drawing.Size(390, 150);
             this.panel3.TabIndex = 3;
             // 
             // label8
@@ -180,7 +180,7 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(96)))), ((int)(((byte)(105)))));
             this.label8.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label8.Location = new System.Drawing.Point(56, 115);
+            this.label8.Location = new System.Drawing.Point(199, 115);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(179, 20);
             this.label8.TabIndex = 2;
@@ -191,7 +191,7 @@
             this.Income_lbl.AutoSize = true;
             this.Income_lbl.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Income_lbl.ForeColor = System.Drawing.Color.White;
-            this.Income_lbl.Location = new System.Drawing.Point(122, 59);
+            this.Income_lbl.Location = new System.Drawing.Point(282, 59);
             this.Income_lbl.Name = "Income_lbl";
             this.Income_lbl.Size = new System.Drawing.Size(94, 42);
             this.Income_lbl.TabIndex = 1;
@@ -202,7 +202,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label10.Location = new System.Drawing.Point(3, 15);
+            this.label10.Location = new System.Drawing.Point(198, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(82, 26);
             this.label10.TabIndex = 0;

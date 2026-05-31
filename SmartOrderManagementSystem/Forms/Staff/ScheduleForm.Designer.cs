@@ -64,7 +64,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.order_amount_lbl);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(27, 83);
+            this.panel1.Location = new System.Drawing.Point(36, 83);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(276, 174);
             this.panel1.TabIndex = 4;
@@ -110,7 +110,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(309, 83);
+            this.panel2.Location = new System.Drawing.Point(505, 83);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(276, 174);
             this.panel2.TabIndex = 5;
@@ -156,7 +156,7 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label9);
-            this.panel3.Location = new System.Drawing.Point(591, 83);
+            this.panel3.Location = new System.Drawing.Point(942, 83);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(276, 174);
             this.panel3.TabIndex = 5;

@@ -170,7 +170,7 @@ Members:
 
 ### 👨‍💻  Lay Kimhoung 
 - Team Lead
-- Adnin Form
+- Admin Form
 ### 👩‍💻 Mom Sonita
 - Staff Form
 ### 👨‍💻 Naing Vannath

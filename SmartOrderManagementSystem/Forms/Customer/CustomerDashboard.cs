@@ -23,8 +23,9 @@ namespace SmartOrderManagementSystem.Forms.Customer
         }
         private void CustomerDashboard_Load(object sender, EventArgs e)
         {
-            
-
+            LoadCategory();
+            LoadProducts(null);
+            InitializeCart();
         }
 
         private void LoadCategory()

@@ -25,6 +25,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
         {
             LoadCategory();
             LoadProducts(null);
+            InitializeCart();
         }
 
         private void LoadCategory()

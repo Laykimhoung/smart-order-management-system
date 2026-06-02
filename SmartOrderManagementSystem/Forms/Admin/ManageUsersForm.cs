@@ -16,5 +16,33 @@ namespace SmartOrderManagementSystem.Forms.Admin
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddEditUserForm add = new AddEditUserForm();
+            add.ShowDialog();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show(
+                    "Please select a user first.",
+                    "No Selection",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            int userID = Convert.ToInt32(
+                dgvUsers.SelectedRows[0].Cells["colUserID"].Value
+            );
+
+            AddEditUserForm edit =new AddEditUserForm();
+            edit.ShowDialog();
+        }
     }
 }

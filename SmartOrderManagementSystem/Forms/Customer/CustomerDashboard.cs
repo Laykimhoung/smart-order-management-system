@@ -119,7 +119,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             pbImage.Image = (imageBytes != null && imageBytes.Length > 0) ? ConvertByteArrayToImage(imageBytes) : SystemIcons.Question.ToBitmap();
 
             Label lblName = new Label { Text = name, Location = new Point(10, 140), Width = 160, Height = 35, Font = new Font("Segoe UI", 10, FontStyle.Bold), TextAlign = ContentAlignment.TopCenter };
-            Label lblPrice = new Label { Text = $"${price:F2}", Location = new Point(10, 180), Width = 160, Height = 20, Font = new Font("Segoe UI", 9, FontStyle.Regular), ForeColor = Color.DarkGreen, TextAlign = ContentAlignment.TopCenter };
+            Label lblPrice = new Label { Text = $"${price:F2}", Location = new Point(10, 160), Width = 160, Height = 20, Font = new Font("Segoe UI", 9, FontStyle.Regular), ForeColor = Color.DarkGreen, TextAlign = ContentAlignment.TopCenter };
 
             Button btnAdd = new Button { Text = "Add", Location = new Point(10, 210), Width = 75, Height = 30, BackColor = Color.LightGreen, FlatStyle = FlatStyle.Flat, Tag = id };
             btnAdd.Click += BtnAdd_Click;
@@ -146,6 +146,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
         private void InitializeCart()
         {
+            dgvCart.Font = new Font("Time New Roman", 12, FontStyle.Regular);
             cartTable = new DataTable();
             cartTable.Columns.Add("ProductID", typeof(int));
             cartTable.Columns.Add("Product", typeof(string));

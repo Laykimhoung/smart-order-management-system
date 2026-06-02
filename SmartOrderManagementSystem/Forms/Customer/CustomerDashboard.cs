@@ -146,6 +146,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
         private void InitializeCart()
         {
+            dgvCart.Font = new Font("Time New Roman", 12, FontStyle.Regular);
             cartTable = new DataTable();
             cartTable.Columns.Add("ProductID", typeof(int));
             cartTable.Columns.Add("Product", typeof(string));

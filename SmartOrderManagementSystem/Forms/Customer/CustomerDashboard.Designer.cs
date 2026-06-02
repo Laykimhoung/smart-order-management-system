@@ -31,7 +31,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,13 +61,12 @@
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1360, 68);
+            this.panel1.Size = new System.Drawing.Size(1429, 68);
             this.panel1.TabIndex = 0;
             // 
             // btnSearch
@@ -83,26 +81,11 @@
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(945, 14);
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(731, 14);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 39);
+            this.textBox1.Size = new System.Drawing.Size(423, 42);
             this.textBox1.TabIndex = 2;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "All,",
-            "Coffee",
-            "Tea",
-            "Drink",
-            "Dessert"});
-            this.comboBox1.Location = new System.Drawing.Point(545, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(272, 39);
-            this.comboBox1.TabIndex = 1;
             // 
             // label5
             // 
@@ -110,15 +93,14 @@
             this.label5.Font = new System.Drawing.Font("Romnea", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(379, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(160, 55);
+            this.label5.Size = new System.Drawing.Size(0, 55);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Category:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Romnea", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(826, 6);
+            this.label3.Location = new System.Drawing.Point(609, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 55);
             this.label3.TabIndex = 0;
@@ -154,6 +136,7 @@
             // 
             // dgvCart
             // 
+            this.dgvCart.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCart.Location = new System.Drawing.Point(6, 49);
             this.dgvCart.Name = "dgvCart";
@@ -269,7 +252,7 @@
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.Red;
             this.btnLogOut.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(1200, 86);
+            this.btnLogOut.Location = new System.Drawing.Point(1287, 86);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(154, 41);
             this.btnLogOut.TabIndex = 5;
@@ -279,13 +262,17 @@
             // flpProducts
             // 
             this.flpProducts.AutoScroll = true;
-            this.flpProducts.Location = new System.Drawing.Point(12, 209);
+            this.flpProducts.BackColor = System.Drawing.Color.LightGray;
+            this.flpProducts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpProducts.Location = new System.Drawing.Point(12, 199);
             this.flpProducts.Name = "flpProducts";
             this.flpProducts.Size = new System.Drawing.Size(862, 661);
             this.flpProducts.TabIndex = 7;
             // 
             // flpCategories
             // 
+            this.flpCategories.BackColor = System.Drawing.Color.RosyBrown;
+            this.flpCategories.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flpCategories.Location = new System.Drawing.Point(12, 120);
             this.flpCategories.Name = "flpCategories";
             this.flpCategories.Size = new System.Drawing.Size(862, 73);
@@ -295,7 +282,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.MistyRose;
+            this.BackColor = System.Drawing.Color.OliveDrab;
             this.ClientSize = new System.Drawing.Size(1459, 922);
             this.Controls.Add(this.flpCategories);
             this.Controls.Add(this.flpProducts);
@@ -324,7 +311,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label5;

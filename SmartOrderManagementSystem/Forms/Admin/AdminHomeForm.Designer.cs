@@ -136,7 +136,7 @@
             this.panelCustomers.Controls.Add(this.bigLabel3);
             this.panelCustomers.Controls.Add(this.bigLabel4);
             this.panelCustomers.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.panelCustomers.Location = new System.Drawing.Point(361, 128);
+            this.panelCustomers.Location = new System.Drawing.Point(368, 128);
             this.panelCustomers.Name = "panelCustomers";
             this.panelCustomers.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.panelCustomers.PrimerColor = System.Drawing.Color.White;
@@ -180,7 +180,7 @@
             this.panelStaff.Controls.Add(this.bigLabel5);
             this.panelStaff.Controls.Add(this.bigLabel6);
             this.panelStaff.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.panelStaff.Location = new System.Drawing.Point(669, 128);
+            this.panelStaff.Location = new System.Drawing.Point(686, 128);
             this.panelStaff.Name = "panelStaff";
             this.panelStaff.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.panelStaff.PrimerColor = System.Drawing.Color.White;
@@ -224,7 +224,7 @@
             this.panelRevenue.Controls.Add(this.bigLabel7);
             this.panelRevenue.Controls.Add(this.bigLabel8);
             this.panelRevenue.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            this.panelRevenue.Location = new System.Drawing.Point(977, 128);
+            this.panelRevenue.Location = new System.Drawing.Point(1004, 128);
             this.panelRevenue.Name = "panelRevenue";
             this.panelRevenue.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.panelRevenue.PrimerColor = System.Drawing.Color.White;
@@ -296,7 +296,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1168, 218);
+            this.dataGridView1.Size = new System.Drawing.Size(1195, 218);
             this.dataGridView1.TabIndex = 5;
             // 
             // colOrderID
@@ -348,7 +348,7 @@
             this.panelSummary.Name = "panelSummary";
             this.panelSummary.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.panelSummary.PrimerColor = System.Drawing.Color.White;
-            this.panelSummary.Size = new System.Drawing.Size(1172, 143);
+            this.panelSummary.Size = new System.Drawing.Size(1199, 143);
             this.panelSummary.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             this.panelSummary.Style = ReaLTaiizor.Controls.ParrotGradientPanel.GradientStyle.Corners;
             this.panelSummary.TabIndex = 7;

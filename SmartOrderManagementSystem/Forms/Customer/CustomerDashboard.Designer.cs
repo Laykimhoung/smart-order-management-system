@@ -138,7 +138,7 @@
             // 
             this.dgvCart.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Location = new System.Drawing.Point(6, 49);
+            this.dgvCart.Location = new System.Drawing.Point(6, 42);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersWidth = 51;
             this.dgvCart.RowTemplate.Height = 24;

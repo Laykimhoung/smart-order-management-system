@@ -23,7 +23,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
         private void CustomerRecordForm_Load(object sender, EventArgs e)
         {
             // Set the default to the current month
-            From_date.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            From_date.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month-1, 1);
             To_date.Value = DateTime.Now;
             Load_Customer();
        
@@ -153,9 +153,12 @@ namespace SmartOrderManagementSystem.Forms.Staff
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-        }
+            //call the load_customer
+            Load_Customer();
 
-      private void Search_txt_TextChanged(object sender, EventArgs e)
+        }
+        // Search the data in datagridview
+        private void Search_txt_TextChanged(object sender, EventArgs e)
         {
             string search = Search_txt.Text.ToLower();
            Customer_datagrideview.CurrentCell = null;
@@ -169,6 +172,13 @@ namespace SmartOrderManagementSystem.Forms.Staff
                    || row.Cells["CustomerID"].Value?.ToString().Contains(search) == true;
             }
         }
-        
+        // Refrexh Button to reload the data
+        private void Refresh_btn_Click(object sender, EventArgs e)
+        {
+            From_date.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
+            To_date.Value = DateTime.Now;
+            Load_Customer();
+        }
+
     }
 }

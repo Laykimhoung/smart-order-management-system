@@ -22,7 +22,33 @@ namespace SmartOrderManagementSystem.Forms.Login
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            btnLogin.FlatAppearance.BorderSize = 0;
 
+            btnExit.FlatAppearance.BorderSize = 1;
+
+          
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string user = txtUsername.Text.Trim();
+            string pass = txtPassword.Text.Trim();
+
+            if (user == "admin" && pass == "123")
+            {
+                MessageBox.Show("Login Success");
+
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Username or Password");
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -17,15 +17,21 @@ namespace SmartOrderManagementSystem.Forms.Customer
     public partial class CustomerDashboard : Form
     {
         private DataTable cartTable;
-        public CustomerDashboard()
+        string loginUsername;
+        int customerId;
+
+        public CustomerDashboard(int userID, string Username)
         {
             InitializeComponent();
+            customerId = userID;
+            loginUsername = Username;
         }
         private void CustomerDashboard_Load(object sender, EventArgs e)
         {
             LoadCategory();
             LoadProducts(null);
             InitializeCart();
+            lblWelcome.Text = $"Welcome, {loginUsername}!";
         }
 
         private void LoadCategory()
@@ -33,6 +39,9 @@ namespace SmartOrderManagementSystem.Forms.Customer
             flpCategories.Controls.Clear();
             Button btnAll = new Button
             {
+                Margin = new Padding(10, 15, 10, 10),
+                Width = 75,
+                Height = 30,
                 Text = "All",
                 Tag = null,
                 AutoSize = true,
@@ -50,17 +59,20 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 {
                     Button btnCat = new Button
                     {
+                        Width = 75,
+                        Height = 30,
                         Text = row["CategoryName"].ToString(),
                         Tag = row["CategoryID"],
                         AutoSize = true,
                         BackColor = Color.LightGray,
-                        FlatStyle = FlatStyle.Flat
+                        FlatStyle = FlatStyle.Flat,
+                        Margin = new Padding(10, 15, 10, 10),
                     };
                     btnCat.Click += CategoryBtn_Click;
                     flpCategories.Controls.Add(btnCat);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"Failed to load categories: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -80,7 +92,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             LoadProducts(categoryID);
         }
 
-        private void LoadProducts (int? categoryID)
+        private void LoadProducts(int? categoryID)
         {
             flpProducts.Controls.Clear();
             string query = "SELECT ProductID, ProductName, Price, ProductImage FROM Products";
@@ -113,13 +125,14 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
         private Panel CreateProductCard(int id, string name, decimal price, byte[] imageBytes)
         {
-            Panel card = new Panel { Width = 180, Height = 260, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(10), BackColor = Color.White };
+            Panel card = new Panel { Width = 180, Height = 250, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(10), BackColor = Color.White };
 
             PictureBox pbImage = new PictureBox { Width = 160, Height = 120, Location = new Point(10, 10), SizeMode = PictureBoxSizeMode.Zoom };
             pbImage.Image = (imageBytes != null && imageBytes.Length > 0) ? ConvertByteArrayToImage(imageBytes) : SystemIcons.Question.ToBitmap();
 
-            Label lblName = new Label { Text = name, Location = new Point(10, 140), Width = 160, Height = 35, Font = new Font("Segoe UI", 10, FontStyle.Bold), TextAlign = ContentAlignment.TopCenter };
-            Label lblPrice = new Label { Text = $"${price:F2}", Location = new Point(10, 160), Width = 160, Height = 20, Font = new Font("Segoe UI", 9, FontStyle.Regular), ForeColor = Color.DarkGreen, TextAlign = ContentAlignment.TopCenter };
+
+            Label lblName = new Label { Text = name, Location = new Point(10, 135), Width = 160, Height = 35, Font = new Font("Segoe UI", 10, FontStyle.Bold), TextAlign = ContentAlignment.TopCenter };
+            Label lblPrice = new Label { Text = $"${price:F2}", Location = new Point(10, 170), Width = 160, Height = 20, Font = new Font("Segoe UI", 9, FontStyle.Regular), ForeColor = Color.DarkGreen, TextAlign = ContentAlignment.TopCenter, };
 
             Button btnAdd = new Button { Text = "Add", Location = new Point(10, 210), Width = 75, Height = 30, BackColor = Color.LightGreen, FlatStyle = FlatStyle.Flat, Tag = id };
             btnAdd.Click += BtnAdd_Click;
@@ -242,12 +255,104 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
         private void btnAddToOrder_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Add to Order button clicked! Implement order functionality here.");
+           
+            
         }
+    
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Place Order button clicked! Implement place order functionality here.");
+            if (cartTable == null || cartTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Your cart is empty. Please add items before placing an order.", "Empty Cart", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            decimal totalAmount = 0;
+            foreach (DataRow row in cartTable.Rows)
+            {
+                totalAmount += Convert.ToDecimal(row["Subtotal"]);
+            }
+
+            int orderId;
+
+            int userId = 3;
+            int waitingNumber = new Random().Next(100, 999);
+            string notes = txtNote.Text.Trim();
+            string qrCodeText = $"QR_ORDER_{waitingNumber}";
+
+            string insertOrderQuery = @"INSERT INTO Orders (WaitingNumber, CustomerID, UserID, TotalAmount, QRCodeText, Notes) 
+                                        VALUES (@WaitingNumber, @CustomerID, @UserID, @TotalAmount, @QRCodeText, @Notes);
+                                        SELECT SCOPE_IDENTITY();";
+
+
+            try
+            {
+                using (SqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+
+
+                        // Insert Order Header
+                        using (SqlCommand cmdOrder = new SqlCommand(insertOrderQuery, conn, transaction))
+                        {
+                            cmdOrder.Parameters.AddWithValue("@WaitingNumber", waitingNumber);
+                            cmdOrder.Parameters.AddWithValue("@CustomerID", customerId);
+                            cmdOrder.Parameters.AddWithValue("@UserID", userId);
+                            cmdOrder.Parameters.AddWithValue("@TotalAmount", totalAmount);
+                            cmdOrder.Parameters.AddWithValue("@QRCodeText", qrCodeText);
+                            cmdOrder.Parameters.AddWithValue("@Notes", string.IsNullOrEmpty(notes) ? (object)DBNull.Value : notes);
+
+                            orderId = Convert.ToInt32(cmdOrder.ExecuteScalar());
+                        }
+
+
+                        string insertItemsQuery = @"INSERT INTO OrderItems (OrderID, ProductID, Quantity, UnitPrice) VALUES (@OrderID, @ProductID, @Quantity, @UnitPrice);";
+
+                        foreach (DataRow row in cartTable.Rows)
+                        {
+                            using (SqlCommand cmdItem = new SqlCommand(insertItemsQuery, conn, transaction))
+                            {
+                                cmdItem.Parameters.AddWithValue("@OrderID", orderId);
+                                cmdItem.Parameters.AddWithValue("@ProductID", row["ProductID"]);
+                                cmdItem.Parameters.AddWithValue("@Quantity", row["Quantity"]);
+                                cmdItem.Parameters.AddWithValue("@UnitPrice", row["Price"]);
+
+                                cmdItem.ExecuteNonQuery();
+                            }
+                        }
+
+
+                        string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, 'Order Created', 'Customer Dashboard');";
+                        using (SqlCommand cmdLog = new SqlCommand(logQuery, conn, transaction))
+                        {
+                            cmdLog.Parameters.AddWithValue("@OrderID", orderId);
+                            cmdLog.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                    }
+                }
+
+                if (MessageBox.Show($"Order placed successfully!\nYour Waiting Number is: {waitingNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(orderId);
+                    orderDetailsForm.Show();
+                    this.Hide();
+                }
+
+
+                cartTable.Rows.Clear();
+                UpdateCartTotal();
+                if (txtNote != null) txtNote.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while saving your order: {ex.Message}", "Order Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void btnClearAll_Click(object sender, EventArgs e)
         {

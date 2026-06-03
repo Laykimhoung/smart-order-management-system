@@ -12,7 +12,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 {
     public partial class OrderDetailsForm : Form
     {
-        public OrderDetailsForm()
+        public OrderDetailsForm(int orderId)
         {
             InitializeComponent();
         }

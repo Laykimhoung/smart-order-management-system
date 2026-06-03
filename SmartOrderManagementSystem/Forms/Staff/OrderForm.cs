@@ -23,11 +23,13 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
+            //call teh method to load the order data into the datagridview
             Load_Order();
 
             // Set the default to the current month
             From_date.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             To_date.Value = DateTime.Now;
+
         }
 
         private void Load_Order()
@@ -60,11 +62,16 @@ namespace SmartOrderManagementSystem.Forms.Staff
                 Order_datagridview.Columns["OrderID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 Order_datagridview.Columns["WaitingNumber"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+              //  Order_datagridview.Columns["WaitingNumber"].Width = 70;
+
+                Order_datagridview.Columns["Products"].DefaultCellStyle.WrapMode= DataGridViewTriState.True;
+
+                Order_datagridview.Columns["Notes"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
                 Order_datagridview.Columns["TotalPrice"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 Order_datagridview.Columns["TotalPrice"].DefaultCellStyle.Format = "C2"; // Format as currency
                 Order_datagridview.Columns["TotalPrice"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.GetCultureInfo("en-US"); // Set culture for currency formatting
-
+               // Order_datagridview.Columns["TotalPrice"].Width = 80;
             }
             catch (Exception ex)
             {
@@ -86,7 +93,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
                    || row.Cells["OrderID"].Value?.ToString().Contains(search) == true;
             }
         }
-
+        // Filter the data
         private void filter_btn_Click(object sender, EventArgs e)
         {
             string query = @"SELECT o.OrderID, o.OrderDate,c.CustomerName,o.WaitingNumber, o.QRCodeText, o.Notes,STRING_AGG(p.ProductName, ', ') AS Products, SUM(p.Price) AS TotalPrice FROM Orders o
@@ -113,6 +120,13 @@ namespace SmartOrderManagementSystem.Forms.Staff
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Refresh_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
 

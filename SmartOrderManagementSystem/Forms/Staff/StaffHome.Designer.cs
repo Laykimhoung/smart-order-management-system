@@ -29,32 +29,42 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffHome));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.order_amount_lbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TotalCustomer_lbl = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Income_lbl = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.Recent_order_panel = new System.Windows.Forms.Panel();
+            this.Activity_feed_panel = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Recent_order_datagridview = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Recent_order_panel.SuspendLayout();
+            this.Activity_feed_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Recent_order_datagridview)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +91,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(117)))), ((int)(((byte)(101)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.label5);
@@ -91,6 +101,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(390, 150);
             this.panel1.TabIndex = 2;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(16, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(132, 132);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
             // 
             // label5
             // 
@@ -120,7 +140,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label3.Location = new System.Drawing.Point(190, 15);
+            this.label3.Location = new System.Drawing.Point(207, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 26);
             this.label3.TabIndex = 0;
@@ -134,10 +154,20 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.TotalCustomer_lbl);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(439, 84);
+            this.panel2.Location = new System.Drawing.Point(457, 84);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(390, 150);
             this.panel2.TabIndex = 3;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(13, 4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(127, 131);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 3;
+            this.pictureBox3.TabStop = false;
             // 
             // label4
             // 
@@ -181,10 +211,20 @@
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.Income_lbl);
             this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(852, 84);
+            this.panel3.Location = new System.Drawing.Point(882, 84);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(390, 150);
             this.panel3.TabIndex = 3;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(29, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(124, 131);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // label8
             // 
@@ -223,13 +263,13 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(6, 358);
+            this.label6.Location = new System.Drawing.Point(11, 12);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(257, 31);
+            this.label6.Size = new System.Drawing.Size(205, 32);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Good Mornig, Staff";
+            this.label6.Text = "Recent Order\r\n";
             // 
             // pictureBox1
             // 
@@ -241,35 +281,81 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // Recent_order_panel
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(29, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(124, 131);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
+            this.Recent_order_panel.BackColor = System.Drawing.Color.White;
+            this.Recent_order_panel.Controls.Add(this.Recent_order_datagridview);
+            this.Recent_order_panel.Controls.Add(this.label6);
+            this.Recent_order_panel.Location = new System.Drawing.Point(24, 240);
+            this.Recent_order_panel.Name = "Recent_order_panel";
+            this.Recent_order_panel.Size = new System.Drawing.Size(616, 511);
+            this.Recent_order_panel.TabIndex = 6;
             // 
-            // pictureBox3
+            // Activity_feed_panel
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(13, 4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(127, 131);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
+            this.Activity_feed_panel.BackColor = System.Drawing.Color.White;
+            this.Activity_feed_panel.Controls.Add(this.label9);
+            this.Activity_feed_panel.Location = new System.Drawing.Point(646, 240);
+            this.Activity_feed_panel.Name = "Activity_feed_panel";
+            this.Activity_feed_panel.Size = new System.Drawing.Size(626, 511);
+            this.Activity_feed_panel.TabIndex = 7;
             // 
-            // pictureBox4
+            // label9
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(24, 15);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(132, 120);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.Location = new System.Drawing.Point(11, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(207, 32);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Activity Feed";
+            // 
+            // Recent_order_datagridview
+            // 
+            this.Recent_order_datagridview.AllowUserToAddRows = false;
+            this.Recent_order_datagridview.AllowUserToDeleteRows = false;
+            this.Recent_order_datagridview.AllowUserToResizeColumns = false;
+            this.Recent_order_datagridview.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Empty;
+            this.Recent_order_datagridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Recent_order_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Recent_order_datagridview.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Recent_order_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Recent_order_datagridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.Recent_order_datagridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Recent_order_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.Recent_order_datagridview.ColumnHeadersHeight = 29;
+            this.Recent_order_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Recent_order_datagridview.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Recent_order_datagridview.EnableHeadersVisualStyles = false;
+            this.Recent_order_datagridview.Location = new System.Drawing.Point(0, 85);
+            this.Recent_order_datagridview.Name = "Recent_order_datagridview";
+            this.Recent_order_datagridview.ReadOnly = true;
+            this.Recent_order_datagridview.RowHeadersVisible = false;
+            this.Recent_order_datagridview.RowHeadersWidth = 51;
+            this.Recent_order_datagridview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.Recent_order_datagridview.RowTemplate.Height = 30;
+            this.Recent_order_datagridview.RowTemplate.ReadOnly = true;
+            this.Recent_order_datagridview.Size = new System.Drawing.Size(616, 423);
+            this.Recent_order_datagridview.TabIndex = 5;
             // 
             // StaffHome
             // 
@@ -277,8 +363,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1300, 763);
+            this.Controls.Add(this.Activity_feed_panel);
+            this.Controls.Add(this.Recent_order_panel);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -287,16 +374,22 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StaffHome";
             this.Text = "StaffHome";
+            this.Load += new System.EventHandler(this.StaffHome_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Recent_order_panel.ResumeLayout(false);
+            this.Recent_order_panel.PerformLayout();
+            this.Activity_feed_panel.ResumeLayout(false);
+            this.Activity_feed_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Recent_order_datagridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,5 +416,9 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel Recent_order_panel;
+        private System.Windows.Forms.Panel Activity_feed_panel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView Recent_order_datagridview;
     }
 }

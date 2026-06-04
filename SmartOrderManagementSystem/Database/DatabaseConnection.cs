@@ -10,7 +10,6 @@ namespace SmartOrderManagementSystem.Database
 {
     public static class DatabaseConnection
     {
-        // Change Server name to your server name
         private static readonly string connectionString =
            @"Server=PROTECT-ME;Database=SmartOrderDB;User Id=sa;Password=sa;TrustServerCertificate=True;";
 
@@ -20,7 +19,6 @@ namespace SmartOrderManagementSystem.Database
             return new SqlConnection(connectionString);
         }
 
-        // Standard select query helper
         public static DataTable ExecuteQuery(string query)
         {
             using (SqlConnection conn = GetConnection())
@@ -36,8 +34,6 @@ namespace SmartOrderManagementSystem.Database
                 }
             }
         }
-
-        // Parameterized query helper (used for logins to prevent SQL injection)
         public static DataTable ExecuteQueryWithParams(string query, SqlParameter[] parameters)
         {
             using (SqlConnection conn = GetConnection())

@@ -295,7 +295,7 @@
             this.parrotGradientPanel3.BottomRight = System.Drawing.Color.Black;
             this.parrotGradientPanel3.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             this.parrotGradientPanel3.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            this.parrotGradientPanel3.Location = new System.Drawing.Point(514, 298);
+            this.parrotGradientPanel3.Location = new System.Drawing.Point(527, 298);
             this.parrotGradientPanel3.Name = "parrotGradientPanel3";
             this.parrotGradientPanel3.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             this.parrotGradientPanel3.PrimerColor = System.Drawing.Color.White;

@@ -18,12 +18,11 @@ namespace SmartOrderManagementSystem.Forms.Customer
     {
         private DataTable cartTable;
         string loginUsername;
-        int customerId;
+        string customerId = "SELECT CustomerID FROM Customers WHERE Username = @Username";
 
-        public CustomerDashboard(int userID, string Username)
+        public CustomerDashboard(string Username)
         {
             InitializeComponent();
-            customerId = userID;
             loginUsername = Username;
         }
         private void CustomerDashboard_Load(object sender, EventArgs e)

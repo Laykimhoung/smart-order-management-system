@@ -18,7 +18,6 @@ namespace SmartOrderManagementSystem.Forms.Customer
     {
         private DataTable cartTable;
         string loginUsername;
-        string customerId = "SELECT CustomerID FROM Customers WHERE Username = @Username";
 
         public CustomerDashboard(string Username)
         {

@@ -226,7 +226,7 @@
             this.Message_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
             this.Message_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Message_btn.ButtonImage")));
             this.Message_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.Message_btn.ButtonText = "Message";
+            this.Message_btn.ButtonText = "Activity Feed";
             this.Message_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Message_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.Message_btn.CornerRadius = 10;

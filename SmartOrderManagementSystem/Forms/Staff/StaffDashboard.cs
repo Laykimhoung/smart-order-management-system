@@ -63,7 +63,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void Message_btn_Click(object sender, EventArgs e)
         {
-            ShowSubForm(new MessageForm());
+            ShowSubForm(new Activity_Feed());
         }
 
         private void Schedule_btn_Click(object sender, EventArgs e)

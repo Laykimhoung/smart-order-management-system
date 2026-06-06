@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="parrotButton1.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnGenerateReport.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFbuSURBVHhe7Z0J
+        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAFbuSURBVHhe7Z0J
         +HfV9PYXIYpGU6MpKZFopkSTojQooSQNpFChIpRKxlSKipJIg2QoCokkU0opU1QklUpIs7y873U/7efx
         e9a7nn3OPnufc/be5/5c1339L/2f39r7DN9z7rOHtUQIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGE
         EEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGE
@@ -496,7 +496,7 @@
         RK5CYII=
 </value>
   </data>
-  <data name="parrotButton2.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnExportPDF.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB8gAAAe4CAYAAABK5ohSAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         /QfYbmdV7/tPQ9iAEQ1Ih0AgNAFDgNCb9ADSS6gBpCNIx42KuEVBRCAJqaT33htJVgJphA4ivXdEt/uc
@@ -7118,7 +7118,7 @@
         JEmS+wsAAK4QfZCTJEmSJEmSJMn9vZL8P0rKQ3GTmGacAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="parrotButton3.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnExportExcel.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgCAYAAADbcAZoAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2Zp
@@ -7606,7 +7606,7 @@
         YII=
 </value>
   </data>
-  <data name="parrotButton4.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnRefresh.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAYAAAB/HSuDAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAADibSURBVHhe7d1rdRzJ1i1QQfggGIIhGIIhNARDMANB

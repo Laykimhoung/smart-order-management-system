@@ -13,6 +13,8 @@ namespace SmartOrderManagementSystem.Forms.Staff
 {
     public partial class StaffHome : Form
     {
+        
+
         public StaffHome()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
             string query = @"SELECT o.OrderID, c.CustomerName, o.WaitingNumber, o.OrderDate FROM Orders o
                              LEFT JOIN OrderItems oi ON o.OrderID = oi.OrderID
                              LEFT JOIN Customers c ON o.CustomerID = c.CustomerID
-                             GROUP BY o.OrderID, c.CustomerName,o.WaitingNumber,o.OrderDate
+                             GROUP BY o.OrderID, c.CustomerName,o.WaitingNumber,o.OrderDate,o.CustomerID
                              ORDER BY o.OrderDate DESC";
             try
             {
@@ -49,11 +51,16 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
                 Recent_order_datagridview.Columns["WaitingNumber"].Width = 120;
                 Recent_order_datagridview.Columns["WaitingNumber"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to load Order." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
+        
     }
 }
+

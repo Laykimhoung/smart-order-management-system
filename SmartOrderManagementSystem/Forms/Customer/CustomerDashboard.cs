@@ -18,6 +18,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
     {
         private DataTable cartTable;
         string loginUsername;
+        int customerId;
 
         public CustomerDashboard(string Username)
         {

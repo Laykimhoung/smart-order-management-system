@@ -40,10 +40,10 @@
             this.dtpToDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbReportType = new ReaLTaiizor.Controls.DungeonComboBox();
-            this.parrotButton1 = new ReaLTaiizor.Controls.ParrotButton();
-            this.parrotButton2 = new ReaLTaiizor.Controls.ParrotButton();
-            this.parrotButton3 = new ReaLTaiizor.Controls.ParrotButton();
-            this.parrotButton4 = new ReaLTaiizor.Controls.ParrotButton();
+            this.btnGenerateReport = new ReaLTaiizor.Controls.ParrotButton();
+            this.btnExportPDF = new ReaLTaiizor.Controls.ParrotButton();
+            this.btnExportExcel = new ReaLTaiizor.Controls.ParrotButton();
+            this.btnRefresh = new ReaLTaiizor.Controls.ParrotButton();
             this.parrotGradientPanel1 = new ReaLTaiizor.Controls.ParrotGradientPanel();
             this.parrotGradientPanel2 = new ReaLTaiizor.Controls.ParrotGradientPanel();
             this.parrotGradientPanel3 = new ReaLTaiizor.Controls.ParrotGradientPanel();
@@ -53,6 +53,15 @@
             this.colCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblCustomer = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel3 = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
+            this.lblTotalOrder = new ReaLTaiizor.Controls.BigLabel();
+            this.lblRevenue = new ReaLTaiizor.Controls.BigLabel();
+            this.bigLabel6 = new ReaLTaiizor.Controls.BigLabel();
+            this.parrotGradientPanel1.SuspendLayout();
+            this.parrotGradientPanel2.SuspendLayout();
+            this.parrotGradientPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +108,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(695, 125);
+            this.label4.Location = new System.Drawing.Point(585, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 25);
             this.label4.TabIndex = 4;
@@ -108,7 +117,7 @@
             // dtpToDate
             // 
             this.dtpToDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpToDate.Location = new System.Drawing.Point(810, 125);
+            this.dtpToDate.Location = new System.Drawing.Point(700, 125);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(349, 30);
             this.dtpToDate.TabIndex = 5;
@@ -157,107 +166,109 @@
             this.cmbReportType.StartIndex = 0;
             this.cmbReportType.TabIndex = 7;
             // 
-            // parrotButton1
+            // btnGenerateReport
             // 
-            this.parrotButton1.BackgroundColor = System.Drawing.Color.Silver;
-            this.parrotButton1.ButtonImage = ((System.Drawing.Image)(resources.GetObject("parrotButton1.ButtonImage")));
-            this.parrotButton1.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.parrotButton1.ButtonText = "Generate Report";
-            this.parrotButton1.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.parrotButton1.ClickTextColor = System.Drawing.Color.White;
-            this.parrotButton1.CornerRadius = 5;
-            this.parrotButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotButton1.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.parrotButton1.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.parrotButton1.HoverBackgroundColor = System.Drawing.Color.DimGray;
-            this.parrotButton1.HoverTextColor = System.Drawing.Color.White;
-            this.parrotButton1.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Right;
-            this.parrotButton1.Location = new System.Drawing.Point(57, 225);
-            this.parrotButton1.Name = "parrotButton1";
-            this.parrotButton1.Size = new System.Drawing.Size(198, 50);
-            this.parrotButton1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.parrotButton1.TabIndex = 8;
-            this.parrotButton1.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.parrotButton1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.parrotButton1.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnGenerateReport.BackgroundColor = System.Drawing.Color.Silver;
+            this.btnGenerateReport.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnGenerateReport.ButtonImage")));
+            this.btnGenerateReport.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnGenerateReport.ButtonText = "Generate Report";
+            this.btnGenerateReport.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnGenerateReport.ClickTextColor = System.Drawing.Color.White;
+            this.btnGenerateReport.CornerRadius = 5;
+            this.btnGenerateReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGenerateReport.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerateReport.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnGenerateReport.HoverBackgroundColor = System.Drawing.Color.DimGray;
+            this.btnGenerateReport.HoverTextColor = System.Drawing.Color.White;
+            this.btnGenerateReport.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Right;
+            this.btnGenerateReport.Location = new System.Drawing.Point(57, 225);
+            this.btnGenerateReport.Name = "btnGenerateReport";
+            this.btnGenerateReport.Size = new System.Drawing.Size(198, 50);
+            this.btnGenerateReport.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnGenerateReport.TabIndex = 8;
+            this.btnGenerateReport.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnGenerateReport.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnGenerateReport.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
-            // parrotButton2
+            // btnExportPDF
             // 
-            this.parrotButton2.BackgroundColor = System.Drawing.Color.Silver;
-            this.parrotButton2.ButtonImage = ((System.Drawing.Image)(resources.GetObject("parrotButton2.ButtonImage")));
-            this.parrotButton2.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.parrotButton2.ButtonText = "Export PDF";
-            this.parrotButton2.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.parrotButton2.ClickTextColor = System.Drawing.Color.White;
-            this.parrotButton2.CornerRadius = 5;
-            this.parrotButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotButton2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.parrotButton2.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.parrotButton2.HoverBackgroundColor = System.Drawing.Color.DimGray;
-            this.parrotButton2.HoverTextColor = System.Drawing.Color.White;
-            this.parrotButton2.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Right;
-            this.parrotButton2.Location = new System.Drawing.Point(390, 225);
-            this.parrotButton2.Name = "parrotButton2";
-            this.parrotButton2.Size = new System.Drawing.Size(200, 50);
-            this.parrotButton2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.parrotButton2.TabIndex = 9;
-            this.parrotButton2.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.parrotButton2.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.parrotButton2.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnExportPDF.BackgroundColor = System.Drawing.Color.Silver;
+            this.btnExportPDF.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnExportPDF.ButtonImage")));
+            this.btnExportPDF.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnExportPDF.ButtonText = "Export PDF";
+            this.btnExportPDF.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnExportPDF.ClickTextColor = System.Drawing.Color.White;
+            this.btnExportPDF.CornerRadius = 5;
+            this.btnExportPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportPDF.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportPDF.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnExportPDF.HoverBackgroundColor = System.Drawing.Color.DimGray;
+            this.btnExportPDF.HoverTextColor = System.Drawing.Color.White;
+            this.btnExportPDF.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Right;
+            this.btnExportPDF.Location = new System.Drawing.Point(390, 225);
+            this.btnExportPDF.Name = "btnExportPDF";
+            this.btnExportPDF.Size = new System.Drawing.Size(200, 50);
+            this.btnExportPDF.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnExportPDF.TabIndex = 9;
+            this.btnExportPDF.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnExportPDF.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnExportPDF.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
-            // parrotButton3
+            // btnExportExcel
             // 
-            this.parrotButton3.BackgroundColor = System.Drawing.Color.Silver;
-            this.parrotButton3.ButtonImage = ((System.Drawing.Image)(resources.GetObject("parrotButton3.ButtonImage")));
-            this.parrotButton3.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.parrotButton3.ButtonText = "Export Excel";
-            this.parrotButton3.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.parrotButton3.ClickTextColor = System.Drawing.Color.White;
-            this.parrotButton3.CornerRadius = 5;
-            this.parrotButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotButton3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.parrotButton3.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.parrotButton3.HoverBackgroundColor = System.Drawing.Color.DimGray;
-            this.parrotButton3.HoverTextColor = System.Drawing.Color.White;
-            this.parrotButton3.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Right;
-            this.parrotButton3.Location = new System.Drawing.Point(721, 225);
-            this.parrotButton3.Name = "parrotButton3";
-            this.parrotButton3.Size = new System.Drawing.Size(200, 50);
-            this.parrotButton3.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.parrotButton3.TabIndex = 10;
-            this.parrotButton3.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.parrotButton3.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.parrotButton3.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnExportExcel.BackgroundColor = System.Drawing.Color.Silver;
+            this.btnExportExcel.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ButtonImage")));
+            this.btnExportExcel.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnExportExcel.ButtonText = "Export Excel";
+            this.btnExportExcel.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnExportExcel.ClickTextColor = System.Drawing.Color.White;
+            this.btnExportExcel.CornerRadius = 5;
+            this.btnExportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExportExcel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportExcel.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnExportExcel.HoverBackgroundColor = System.Drawing.Color.DimGray;
+            this.btnExportExcel.HoverTextColor = System.Drawing.Color.White;
+            this.btnExportExcel.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Right;
+            this.btnExportExcel.Location = new System.Drawing.Point(721, 225);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(200, 50);
+            this.btnExportExcel.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnExportExcel.TabIndex = 10;
+            this.btnExportExcel.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnExportExcel.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnExportExcel.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
-            // parrotButton4
+            // btnRefresh
             // 
-            this.parrotButton4.BackgroundColor = System.Drawing.Color.Silver;
-            this.parrotButton4.ButtonImage = ((System.Drawing.Image)(resources.GetObject("parrotButton4.ButtonImage")));
-            this.parrotButton4.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.parrotButton4.ButtonText = "Refresh";
-            this.parrotButton4.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
-            this.parrotButton4.ClickTextColor = System.Drawing.Color.White;
-            this.parrotButton4.CornerRadius = 5;
-            this.parrotButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotButton4.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.parrotButton4.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.parrotButton4.HoverBackgroundColor = System.Drawing.Color.DimGray;
-            this.parrotButton4.HoverTextColor = System.Drawing.Color.White;
-            this.parrotButton4.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Right;
-            this.parrotButton4.Location = new System.Drawing.Point(1045, 225);
-            this.parrotButton4.Name = "parrotButton4";
-            this.parrotButton4.Size = new System.Drawing.Size(200, 50);
-            this.parrotButton4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.parrotButton4.TabIndex = 11;
-            this.parrotButton4.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.parrotButton4.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.parrotButton4.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnRefresh.BackgroundColor = System.Drawing.Color.Silver;
+            this.btnRefresh.ButtonImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ButtonImage")));
+            this.btnRefresh.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.btnRefresh.ButtonText = "Refresh";
+            this.btnRefresh.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(195)))), ((int)(((byte)(195)))));
+            this.btnRefresh.ClickTextColor = System.Drawing.Color.White;
+            this.btnRefresh.CornerRadius = 5;
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnRefresh.HoverBackgroundColor = System.Drawing.Color.DimGray;
+            this.btnRefresh.HoverTextColor = System.Drawing.Color.White;
+            this.btnRefresh.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Right;
+            this.btnRefresh.Location = new System.Drawing.Point(1045, 225);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(200, 50);
+            this.btnRefresh.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.btnRefresh.TabIndex = 11;
+            this.btnRefresh.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnRefresh.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.btnRefresh.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             // 
             // parrotGradientPanel1
             // 
             this.parrotGradientPanel1.BottomLeft = System.Drawing.Color.Black;
             this.parrotGradientPanel1.BottomRight = System.Drawing.Color.Silver;
             this.parrotGradientPanel1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            this.parrotGradientPanel1.Controls.Add(this.lblTotalOrder);
+            this.parrotGradientPanel1.Controls.Add(this.bigLabel1);
             this.parrotGradientPanel1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             this.parrotGradientPanel1.Location = new System.Drawing.Point(55, 298);
             this.parrotGradientPanel1.Name = "parrotGradientPanel1";
@@ -276,6 +287,8 @@
             this.parrotGradientPanel2.BottomLeft = System.Drawing.Color.Silver;
             this.parrotGradientPanel2.BottomRight = System.Drawing.Color.Black;
             this.parrotGradientPanel2.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            this.parrotGradientPanel2.Controls.Add(this.bigLabel6);
+            this.parrotGradientPanel2.Controls.Add(this.lblCustomer);
             this.parrotGradientPanel2.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             this.parrotGradientPanel2.Location = new System.Drawing.Point(857, 298);
             this.parrotGradientPanel2.Name = "parrotGradientPanel2";
@@ -294,6 +307,8 @@
             this.parrotGradientPanel3.BottomLeft = System.Drawing.Color.Black;
             this.parrotGradientPanel3.BottomRight = System.Drawing.Color.Black;
             this.parrotGradientPanel3.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            this.parrotGradientPanel3.Controls.Add(this.lblRevenue);
+            this.parrotGradientPanel3.Controls.Add(this.bigLabel3);
             this.parrotGradientPanel3.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             this.parrotGradientPanel3.Location = new System.Drawing.Point(527, 298);
             this.parrotGradientPanel3.Name = "parrotGradientPanel3";
@@ -400,6 +415,78 @@
             this.colDate.Name = "colDate";
             this.colDate.ReadOnly = true;
             // 
+            // lblCustomer
+            // 
+            this.lblCustomer.AutoSize = true;
+            this.lblCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.lblCustomer.Font = new System.Drawing.Font("Times New Roman", 19.8F);
+            this.lblCustomer.ForeColor = System.Drawing.Color.White;
+            this.lblCustomer.Location = new System.Drawing.Point(58, 17);
+            this.lblCustomer.Name = "lblCustomer";
+            this.lblCustomer.Size = new System.Drawing.Size(272, 39);
+            this.lblCustomer.TabIndex = 1;
+            this.lblCustomer.Text = "Customers Served:";
+            // 
+            // bigLabel3
+            // 
+            this.bigLabel3.AutoSize = true;
+            this.bigLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.bigLabel3.Font = new System.Drawing.Font("Times New Roman", 19.8F);
+            this.bigLabel3.ForeColor = System.Drawing.Color.White;
+            this.bigLabel3.Location = new System.Drawing.Point(56, 17);
+            this.bigLabel3.Name = "bigLabel3";
+            this.bigLabel3.Size = new System.Drawing.Size(143, 39);
+            this.bigLabel3.TabIndex = 2;
+            this.bigLabel3.Text = "Revenue:";
+            // 
+            // bigLabel1
+            // 
+            this.bigLabel1.AutoSize = true;
+            this.bigLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.bigLabel1.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bigLabel1.ForeColor = System.Drawing.Color.White;
+            this.bigLabel1.Location = new System.Drawing.Point(103, 17);
+            this.bigLabel1.Name = "bigLabel1";
+            this.bigLabel1.Size = new System.Drawing.Size(196, 39);
+            this.bigLabel1.TabIndex = 0;
+            this.bigLabel1.Text = "Total Orders:";
+            // 
+            // lblTotalOrder
+            // 
+            this.lblTotalOrder.AutoSize = true;
+            this.lblTotalOrder.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalOrder.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalOrder.ForeColor = System.Drawing.Color.White;
+            this.lblTotalOrder.Location = new System.Drawing.Point(167, 80);
+            this.lblTotalOrder.Name = "lblTotalOrder";
+            this.lblTotalOrder.Size = new System.Drawing.Size(60, 46);
+            this.lblTotalOrder.TabIndex = 1;
+            this.lblTotalOrder.Text = "67";
+            // 
+            // lblRevenue
+            // 
+            this.lblRevenue.AutoSize = true;
+            this.lblRevenue.BackColor = System.Drawing.Color.Transparent;
+            this.lblRevenue.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRevenue.ForeColor = System.Drawing.Color.White;
+            this.lblRevenue.Location = new System.Drawing.Point(89, 80);
+            this.lblRevenue.Name = "lblRevenue";
+            this.lblRevenue.Size = new System.Drawing.Size(60, 46);
+            this.lblRevenue.TabIndex = 2;
+            this.lblRevenue.Text = "67";
+            // 
+            // bigLabel6
+            // 
+            this.bigLabel6.AutoSize = true;
+            this.bigLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.bigLabel6.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bigLabel6.ForeColor = System.Drawing.Color.White;
+            this.bigLabel6.Location = new System.Drawing.Point(158, 80);
+            this.bigLabel6.Name = "bigLabel6";
+            this.bigLabel6.Size = new System.Drawing.Size(60, 46);
+            this.bigLabel6.TabIndex = 3;
+            this.bigLabel6.Text = "67";
+            // 
             // ReportsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -410,10 +497,10 @@
             this.Controls.Add(this.parrotGradientPanel3);
             this.Controls.Add(this.parrotGradientPanel2);
             this.Controls.Add(this.parrotGradientPanel1);
-            this.Controls.Add(this.parrotButton4);
-            this.Controls.Add(this.parrotButton3);
-            this.Controls.Add(this.parrotButton2);
-            this.Controls.Add(this.parrotButton1);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnExportExcel);
+            this.Controls.Add(this.btnExportPDF);
+            this.Controls.Add(this.btnGenerateReport);
             this.Controls.Add(this.cmbReportType);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpToDate);
@@ -424,6 +511,12 @@
             this.Controls.Add(this.label1);
             this.Name = "ReportsForm";
             this.Text = "ReportsForm";
+            this.parrotGradientPanel1.ResumeLayout(false);
+            this.parrotGradientPanel1.PerformLayout();
+            this.parrotGradientPanel2.ResumeLayout(false);
+            this.parrotGradientPanel2.PerformLayout();
+            this.parrotGradientPanel3.ResumeLayout(false);
+            this.parrotGradientPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReports)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -440,10 +533,10 @@
         private System.Windows.Forms.DateTimePicker dtpToDate;
         private System.Windows.Forms.Label label5;
         private ReaLTaiizor.Controls.DungeonComboBox cmbReportType;
-        private ReaLTaiizor.Controls.ParrotButton parrotButton1;
-        private ReaLTaiizor.Controls.ParrotButton parrotButton2;
-        private ReaLTaiizor.Controls.ParrotButton parrotButton3;
-        private ReaLTaiizor.Controls.ParrotButton parrotButton4;
+        private ReaLTaiizor.Controls.ParrotButton btnGenerateReport;
+        private ReaLTaiizor.Controls.ParrotButton btnExportPDF;
+        private ReaLTaiizor.Controls.ParrotButton btnExportExcel;
+        private ReaLTaiizor.Controls.ParrotButton btnRefresh;
         private ReaLTaiizor.Controls.ParrotGradientPanel parrotGradientPanel1;
         private ReaLTaiizor.Controls.ParrotGradientPanel parrotGradientPanel2;
         private ReaLTaiizor.Controls.ParrotGradientPanel parrotGradientPanel3;
@@ -453,5 +546,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCustomer;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
+        private ReaLTaiizor.Controls.BigLabel lblCustomer;
+        private ReaLTaiizor.Controls.BigLabel bigLabel3;
+        private ReaLTaiizor.Controls.BigLabel lblTotalOrder;
+        private ReaLTaiizor.Controls.BigLabel bigLabel1;
+        private ReaLTaiizor.Controls.BigLabel bigLabel6;
+        private ReaLTaiizor.Controls.BigLabel lblRevenue;
     }
 }

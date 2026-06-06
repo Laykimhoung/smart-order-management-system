@@ -15,6 +15,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
 {
     public partial class CustomerRecordForm : Form
     {
+        
         public CustomerRecordForm()
         {
             InitializeComponent();

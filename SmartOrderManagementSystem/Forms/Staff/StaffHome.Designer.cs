@@ -32,6 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,9 +55,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Recent_order_panel = new System.Windows.Forms.Panel();
+            this.Recent_order_datagridview = new System.Windows.Forms.DataGridView();
             this.Activity_feed_panel = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.Recent_order_datagridview = new System.Windows.Forms.DataGridView();
+            this.Activity_feed_datagridview = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
@@ -63,8 +67,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Recent_order_panel.SuspendLayout();
-            this.Activity_feed_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Recent_order_datagridview)).BeginInit();
+            this.Activity_feed_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Activity_feed_datagridview)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -291,26 +296,6 @@
             this.Recent_order_panel.Size = new System.Drawing.Size(616, 511);
             this.Recent_order_panel.TabIndex = 6;
             // 
-            // Activity_feed_panel
-            // 
-            this.Activity_feed_panel.BackColor = System.Drawing.Color.White;
-            this.Activity_feed_panel.Controls.Add(this.label9);
-            this.Activity_feed_panel.Location = new System.Drawing.Point(646, 240);
-            this.Activity_feed_panel.Name = "Activity_feed_panel";
-            this.Activity_feed_panel.Size = new System.Drawing.Size(626, 511);
-            this.Activity_feed_panel.TabIndex = 7;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(11, 12);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(207, 32);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Activity Feed";
-            // 
             // Recent_order_datagridview
             // 
             this.Recent_order_datagridview.AllowUserToAddRows = false;
@@ -318,9 +303,6 @@
             this.Recent_order_datagridview.AllowUserToResizeColumns = false;
             this.Recent_order_datagridview.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Empty;
             this.Recent_order_datagridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Recent_order_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Recent_order_datagridview.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -357,6 +339,70 @@
             this.Recent_order_datagridview.Size = new System.Drawing.Size(616, 423);
             this.Recent_order_datagridview.TabIndex = 5;
             // 
+            // Activity_feed_panel
+            // 
+            this.Activity_feed_panel.BackColor = System.Drawing.Color.White;
+            this.Activity_feed_panel.Controls.Add(this.Activity_feed_datagridview);
+            this.Activity_feed_panel.Controls.Add(this.label9);
+            this.Activity_feed_panel.Location = new System.Drawing.Point(646, 240);
+            this.Activity_feed_panel.Name = "Activity_feed_panel";
+            this.Activity_feed_panel.Size = new System.Drawing.Size(626, 511);
+            this.Activity_feed_panel.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.Location = new System.Drawing.Point(11, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(207, 32);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Activity Feed";
+            // 
+            // Activity_feed_datagridview
+            // 
+            this.Activity_feed_datagridview.AllowUserToAddRows = false;
+            this.Activity_feed_datagridview.AllowUserToDeleteRows = false;
+            this.Activity_feed_datagridview.AllowUserToResizeColumns = false;
+            this.Activity_feed_datagridview.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Activity_feed_datagridview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.Activity_feed_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Activity_feed_datagridview.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Activity_feed_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Activity_feed_datagridview.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.Activity_feed_datagridview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Activity_feed_datagridview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.Activity_feed_datagridview.ColumnHeadersHeight = 29;
+            this.Activity_feed_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Silver;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Activity_feed_datagridview.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Activity_feed_datagridview.EnableHeadersVisualStyles = false;
+            this.Activity_feed_datagridview.Location = new System.Drawing.Point(-1, 85);
+            this.Activity_feed_datagridview.Name = "Activity_feed_datagridview";
+            this.Activity_feed_datagridview.ReadOnly = true;
+            this.Activity_feed_datagridview.RowHeadersVisible = false;
+            this.Activity_feed_datagridview.RowHeadersWidth = 51;
+            this.Activity_feed_datagridview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.Activity_feed_datagridview.RowTemplate.Height = 30;
+            this.Activity_feed_datagridview.RowTemplate.ReadOnly = true;
+            this.Activity_feed_datagridview.Size = new System.Drawing.Size(627, 423);
+            this.Activity_feed_datagridview.TabIndex = 6;
+            // 
             // StaffHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -387,9 +433,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Recent_order_panel.ResumeLayout(false);
             this.Recent_order_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Recent_order_datagridview)).EndInit();
             this.Activity_feed_panel.ResumeLayout(false);
             this.Activity_feed_panel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Recent_order_datagridview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Activity_feed_datagridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,5 +467,6 @@
         private System.Windows.Forms.Panel Activity_feed_panel;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView Recent_order_datagridview;
+        private System.Windows.Forms.DataGridView Activity_feed_datagridview;
     }
 }

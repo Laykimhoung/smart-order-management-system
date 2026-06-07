@@ -30,14 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffDashboard));
             this.panel1 = new ReaLTaiizor.Controls.Panel();
-            this.Staff_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Logout_btn = new ReaLTaiizor.Controls.CyberButton();
             this.bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             this.parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
-            this.Schedule_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Setting_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Message_btn = new ReaLTaiizor.Controls.ParrotButton();
-            this.Report_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Order_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Customer_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.parrotButton1 = new ReaLTaiizor.Controls.ParrotButton();
@@ -54,14 +51,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.panel1.Controls.Add(this.Staff_btn);
             this.panel1.Controls.Add(this.Logout_btn);
             this.panel1.Controls.Add(this.bigLabel1);
             this.panel1.Controls.Add(this.parrotPictureBox1);
-            this.panel1.Controls.Add(this.Schedule_btn);
             this.panel1.Controls.Add(this.Setting_btn);
             this.panel1.Controls.Add(this.Message_btn);
-            this.panel1.Controls.Add(this.Report_btn);
             this.panel1.Controls.Add(this.Order_btn);
             this.panel1.Controls.Add(this.Customer_btn);
             this.panel1.Controls.Add(this.parrotButton1);
@@ -73,31 +67,6 @@
             this.panel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel1.TabIndex = 0;
             this.panel1.Text = "panel1";
-            // 
-            // Staff_btn
-            // 
-            this.Staff_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.Staff_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Staff_btn.ButtonImage")));
-            this.Staff_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.Staff_btn.ButtonText = "Staff";
-            this.Staff_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Staff_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.Staff_btn.CornerRadius = 10;
-            this.Staff_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Staff_btn.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Staff_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.Staff_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Staff_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.Staff_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Staff_btn.Location = new System.Drawing.Point(15, 332);
-            this.Staff_btn.Name = "Staff_btn";
-            this.Staff_btn.Size = new System.Drawing.Size(218, 49);
-            this.Staff_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.Staff_btn.TabIndex = 10;
-            this.Staff_btn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Staff_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.Staff_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.Staff_btn.Click += new System.EventHandler(this.Staff_btn_Click);
             // 
             // Logout_btn
             // 
@@ -171,31 +140,6 @@
             this.parrotPictureBox1.Text = "parrotPictureBox1";
             this.parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // Schedule_btn
-            // 
-            this.Schedule_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.Schedule_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Schedule_btn.ButtonImage")));
-            this.Schedule_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.Schedule_btn.ButtonText = "Schedule";
-            this.Schedule_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Schedule_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.Schedule_btn.CornerRadius = 10;
-            this.Schedule_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Schedule_btn.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Schedule_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.Schedule_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Schedule_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.Schedule_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Schedule_btn.Location = new System.Drawing.Point(15, 493);
-            this.Schedule_btn.Name = "Schedule_btn";
-            this.Schedule_btn.Size = new System.Drawing.Size(218, 49);
-            this.Schedule_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.Schedule_btn.TabIndex = 5;
-            this.Schedule_btn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Schedule_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.Schedule_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.Schedule_btn.Click += new System.EventHandler(this.Schedule_btn_Click);
-            // 
             // Setting_btn
             // 
             this.Setting_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
@@ -211,7 +155,7 @@
             this.Setting_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Setting_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Setting_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Setting_btn.Location = new System.Drawing.Point(14, 548);
+            this.Setting_btn.Location = new System.Drawing.Point(15, 387);
             this.Setting_btn.Name = "Setting_btn";
             this.Setting_btn.Size = new System.Drawing.Size(218, 49);
             this.Setting_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -236,7 +180,7 @@
             this.Message_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Message_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Message_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Message_btn.Location = new System.Drawing.Point(15, 442);
+            this.Message_btn.Location = new System.Drawing.Point(15, 332);
             this.Message_btn.Name = "Message_btn";
             this.Message_btn.Size = new System.Drawing.Size(218, 49);
             this.Message_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -245,31 +189,6 @@
             this.Message_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.Message_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.Message_btn.Click += new System.EventHandler(this.Message_btn_Click);
-            // 
-            // Report_btn
-            // 
-            this.Report_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
-            this.Report_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Report_btn.ButtonImage")));
-            this.Report_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.Report_btn.ButtonText = "Reports";
-            this.Report_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Report_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.Report_btn.CornerRadius = 10;
-            this.Report_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Report_btn.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Report_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.Report_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Report_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.Report_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Report_btn.Location = new System.Drawing.Point(14, 387);
-            this.Report_btn.Name = "Report_btn";
-            this.Report_btn.Size = new System.Drawing.Size(218, 49);
-            this.Report_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.Report_btn.TabIndex = 3;
-            this.Report_btn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Report_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.Report_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            this.Report_btn.Click += new System.EventHandler(this.Report_btn_Click);
             // 
             // Order_btn
             // 
@@ -477,9 +396,7 @@
 
         private ReaLTaiizor.Controls.Panel panel1;
         private ReaLTaiizor.Controls.ParrotButton parrotButton1;
-        private ReaLTaiizor.Controls.ParrotButton Schedule_btn;
         private ReaLTaiizor.Controls.ParrotButton Message_btn;
-        private ReaLTaiizor.Controls.ParrotButton Report_btn;
         private ReaLTaiizor.Controls.ParrotButton Order_btn;
         private ReaLTaiizor.Controls.ParrotButton Customer_btn;
         private ReaLTaiizor.Controls.ParrotButton Setting_btn;
@@ -491,7 +408,6 @@
         private ReaLTaiizor.Controls.ParrotButton Staff_accout_btn;
         private ReaLTaiizor.Controls.BigLabel bigLabel2;
         private ReaLTaiizor.Controls.ParrotButton Menu_btn;
-        private ReaLTaiizor.Controls.ParrotButton Staff_btn;
         private System.Windows.Forms.Panel panel_container;
     }
 }

@@ -22,7 +22,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
             ShowSubForm(new StaffHome());
         }
         //method help to show the subform in the panel
-        private void ShowSubForm(Form subForm)
+        public void ShowSubForm(Form subForm)
         {
             // Clear existing controls from the panel
             panel_container.Controls.Clear();
@@ -51,25 +51,14 @@ namespace SmartOrderManagementSystem.Forms.Staff
             ShowSubForm(new OrderForm());
         }
 
-        private void Staff_btn_Click(object sender, EventArgs e)
-        {
-            ShowSubForm(new StaffForm());
-        }
-
-        private void Report_btn_Click(object sender, EventArgs e)
-        {
-            ShowSubForm(new ReportsForm());
-        }
+        
 
         private void Message_btn_Click(object sender, EventArgs e)
         {
             ShowSubForm(new Activity_Feed());
         }
 
-        private void Schedule_btn_Click(object sender, EventArgs e)
-        {
-            ShowSubForm(new ScheduleForm());
-        }
+        
 
         private void Setting_btn_Click(object sender, EventArgs e)
         {

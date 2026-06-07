@@ -23,6 +23,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
         private void StaffHome_Load(object sender, EventArgs e)
         {
             Load_recentorder();
+            Load_orderlog();
 
         }
 
@@ -46,7 +47,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
                 Recent_order_datagridview.Columns["OrderDate"].HeaderText = "Date";
 
                 // Resize each column to fit the content
-                Recent_order_datagridview.Columns["OrderID"].Width = 40;
+                Recent_order_datagridview.Columns["OrderID"].Width = 60;
                 Recent_order_datagridview.Columns["OrderID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 Recent_order_datagridview.Columns["WaitingNumber"].Width = 120;
@@ -60,7 +61,55 @@ namespace SmartOrderManagementSystem.Forms.Staff
             }
 
         }
+
+        // Display the Order log/Activity feed in the staff home dashboard
+        private void Load_orderlog()
+        {
+            string query = @"SELECT ol.LogID,o.OrderID,ol.Action FROM OrderLogs ol
+                            LEFT JOIN Orders o ON o.OrderID = ol.OrderID GROUP BY ol.LogID,o.OrderID,ol.Action";
+            try
+            {
+                DataTable dt = DatabaseConnection.ExecuteQuery(query);
+                Activity_feed_datagridview.DataSource = dt;
+
+                // Resize the columns of Log Id and Order id in the datagridview
+                Activity_feed_datagridview.Columns["LogID"].Width = 100;
+                Activity_feed_datagridview.Columns["LogID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                Activity_feed_datagridview.Columns["OrderID"].Width = 100;
+                Activity_feed_datagridview.Columns["OrderID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Failed to load Order." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        // Click the Recent order panel and go to Order  Detial Form
+        private void Recent_order_panel_Paint(object sender, PaintEventArgs e)
+        {
         
+        } 
+        private void Recent_order(object sender, EventArgs e)
+        {
+            // get the parent StaffDashboard form
+            StaffDashboard dashboard = this.ParentForm as StaffDashboard;
+
+            if(dashboard != null){
+                dashboard.ShowSubForm(new OrderForm());
+            }
+        }
+        // Click the Activity Feed panel and go to Activity Feed Form
+        private void Order_log_DoubleClick(object sender, EventArgs e)
+        {
+            // Get the parent Staffboard form
+            StaffDashboard dashboard = this.ParentForm as StaffDashboard;
+            if(dashboard != null)
+            {
+                dashboard.ShowSubForm(new Activity_Feed());
+            }
+        }
+       
+
     }
 }
 

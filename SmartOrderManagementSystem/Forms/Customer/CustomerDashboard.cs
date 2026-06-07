@@ -44,7 +44,8 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 };
 
                 DataTable dt = DatabaseConnection.ExecuteQueryWithParams(
-                    "SELECT CustomerID FROM Customers WHERE CustomerName = @Username",
+                    @"SELECT TOP 1 CustomerID FROM Customers WHERE CustomerName = @Username 
+                    ORDER BY CreatedDate DESC, CustomerID DESC",
                     parameters
                 );
 
@@ -264,7 +265,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 {
                     MessageBox.Show("Maximum orders for today has been reached (999).",
                         "Limit Reached", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return -1; // Signal that limit is reached
+                    return -1; 
                 }
 
                 return nextNumber;
@@ -289,12 +290,10 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 int currentQty = Convert.ToInt32(existingRows[0]["Quantity"]);
                 if (currentQty > 1)
                 {
-                    // Decrement quantity
                     existingRows[0]["Quantity"] = currentQty - 1;
                 }
                 else
                 {
-                    // Remove item completely if quantity drops below 1
                     cartTable.Rows.Remove(existingRows[0]);
                 }
             }
@@ -401,7 +400,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
                 if (MessageBox.Show($"Order placed successfully!\nYour Waiting Number is: {waitingNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(orderId);
+                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(customerId);
                     orderDetailsForm.Show();
                     this.Hide();
                 }

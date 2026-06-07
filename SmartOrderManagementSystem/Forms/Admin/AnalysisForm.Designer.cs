@@ -31,6 +31,12 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,12 +58,18 @@
             this.chartRevenueTrend = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.grpTopSelling = new System.Windows.Forms.GroupBox();
             this.grpLeastSelling = new System.Windows.Forms.GroupBox();
+            this.chartTopSelling = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartLeastSelling = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelOrders.SuspendLayout();
             this.panelRevenue.SuspendLayout();
             this.panelCustomers.SuspendLayout();
             this.panelProducts.SuspendLayout();
             this.grpRevenueTrend.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenueTrend)).BeginInit();
+            this.grpTopSelling.SuspendLayout();
+            this.grpLeastSelling.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTopSelling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLeastSelling)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -325,6 +337,7 @@
             // 
             // grpTopSelling
             // 
+            this.grpTopSelling.Controls.Add(this.chartTopSelling);
             this.grpTopSelling.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
             this.grpTopSelling.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.grpTopSelling.Location = new System.Drawing.Point(58, 502);
@@ -336,6 +349,7 @@
             // 
             // grpLeastSelling
             // 
+            this.grpLeastSelling.Controls.Add(this.chartLeastSelling);
             this.grpLeastSelling.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
             this.grpLeastSelling.ForeColor = System.Drawing.Color.Red;
             this.grpLeastSelling.Location = new System.Drawing.Point(662, 502);
@@ -344,6 +358,40 @@
             this.grpLeastSelling.TabIndex = 9;
             this.grpLeastSelling.TabStop = false;
             this.grpLeastSelling.Text = "Least Selling Products";
+            // 
+            // chartTopSelling
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chartTopSelling.ChartAreas.Add(chartArea2);
+            this.chartTopSelling.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Name = "Legend1";
+            this.chartTopSelling.Legends.Add(legend2);
+            this.chartTopSelling.Location = new System.Drawing.Point(3, 23);
+            this.chartTopSelling.Name = "chartTopSelling";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartTopSelling.Series.Add(series2);
+            this.chartTopSelling.Size = new System.Drawing.Size(574, 198);
+            this.chartTopSelling.TabIndex = 0;
+            this.chartTopSelling.Text = "chart1";
+            // 
+            // chartLeastSelling
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chartLeastSelling.ChartAreas.Add(chartArea3);
+            this.chartLeastSelling.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend3.Name = "Legend1";
+            this.chartLeastSelling.Legends.Add(legend3);
+            this.chartLeastSelling.Location = new System.Drawing.Point(3, 23);
+            this.chartLeastSelling.Name = "chartLeastSelling";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartLeastSelling.Series.Add(series3);
+            this.chartLeastSelling.Size = new System.Drawing.Size(574, 198);
+            this.chartLeastSelling.TabIndex = 0;
+            this.chartLeastSelling.Text = "chart1";
             // 
             // AnalysisForm
             // 
@@ -374,6 +422,10 @@
             this.panelProducts.PerformLayout();
             this.grpRevenueTrend.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenueTrend)).EndInit();
+            this.grpTopSelling.ResumeLayout(false);
+            this.grpLeastSelling.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartTopSelling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLeastSelling)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,5 +454,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenueTrend;
         private System.Windows.Forms.GroupBox grpTopSelling;
         private System.Windows.Forms.GroupBox grpLeastSelling;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTopSelling;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartLeastSelling;
     }
 }

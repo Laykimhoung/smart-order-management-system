@@ -44,6 +44,8 @@
             this.txtPassword = new ReaLTaiizor.Controls.TextBoxEdit();
             this.txtEmail = new ReaLTaiizor.Controls.TextBoxEdit();
             this.txtPhone = new ReaLTaiizor.Controls.TextBoxEdit();
+            this.label7 = new System.Windows.Forms.Label();
+            this.crownComboBox2 = new ReaLTaiizor.Controls.CrownComboBox();
             this.SuspendLayout();
             // 
             // lblText
@@ -135,7 +137,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(100, 492);
+            this.label6.Location = new System.Drawing.Point(100, 558);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 32);
             this.label6.TabIndex = 8;
@@ -152,7 +154,7 @@
             this.btnSave.Image = null;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnSave.Location = new System.Drawing.Point(77, 572);
+            this.btnSave.Location = new System.Drawing.Point(81, 628);
             this.btnSave.Name = "btnSave";
             this.btnSave.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnSave.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -169,7 +171,7 @@
             this.crownComboBox1.Items.AddRange(new object[] {
             "Admin",
             "Staff"});
-            this.crownComboBox1.Location = new System.Drawing.Point(200, 489);
+            this.crownComboBox1.Location = new System.Drawing.Point(200, 555);
             this.crownComboBox1.Name = "crownComboBox1";
             this.crownComboBox1.Size = new System.Drawing.Size(323, 35);
             this.crownComboBox1.TabIndex = 11;
@@ -201,7 +203,7 @@
             this.btnCancel.Image = null;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.InactiveColor = System.Drawing.Color.Gold;
-            this.btnCancel.Location = new System.Drawing.Point(326, 572);
+            this.btnCancel.Location = new System.Drawing.Point(330, 628);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
             this.btnCancel.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -258,12 +260,37 @@
             this.txtPhone.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtPhone.UseSystemPasswordChar = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(100, 484);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 32);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Sex:";
+            // 
+            // crownComboBox2
+            // 
+            this.crownComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.crownComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.crownComboBox2.FormattingEnabled = true;
+            this.crownComboBox2.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.crownComboBox2.Location = new System.Drawing.Point(200, 483);
+            this.crownComboBox2.Name = "crownComboBox2";
+            this.crownComboBox2.Size = new System.Drawing.Size(323, 35);
+            this.crownComboBox2.TabIndex = 18;
+            // 
             // AddEditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(548, 645);
+            this.ClientSize = new System.Drawing.Size(548, 705);
+            this.Controls.Add(this.crownComboBox2);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtPassword);
@@ -306,5 +333,7 @@
         private ReaLTaiizor.Controls.TextBoxEdit txtPassword;
         private ReaLTaiizor.Controls.TextBoxEdit txtEmail;
         private ReaLTaiizor.Controls.TextBoxEdit txtPhone;
+        private System.Windows.Forms.Label label7;
+        private ReaLTaiizor.Controls.CrownComboBox crownComboBox2;
     }
 }

@@ -27,10 +27,43 @@ namespace SmartOrderManagementSystem.Forms.Customer
         }
         private void CustomerDashboard_Load(object sender, EventArgs e)
         {
+            LoadCustomerID();
             LoadCategory();
             LoadProducts(null);
             InitializeCart();
             lblWelcome.Text = $"Welcome, {loginUsername}!";
+        }
+
+        private void LoadCustomerID()
+        {
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+            new SqlParameter("@Username", loginUsername)
+                };
+
+                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(
+                    "SELECT CustomerID FROM Customers WHERE CustomerName = @Username",
+                    parameters
+                );
+
+                if (dt.Rows.Count > 0)
+                {
+                    customerId = Convert.ToInt32(dt.Rows[0]["CustomerID"]);
+                }
+                else
+                {
+                    MessageBox.Show("Customer not found.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load customer: {ex.Message}", "Database Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadCategory()
@@ -276,7 +309,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
             int orderId;
 
-            int userId = 3;
+            int userId = customerId;
             int waitingNumber = new Random().Next(100, 999);
             string notes = txtNote.Text.Trim();
             string qrCodeText = $"QR_ORDER_{waitingNumber}";

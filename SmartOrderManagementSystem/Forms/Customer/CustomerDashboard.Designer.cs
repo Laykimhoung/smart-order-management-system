@@ -63,7 +63,6 @@
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lblWelcome);
@@ -88,7 +87,7 @@
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(731, 14);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(423, 46);
+            this.textBox1.Size = new System.Drawing.Size(423, 39);
             this.textBox1.TabIndex = 2;
             // 
             // label5
@@ -97,7 +96,7 @@
             this.label5.Font = new System.Drawing.Font("Romnea", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(379, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 55);
+            this.label5.Size = new System.Drawing.Size(0, 43);
             this.label5.TabIndex = 0;
             // 
             // label3
@@ -107,7 +106,7 @@
             this.label3.Font = new System.Drawing.Font("Romnea", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(609, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 55);
+            this.label3.Size = new System.Drawing.Size(103, 43);
             this.label3.TabIndex = 0;
             this.label3.Text = "Search:";
             // 
@@ -118,7 +117,7 @@
             this.lblWelcome.Font = new System.Drawing.Font("Romnea", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.Location = new System.Drawing.Point(0, 14);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(334, 55);
+            this.lblWelcome.Size = new System.Drawing.Size(267, 43);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Wellcome,[username]";
             // 
@@ -134,9 +133,9 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(880, 120);
+            this.groupBox1.Location = new System.Drawing.Point(880, 157);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(567, 670);
+            this.groupBox1.Size = new System.Drawing.Size(567, 713);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Current Order:";
@@ -149,14 +148,14 @@
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.RowHeadersWidth = 51;
             this.dgvCart.RowTemplate.Height = 24;
-            this.dgvCart.Size = new System.Drawing.Size(555, 245);
+            this.dgvCart.Size = new System.Drawing.Size(555, 313);
             this.dgvCart.TabIndex = 5;
             // 
             // txtNote
             // 
             this.txtNote.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtNote.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNote.Location = new System.Drawing.Point(138, 364);
+            this.txtNote.Location = new System.Drawing.Point(132, 430);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(410, 141);
@@ -165,10 +164,10 @@
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(374, 301);
+            this.txtTotal.Location = new System.Drawing.Point(368, 367);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(165, 42);
+            this.txtTotal.Size = new System.Drawing.Size(165, 35);
             this.txtTotal.TabIndex = 2;
             // 
             // btnPlaceOrder
@@ -176,7 +175,7 @@
             this.btnPlaceOrder.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnPlaceOrder.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPlaceOrder.BackgroundImage")));
             this.btnPlaceOrder.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlaceOrder.Location = new System.Drawing.Point(183, 572);
+            this.btnPlaceOrder.Location = new System.Drawing.Point(177, 638);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
             this.btnPlaceOrder.Size = new System.Drawing.Size(254, 49);
             this.btnPlaceOrder.TabIndex = 4;
@@ -188,7 +187,7 @@
             // 
             this.btnClearAll.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClearAll.BackgroundImage")));
             this.btnClearAll.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearAll.Location = new System.Drawing.Point(372, 511);
+            this.btnClearAll.Location = new System.Drawing.Point(366, 577);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(145, 55);
             this.btnClearAll.TabIndex = 4;
@@ -201,7 +200,7 @@
             this.btnRemoveItem.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnRemoveItem.BackgroundImage")));
             this.btnRemoveItem.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveItem.ForeColor = System.Drawing.Color.Red;
-            this.btnRemoveItem.Location = new System.Drawing.Point(65, 511);
+            this.btnRemoveItem.Location = new System.Drawing.Point(59, 577);
             this.btnRemoveItem.Name = "btnRemoveItem";
             this.btnRemoveItem.Size = new System.Drawing.Size(146, 55);
             this.btnRemoveItem.TabIndex = 4;
@@ -213,9 +212,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(56, 364);
+            this.label7.Location = new System.Drawing.Point(50, 430);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 41);
+            this.label7.Size = new System.Drawing.Size(64, 34);
             this.label7.TabIndex = 1;
             this.label7.Text = "Note:";
             // 
@@ -223,9 +222,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Location = new System.Drawing.Point(289, 299);
+            this.label6.Location = new System.Drawing.Point(283, 365);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 41);
+            this.label6.Size = new System.Drawing.Size(66, 34);
             this.label6.TabIndex = 1;
             this.label6.Text = "Total:";
             // 
@@ -236,35 +235,35 @@
             this.lblStatus,
             this.lblCartCount,
             this.lblLoggedIn});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 896);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 900);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1459, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1459, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // lblStatus
             // 
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(50, 20);
+            this.lblStatus.Size = new System.Drawing.Size(39, 17);
             this.lblStatus.Text = "Ready";
             // 
             // lblCartCount
             // 
             this.lblCartCount.Name = "lblCartCount";
-            this.lblCartCount.Size = new System.Drawing.Size(105, 20);
+            this.lblCartCount.Size = new System.Drawing.Size(84, 17);
             this.lblCartCount.Text = "Items in cart: 0";
             // 
             // lblLoggedIn
             // 
             this.lblLoggedIn.Name = "lblLoggedIn";
-            this.lblLoggedIn.Size = new System.Drawing.Size(175, 20);
+            this.lblLoggedIn.Size = new System.Drawing.Size(140, 17);
             this.lblLoggedIn.Text = "Logged in as: [username]";
             // 
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.Red;
             this.btnLogOut.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(460, 20);
+            this.btnLogOut.Location = new System.Drawing.Point(1322, 86);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(119, 50);
             this.btnLogOut.TabIndex = 5;
@@ -279,7 +278,7 @@
             this.flpProducts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.flpProducts.Location = new System.Drawing.Point(12, 199);
             this.flpProducts.Name = "flpProducts";
-            this.flpProducts.Size = new System.Drawing.Size(836, 591);
+            this.flpProducts.Size = new System.Drawing.Size(836, 671);
             this.flpProducts.TabIndex = 7;
             // 
             // flpCategories
@@ -301,6 +300,7 @@
             this.ClientSize = new System.Drawing.Size(1459, 922);
             this.Controls.Add(this.flpCategories);
             this.Controls.Add(this.flpProducts);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);

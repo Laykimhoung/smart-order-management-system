@@ -57,8 +57,8 @@
             this.Recent_order_panel = new System.Windows.Forms.Panel();
             this.Recent_order_datagridview = new System.Windows.Forms.DataGridView();
             this.Activity_feed_panel = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.Activity_feed_datagridview = new System.Windows.Forms.DataGridView();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
@@ -293,8 +293,10 @@
             this.Recent_order_panel.Controls.Add(this.label6);
             this.Recent_order_panel.Location = new System.Drawing.Point(24, 240);
             this.Recent_order_panel.Name = "Recent_order_panel";
-            this.Recent_order_panel.Size = new System.Drawing.Size(616, 511);
+            this.Recent_order_panel.Size = new System.Drawing.Size(708, 511);
             this.Recent_order_panel.TabIndex = 6;
+            this.Recent_order_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Recent_order_panel_Paint);
+            this.Recent_order_panel.DoubleClick += new System.EventHandler(this.Recent_order);
             // 
             // Recent_order_datagridview
             // 
@@ -336,7 +338,7 @@
             this.Recent_order_datagridview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Recent_order_datagridview.RowTemplate.Height = 30;
             this.Recent_order_datagridview.RowTemplate.ReadOnly = true;
-            this.Recent_order_datagridview.Size = new System.Drawing.Size(616, 423);
+            this.Recent_order_datagridview.Size = new System.Drawing.Size(708, 423);
             this.Recent_order_datagridview.TabIndex = 5;
             // 
             // Activity_feed_panel
@@ -344,21 +346,11 @@
             this.Activity_feed_panel.BackColor = System.Drawing.Color.White;
             this.Activity_feed_panel.Controls.Add(this.Activity_feed_datagridview);
             this.Activity_feed_panel.Controls.Add(this.label9);
-            this.Activity_feed_panel.Location = new System.Drawing.Point(646, 240);
+            this.Activity_feed_panel.Location = new System.Drawing.Point(738, 240);
             this.Activity_feed_panel.Name = "Activity_feed_panel";
-            this.Activity_feed_panel.Size = new System.Drawing.Size(626, 511);
+            this.Activity_feed_panel.Size = new System.Drawing.Size(534, 511);
             this.Activity_feed_panel.TabIndex = 7;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label9.Location = new System.Drawing.Point(11, 12);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(207, 32);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Activity Feed";
+            this.Activity_feed_panel.DoubleClick += new System.EventHandler(this.Order_log_DoubleClick);
             // 
             // Activity_feed_datagridview
             // 
@@ -400,8 +392,19 @@
             this.Activity_feed_datagridview.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Activity_feed_datagridview.RowTemplate.Height = 30;
             this.Activity_feed_datagridview.RowTemplate.ReadOnly = true;
-            this.Activity_feed_datagridview.Size = new System.Drawing.Size(627, 423);
+            this.Activity_feed_datagridview.Size = new System.Drawing.Size(535, 423);
             this.Activity_feed_datagridview.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.Location = new System.Drawing.Point(11, 12);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(207, 32);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Activity Feed";
             // 
             // StaffHome
             // 

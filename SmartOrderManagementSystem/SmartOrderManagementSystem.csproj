@@ -134,6 +134,24 @@
     <Compile Include="Forms\Customer\OrderDetailsForm.Designer.cs">
       <DependentUpon>OrderDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Login\AdminLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login\AdminLoginForm.Designer.cs">
+      <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login\Customer Login Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login\Customer Login Form.Designer.cs">
+      <DependentUpon>Customer Login Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login\LoginChoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login\LoginChoiceForm.Designer.cs">
+      <DependentUpon>LoginChoiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +243,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customer\OrderDetailsForm.resx">
       <DependentUpon>OrderDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login\AdminLoginForm.resx">
+      <DependentUpon>AdminLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login\Customer Login Form.resx">
+      <DependentUpon>Customer Login Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login\LoginChoiceForm.resx">
+      <DependentUpon>LoginChoiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

@@ -248,6 +248,35 @@ namespace SmartOrderManagementSystem.Forms.Customer
             UpdateCartTotal();
         }
 
+        private int GetNextWaitingNumber()
+        {
+            try
+            {
+                DataTable dt = DatabaseConnection.ExecuteQuery(@"
+            SELECT ISNULL(MAX(WaitingNumber), 0) + 1 
+            FROM Orders 
+            WHERE CAST(OrderDate AS DATE) = CAST(GETDATE() AS DATE)
+        ");
+
+                int nextNumber = Convert.ToInt32(dt.Rows[0][0]);
+
+                if (nextNumber > 999)
+                {
+                    MessageBox.Show("Maximum orders for today has been reached (999).",
+                        "Limit Reached", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return -1; // Signal that limit is reached
+                }
+
+                return nextNumber;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to generate waiting number: {ex.Message}",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+        }
+
         private void BtnRemove_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -310,15 +339,16 @@ namespace SmartOrderManagementSystem.Forms.Customer
             int orderId;
 
             int userId = customerId;
-            int waitingNumber = new Random().Next(100, 999);
+            int waitingNumber = GetNextWaitingNumber();
             string notes = txtNote.Text.Trim();
             string qrCodeText = $"QR_ORDER_{waitingNumber}";
+            
 
             string insertOrderQuery = @"INSERT INTO Orders (WaitingNumber, CustomerID, UserID, TotalAmount, QRCodeText, Notes) 
                                         VALUES (@WaitingNumber, @CustomerID, @UserID, @TotalAmount, @QRCodeText, @Notes);
                                         SELECT SCOPE_IDENTITY();";
 
-
+            if (waitingNumber == -1) return;
             try
             {
                 using (SqlConnection conn = DatabaseConnection.GetConnection())

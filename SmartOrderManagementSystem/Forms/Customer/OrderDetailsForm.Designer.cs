@@ -41,6 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvItemOrder = new System.Windows.Forms.DataGridView();
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnGeneratePDF = new System.Windows.Forms.Button();
@@ -54,14 +55,13 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.picQRCode = new System.Windows.Forms.PictureBox();
-            this.dgvItemOrder = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemOrder)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picQRCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItemOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -92,7 +92,7 @@
             this.txtStatus.Location = new System.Drawing.Point(432, 64);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.ReadOnly = true;
-            this.txtStatus.Size = new System.Drawing.Size(191, 29);
+            this.txtStatus.Size = new System.Drawing.Size(191, 34);
             this.txtStatus.TabIndex = 1;
             // 
             // txtOrderID
@@ -102,7 +102,7 @@
             this.txtOrderID.Location = new System.Drawing.Point(155, 61);
             this.txtOrderID.Name = "txtOrderID";
             this.txtOrderID.ReadOnly = true;
-            this.txtOrderID.Size = new System.Drawing.Size(191, 29);
+            this.txtOrderID.Size = new System.Drawing.Size(191, 34);
             this.txtOrderID.TabIndex = 1;
             // 
             // txtOrderDate
@@ -112,7 +112,7 @@
             this.txtOrderDate.Location = new System.Drawing.Point(155, 174);
             this.txtOrderDate.Name = "txtOrderDate";
             this.txtOrderDate.ReadOnly = true;
-            this.txtOrderDate.Size = new System.Drawing.Size(468, 29);
+            this.txtOrderDate.Size = new System.Drawing.Size(468, 34);
             this.txtOrderDate.TabIndex = 1;
             // 
             // txtNote
@@ -120,9 +120,10 @@
             this.txtNote.BackColor = System.Drawing.SystemColors.Info;
             this.txtNote.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNote.Location = new System.Drawing.Point(155, 228);
+            this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
             this.txtNote.ReadOnly = true;
-            this.txtNote.Size = new System.Drawing.Size(468, 29);
+            this.txtNote.Size = new System.Drawing.Size(468, 64);
             this.txtNote.TabIndex = 1;
             // 
             // txtCustomer
@@ -132,7 +133,7 @@
             this.txtCustomer.Location = new System.Drawing.Point(155, 118);
             this.txtCustomer.Name = "txtCustomer";
             this.txtCustomer.ReadOnly = true;
-            this.txtCustomer.Size = new System.Drawing.Size(468, 29);
+            this.txtCustomer.Size = new System.Drawing.Size(468, 34);
             this.txtCustomer.TabIndex = 1;
             // 
             // label4
@@ -142,7 +143,7 @@
             this.label4.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(21, 236);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 21);
+            this.label4.Size = new System.Drawing.Size(64, 26);
             this.label4.TabIndex = 0;
             this.label4.Text = "Note:";
             // 
@@ -153,7 +154,7 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(21, 174);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 21);
+            this.label3.Size = new System.Drawing.Size(128, 26);
             this.label3.TabIndex = 0;
             this.label3.Text = "Order Date:";
             // 
@@ -164,7 +165,7 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(21, 118);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 21);
+            this.label2.Size = new System.Drawing.Size(111, 26);
             this.label2.TabIndex = 0;
             this.label2.Text = "Customer:";
             // 
@@ -175,7 +176,7 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(352, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 21);
+            this.label5.Size = new System.Drawing.Size(79, 26);
             this.label5.TabIndex = 0;
             this.label5.Text = "Status:";
             // 
@@ -186,7 +187,7 @@
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(21, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.Size = new System.Drawing.Size(101, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "OrderID:";
             // 
@@ -204,6 +205,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Items Ordered";
             // 
+            // dgvItemOrder
+            // 
+            this.dgvItemOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItemOrder.Location = new System.Drawing.Point(25, 38);
+            this.dgvItemOrder.Name = "dgvItemOrder";
+            this.dgvItemOrder.RowHeadersWidth = 51;
+            this.dgvItemOrder.RowTemplate.Height = 24;
+            this.dgvItemOrder.Size = new System.Drawing.Size(584, 165);
+            this.dgvItemOrder.TabIndex = 2;
+            // 
             // txtTotalAmount
             // 
             this.txtTotalAmount.BackColor = System.Drawing.SystemColors.Info;
@@ -211,7 +222,7 @@
             this.txtTotalAmount.Location = new System.Drawing.Point(384, 208);
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(210, 32);
+            this.txtTotalAmount.Size = new System.Drawing.Size(210, 39);
             this.txtTotalAmount.TabIndex = 1;
             // 
             // label6
@@ -222,7 +233,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(209, 208);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(141, 34);
+            this.label6.Size = new System.Drawing.Size(169, 41);
             this.label6.TabIndex = 0;
             this.label6.Text = "Total Amount:";
             // 
@@ -285,7 +296,7 @@
             this.lblDate.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.Location = new System.Drawing.Point(227, 137);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(47, 21);
+            this.lblDate.Size = new System.Drawing.Size(58, 26);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "Date";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -296,7 +307,7 @@
             this.txtWaitingNumber.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWaitingNumber.Location = new System.Drawing.Point(194, 53);
             this.txtWaitingNumber.Name = "txtWaitingNumber";
-            this.txtWaitingNumber.Size = new System.Drawing.Size(96, 55);
+            this.txtWaitingNumber.Size = new System.Drawing.Size(119, 68);
             this.txtWaitingNumber.TabIndex = 0;
             this.txtWaitingNumber.Text = "000";
             // 
@@ -306,7 +317,7 @@
             this.label8.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(152, 14);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(171, 21);
+            this.label8.Size = new System.Drawing.Size(209, 26);
             this.label8.TabIndex = 0;
             this.label8.Text = "Your waiting number";
             // 
@@ -330,7 +341,7 @@
             this.label9.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(168, 390);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(137, 34);
+            this.label9.Size = new System.Drawing.Size(165, 41);
             this.label9.TabIndex = 1;
             this.label9.Text = "Scan to verify";
             // 
@@ -344,15 +355,6 @@
             this.picQRCode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picQRCode.TabIndex = 0;
             this.picQRCode.TabStop = false;
-            // 
-            // dgvItemOrder
-            // 
-            this.dgvItemOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItemOrder.Location = new System.Drawing.Point(25, 38);
-            this.dgvItemOrder.Name = "dgvItemOrder";
-            this.dgvItemOrder.RowTemplate.Height = 24;
-            this.dgvItemOrder.Size = new System.Drawing.Size(584, 165);
-            this.dgvItemOrder.TabIndex = 2;
             // 
             // OrderDetailsForm
             // 
@@ -375,13 +377,13 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItemOrder)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picQRCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItemOrder)).EndInit();
             this.ResumeLayout(false);
 
         }

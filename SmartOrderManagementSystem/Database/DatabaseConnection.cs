@@ -11,7 +11,7 @@ namespace SmartOrderManagementSystem.Database
     public static class DatabaseConnection
     {
         private static readonly string connectionString =
-          @"Server=PROTECT-ME;Database=SmartOrderDB;User Id=sa;Password=sa;TrustServerCertificate=True;";
+          @"Server=PROTECT-ME;Database=SmartOrderDb;User Id=sa;Password=sa;TrustServerCertificate=True;";
 
 
 

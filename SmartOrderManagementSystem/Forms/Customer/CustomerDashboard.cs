@@ -310,7 +310,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 total += Convert.ToDecimal(row["Subtotal"]);
             }
 
-            txtTotal.Text = $"Total: ${total:F2}";
+            txtTotal.Text = $"${total:F2}";
         }
 
         private void btnAddToOrder_Click(object sender, EventArgs e)

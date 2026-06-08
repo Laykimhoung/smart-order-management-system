@@ -44,8 +44,7 @@
             this.dgvItemOrder = new System.Windows.Forms.DataGridView();
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnGeneratePDF = new System.Windows.Forms.Button();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnGetInvoice = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -237,30 +236,21 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Total Amount:";
             // 
-            // btnGeneratePDF
+            // btnGetInvoice
             // 
-            this.btnGeneratePDF.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGeneratePDF.Location = new System.Drawing.Point(38, 645);
-            this.btnGeneratePDF.Name = "btnGeneratePDF";
-            this.btnGeneratePDF.Size = new System.Drawing.Size(123, 55);
-            this.btnGeneratePDF.TabIndex = 1;
-            this.btnGeneratePDF.Text = "Invoice";
-            this.btnGeneratePDF.UseVisualStyleBackColor = true;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(206, 645);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(123, 55);
-            this.btnPrint.TabIndex = 1;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnGetInvoice.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetInvoice.Location = new System.Drawing.Point(177, 645);
+            this.btnGetInvoice.Name = "btnGetInvoice";
+            this.btnGetInvoice.Size = new System.Drawing.Size(123, 55);
+            this.btnGetInvoice.TabIndex = 1;
+            this.btnGetInvoice.Text = "Invoice";
+            this.btnGetInvoice.UseVisualStyleBackColor = true;
+            this.btnGetInvoice.Click += new System.EventHandler(this.btnGetInvoice_Click);
             // 
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(385, 645);
+            this.btnBack.Location = new System.Drawing.Point(379, 645);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(123, 55);
             this.btnBack.TabIndex = 1;
@@ -366,8 +356,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnPrint);
-            this.Controls.Add(this.btnGeneratePDF);
+            this.Controls.Add(this.btnGetInvoice);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "OrderDetailsForm";
@@ -405,8 +394,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtTotalAmount;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnGeneratePDF;
-        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnGetInvoice;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblDate;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SmartOrderManagementSystem.Database;
 
 namespace SmartOrderManagementSystem.Forms.Admin
 {
@@ -15,6 +16,166 @@ namespace SmartOrderManagementSystem.Forms.Admin
         public AdminHomeForm()
         {
             InitializeComponent();
+        }
+
+        private void AdminHomeForm_Load(object sender, EventArgs e)
+        {
+            LoadDashboardStatistics();
+            LoadRecentOrders();
+            LoadTodaySummary();
+            StyleRecentOrdersGrid();
+        }
+
+        private void LoadDashboardStatistics()
+        {
+            try
+            {
+                // Total Orders
+                DataTable dtOrders = DatabaseConnection.ExecuteQuery(
+                    "SELECT COUNT(*) AS TotalOrders FROM Orders");
+
+                lblTotalOrders.Text =
+                    dtOrders.Rows[0]["TotalOrders"].ToString();
+
+
+                // Total Customers
+                DataTable dtCustomers = DatabaseConnection.ExecuteQuery(
+                    "SELECT COUNT(*) AS TotalCustomers FROM Customers");
+
+                lblTotalCustomers.Text =
+                    dtCustomers.Rows[0]["TotalCustomers"].ToString();
+
+
+                // Total Staff
+                DataTable dtStaff = DatabaseConnection.ExecuteQuery(
+                    @"SELECT COUNT(*) AS TotalStaff
+                      FROM Users U
+                      INNER JOIN Roles R ON U.RoleID = R.RoleID
+                      WHERE R.RoleName = 'Staff'");
+
+                lblTotalStaff.Text =
+                    dtStaff.Rows[0]["TotalStaff"].ToString();
+
+
+                // Today's Revenue
+                DataTable dtRevenue = DatabaseConnection.ExecuteQuery(
+                    @"SELECT ISNULL(SUM(TotalAmount), 0) AS Revenue
+                      FROM Orders
+                      WHERE CAST(OrderDate AS DATE) = CAST(GETDATE() AS DATE)");
+
+                lblRevenue.Text =
+                    "$" + Convert.ToDecimal(
+                    dtRevenue.Rows[0]["Revenue"]).ToString("N2");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error loading dashboard statistics.\n\n" + ex.Message,
+                    "Dashboard Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadRecentOrders()
+        {
+            try
+            {
+                string query = @"
+        SELECT TOP 10
+            O.OrderID AS [Order ID],
+            C.CustomerName AS [Customer Name],
+            U.FullName AS [Staff Name],
+            O.TotalAmount AS [Total Price],
+            O.OrderDate AS [Time]
+        FROM Orders O
+        INNER JOIN Customers C
+            ON O.CustomerID = C.CustomerID
+        INNER JOIN Users U
+            ON O.UserID = U.UserID
+        ORDER BY O.OrderDate DESC";
+
+                dgvRecentOrder.DataSource =
+                    DatabaseConnection.ExecuteQuery(query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void StyleRecentOrdersGrid()
+        {
+            dgvRecentOrder.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvRecentOrder.RowHeadersVisible = false;
+
+            dgvRecentOrder.RowTemplate.Height = 40;
+
+            dgvRecentOrder.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10);
+
+            dgvRecentOrder.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 11, FontStyle.Bold);
+
+            dgvRecentOrder.EnableHeadersVisualStyles = false;
+
+            dgvRecentOrder.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.DarkRed;
+
+            dgvRecentOrder.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvRecentOrder.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
+        }
+
+        private void LoadTodaySummary()
+        {
+            try
+            {
+                // Today's Orders
+                DataTable dtOrders = DatabaseConnection.ExecuteQuery(
+                    @"SELECT COUNT(*) AS TodayOrders
+              FROM Orders
+              WHERE CAST(OrderDate AS DATE)
+              = CAST(GETDATE() AS DATE)");
+
+                lblTodayOrder.Text =
+                    "Today's Orders: " +
+                    dtOrders.Rows[0]["TodayOrders"].ToString();
+
+
+                // Today's Revenue
+                DataTable dtRevenue = DatabaseConnection.ExecuteQuery(
+                    @"SELECT ISNULL(SUM(TotalAmount),0) AS TodayRevenue
+              FROM Orders
+              WHERE CAST(OrderDate AS DATE)
+              = CAST(GETDATE() AS DATE)");
+
+                lblTodayRevenue.Text =
+                    "Today's Revenue: $" +
+                    Convert.ToDecimal(
+                        dtRevenue.Rows[0]["TodayRevenue"])
+                        .ToString("N2");
+
+
+                // Customers Today
+                DataTable dtCustomers = DatabaseConnection.ExecuteQuery(
+                    @"SELECT COUNT(DISTINCT CustomerID)
+              AS CustomersToday
+              FROM Orders
+              WHERE CAST(OrderDate AS DATE)
+              = CAST(GETDATE() AS DATE)");
+
+                lblCustomerToday.Text =
+                    "Customers Today: " +
+                    dtCustomers.Rows[0]["CustomersToday"].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

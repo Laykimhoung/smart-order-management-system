@@ -132,5 +132,14 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 MessageBox.Show($"Error generating visual QR Code matrix: {ex.Message}", "QR Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnGetInvoice_Click(object sender, EventArgs e)
+        {
+            if (_orderId <= 0)
+            {
+                MessageBox.Show("No valid order is currently loaded to generate an invoice.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
     }
 }

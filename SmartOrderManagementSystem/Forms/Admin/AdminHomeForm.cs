@@ -23,6 +23,7 @@ namespace SmartOrderManagementSystem.Forms.Admin
             LoadDashboardStatistics();
             LoadRecentOrders();
             LoadTodaySummary();
+            StyleRecentOrdersGrid();
         }
 
         private void LoadDashboardStatistics()
@@ -101,6 +102,32 @@ namespace SmartOrderManagementSystem.Forms.Admin
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void StyleRecentOrdersGrid()
+        {
+            dgvRecentOrder.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvRecentOrder.RowHeadersVisible = false;
+
+            dgvRecentOrder.RowTemplate.Height = 40;
+
+            dgvRecentOrder.DefaultCellStyle.Font =
+                new Font("Segoe UI", 10);
+
+            dgvRecentOrder.ColumnHeadersDefaultCellStyle.Font =
+                new Font("Segoe UI", 11, FontStyle.Bold);
+
+            dgvRecentOrder.EnableHeadersVisualStyles = false;
+
+            dgvRecentOrder.ColumnHeadersDefaultCellStyle.BackColor =
+                Color.DarkRed;
+
+            dgvRecentOrder.ColumnHeadersDefaultCellStyle.ForeColor =
+                Color.White;
+
+            dgvRecentOrder.ColumnHeadersDefaultCellStyle.Alignment =
+                DataGridViewContentAlignment.MiddleCenter;
         }
 
         private void LoadTodaySummary()

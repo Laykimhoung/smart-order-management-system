@@ -215,18 +215,18 @@ namespace SmartOrderManagementSystem.Forms.Customer
             Button btn = (Button)sender;
             int productId = (int)btn.Tag;
 
-            // Check if product is already in our cart
+            
             DataRow[] existingRows = cartTable.Select($"ProductID = {productId}");
 
             if (existingRows.Length > 0)
             {
-                // Increment the quantity
+                
                 int currentQty = Convert.ToInt32(existingRows[0]["Quantity"]);
                 existingRows[0]["Quantity"] = currentQty + 1;
             }
             else
             {
-                // Retrieve product details from database to add as a new row
+                
                 try
                 {
                     DataTable itemDetails = DatabaseConnection.ExecuteQuery($"SELECT ProductName, Price FROM Products WHERE ProductID = {productId}");

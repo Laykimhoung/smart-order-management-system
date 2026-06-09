@@ -15,6 +15,7 @@ namespace SmartOrderManagementSystem.Database
         @"Server=PROTECT-ME;Database=SmartOrderDB;User Id=sa;Password=sa;TrustServerCertificate=True;";
 
 
+
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);

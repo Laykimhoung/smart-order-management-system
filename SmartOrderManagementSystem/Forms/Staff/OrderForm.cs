@@ -34,11 +34,11 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void Load_Order()
         {
-            string query = @"SELECT o.OrderID, o.OrderDate,c.CustomerName,o.WaitingNumber, o.QRCodeText, o.Notes,STRING_AGG(p.ProductName, ', ') AS Products, SUM(p.Price) AS TotalPrice FROM Orders o
+            string query = @"SELECT o.OrderID, o.OrderDate,c.CustomerName,o.WaitingNumber,o.OrderStatus, o.Notes,STRING_AGG(p.ProductName, ', ') AS Products, SUM(p.Price) AS TotalPrice FROM Orders o
                                 LEFT JOIN OrderItems oi ON o.OrderID = oi.OrderID
                                 LEFT JOIN Products p ON oi.ProductID = p.ProductID
                                 LEFT JOIN Customers c ON o.CustomerID = c.CustomerID
-                                GROUP BY o.OrderID,o.OrderDate, o.WaitingNumber,o.QRCodeText,o.Notes,c.CustomerName
+                                GROUP BY o.OrderID,o.OrderDate, o.WaitingNumber,o.Notes,c.CustomerName,o.OrderStatus
                                 ORDER BY o.OrderDate DESC";
             try
             {
@@ -51,7 +51,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
                 Order_datagridview.Columns["OrderID"].HeaderText = "ID";
                 Order_datagridview.Columns["OrderDate"].HeaderText = "Date";
                 Order_datagridview.Columns["WaitingNumber"].HeaderText = "Waiting Number";
-                Order_datagridview.Columns["QRCodeText"].HeaderText = "QR Code";
+                Order_datagridview.Columns["OrderStatus"].HeaderText = "Status";
                 Order_datagridview.Columns["Notes"].HeaderText = "Notes";
                 Order_datagridview.Columns["Products"].HeaderText = "Products";
                 Order_datagridview.Columns["CustomerName"].HeaderText = "Customer Name";
@@ -96,12 +96,12 @@ namespace SmartOrderManagementSystem.Forms.Staff
         // Filter the data
         private void filter_btn_Click(object sender, EventArgs e)
         {
-            string query = @"SELECT o.OrderID, o.OrderDate,c.CustomerName,o.WaitingNumber, o.QRCodeText, o.Notes,STRING_AGG(p.ProductName, ', ') AS Products, SUM(p.Price) AS TotalPrice FROM Orders o
+            string query = @"SELECT o.OrderID, o.OrderDate,c.CustomerName,o.WaitingNumber, o.OrderStatus, o.Notes,STRING_AGG(p.ProductName, ', ') AS Products, SUM(p.Price) AS TotalPrice FROM Orders o
                                 LEFT JOIN OrderItems oi ON o.OrderID = oi.OrderID
                                 LEFT JOIN Products p ON oi.ProductID = p.ProductID
                                 LEFT JOIN Customers c ON o.CustomerID = c.CustomerID
                                 WHERE o.OrderDate BETWEEN @FromDate AND  @ToDate
-                                GROUP BY o.OrderID,o.OrderDate, o.WaitingNumber,o.QRCodeText,o.Notes,c.CustomerName
+                                GROUP BY o.OrderID,o.OrderDate, o.WaitingNumber,o.OrderStatus,o.Notes,c.CustomerName
                                 ORDER BY o.OrderDate DESC";
             try
             {

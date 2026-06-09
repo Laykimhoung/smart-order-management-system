@@ -30,11 +30,11 @@ namespace SmartOrderManagementSystem.Forms.Staff
         // create laod_recent idea for call to display in home staff dashboard
         private void Load_recentorder()
         {
-            string query = @"SELECT o.OrderID, c.CustomerName, o.WaitingNumber, o.OrderDate FROM Orders o
+            string query = @"SELECT o.OrderID, c.CustomerName, o.WaitingNumber,o.OrderStatus FROM Orders o
                              LEFT JOIN OrderItems oi ON o.OrderID = oi.OrderID
                              LEFT JOIN Customers c ON o.CustomerID = c.CustomerID
-                             GROUP BY o.OrderID, c.CustomerName,o.WaitingNumber,o.OrderDate,o.CustomerID
-                             ORDER BY o.OrderDate DESC";
+                             GROUP BY o.OrderID, c.CustomerName,o.WaitingNumber,o.CustomerID,o.OrderStatus
+                             ";
             try
             {
                 DataTable dt = DatabaseConnection.ExecuteQuery(query);
@@ -44,7 +44,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
                 Recent_order_datagridview.Columns["OrderID"].HeaderText = "ID";
                 Recent_order_datagridview.Columns["CustomerName"].HeaderText = "Customer Name";
                 Recent_order_datagridview.Columns["WaitingNumber"].HeaderText = "Waiting Number";
-                Recent_order_datagridview.Columns["OrderDate"].HeaderText = "Date";
+                Recent_order_datagridview.Columns["OrderStatus"].HeaderText = "Order Status";
 
                 // Resize each column to fit the content
                 Recent_order_datagridview.Columns["OrderID"].Width = 60;

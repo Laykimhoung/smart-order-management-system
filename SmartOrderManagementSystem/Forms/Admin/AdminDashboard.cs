@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SmartOrderManagementSystem.Database;
 
 namespace SmartOrderManagementSystem.Forms.Admin
 {
@@ -22,18 +23,7 @@ namespace SmartOrderManagementSystem.Forms.Admin
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-            try
-            {
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    conn.Open();
-                    MessageBox.Show("Connected!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+           
         }
         private Form activeForm = null;
 

@@ -140,6 +140,70 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 MessageBox.Show("No valid order is currently loaded to generate an invoice.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+
+            if (UpdateOrderStatusToComplete(_orderId))
+            {
+
+                txtStatus.Text = "Complete";
+            }
+            else
+            {
+
+                return;
+            }
+
+
+            string cleanAmount = txtTotalAmount.Text.Replace("$", "").Replace("£", "").Replace("€", "").Trim();
+            if (!decimal.TryParse(cleanAmount, out decimal totalAmount))
+            {
+                MessageBox.Show("Invalid total amount format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            InvoiceForm invoiceForm = new InvoiceForm(_orderId, txtCustomer.Text, totalAmount);
+            invoiceForm.Show();
+            //this.Hide();
+        }
+
+        private bool UpdateOrderStatusToComplete(int orderId)
+        {
+
+            string updateQuery = "UPDATE Orders SET OrderStatue = 'Complete' WHERE OrderID = @OrderID;";
+            string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, 'Order Completed', 'Order Details Form');";
+
+            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+
+                        using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn, transaction))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@OrderID", orderId);
+                            cmdUpdate.ExecuteNonQuery();
+                        }
+
+
+                        using (SqlCommand cmdLog = new SqlCommand(logQuery, conn, transaction))
+                        {
+                            cmdLog.Parameters.AddWithValue("@OrderID", orderId);
+                            cmdLog.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to update order status: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
         }
     }
 }

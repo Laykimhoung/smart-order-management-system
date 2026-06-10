@@ -33,9 +33,9 @@
             this.panelLogin = new System.Windows.Forms.Panel();
             this.pnlCard = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPass = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,9 +79,9 @@
             // 
             this.pnlCard.BackColor = System.Drawing.Color.White;
             this.pnlCard.Controls.Add(this.pictureBox2);
-            this.pnlCard.Controls.Add(this.btnExit);
+            this.pnlCard.Controls.Add(this.btnBack);
             this.pnlCard.Controls.Add(this.btnLogin);
-            this.pnlCard.Controls.Add(this.textBox1);
+            this.pnlCard.Controls.Add(this.txtPass);
             this.pnlCard.Controls.Add(this.txtPassword);
             this.pnlCard.Controls.Add(this.txtUsername);
             this.pnlCard.Controls.Add(this.label4);
@@ -103,19 +103,20 @@
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
             // 
-            // btnExit
+            // btnBack
             // 
-            this.btnExit.BackColor = System.Drawing.Color.White;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.Black;
-            this.btnExit.Location = new System.Drawing.Point(121, 620);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(427, 55);
-            this.btnExit.TabIndex = 19;
-            this.btnExit.Text = "BACK";
-            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnBack.BackColor = System.Drawing.Color.White;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.Location = new System.Drawing.Point(121, 620);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(427, 55);
+            this.btnBack.TabIndex = 19;
+            this.btnBack.Text = "BACK";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnLogin
             // 
@@ -131,16 +132,16 @@
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtPass
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(121, 433);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(425, 34);
-            this.textBox1.TabIndex = 17;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.txtPass.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Location = new System.Drawing.Point(121, 433);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(425, 34);
+            this.txtPass.TabIndex = 17;
+            this.txtPass.UseSystemPasswordChar = true;
             // 
             // txtPassword
             // 
@@ -271,9 +272,9 @@
         private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.Panel pnlCard;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label4;

@@ -49,7 +49,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblDate = new System.Windows.Forms.Label();
-            this.lblWaitingNumber = new System.Windows.Forms.Label();
+            this.txtWaitingNumber = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -239,11 +239,11 @@
             // btnGetInvoice
             // 
             this.btnGetInvoice.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetInvoice.Location = new System.Drawing.Point(156, 645);
+            this.btnGetInvoice.Location = new System.Drawing.Point(177, 645);
             this.btnGetInvoice.Name = "btnGetInvoice";
-            this.btnGetInvoice.Size = new System.Drawing.Size(144, 55);
+            this.btnGetInvoice.Size = new System.Drawing.Size(123, 55);
             this.btnGetInvoice.TabIndex = 1;
-            this.btnGetInvoice.Text = "Finish Order";
+            this.btnGetInvoice.Text = "Invoice";
             this.btnGetInvoice.UseVisualStyleBackColor = true;
             this.btnGetInvoice.Click += new System.EventHandler(this.btnGetInvoice_Click);
             // 
@@ -254,7 +254,7 @@
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(123, 55);
             this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "Cancel";
+            this.btnBack.Text = "Exit";
             this.btnBack.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -273,7 +273,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Controls.Add(this.lblDate);
-            this.panel1.Controls.Add(this.lblWaitingNumber);
+            this.panel1.Controls.Add(this.txtWaitingNumber);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Location = new System.Drawing.Point(40, 40);
             this.panel1.Name = "panel1";
@@ -284,22 +284,22 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(147, 137);
+            this.lblDate.Location = new System.Drawing.Point(227, 137);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(58, 26);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "Date";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblWaitingNumber
+            // txtWaitingNumber
             // 
-            this.lblWaitingNumber.AutoSize = true;
-            this.lblWaitingNumber.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWaitingNumber.Location = new System.Drawing.Point(227, 54);
-            this.lblWaitingNumber.Name = "lblWaitingNumber";
-            this.lblWaitingNumber.Size = new System.Drawing.Size(119, 68);
-            this.lblWaitingNumber.TabIndex = 0;
-            this.lblWaitingNumber.Text = "000";
+            this.txtWaitingNumber.AutoSize = true;
+            this.txtWaitingNumber.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWaitingNumber.Location = new System.Drawing.Point(194, 53);
+            this.txtWaitingNumber.Name = "txtWaitingNumber";
+            this.txtWaitingNumber.Size = new System.Drawing.Size(119, 68);
+            this.txtWaitingNumber.TabIndex = 0;
+            this.txtWaitingNumber.Text = "000";
             // 
             // label8
             // 
@@ -398,7 +398,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lblWaitingNumber;
+        private System.Windows.Forms.Label txtWaitingNumber;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Panel panel1;

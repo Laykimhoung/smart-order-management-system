@@ -31,8 +31,6 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlFooter = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnFinishOrder = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtInvoiceID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,6 +42,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.dgvInvoiceItems = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnFinishOrder = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.pnlFooter.SuspendLayout();
@@ -81,27 +81,6 @@
             this.pnlFooter.Name = "pnlFooter";
             this.pnlFooter.Size = new System.Drawing.Size(603, 75);
             this.pnlFooter.TabIndex = 1;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(376, 17);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(142, 49);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnFinishOrder
-            // 
-            this.btnFinishOrder.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinishOrder.Location = new System.Drawing.Point(67, 17);
-            this.btnFinishOrder.Name = "btnFinishOrder";
-            this.btnFinishOrder.Size = new System.Drawing.Size(142, 49);
-            this.btnFinishOrder.TabIndex = 0;
-            this.btnFinishOrder.Text = "Finish Order";
-            this.btnFinishOrder.UseVisualStyleBackColor = true;
-            this.btnFinishOrder.Click += new System.EventHandler(this.btnFinishOrder_Click);
             // 
             // label2
             // 
@@ -208,6 +187,26 @@
             this.label7.Size = new System.Drawing.Size(69, 36);
             this.label7.TabIndex = 2;
             this.label7.Text = "Total:";
+            // 
+            // btnFinishOrder
+            // 
+            this.btnFinishOrder.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFinishOrder.Location = new System.Drawing.Point(67, 17);
+            this.btnFinishOrder.Name = "btnFinishOrder";
+            this.btnFinishOrder.Size = new System.Drawing.Size(142, 49);
+            this.btnFinishOrder.TabIndex = 0;
+            this.btnFinishOrder.Text = "Finish Order";
+            this.btnFinishOrder.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(376, 17);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(142, 49);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // label5
             // 

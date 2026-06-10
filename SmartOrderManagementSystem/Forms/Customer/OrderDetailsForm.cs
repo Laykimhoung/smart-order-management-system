@@ -79,14 +79,15 @@ namespace SmartOrderManagementSystem.Forms.Customer
                     DataRow row = header.Rows[0];
                     txtOrderID.Text = row["OrderID"].ToString();
                     txtCustomer.Text = row["CustomerName"].ToString();
-                    txtWaitingNumber.Text = row["WaitingNumber"].ToString();
+                    lblWaitingNumber.Text = row["WaitingNumber"].ToString();
                     txtOrderDate.Text = Convert.ToDateTime(row["OrderDate"]).ToString("g");
                     txtTotalAmount.Text = Convert.ToDecimal(row["TotalAmount"]).ToString("C");
                     txtNote.Text = row["Notes"].ToString();
                     txtTotalAmount.Text = Convert.ToDecimal(row["TotalAmount"]).ToString("C");
                     txtStatus.Text = "Pending";
                     txtOrderDate.Text = Convert.ToDateTime(row["OrderDate"]).ToString("g");
-                 
+                    lblDate.Text = DateTime.Now.ToString("g");
+
                 }
                 SqlParameter[] itemParams = new SqlParameter[] { new SqlParameter("@OrderID", _orderId) };
                 DataTable itemsTable = DatabaseConnection.ExecuteQueryWithParams(ItemsQuery, itemParams);
@@ -94,7 +95,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 dgvItemOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvItemOrder.AllowUserToAddRows = false;
 
-                string QRText = $"ID:{txtOrderID.Text}|TICKET:{txtWaitingNumber.Text}|TOTAL:${txtTotalAmount.Text:F2}";
+                string QRText = $"OrderID:{txtOrderID.Text}\nYour Waiting Number: {lblWaitingNumber.Text}\nCustomer: {txtCustomer.Text}\nTOTAL: {txtTotalAmount.Text:F2}\nSTATUS: Completed";
                 GenerateQR(QRText);
             }
             catch (Exception ex)
@@ -139,6 +140,69 @@ namespace SmartOrderManagementSystem.Forms.Customer
             {
                 MessageBox.Show("No valid order is currently loaded to generate an invoice.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            
+            if (UpdateOrderStatusToComplete(_orderId))
+            {
+                
+                txtStatus.Text = "Complete";
+            }
+            else
+            {
+                
+                return;
+            }
+
+            
+            string cleanAmount = txtTotalAmount.Text.Replace("$", "").Replace("£", "").Replace("€", "").Trim();
+            if (!decimal.TryParse(cleanAmount, out decimal totalAmount))
+            {
+                MessageBox.Show("Invalid total amount format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+            InvoiceForm invoiceForm = new InvoiceForm(_orderId, txtCustomer.Text, totalAmount);
+            invoiceForm.Show();
+            //this.Hide();
+        }
+        private bool UpdateOrderStatusToComplete(int orderId)
+        {
+           
+            string updateQuery = "UPDATE Orders SET OrderStatue = 'Complete' WHERE OrderID = @OrderID;";
+            string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, 'Order Completed', 'Order Details Form');";
+
+            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                       
+                        using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn, transaction))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@OrderID", orderId);
+                            cmdUpdate.ExecuteNonQuery();
+                        }
+
+                        
+                        using (SqlCommand cmdLog = new SqlCommand(logQuery, conn, transaction))
+                        {
+                            cmdLog.Parameters.AddWithValue("@OrderID", orderId);
+                            cmdLog.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        return true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to update order status: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             }
         }
     }

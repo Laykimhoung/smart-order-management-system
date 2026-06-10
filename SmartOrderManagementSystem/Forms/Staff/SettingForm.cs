@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,14 @@ namespace SmartOrderManagementSystem.Forms.Staff
 {
     public partial class SettingForm : Form
     {
-        public SettingForm()
+
+        private int user_ID;
+
+        // Constructure recieve userID from StaffDashboard to load the staff information in the setting form
+        public SettingForm(int UserID)
         {
             InitializeComponent();
+            user_ID = UserID;
            
         }
 
@@ -33,20 +39,25 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         // Load the staff information into the setting form
         // Declare the constructure of the query to get the staff information from the database
-        private int Staff_id;
+        //private int Staff_id;
 
-        public void Profile_Form(int StaffID)
-        {
-            InitializeComponent();
-            Staff_id = StaffID;
-        }
+        //public void Profile_Form(int StaffID)
+        //{
+        //    InitializeComponent();
+        //    Staff_id = StaffID;
+        //}
         private void Load_user_staffinfo()
         {
-            string query = @"SELECT UserID,Username,Fullname,Email,Phone,RoleID " + "FROM Users WHERE UserID = " + Staff_id;
-                            //LEFT JOIN (SELECT UserID FROM Users WHERE )Roles r ON u.RoleID = r.RoleID GROUP BY u.UserID,u.Username,u.Fullname,u.Email,u.PhoneNumber,r.RoleID";
+            string query = @"SELECT u.UserID,u.Username,u.FullName,u.Email,u.Phone,r.RoleName,u.Sex
+                                FROM Users u
+                                LEFT JOIN Roles r ON u.RoleID = r.RoleID WHERE u.UserID = @UserID";
             try
             {
-                DataTable dt = DatabaseConnection.ExecuteQuery(query);
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@UserID", user_ID)
+                };
+                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
@@ -56,8 +67,8 @@ namespace SmartOrderManagementSystem.Forms.Staff
                     Fullname_txt.Text = row["Fullname"].ToString();
                     Email_txt.Text = row["Email"].ToString();
                     Phonenumber_txt.Text = row["Phone"].ToString();
-                    Role_txt.Text = row["RoleID"].ToString();
-                    Sex_txt.Text = row["RoleID"].ToString();
+                    Role_txt.Text = row["RoleName"].ToString();
+                    Sex_txt.Text = row["Sex"].ToString();
                     username_txt.Text = row["username"].ToString();
 
                     // name under the photo in Profil

@@ -59,7 +59,7 @@
             this.panelMain.Controls.Add(this.panelLeft);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(4);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1579, 814);
             this.panelMain.TabIndex = 0;
@@ -70,7 +70,7 @@
             this.panelLogin.Controls.Add(this.pnlCard);
             this.panelLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLogin.Location = new System.Drawing.Point(667, 0);
-            this.panelLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLogin.Margin = new System.Windows.Forms.Padding(4);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(912, 814);
             this.panelLogin.TabIndex = 1;
@@ -87,7 +87,7 @@
             this.pnlCard.Controls.Add(this.label4);
             this.pnlCard.Controls.Add(this.label3);
             this.pnlCard.Location = new System.Drawing.Point(124, 36);
-            this.pnlCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlCard.Margin = new System.Windows.Forms.Padding(4);
             this.pnlCard.Name = "pnlCard";
             this.pnlCard.Size = new System.Drawing.Size(667, 738);
             this.pnlCard.TabIndex = 5;
@@ -96,7 +96,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(230, 33);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(209, 200);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -110,7 +110,7 @@
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.Black;
             this.btnExit.Location = new System.Drawing.Point(121, 620);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(427, 55);
             this.btnExit.TabIndex = 19;
@@ -124,18 +124,19 @@
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(121, 558);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(427, 55);
             this.btnLogin.TabIndex = 18;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(121, 433);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(425, 34);
@@ -157,7 +158,7 @@
             // 
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(121, 351);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(425, 34);
             this.txtUsername.TabIndex = 13;
@@ -193,7 +194,7 @@
             this.panelLeft.Controls.Add(this.picLogo);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(4);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(667, 814);
             this.panelLeft.TabIndex = 0;
@@ -252,7 +253,7 @@
             this.ClientSize = new System.Drawing.Size(1579, 814);
             this.Controls.Add(this.panelMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

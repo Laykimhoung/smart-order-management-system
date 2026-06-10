@@ -12,14 +12,28 @@ namespace SmartOrderManagementSystem.Forms.Staff
 {
     public partial class StaffDashboard : Form
     {
-        public StaffDashboard()
+        // Contructor that call for My profile that show the information of the staff ater log in 
+        private string full_name;
+        private int user_ID;
+
+        
+
+        public StaffDashboard(int UserID, string Fullname)
         {
             InitializeComponent();
+            user_ID = UserID;
+            full_name= Fullname;
         }
 
         private void StaffDashboard_Load(object sender, EventArgs e)
         {
-            ShowSubForm(new StaffHome());
+            // show the name in the button staff sccount
+       
+            ShowSubForm(new StaffHome(full_name));
+            Staff_accout_btn.ButtonText = full_name;
+           
+
+
         }
         //method help to show the subform in the panel
         public void ShowSubForm(Form subForm)
@@ -38,7 +52,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void Home_btn(object sender, EventArgs e)
         {
-            ShowSubForm(new StaffHome());
+            ShowSubForm(new StaffHome(full_name));
         }
         //Cutomer btn click event to show the customer record form
         private void Customer_btn_Click(object sender, EventArgs e)
@@ -62,7 +76,13 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void Setting_btn_Click(object sender, EventArgs e)
         {
-            ShowSubForm(new SettingForm());
+            ShowSubForm(new SettingForm(user_ID));
+          
+        }
+
+        private void Logout_btn_Click(object sender, EventArgs e)
+        {
+            //DialogResult result = MessageBox.Show("Are you sure")
         }
     }
 }

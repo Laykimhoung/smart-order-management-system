@@ -107,6 +107,7 @@
             this.Logout_btn.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.Logout_btn.Timer_Effect_1 = 5;
             this.Logout_btn.Timer_RGB = 300;
+            this.Logout_btn.Click += new System.EventHandler(this.Logout_btn_Click);
             // 
             // bigLabel1
             // 
@@ -319,7 +320,7 @@
             this.Notification_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Notification_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Notification_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Notification_btn.Location = new System.Drawing.Point(1316, -2);
+            this.Notification_btn.Location = new System.Drawing.Point(1262, -2);
             this.Notification_btn.Name = "Notification_btn";
             this.Notification_btn.Size = new System.Drawing.Size(65, 70);
             this.Notification_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -343,9 +344,9 @@
             this.Staff_accout_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Staff_accout_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Staff_accout_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Staff_accout_btn.Location = new System.Drawing.Point(1387, 8);
+            this.Staff_accout_btn.Location = new System.Drawing.Point(1353, 5);
             this.Staff_accout_btn.Name = "Staff_accout_btn";
-            this.Staff_accout_btn.Size = new System.Drawing.Size(140, 55);
+            this.Staff_accout_btn.Size = new System.Drawing.Size(155, 55);
             this.Staff_accout_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.Staff_accout_btn.TabIndex = 2;
             this.Staff_accout_btn.TextColor = System.Drawing.Color.Gray;

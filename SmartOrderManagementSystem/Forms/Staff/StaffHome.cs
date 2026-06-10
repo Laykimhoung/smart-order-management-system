@@ -13,11 +13,12 @@ namespace SmartOrderManagementSystem.Forms.Staff
 {
     public partial class StaffHome : Form
     {
-        
 
-        public StaffHome()
+        private string full_name;
+        public StaffHome(string Fullname)
         {
             InitializeComponent();
+            full_name = Fullname;
         }
 
         private void StaffHome_Load(object sender, EventArgs e)

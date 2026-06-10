@@ -45,7 +45,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
                 DataTable dt = DatabaseConnection.ExecuteQueryWithParams(
                     @"SELECT TOP 1 CustomerID FROM Customers WHERE CustomerName = @Username 
-                    ORDER BY CreatedDate DESC, CustomerID DESC",
+                    ORDER BY CustomerID DESC",
                     parameters
                 );
 
@@ -343,8 +343,8 @@ namespace SmartOrderManagementSystem.Forms.Customer
             string qrCodeText = $"QR_ORDER_{waitingNumber}";
             
 
-            string insertOrderQuery = @"INSERT INTO Orders (WaitingNumber, CustomerID, UserID, TotalAmount, QRCodeText, Notes) 
-                                        VALUES (@WaitingNumber, @CustomerID, @UserID, @TotalAmount, @QRCodeText, @Notes);
+            string insertOrderQuery = @"INSERT INTO Orders (WaitingNumber, CustomerID, UserID, TotalAmount, Notes) 
+                                        VALUES (@WaitingNumber, @CustomerID, @UserID, @TotalAmount, @Notes);
                                         SELECT SCOPE_IDENTITY();";
 
             if (waitingNumber == -1) return;
@@ -364,7 +364,6 @@ namespace SmartOrderManagementSystem.Forms.Customer
                             cmdOrder.Parameters.AddWithValue("@CustomerID", customerId);
                             cmdOrder.Parameters.AddWithValue("@UserID", userId);
                             cmdOrder.Parameters.AddWithValue("@TotalAmount", totalAmount);
-                            cmdOrder.Parameters.AddWithValue("@QRCodeText", qrCodeText);
                             cmdOrder.Parameters.AddWithValue("@Notes", string.IsNullOrEmpty(notes) ? (object)DBNull.Value : notes);
 
                             orderId = Convert.ToInt32(cmdOrder.ExecuteScalar());

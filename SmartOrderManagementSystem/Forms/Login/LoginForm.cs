@@ -27,7 +27,7 @@ namespace SmartOrderManagementSystem.Forms.Login
         {
             btnLogin.FlatAppearance.BorderSize = 0;
 
-            btnExit.FlatAppearance.BorderSize = 1;
+            btnBack.FlatAppearance.BorderSize = 1;
 
 
         }
@@ -56,7 +56,7 @@ namespace SmartOrderManagementSystem.Forms.Login
         {
 
             string user = txtUsername.Text.Trim();
-            string pass = textBox1.Text.Trim();
+            string pass = txtPass.Text.Trim();
 
             // Check the textbox is empty or not
             if (string.IsNullOrEmpty(user) || string.IsNullOrEmpty(pass))
@@ -111,7 +111,7 @@ namespace SmartOrderManagementSystem.Forms.Login
                     else
                     {
                         MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        textBox1.Clear();
+                        txtPass.Clear();
                         txtUsername.Focus();
                     }
                 }
@@ -120,6 +120,12 @@ namespace SmartOrderManagementSystem.Forms.Login
                     MessageBox.Show("Login error." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            LoginChoiceForm LogChoice = new LoginChoiceForm();
+            LogChoice.Show();
+            this.Hide();
         }
     }
 }

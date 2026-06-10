@@ -16,5 +16,11 @@ namespace SmartOrderManagementSystem.Forms.Login
         {
             InitializeComponent();
         }
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            LoginChoiceForm LogChoice = new LoginChoiceForm();
+            LogChoice.Show();
+            this.Hide();
+        }
     }
 }

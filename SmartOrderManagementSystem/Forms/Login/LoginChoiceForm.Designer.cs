@@ -37,6 +37,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -54,6 +55,9 @@
             this.CusLogBut.TabIndex = 0;
             this.CusLogBut.Text = "Customer";
             this.CusLogBut.UseVisualStyleBackColor = false;
+            this.CusLogBut.Click += new System.EventHandler(this.CusLogBut_Click);
+            this.CusLogBut.MouseEnter += new System.EventHandler(this.CusLogBut_MouseEnter);
+            this.CusLogBut.MouseLeave += new System.EventHandler(this.CusLogBut_MouseLeave);
             // 
             // StaffLogBut
             // 
@@ -66,6 +70,9 @@
             this.StaffLogBut.TabIndex = 1;
             this.StaffLogBut.Text = "Staff";
             this.StaffLogBut.UseVisualStyleBackColor = false;
+            this.StaffLogBut.Click += new System.EventHandler(this.StaffLogBut_Click);
+            this.StaffLogBut.MouseEnter += new System.EventHandler(this.StaffLogBut_MouseEnter);
+            this.StaffLogBut.MouseLeave += new System.EventHandler(this.StaffLogBut_MouseLeave);
             // 
             // AdminLogBut
             // 
@@ -78,6 +85,9 @@
             this.AdminLogBut.TabIndex = 2;
             this.AdminLogBut.Text = "Admin";
             this.AdminLogBut.UseVisualStyleBackColor = false;
+            this.AdminLogBut.Click += new System.EventHandler(this.AdminLogBut_Click);
+            this.AdminLogBut.MouseEnter += new System.EventHandler(this.AdminLogBut_MouseEnter);
+            this.AdminLogBut.MouseLeave += new System.EventHandler(this.AdminLogBut_MouseLeave);
             // 
             // label1
             // 
@@ -135,6 +145,19 @@
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Red;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.Transparent;
+            this.btnExit.Location = new System.Drawing.Point(12, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(170, 31);
+            this.btnExit.TabIndex = 9;
+            this.btnExit.Text = "Exit for Demo only!";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // LoginChoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -142,6 +165,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(599, 785);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -171,5 +195,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btnExit;
     }
 }

@@ -70,9 +70,9 @@
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.label7.Location = new System.Drawing.Point(20, 776);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(228, 44);
+            this.label7.Size = new System.Drawing.Size(169, 44);
             this.label7.TabIndex = 6;
-            this.label7.Text = "© 2026 Jinghab Drink House\r\nSmart Order System";
+            this.label7.Text = "© 2026 Jinghab Cafe\r\nSmart Order System";
             // 
             // label5
             // 
@@ -174,11 +174,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Georgia", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.label3.Location = new System.Drawing.Point(581, 140);
+            this.label3.Location = new System.Drawing.Point(690, 140);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(904, 58);
+            this.label3.Size = new System.Drawing.Size(687, 58);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Welcome to Jinghab Drink House";
+            this.label3.Text = "Welcome to Jinghab Cafe";
             // 
             // label4
             // 

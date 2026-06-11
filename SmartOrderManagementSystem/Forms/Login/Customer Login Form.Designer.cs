@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerLoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.btnGoToCusForm = new System.Windows.Forms.Button();
@@ -36,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,38 +59,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Sitka Banner", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(29, 188);
+            this.label2.Location = new System.Drawing.Point(80, 224);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(358, 38);
+            this.label2.Size = new System.Drawing.Size(381, 49);
             this.label2.TabIndex = 1;
             this.label2.Text = "Phone Number (Optional)";
             // 
             // btnGoToCusForm
             // 
             this.btnGoToCusForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
-            this.btnGoToCusForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGoToCusForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGoToCusForm.ForeColor = System.Drawing.Color.White;
-            this.btnGoToCusForm.Location = new System.Drawing.Point(35, 343);
+            this.btnGoToCusForm.Location = new System.Drawing.Point(142, 395);
             this.btnGoToCusForm.Name = "btnGoToCusForm";
-            this.btnGoToCusForm.Size = new System.Drawing.Size(288, 119);
+            this.btnGoToCusForm.Size = new System.Drawing.Size(293, 73);
             this.btnGoToCusForm.TabIndex = 4;
-            this.btnGoToCusForm.Text = "Go to Order Form";
+            this.btnGoToCusForm.Text = "Start your order now";
             this.btnGoToCusForm.UseVisualStyleBackColor = false;
             // 
             // txtPhNum
             // 
             this.txtPhNum.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhNum.Location = new System.Drawing.Point(35, 242);
+            this.txtPhNum.Location = new System.Drawing.Point(87, 288);
             this.txtPhNum.Name = "txtPhNum";
-            this.txtPhNum.Size = new System.Drawing.Size(288, 51);
+            this.txtPhNum.Size = new System.Drawing.Size(391, 51);
             this.txtPhNum.TabIndex = 3;
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(35, 103);
+            this.txtName.Location = new System.Drawing.Point(87, 126);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(391, 51);
             this.txtName.TabIndex = 2;
@@ -95,11 +98,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Sitka Banner", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(29, 58);
+            this.label1.Location = new System.Drawing.Point(80, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 38);
+            this.label1.Size = new System.Drawing.Size(101, 49);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
@@ -108,7 +111,7 @@
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(1386, 12);
+            this.btnBack.Location = new System.Drawing.Point(1330, 12);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(181, 48);
             this.btnBack.TabIndex = 5;
@@ -118,12 +121,33 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(809, 113);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(615, 223);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(693, 629);
+            this.pictureBox1.Size = new System.Drawing.Size(852, 399);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Sitka Banner", 37.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(623, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(837, 91);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Welcome to Jinghab Drink Shop";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Lucida Console", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(668, 710);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(726, 28);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "One click order with our drink shop system";
             // 
             // CustomerLoginForm
             // 
@@ -131,6 +155,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1579, 814);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
@@ -140,6 +166,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -153,5 +180,7 @@
         private System.Windows.Forms.TextBox txtPhNum;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

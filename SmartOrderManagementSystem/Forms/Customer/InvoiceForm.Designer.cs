@@ -31,7 +31,6 @@
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlFooter = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnFinishOrder = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtInvoiceID = new System.Windows.Forms.TextBox();
@@ -45,6 +44,8 @@
             this.dgvInvoiceItems = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtWaitingNumber = new System.Windows.Forms.TextBox();
             this.pnlHeader.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceItems)).BeginInit();
@@ -57,7 +58,7 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(603, 82);
+            this.pnlHeader.Size = new System.Drawing.Size(605, 82);
             this.pnlHeader.TabIndex = 0;
             // 
             // label1
@@ -74,28 +75,17 @@
             // pnlFooter
             // 
             this.pnlFooter.BackColor = System.Drawing.SystemColors.GrayText;
-            this.pnlFooter.Controls.Add(this.btnCancel);
             this.pnlFooter.Controls.Add(this.btnFinishOrder);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 572);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 612);
             this.pnlFooter.Name = "pnlFooter";
-            this.pnlFooter.Size = new System.Drawing.Size(603, 75);
+            this.pnlFooter.Size = new System.Drawing.Size(605, 75);
             this.pnlFooter.TabIndex = 1;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(376, 17);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(142, 49);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnFinishOrder
             // 
             this.btnFinishOrder.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFinishOrder.Location = new System.Drawing.Point(67, 17);
+            this.btnFinishOrder.Location = new System.Drawing.Point(239, 14);
             this.btnFinishOrder.Name = "btnFinishOrder";
             this.btnFinishOrder.Size = new System.Drawing.Size(142, 49);
             this.btnFinishOrder.TabIndex = 0;
@@ -107,7 +97,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 137);
+            this.label2.Location = new System.Drawing.Point(13, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 22);
             this.label2.TabIndex = 2;
@@ -116,7 +106,7 @@
             // txtInvoiceID
             // 
             this.txtInvoiceID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInvoiceID.Location = new System.Drawing.Point(181, 137);
+            this.txtInvoiceID.Location = new System.Drawing.Point(181, 180);
             this.txtInvoiceID.Name = "txtInvoiceID";
             this.txtInvoiceID.ReadOnly = true;
             this.txtInvoiceID.Size = new System.Drawing.Size(260, 30);
@@ -126,7 +116,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 103);
+            this.label3.Location = new System.Drawing.Point(13, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 22);
             this.label3.TabIndex = 2;
@@ -135,7 +125,7 @@
             // txtInvoiceDate
             // 
             this.txtInvoiceDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInvoiceDate.Location = new System.Drawing.Point(181, 101);
+            this.txtInvoiceDate.Location = new System.Drawing.Point(181, 144);
             this.txtInvoiceDate.Name = "txtInvoiceDate";
             this.txtInvoiceDate.ReadOnly = true;
             this.txtInvoiceDate.Size = new System.Drawing.Size(260, 30);
@@ -145,7 +135,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 176);
+            this.label4.Location = new System.Drawing.Point(13, 219);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 22);
             this.label4.TabIndex = 2;
@@ -154,7 +144,7 @@
             // txtOrderID
             // 
             this.txtOrderID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOrderID.Location = new System.Drawing.Point(181, 173);
+            this.txtOrderID.Location = new System.Drawing.Point(181, 216);
             this.txtOrderID.Name = "txtOrderID";
             this.txtOrderID.ReadOnly = true;
             this.txtOrderID.Size = new System.Drawing.Size(260, 30);
@@ -164,7 +154,7 @@
             // 
             this.lblTotalAmount.AutoSize = true;
             this.lblTotalAmount.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(421, 491);
+            this.lblTotalAmount.Location = new System.Drawing.Point(421, 534);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(134, 26);
             this.lblTotalAmount.TabIndex = 2;
@@ -173,7 +163,7 @@
             // txtCustomerName
             // 
             this.txtCustomerName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.Location = new System.Drawing.Point(181, 209);
+            this.txtCustomerName.Location = new System.Drawing.Point(181, 252);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.ReadOnly = true;
             this.txtCustomerName.Size = new System.Drawing.Size(260, 30);
@@ -183,7 +173,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 266);
+            this.label6.Location = new System.Drawing.Point(13, 309);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 36);
             this.label6.TabIndex = 2;
@@ -192,7 +182,7 @@
             // dgvInvoiceItems
             // 
             this.dgvInvoiceItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInvoiceItems.Location = new System.Drawing.Point(18, 307);
+            this.dgvInvoiceItems.Location = new System.Drawing.Point(18, 350);
             this.dgvInvoiceItems.Name = "dgvInvoiceItems";
             this.dgvInvoiceItems.RowHeadersWidth = 51;
             this.dgvInvoiceItems.RowTemplate.Height = 24;
@@ -203,7 +193,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(346, 487);
+            this.label7.Location = new System.Drawing.Point(346, 530);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 36);
             this.label7.TabIndex = 2;
@@ -213,18 +203,39 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 217);
+            this.label5.Location = new System.Drawing.Point(12, 260);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(142, 22);
             this.label5.TabIndex = 2;
             this.label5.Text = "Customer Name:";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(13, 110);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(144, 22);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Waiting Number:";
+            // 
+            // txtWaitingNumber
+            // 
+            this.txtWaitingNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWaitingNumber.Location = new System.Drawing.Point(181, 108);
+            this.txtWaitingNumber.Name = "txtWaitingNumber";
+            this.txtWaitingNumber.ReadOnly = true;
+            this.txtWaitingNumber.Size = new System.Drawing.Size(260, 30);
+            this.txtWaitingNumber.TabIndex = 3;
+            // 
             // InvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 647);
+            this.ClientSize = new System.Drawing.Size(605, 687);
             this.Controls.Add(this.dgvInvoiceItems);
+            this.Controls.Add(this.txtWaitingNumber);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtInvoiceDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCustomerName);
@@ -268,8 +279,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvInvoiceItems;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnFinishOrder;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtWaitingNumber;
     }
 }

@@ -254,8 +254,9 @@
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(123, 55);
             this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "Exit";
+            this.btnBack.Text = "Cancel";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // groupBox3
             // 
@@ -284,22 +285,23 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(227, 137);
+            this.lblDate.Location = new System.Drawing.Point(152, 142);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(58, 26);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "Date";
-            this.lblDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtWaitingNumber
             // 
             this.txtWaitingNumber.AutoSize = true;
             this.txtWaitingNumber.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWaitingNumber.Location = new System.Drawing.Point(194, 53);
+            this.txtWaitingNumber.Location = new System.Drawing.Point(208, 53);
             this.txtWaitingNumber.Name = "txtWaitingNumber";
             this.txtWaitingNumber.Size = new System.Drawing.Size(119, 68);
             this.txtWaitingNumber.TabIndex = 0;
             this.txtWaitingNumber.Text = "000";
+            this.txtWaitingNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
@@ -310,6 +312,7 @@
             this.label8.Size = new System.Drawing.Size(209, 26);
             this.label8.TabIndex = 0;
             this.label8.Text = "Your waiting number";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox4
             // 

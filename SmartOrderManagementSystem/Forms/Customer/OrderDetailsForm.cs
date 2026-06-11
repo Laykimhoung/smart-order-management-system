@@ -18,10 +18,12 @@ namespace SmartOrderManagementSystem.Forms.Customer
     {
         int _orderId;
         int _customerId;
-        public OrderDetailsForm(int CustomerID)
+        string _customerName;
+        public OrderDetailsForm(int CustomerID, string CustomerName)
         {
             InitializeComponent();
             _customerId = CustomerID;
+            _customerName = CustomerName;
         }
 
         private void OrderDetailsForm_Load(object sender, EventArgs e)
@@ -86,7 +88,9 @@ namespace SmartOrderManagementSystem.Forms.Customer
                     txtTotalAmount.Text = Convert.ToDecimal(row["TotalAmount"]).ToString("C");
                     txtStatus.Text = "Pending";
                     txtOrderDate.Text = Convert.ToDateTime(row["OrderDate"]).ToString("g");
-                 
+                    lblDate.Text = Convert.ToDateTime(row["OrderDate"]).ToString("MMMM dd, yyyy");
+
+
                 }
                 SqlParameter[] itemParams = new SqlParameter[] { new SqlParameter("@OrderID", _orderId) };
                 DataTable itemsTable = DatabaseConnection.ExecuteQueryWithParams(ItemsQuery, itemParams);
@@ -154,7 +158,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             }
 
 
-            string cleanAmount = txtTotalAmount.Text.Replace("$", "").Replace("£", "").Replace("€", "").Trim();
+            string cleanAmount = txtTotalAmount.Text.Replace("$", "").Trim();
             if (!decimal.TryParse(cleanAmount, out decimal totalAmount))
             {
                 MessageBox.Show("Invalid total amount format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -162,7 +166,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             }
 
 
-            InvoiceForm invoiceForm = new InvoiceForm(_orderId, txtCustomer.Text, totalAmount);
+            InvoiceForm invoiceForm = new InvoiceForm(_orderId, txtCustomer.Text, totalAmount, int.Parse(txtWaitingNumber.Text));
             invoiceForm.Show();
             //this.Hide();
         }
@@ -203,6 +207,55 @@ namespace SmartOrderManagementSystem.Forms.Customer
                     MessageBox.Show($"Failed to update order status: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+            }
+        }
+
+        private bool UpdateOrderStatus(int orderId, string status, string action)
+        {
+            string updateQuery = "UPDATE Orders SET OrderStatue = @Status WHERE OrderID = @OrderID;";
+            string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, @Action, 'Order Details Form');";
+
+            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        using (SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn, transaction))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@OrderID", orderId);
+                            cmdUpdate.Parameters.AddWithValue("@Status", status);
+                            cmdUpdate.ExecuteNonQuery();
+                        }
+
+                        using (SqlCommand cmdLog = new SqlCommand(logQuery, conn, transaction))
+                        {
+                            cmdLog.Parameters.AddWithValue("@OrderID", orderId);
+                            cmdLog.Parameters.AddWithValue("@Action", action);
+                            cmdLog.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                        return true;
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            if (UpdateOrderStatus(_orderId, "Cancelled", "Order Cancelled"))
+            {
+                MessageBox.Show("Order cancelled successfully.");
+                CustomerDashboard customerDashboard = new CustomerDashboard(_customerName);
+                customerDashboard.Show();
+                this.Hide();
             }
         }
     }

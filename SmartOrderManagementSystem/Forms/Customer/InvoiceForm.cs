@@ -19,11 +19,13 @@ namespace SmartOrderManagementSystem.Forms.Customer
         string _customerName;
         decimal _totalAmount;
         int _invoiceID;
-        public InvoiceForm(int orderId, string customerName, decimal totalAmount)
+        int _waitingNumber;
+        public InvoiceForm(int orderId, string customerName, decimal totalAmount, int waitingNumber)
         {
             _orderId = orderId;
             _customerName = customerName;
             _totalAmount = totalAmount;
+            _waitingNumber = waitingNumber;
             InitializeComponent();
         }
 
@@ -34,6 +36,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             txtOrderID.Text = $"ORD-{_orderId:D5}";
             txtCustomerName.Text = _customerName;
             lblTotalAmount.Text = $"${_totalAmount:F2}";
+            txtWaitingNumber.Text = _waitingNumber.ToString();
 
             LoadOrderItems();
         }
@@ -131,15 +134,29 @@ namespace SmartOrderManagementSystem.Forms.Customer
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             Graphics graphics = e.Graphics;
-            Font fontRegular = new Font("Arial", 12, FontStyle.Regular);
-            Font fontBold = new Font("Arial", 14, FontStyle.Bold);
-            Font fontHeader = new Font("Arial", 18, FontStyle.Bold);
+            Font fontRegular = new Font("Times New Roman", 12, FontStyle.Regular);
+            Font fontBold = new Font("Times New Roman", 14, FontStyle.Bold);
+            Font fontHeader = new Font("Times New Roman", 18, FontStyle.Bold);
+            Font fontTitle = new Font("Times New Roman", 25, FontStyle.Bold);
+            Font fontwaiting = new Font("Times New Roman", 23, FontStyle.Bold);
 
             int startX = 50;
             int startY = 50;
             int offset = 40;
 
+            int pageWidth = e.MarginBounds.Width + e.MarginBounds.Left * 2;
+           
+            StringFormat centerFormat = new StringFormat
+            {
+                Alignment = StringAlignment.Center
+            };
 
+            graphics.DrawString("JINGHAB CAFE", fontTitle, Brushes.DarkBlue, pageWidth / 2, startY, centerFormat);
+            startY += 45;
+            graphics.DrawString("Waiting Number:", fontRegular, Brushes.Black, pageWidth / 2, startY, centerFormat);
+            startY += 30;
+            graphics.DrawString($" {txtWaitingNumber.Text}", fontwaiting, Brushes.Red, pageWidth / 2, startY, centerFormat);
+            startY += 30;
             graphics.DrawString("INVOICE RECEIPT", fontHeader, Brushes.Black, startX, startY);
             startY += offset;
 

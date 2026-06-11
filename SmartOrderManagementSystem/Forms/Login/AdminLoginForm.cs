@@ -61,11 +61,8 @@ namespace SmartOrderManagementSystem.Forms.Login
                 {
                     conn.Open();
 
-                    string query = @"
-                SELECT COUNT(*)
-                FROM Admin
-                WHERE Username = @Username
-                AND Password = @Password";
+                    string query = @"SELECT COUNT(*) FROM Users U INNER JOIN Roles R ON U.RoleID = R.RoleID WHERE 
+                                   U.Username = @Username AND U.Password = @Password AND R.RoleName = 'Admin'";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -76,23 +73,17 @@ namespace SmartOrderManagementSystem.Forms.Login
 
                         if (count > 0)
                         {
-                            MessageBox.Show("Login Successful!",
-                                            "Success",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Information);
+                            MessageBox.Show("Welcome Admin!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             AdminDashboard dashboard = new AdminDashboard();
                             dashboard.Show();
+
                             this.Hide();
                         }
                         else
                         {
-                            MessageBox.Show("Invalid username or password.",
-                                            "Login Failed",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Error);
+                            MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                            txtPass.Clear();
                             txtPass.Focus();
                         }
                     }
@@ -100,10 +91,7 @@ namespace SmartOrderManagementSystem.Forms.Login
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database Error:\n" + ex.Message,
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                MessageBox.Show("Database Error:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

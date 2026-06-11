@@ -15,10 +15,12 @@ namespace SmartOrderManagementSystem.Forms.Login
     {
         Color OriGoToCusBut;
         Color OriBackBut;
+        string _staffname;
 
-        public CustomerLoginForm()
+        public CustomerLoginForm(string staffname)
         {
             InitializeComponent();
+            _staffname = staffname;
 
             btnBack.Cursor = Cursors.Hand;
             btnGoToCusForm.Cursor = Cursors.Hand;
@@ -101,8 +103,10 @@ namespace SmartOrderManagementSystem.Forms.Login
 
         private void btnGoToCusForm_Click(object sender, EventArgs e)
         {
-            string name = txtName.Text;
-            string phoneNumber = txtPhNum.Text;
+            string name = txtName.Text.Trim();
+            string phoneNumber = txtPhNum.Text.Trim();
+
+            // Validate Name
             if (string.IsNullOrWhiteSpace(name) || name == "Enter your name")
             {
                 MessageBox.Show("Please enter your name.",
@@ -113,8 +117,47 @@ namespace SmartOrderManagementSystem.Forms.Login
                 txtName.Focus();
                 return;
             }
-            if (!string.IsNullOrWhiteSpace(phoneNumber) && phoneNumber != "0123456789")
+
+            // Name length check
+            if (name.Length < 2)
             {
+                MessageBox.Show("Name must be at least 2 characters.",
+                                "Alert",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                txtName.Focus();
+                return;
+            }
+
+            if (name.Length > 50)
+            {
+                MessageBox.Show("Name cannot exceed 50 characters.",
+                                "Alert",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                txtName.Focus();
+                return;
+            }
+
+            // Name cannot contain numbers
+            if (name.Any(char.IsDigit))
+            {
+                MessageBox.Show("Name cannot contain numbers.",
+                                "Alert",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                txtName.Focus();
+                return;
+            }
+
+            // Validate Phone Number (Optional)
+            if (!string.IsNullOrWhiteSpace(phoneNumber) &&
+                phoneNumber != "0123456789")
+            {
+                // Digits only
                 if (!phoneNumber.All(char.IsDigit))
                 {
                     MessageBox.Show("Phone number must contain digits only.",
@@ -125,14 +168,39 @@ namespace SmartOrderManagementSystem.Forms.Login
                     txtPhNum.Focus();
                     return;
                 }
+
+                // Length check
+                if (phoneNumber.Length < 10 || phoneNumber.Length > 15)
+                {
+                    MessageBox.Show("Phone number must be between 10 and 15 digits.",
+                                    "Alert",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+
+                    txtPhNum.Focus();
+                    return;
+                }
             }
 
+            // Confirmation Message
+            DialogResult result = MessageBox.Show(
+                $"Name: {name}\n" +
+                $"Phone Number: {(phoneNumber == "0123456789" ? "Not Provided" : phoneNumber)}\n\n" +
+                "Start ordering?",
+                "Confirm Customer Information",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
 
             // Go to mi K'Nath form
 
-            //CustomerDashboard CusForm = new CustomerDashboard(name);
-            //CusForm.Show();
-            //this.Hide();
+            CustomerDashboard CusForm = new CustomerDashboard(txtName.Text, _staffname);
+            CusForm.Show();
+            this.Hide();
 
 
 
@@ -146,5 +214,6 @@ namespace SmartOrderManagementSystem.Forms.Login
         {
             this.ActiveControl = null;
         }
+        
     }
 }

@@ -386,7 +386,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                         }
 
 
-                        string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, 'Order Created', 'Customer Dashboard');";
+                        string logQuery = "INSERT INTO OrderLogs (OrderID, Action,) VALUES (@OrderID, 'Order Created');";
                         using (SqlCommand cmdLog = new SqlCommand(logQuery, conn, transaction))
                         {
                             cmdLog.Parameters.AddWithValue("@OrderID", orderId);

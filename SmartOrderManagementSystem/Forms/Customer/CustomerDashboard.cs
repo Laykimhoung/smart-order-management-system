@@ -337,7 +337,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
             int orderId;
 
-            int userId = customerId;
+            int userId = 2;
             int waitingNumber = GetNextWaitingNumber();
             string notes = txtNote.Text.Trim();
             string qrCodeText = $"QR_ORDER_{waitingNumber}";
@@ -357,7 +357,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                     {
 
 
-                        // Insert Order Header
+                   
                         using (SqlCommand cmdOrder = new SqlCommand(insertOrderQuery, conn, transaction))
                         {
                             cmdOrder.Parameters.AddWithValue("@WaitingNumber", waitingNumber);
@@ -399,7 +399,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
                 if (MessageBox.Show($"Order placed successfully!\nYour Waiting Number is: {waitingNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(customerId);
+                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(customerId, loginUsername);
                     orderDetailsForm.Show();
                     this.Hide();
                 }
@@ -416,11 +416,44 @@ namespace SmartOrderManagementSystem.Forms.Customer
         }
         private void btnClearAll_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Clear All button clicked! Implement clear all functionality here.");
+            
+            if (cartTable == null || cartTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Your cart is already empty.", "Info",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to remove all items from your cart?",
+                "Clear Cart",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                cartTable.Rows.Clear(); 
+                UpdateCartTotal();      
+
+                if (txtNote != null)
+                {
+                    txtNote.Clear();    
+                }
+
+                MessageBox.Show("Cart has been cleared.", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         private void btnRemoveItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Remove Item button clicked! Implement remove item functionality here.");
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

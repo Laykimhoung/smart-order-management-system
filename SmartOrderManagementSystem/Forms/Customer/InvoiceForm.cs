@@ -119,16 +119,32 @@ namespace SmartOrderManagementSystem.Forms.Customer
             PrintDocument printDoc = new PrintDocument();
             printDoc.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
 
-
-            PrintDialog printDialog = new PrintDialog();
-            printDialog.Document = printDoc;
-
-
+            
             printDoc.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+            printDoc.PrinterSettings.PrintToFile = true;
 
-            if (printDialog.ShowDialog() == DialogResult.OK)
+            
+            string dateStr = DateTime.Now.ToString("yyyyMMdd");
+
+            
+            string directoryPath = @"D:\";
+            string fileName = $"INV-{_invoiceID:D5}_{dateStr}.pdf";
+            string fullPath = System.IO.Path.Combine(directoryPath, fileName);
+
+            
+            printDoc.PrinterSettings.PrintFileName = fullPath;
+
+            
+            printDoc.PrintController = new StandardPrintController();
+
+            try
             {
                 printDoc.Print();
+                MessageBox.Show($"Invoice saved successfully to:\n{fullPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to auto-save PDF: {ex.Message}", "Printing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)

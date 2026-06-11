@@ -39,12 +39,15 @@ namespace SmartOrderManagementSystem.Forms.Admin
         FROM Users U
         INNER JOIN Roles R
             ON U.RoleID = R.RoleID
-        ORDER BY U.UserID DESC";
+        ORDER BY U.UserID ASC";
 
                 dgvUsers.DataSource =
                     DatabaseConnection.ExecuteQuery(query);
 
                 StyleUsersGrid();
+                dgvUsers.Columns["Email"].FillWeight = 150;
+                dgvUsers.Columns["Full Name"].FillWeight = 120;
+                dgvUsers.Columns["Username"].FillWeight = 100;
 
                 lblTotalUser.Text =
                     "Total User: " +
@@ -64,11 +67,59 @@ namespace SmartOrderManagementSystem.Forms.Admin
                     DatabaseConnection.ExecuteQuery(
                         "SELECT * FROM Roles");
 
+                DataRow row = dt.NewRow();
+
+                row["RoleID"] = 0;
+                row["RoleName"] = "All";
+
+                dt.Rows.InsertAt(row, 0);
+
                 cmbRoleFilter.DataSource = dt;
-
                 cmbRoleFilter.DisplayMember = "RoleName";
-
                 cmbRoleFilter.ValueMember = "RoleID";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void FilterUsers()
+        {
+            try
+            {
+                string query = @"
+        SELECT
+            U.UserID AS [User ID],
+            U.FullName AS [Full Name],
+            U.Username,
+            U.Email,
+            U.Phone,
+            R.RoleName AS [Role],
+            FORMAT(U.CreatedDate,'dd/MM/yyyy') AS [Created Date]
+        FROM Users U
+        INNER JOIN Roles R
+            ON U.RoleID = R.RoleID";
+
+                if (cmbRoleFilter.SelectedValue != null &&
+    cmbRoleFilter.SelectedValue is int)
+                {
+                    int roleID = (int)cmbRoleFilter.SelectedValue;
+
+                    if (roleID != 0)
+                    {
+                        query += " WHERE U.RoleID = " + roleID;
+                    }
+                }
+
+                query += " ORDER BY U.UserID ASC";
+
+                dgvUsers.DataSource =
+                    DatabaseConnection.ExecuteQuery(query);
+
+                lblTotalUser.Text =
+                    "Total User: " +
+                    dgvUsers.Rows.Count;
             }
             catch (Exception ex)
             {
@@ -265,6 +316,17 @@ namespace SmartOrderManagementSystem.Forms.Admin
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cmbRoleFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbRoleFilter.SelectedValue == null)
+                return;
+
+            if (cmbRoleFilter.SelectedValue is DataRowView)
+                return;
+
+            FilterUsers();
         }
     }
 }

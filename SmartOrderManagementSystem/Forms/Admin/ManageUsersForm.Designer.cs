@@ -113,6 +113,7 @@
             this.cmbRoleFilter.Size = new System.Drawing.Size(171, 26);
             this.cmbRoleFilter.StartIndex = 0;
             this.cmbRoleFilter.TabIndex = 11;
+            this.cmbRoleFilter.SelectedIndexChanged += new System.EventHandler(this.cmbRoleFilter_SelectedIndexChanged);
             // 
             // label4
             // 

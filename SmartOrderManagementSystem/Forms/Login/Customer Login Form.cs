@@ -15,10 +15,12 @@ namespace SmartOrderManagementSystem.Forms.Login
     {
         Color OriGoToCusBut;
         Color OriBackBut;
+        string _staffname;
 
-        public CustomerLoginForm()
+        public CustomerLoginForm(string staffname)
         {
             InitializeComponent();
+            _staffname = staffname;
 
             btnBack.Cursor = Cursors.Hand;
             btnGoToCusForm.Cursor = Cursors.Hand;
@@ -130,9 +132,9 @@ namespace SmartOrderManagementSystem.Forms.Login
 
             // Go to mi K'Nath form
 
-            //CustomerDashboard CusForm = new CustomerDashboard(name);
-            //CusForm.Show();
-            //this.Hide();
+            CustomerDashboard CusForm = new CustomerDashboard(txtName.Text, _staffname);
+            CusForm.Show();
+            this.Hide();
 
 
 
@@ -146,5 +148,6 @@ namespace SmartOrderManagementSystem.Forms.Login
         {
             this.ActiveControl = null;
         }
+        
     }
 }

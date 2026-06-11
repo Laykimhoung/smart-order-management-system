@@ -20,7 +20,7 @@ namespace SmartOrderManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CustomerDashboard("Walk-in Customer"));
+            Application.Run(new LoginForm());
         }
     }
 }

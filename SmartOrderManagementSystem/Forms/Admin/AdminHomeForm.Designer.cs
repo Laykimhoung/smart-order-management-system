@@ -41,7 +41,7 @@
             this.lblTotalStaff = new ReaLTaiizor.Controls.BigLabel();
             this.bigLabel6 = new ReaLTaiizor.Controls.BigLabel();
             this.panelRevenue = new ReaLTaiizor.Controls.ParrotGradientPanel();
-            this.lblRevenue = new ReaLTaiizor.Controls.BigLabel();
+            this.lblTotalRevenue = new ReaLTaiizor.Controls.BigLabel();
             this.bigLabel8 = new ReaLTaiizor.Controls.BigLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvRecentOrder = new System.Windows.Forms.DataGridView();
@@ -216,7 +216,7 @@
             this.panelRevenue.BottomLeft = System.Drawing.Color.Black;
             this.panelRevenue.BottomRight = System.Drawing.SystemColors.MenuHighlight;
             this.panelRevenue.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            this.panelRevenue.Controls.Add(this.lblRevenue);
+            this.panelRevenue.Controls.Add(this.lblTotalRevenue);
             this.panelRevenue.Controls.Add(this.bigLabel8);
             this.panelRevenue.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
             this.panelRevenue.Location = new System.Drawing.Point(999, 128);
@@ -231,18 +231,18 @@
             this.panelRevenue.TopLeft = System.Drawing.Color.Black;
             this.panelRevenue.TopRight = System.Drawing.Color.Black;
             // 
-            // lblRevenue
+            // lblTotalRevenue
             // 
-            this.lblRevenue.AutoSize = true;
-            this.lblRevenue.BackColor = System.Drawing.Color.Transparent;
-            this.lblRevenue.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRevenue.ForeColor = System.Drawing.Color.White;
-            this.lblRevenue.Location = new System.Drawing.Point(64, 85);
-            this.lblRevenue.Name = "lblRevenue";
-            this.lblRevenue.Size = new System.Drawing.Size(60, 45);
-            this.lblRevenue.TabIndex = 1;
-            this.lblRevenue.Text = "67";
-            this.lblRevenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lblTotalRevenue.AutoSize = true;
+            this.lblTotalRevenue.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalRevenue.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRevenue.ForeColor = System.Drawing.Color.White;
+            this.lblTotalRevenue.Location = new System.Drawing.Point(64, 85);
+            this.lblTotalRevenue.Name = "lblTotalRevenue";
+            this.lblTotalRevenue.Size = new System.Drawing.Size(60, 45);
+            this.lblTotalRevenue.TabIndex = 1;
+            this.lblTotalRevenue.Text = "67";
+            this.lblTotalRevenue.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // bigLabel8
             // 
@@ -252,9 +252,9 @@
             this.bigLabel8.ForeColor = System.Drawing.Color.White;
             this.bigLabel8.Location = new System.Drawing.Point(14, 13);
             this.bigLabel8.Name = "bigLabel8";
-            this.bigLabel8.Size = new System.Drawing.Size(222, 32);
+            this.bigLabel8.Size = new System.Drawing.Size(190, 32);
             this.bigLabel8.TabIndex = 0;
-            this.bigLabel8.Text = "Today\'s  Revenue";
+            this.bigLabel8.Text = "Total  Revenue";
             // 
             // label3
             // 
@@ -409,7 +409,7 @@
         private ReaLTaiizor.Controls.BigLabel lblTotalStaff;
         private ReaLTaiizor.Controls.BigLabel bigLabel6;
         private ReaLTaiizor.Controls.ParrotGradientPanel panelRevenue;
-        private ReaLTaiizor.Controls.BigLabel lblRevenue;
+        private ReaLTaiizor.Controls.BigLabel lblTotalRevenue;
         private ReaLTaiizor.Controls.BigLabel bigLabel8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgvRecentOrder;

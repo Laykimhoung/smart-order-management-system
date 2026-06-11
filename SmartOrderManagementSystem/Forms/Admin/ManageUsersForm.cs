@@ -45,9 +45,12 @@ namespace SmartOrderManagementSystem.Forms.Admin
                     DatabaseConnection.ExecuteQuery(query);
 
                 StyleUsersGrid();
+                dgvUsers.Columns["User ID"].FillWeight = 70;
                 dgvUsers.Columns["Email"].FillWeight = 150;
                 dgvUsers.Columns["Full Name"].FillWeight = 120;
                 dgvUsers.Columns["Username"].FillWeight = 100;
+                dgvUsers.Columns["Phone"].FillWeight = 90;
+                dgvUsers.Columns["Role"].FillWeight = 80;
 
                 lblTotalUser.Text =
                     "Total User: " +

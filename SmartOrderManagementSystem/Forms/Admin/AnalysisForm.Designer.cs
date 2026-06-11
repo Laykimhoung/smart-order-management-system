@@ -43,22 +43,22 @@
             this.cmbPeriod = new ReaLTaiizor.Controls.DungeonComboBox();
             this.btnApply = new ReaLTaiizor.Controls.CyberButton();
             this.panelOrders = new System.Windows.Forms.Panel();
-            this.panelRevenue = new System.Windows.Forms.Panel();
-            this.panelCustomers = new System.Windows.Forms.Panel();
-            this.panelProducts = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panelRevenue = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panelCustomers = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panelProducts = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.grpRevenueTrend = new System.Windows.Forms.GroupBox();
             this.chartRevenueTrend = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.grpTopSelling = new System.Windows.Forms.GroupBox();
-            this.grpLeastSelling = new System.Windows.Forms.GroupBox();
             this.chartTopSelling = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.grpLeastSelling = new System.Windows.Forms.GroupBox();
             this.chartLeastSelling = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelOrders.SuspendLayout();
             this.panelRevenue.SuspendLayout();
@@ -67,8 +67,8 @@
             this.grpRevenueTrend.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenueTrend)).BeginInit();
             this.grpTopSelling.SuspendLayout();
-            this.grpLeastSelling.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartTopSelling)).BeginInit();
+            this.grpLeastSelling.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartLeastSelling)).BeginInit();
             this.SuspendLayout();
             // 
@@ -187,6 +187,27 @@
             this.panelOrders.Size = new System.Drawing.Size(250, 95);
             this.panelOrders.TabIndex = 5;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label8.Location = new System.Drawing.Point(91, 46);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 37);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "67";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(63, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 23);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Total Orders";
+            // 
             // panelRevenue
             // 
             this.panelRevenue.AccessibleDescription = "";
@@ -197,6 +218,27 @@
             this.panelRevenue.Name = "panelRevenue";
             this.panelRevenue.Size = new System.Drawing.Size(250, 95);
             this.panelRevenue.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label9.Location = new System.Drawing.Point(80, 46);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 37);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "$1,250";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(59, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 23);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Total Revenue";
             // 
             // panelCustomers
             // 
@@ -209,36 +251,16 @@
             this.panelCustomers.Size = new System.Drawing.Size(250, 95);
             this.panelCustomers.TabIndex = 6;
             // 
-            // panelProducts
+            // label10
             // 
-            this.panelProducts.AccessibleDescription = "";
-            this.panelProducts.BackColor = System.Drawing.Color.MistyRose;
-            this.panelProducts.Controls.Add(this.label11);
-            this.panelProducts.Controls.Add(this.label7);
-            this.panelProducts.Location = new System.Drawing.Point(995, 166);
-            this.panelProducts.Name = "panelProducts";
-            this.panelProducts.Size = new System.Drawing.Size(250, 95);
-            this.panelProducts.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(63, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 23);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Total Orders";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(59, 12);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 23);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Total Revenue";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label10.Location = new System.Drawing.Point(105, 46);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 37);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "67";
             // 
             // label6
             // 
@@ -250,6 +272,28 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Total Customers";
             // 
+            // panelProducts
+            // 
+            this.panelProducts.AccessibleDescription = "";
+            this.panelProducts.BackColor = System.Drawing.Color.MistyRose;
+            this.panelProducts.Controls.Add(this.label11);
+            this.panelProducts.Controls.Add(this.label7);
+            this.panelProducts.Location = new System.Drawing.Point(995, 166);
+            this.panelProducts.Name = "panelProducts";
+            this.panelProducts.Size = new System.Drawing.Size(250, 95);
+            this.panelProducts.TabIndex = 6;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label11.Location = new System.Drawing.Point(118, 46);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 37);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "67";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -259,50 +303,6 @@
             this.label7.Size = new System.Drawing.Size(132, 23);
             this.label7.TabIndex = 3;
             this.label7.Text = "Total Products";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label8.Location = new System.Drawing.Point(91, 46);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 38);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "67";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label9.Location = new System.Drawing.Point(80, 46);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 38);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "$1,250";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label10.Location = new System.Drawing.Point(105, 46);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 38);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "67";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label11.Location = new System.Drawing.Point(118, 46);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 38);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "67";
             // 
             // grpRevenueTrend
             // 
@@ -326,7 +326,7 @@
             this.chartRevenueTrend.Location = new System.Drawing.Point(3, 23);
             this.chartRevenueTrend.Name = "chartRevenueTrend";
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             series1.YValuesPerPoint = 6;
@@ -347,18 +347,6 @@
             this.grpTopSelling.TabStop = false;
             this.grpTopSelling.Text = "Top Selling Products";
             // 
-            // grpLeastSelling
-            // 
-            this.grpLeastSelling.Controls.Add(this.chartLeastSelling);
-            this.grpLeastSelling.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
-            this.grpLeastSelling.ForeColor = System.Drawing.Color.Red;
-            this.grpLeastSelling.Location = new System.Drawing.Point(662, 502);
-            this.grpLeastSelling.Name = "grpLeastSelling";
-            this.grpLeastSelling.Size = new System.Drawing.Size(580, 224);
-            this.grpLeastSelling.TabIndex = 9;
-            this.grpLeastSelling.TabStop = false;
-            this.grpLeastSelling.Text = "Least Selling Products";
-            // 
             // chartTopSelling
             // 
             chartArea2.Name = "ChartArea1";
@@ -375,6 +363,18 @@
             this.chartTopSelling.Size = new System.Drawing.Size(574, 198);
             this.chartTopSelling.TabIndex = 0;
             this.chartTopSelling.Text = "chart1";
+            // 
+            // grpLeastSelling
+            // 
+            this.grpLeastSelling.Controls.Add(this.chartLeastSelling);
+            this.grpLeastSelling.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
+            this.grpLeastSelling.ForeColor = System.Drawing.Color.Red;
+            this.grpLeastSelling.Location = new System.Drawing.Point(662, 502);
+            this.grpLeastSelling.Name = "grpLeastSelling";
+            this.grpLeastSelling.Size = new System.Drawing.Size(580, 224);
+            this.grpLeastSelling.TabIndex = 9;
+            this.grpLeastSelling.TabStop = false;
+            this.grpLeastSelling.Text = "Least Selling Products";
             // 
             // chartLeastSelling
             // 
@@ -423,8 +423,8 @@
             this.grpRevenueTrend.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartRevenueTrend)).EndInit();
             this.grpTopSelling.ResumeLayout(false);
-            this.grpLeastSelling.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartTopSelling)).EndInit();
+            this.grpLeastSelling.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartLeastSelling)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

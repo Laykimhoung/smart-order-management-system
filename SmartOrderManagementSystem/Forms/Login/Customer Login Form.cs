@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -153,11 +154,10 @@ namespace SmartOrderManagementSystem.Forms.Login
                 return;
             }
 
-            // Validate Phone Number (Optional)
+            // Validate Phone Number
             if (!string.IsNullOrWhiteSpace(phoneNumber) &&
                 phoneNumber != "0123456789")
             {
-                // Digits only
                 if (!phoneNumber.All(char.IsDigit))
                 {
                     MessageBox.Show("Phone number must contain digits only.",
@@ -169,7 +169,6 @@ namespace SmartOrderManagementSystem.Forms.Login
                     return;
                 }
 
-                // Length check
                 if (phoneNumber.Length < 10 || phoneNumber.Length > 15)
                 {
                     MessageBox.Show("Phone number must be between 10 and 15 digits.",
@@ -191,23 +190,52 @@ namespace SmartOrderManagementSystem.Forms.Login
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
+            // ... (Keep your validation code up here) ...
+
             if (result == DialogResult.No)
             {
                 return;
             }
 
-            // Go to mi K'Nath form
+            try
+            {
+                // FIX: Call your helper class to get the correct connection
+                using (SqlConnection conn = SmartOrderManagementSystem.Database.DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
 
-            CustomerDashboard CusForm = new CustomerDashboard(txtName.Text, _staffname);
-            CusForm.Show();
-            this.Hide();
+                    string query = @"INSERT INTO Customers (CustomerName, Phone)
+                         VALUES (@CustomerName, @Phone)";
 
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CustomerName", name);
 
+                        if (string.IsNullOrWhiteSpace(phoneNumber) || phoneNumber == "0123456789")
+                        {
+                            cmd.Parameters.AddWithValue("@Phone", DBNull.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@Phone", phoneNumber);
+                        }
 
-            // Insert data to database
+                        cmd.ExecuteNonQuery();
+                    }
+                }
 
-            //Query....
-
+                // Go to Customer Dashboard
+                CustomerDashboard CusForm = new CustomerDashboard(name, _staffname);
+                CusForm.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving customer information:\n" + ex.Message,
+                                "Database Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
         private void CustomerLoginForm_Shown(object sender, EventArgs e)

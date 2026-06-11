@@ -30,7 +30,7 @@ namespace SmartOrderManagementSystem.Forms.Login
 
         private void CusLogBut_Click(object sender, EventArgs e)
         {
-            CustomerLoginForm CusForm = new CustomerLoginForm();
+            CustomerLoginForm CusForm = new CustomerLoginForm("panuth");
             CusForm.Show();
             this.Hide();
         }

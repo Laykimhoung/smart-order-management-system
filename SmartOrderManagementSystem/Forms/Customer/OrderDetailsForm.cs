@@ -19,11 +19,13 @@ namespace SmartOrderManagementSystem.Forms.Customer
         int _orderId;
         int _customerId;
         string _customerName;
-        public OrderDetailsForm(int CustomerID, string CustomerName)
+        string _staffname;
+        public OrderDetailsForm(int CustomerID, string CustomerName, string staffname)
         {
             InitializeComponent();
             _customerId = CustomerID;
             _customerName = CustomerName;
+            _staffname = staffname;
         }
 
         private void OrderDetailsForm_Load(object sender, EventArgs e)
@@ -253,7 +255,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             if (UpdateOrderStatus(_orderId, "Cancelled", "Order Cancelled"))
             {
                 MessageBox.Show("Order cancelled successfully.");
-                CustomerDashboard customerDashboard = new CustomerDashboard(_customerName);
+                CustomerDashboard customerDashboard = new CustomerDashboard(_customerName,_staffname);
                 customerDashboard.Show();
                 this.Hide();
             }

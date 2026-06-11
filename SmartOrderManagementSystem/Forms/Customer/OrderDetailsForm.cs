@@ -176,7 +176,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
         private bool UpdateOrderStatusToComplete(int orderId)
         {
 
-            string updateQuery = "UPDATE Orders SET OrderStatue = 'Complete' WHERE OrderID = @OrderID;";
+            string updateQuery = "UPDATE Orders SET OrderStatus = 'Complete' WHERE OrderID = @OrderID;";
             string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, 'Order Completed', 'Order Details Form');";
 
             using (SqlConnection conn = DatabaseConnection.GetConnection())
@@ -214,7 +214,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
         private bool UpdateOrderStatus(int orderId, string status, string action)
         {
-            string updateQuery = "UPDATE Orders SET OrderStatue = @Status WHERE OrderID = @OrderID;";
+            string updateQuery = "UPDATE Orders SET OrderStatus = @Status WHERE OrderID = @OrderID;";
             string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, @Action, 'Order Details Form');";
 
             using (SqlConnection conn = DatabaseConnection.GetConnection())

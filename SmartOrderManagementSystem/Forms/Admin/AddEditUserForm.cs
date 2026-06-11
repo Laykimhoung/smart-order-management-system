@@ -16,5 +16,12 @@ namespace SmartOrderManagementSystem.Forms.Admin
         {
             InitializeComponent();
         }
+        private int userID = 0;
+        public AddEditUserForm(int id)
+        {
+            InitializeComponent();
+
+            userID = id;
+        }
     }
 }

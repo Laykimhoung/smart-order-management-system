@@ -57,13 +57,12 @@ namespace SmartOrderManagementSystem.Forms.Admin
                     dtStaff.Rows[0]["TotalStaff"].ToString();
 
 
-                // Today's Revenue
+                // Total Revenue
                 DataTable dtRevenue = DatabaseConnection.ExecuteQuery(
-                    @"SELECT ISNULL(SUM(TotalAmount), 0) AS Revenue
-                      FROM Orders
-                      WHERE CAST(OrderDate AS DATE) = CAST(GETDATE() AS DATE)");
+                    @"SELECT ISNULL(SUM(TotalAmount),0) AS Revenue
+                      FROM Orders");
 
-                lblRevenue.Text =
+                lblTotalRevenue.Text =
                     "$" + Convert.ToDecimal(
                     dtRevenue.Rows[0]["Revenue"]).ToString("N2");
             }

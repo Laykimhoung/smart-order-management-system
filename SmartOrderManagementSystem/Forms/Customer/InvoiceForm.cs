@@ -95,7 +95,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                         }
 
 
-                        string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, 'Invoice Paid', 'Invoice Form');";
+                        string logQuery = "INSERT INTO OrderLogs (OrderID, Action) VALUES (@OrderID, 'Invoice Paid');";
                         using (SqlCommand cmdLog = new SqlCommand(logQuery, conn, transaction))
                         {
                             cmdLog.Parameters.AddWithValue("@OrderID", _orderId);
@@ -185,7 +185,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             graphics.DrawString($"Customer Name: {txtCustomerName.Text}", fontRegular, Brushes.Black, startX, startY);
 
             startY += offset;
-            graphics.DrawString("---------------------------------------------------------------------------------------------------------------------------------", fontRegular, Brushes.Black, startX, startY);
+            graphics.DrawString("-------------------------------------------------------------------------------------------------------------------", fontRegular, Brushes.Black, startX, startY);
             startY += 20;
 
 
@@ -195,7 +195,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             graphics.DrawString("Total", fontBold, Brushes.Black, startX + 450, startY);
 
             startY += 25;
-            graphics.DrawString("---------------------------------------------------------------------------------------------------------------------------------", fontRegular, Brushes.Black, startX, startY);
+            graphics.DrawString("-------------------------------------------------------------------------------------------------------------------", fontRegular, Brushes.Black, startX, startY);
             startY += 20;
 
 
@@ -217,7 +217,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             }
 
             startY += 15;
-            graphics.DrawString("---------------------------------------------------------------------------------------------------------------------------------", fontRegular, Brushes.Black, startX, startY);
+            graphics.DrawString("-------------------------------------------------------------------------------------------------------------------", fontRegular, Brushes.Black, startX, startY);
             startY += 20;
 
             graphics.DrawString($"Grand Total: {lblTotalAmount.Text}", fontBold, Brushes.DarkGreen, startX + 320, startY);
@@ -236,6 +236,8 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
                 PrintInvoiceToPdf();
 
+                CustomerDashboard dashboard = new CustomerDashboard(_customerName, "hhfhfgf");
+                dashboard.Show();
                 this.Close();
             }
         }

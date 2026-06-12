@@ -71,7 +71,7 @@ namespace SmartOrderManagementSystem.Forms.Login
 
         private void AdminLogBut_MouseLeave(object sender, EventArgs e)
         {
-            AdminLogBut.BackColor = CusOriCol;
+            AdminLogBut.BackColor = AdmOriCol;
         }
 
         private void StaffLogBut_MouseEnter(object sender, EventArgs e)

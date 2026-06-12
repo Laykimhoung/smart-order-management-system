@@ -28,6 +28,8 @@ namespace SmartOrderManagementSystem.Forms.Login
             btnLogin.FlatAppearance.BorderSize = 0;
 
             btnBack.FlatAppearance.BorderSize = 1;
+
+            txtPass.UseSystemPasswordChar = true;
         }
         private void btnBack_Click(object sender, EventArgs e)
         {

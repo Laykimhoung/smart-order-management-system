@@ -52,7 +52,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(240, 22);
+            this.lblTitle.Location = new System.Drawing.Point(193, 22);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(78, 37);
             this.lblTitle.TabIndex = 0;

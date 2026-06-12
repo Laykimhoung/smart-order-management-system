@@ -219,6 +219,7 @@
             this.btnExportExcel.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnExportExcel.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.btnExportExcel.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // btnRefresh
             // 
@@ -243,6 +244,7 @@
             this.btnRefresh.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnRefresh.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.btnRefresh.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // label6
             // 

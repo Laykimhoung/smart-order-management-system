@@ -42,7 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvItemOrder = new System.Windows.Forms.DataGridView();
-            this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnGetInvoice = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.picQRCode = new System.Windows.Forms.PictureBox();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemOrder)).BeginInit();
@@ -194,8 +194,8 @@
             // 
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
             this.groupBox2.Controls.Add(this.dgvItemOrder);
-            this.groupBox2.Controls.Add(this.txtTotalAmount);
             this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.lblTotalAmount);
             this.groupBox2.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 323);
             this.groupBox2.Name = "groupBox2";
@@ -209,20 +209,11 @@
             this.dgvItemOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvItemOrder.Location = new System.Drawing.Point(25, 38);
             this.dgvItemOrder.Name = "dgvItemOrder";
+            this.dgvItemOrder.ReadOnly = true;
             this.dgvItemOrder.RowHeadersWidth = 51;
             this.dgvItemOrder.RowTemplate.Height = 24;
             this.dgvItemOrder.Size = new System.Drawing.Size(584, 165);
             this.dgvItemOrder.TabIndex = 2;
-            // 
-            // txtTotalAmount
-            // 
-            this.txtTotalAmount.BackColor = System.Drawing.SystemColors.Info;
-            this.txtTotalAmount.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalAmount.Location = new System.Drawing.Point(384, 208);
-            this.txtTotalAmount.Name = "txtTotalAmount";
-            this.txtTotalAmount.ReadOnly = true;
-            this.txtTotalAmount.Size = new System.Drawing.Size(210, 39);
-            this.txtTotalAmount.TabIndex = 1;
             // 
             // label6
             // 
@@ -349,6 +340,18 @@
             this.picQRCode.TabIndex = 0;
             this.picQRCode.TabStop = false;
             // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(427, 212);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(75, 35);
+            this.lblTotalAmount.TabIndex = 0;
+            this.lblTotalAmount.Text = "Total";
+            this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // OrderDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -395,7 +398,6 @@
         private System.Windows.Forms.TextBox txtOrderDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtTotalAmount;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnGetInvoice;
         private System.Windows.Forms.Button btnBack;
@@ -408,5 +410,6 @@
         private System.Windows.Forms.PictureBox picQRCode;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridView dgvItemOrder;
+        private System.Windows.Forms.Label lblTotalAmount;
     }
 }

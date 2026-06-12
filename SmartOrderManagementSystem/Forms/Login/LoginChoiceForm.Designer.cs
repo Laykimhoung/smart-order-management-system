@@ -49,9 +49,9 @@
             this.CusLogBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
             this.CusLogBut.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CusLogBut.ForeColor = System.Drawing.Color.White;
-            this.CusLogBut.Location = new System.Drawing.Point(115, 357);
+            this.CusLogBut.Location = new System.Drawing.Point(391, 413);
             this.CusLogBut.Name = "CusLogBut";
-            this.CusLogBut.Size = new System.Drawing.Size(363, 84);
+            this.CusLogBut.Size = new System.Drawing.Size(238, 84);
             this.CusLogBut.TabIndex = 0;
             this.CusLogBut.Text = "Customer";
             this.CusLogBut.UseVisualStyleBackColor = false;
@@ -64,9 +64,9 @@
             this.StaffLogBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.StaffLogBut.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffLogBut.ForeColor = System.Drawing.Color.White;
-            this.StaffLogBut.Location = new System.Drawing.Point(316, 680);
+            this.StaffLogBut.Location = new System.Drawing.Point(67, 602);
             this.StaffLogBut.Name = "StaffLogBut";
-            this.StaffLogBut.Size = new System.Drawing.Size(162, 84);
+            this.StaffLogBut.Size = new System.Drawing.Size(238, 84);
             this.StaffLogBut.TabIndex = 1;
             this.StaffLogBut.Text = "Staff";
             this.StaffLogBut.UseVisualStyleBackColor = false;
@@ -79,9 +79,9 @@
             this.AdminLogBut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.AdminLogBut.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminLogBut.ForeColor = System.Drawing.Color.White;
-            this.AdminLogBut.Location = new System.Drawing.Point(115, 680);
+            this.AdminLogBut.Location = new System.Drawing.Point(732, 602);
             this.AdminLogBut.Name = "AdminLogBut";
-            this.AdminLogBut.Size = new System.Drawing.Size(162, 84);
+            this.AdminLogBut.Size = new System.Drawing.Size(238, 84);
             this.AdminLogBut.TabIndex = 2;
             this.AdminLogBut.Text = "Admin";
             this.AdminLogBut.UseVisualStyleBackColor = false;
@@ -95,19 +95,19 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(180)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(203, 8);
+            this.label1.Location = new System.Drawing.Point(382, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(195, 54);
+            this.label1.Size = new System.Drawing.Size(217, 54);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Login As:";
+            this.label1.Text = "LOGIN AS:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(115, 480);
+            this.pictureBox1.Location = new System.Drawing.Point(665, 311);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(189, 177);
+            this.pictureBox1.Size = new System.Drawing.Size(305, 267);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -116,9 +116,9 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(316, 480);
+            this.pictureBox2.Location = new System.Drawing.Point(32, 311);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(162, 155);
+            this.pictureBox2.Size = new System.Drawing.Size(305, 267);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
@@ -127,7 +127,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(144, 66);
+            this.pictureBox3.Location = new System.Drawing.Point(364, 122);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(305, 267);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -138,7 +138,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(397, 255);
+            this.pictureBox4.Location = new System.Drawing.Point(617, 311);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(76, 78);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -162,9 +162,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(599, 785);
+            this.ClientSize = new System.Drawing.Size(1052, 730);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);

@@ -18,6 +18,18 @@ namespace SmartOrderManagementSystem.Forms.Login
         public AdminLoginForm()
         {
             InitializeComponent();
+
+            btnBack.Cursor = Cursors.Hand;
+            btnLogin.Cursor = Cursors.Hand;
+            chkShowPassword.Cursor = Cursors.Hand;
+        }
+        private void AdminLoginForm_Load(object sender, EventArgs e)
+        {
+            btnLogin.FlatAppearance.BorderSize = 0;
+
+            btnBack.FlatAppearance.BorderSize = 1;
+
+            txtPass.UseSystemPasswordChar = true;
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -93,6 +105,11 @@ namespace SmartOrderManagementSystem.Forms.Login
             {
                 MessageBox.Show("Database Error:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPass.UseSystemPasswordChar = !chkShowPassword.Checked;
         }
     }
 }

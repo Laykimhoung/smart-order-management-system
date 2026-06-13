@@ -19,21 +19,57 @@ namespace SmartOrderManagementSystem.Forms.Customer
         int _orderId;
         int _customerId;
         string _customerName;
+        int _userId;
         string _staffname;
-        public OrderDetailsForm(int CustomerID, string CustomerName, string staffname)
+        string _username;
+        public OrderDetailsForm(int CustomerID, string CustomerName, int UserID, string staffname)
         {
             InitializeComponent();
             _customerId = CustomerID;
             _customerName = CustomerName;
+            _userId = UserID;
             _staffname = staffname;
+        }
+
+        private void LoadUsername()
+        {
+            string query = "SELECT Username FROM Users WHERE UserID = @UserID";
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@UserID", _userId)
+                };
+                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
+                if (dt != null)
+                {
+                    _username = dt.Rows[0]["Username"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Username not found.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load username: {ex.Message}", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void OrderDetailsForm_Load(object sender, EventArgs e)
         {
+            LoadUsername();
+            LoadStaffName();
             GetOrderId();
             LoadOrderData();
             this.dgvItemOrder.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             this.dgvItemOrder.DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Regular);
+            if (dgvItemOrder.Columns["Product"] != null) dgvItemOrder.Columns["Product"].FillWeight = 160;   
+            if (dgvItemOrder.Columns["Quantity"] != null) dgvItemOrder.Columns["Quantity"].FillWeight = 70;  
+            if (dgvItemOrder.Columns["Price"] != null) dgvItemOrder.Columns["Price"].FillWeight = 80;        
+            if (dgvItemOrder.Columns["Subtotal"] != null) dgvItemOrder.Columns["Subtotal"].FillWeight = 90;
         }
         private void GetOrderId()
         {
@@ -65,6 +101,34 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 MessageBox.Show($"Failed to load customer: {ex.Message}", "Database Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void LoadStaffName()
+        {
+            string query = "SELECT FullName FROM Users WHERE UserID = @UserID";
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@UserID", _userId)
+                };
+                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
+                if (dt != null)
+                {
+                    _staffname = dt.Rows[0]["FullName"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("FullName not found.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load staff name: {ex.Message}", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void LoadOrderData()
         {
             string HeaderQuery = 
@@ -102,7 +166,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 dgvItemOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvItemOrder.AllowUserToAddRows = false;
 
-                string QRText = $"ID:{txtOrderID.Text}|TICKET:{txtWaitingNumber.Text}|TOTAL:${lblTotalAmount.Text:F2}";
+                string QRText = $"Date: {lblDate.Text}\nOrder Ref: ORD-{txtOrderID.Text}\nYour WaitingNumber: {txtWaitingNumber.Text}\nTOTAL Cost: {lblTotalAmount.Text:F2}";
                 GenerateQR(QRText);
             }
             catch (Exception ex)
@@ -170,7 +234,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             }
 
 
-            InvoiceForm invoiceForm = new InvoiceForm(_orderId, txtCustomer.Text, totalAmount, int.Parse(txtWaitingNumber.Text));
+            InvoiceForm invoiceForm = new InvoiceForm(_orderId, txtCustomer.Text, totalAmount, int.Parse(txtWaitingNumber.Text), _staffname, _userId, _username);
             invoiceForm.Show();
             this.Hide();
         }
@@ -257,7 +321,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             if (UpdateOrderStatus(_orderId, "Cancelled", "Order Cancelled"))
             {
                 MessageBox.Show("Order cancelled successfully.");
-                CustomerDashboard customerDashboard = new CustomerDashboard(_customerName,_staffname);
+                CustomerDashboard customerDashboard = new CustomerDashboard(_customerName, _username, _userId);
                 customerDashboard.Show();
                 this.Hide();
             }

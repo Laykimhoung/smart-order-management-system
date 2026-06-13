@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffDashboard));
             this.panel1 = new ReaLTaiizor.Controls.Panel();
+            this.Cutomer_dashboard = new ReaLTaiizor.Controls.CyberButton();
             this.Logout_btn = new ReaLTaiizor.Controls.CyberButton();
             this.bigLabel1 = new ReaLTaiizor.Controls.BigLabel();
             this.parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
@@ -51,6 +52,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel1.Controls.Add(this.Cutomer_dashboard);
             this.panel1.Controls.Add(this.Logout_btn);
             this.panel1.Controls.Add(this.bigLabel1);
             this.panel1.Controls.Add(this.parrotPictureBox1);
@@ -67,6 +69,47 @@
             this.panel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel1.TabIndex = 0;
             this.panel1.Text = "panel1";
+            // 
+            // Cutomer_dashboard
+            // 
+            this.Cutomer_dashboard.Alpha = 20;
+            this.Cutomer_dashboard.BackColor = System.Drawing.Color.Transparent;
+            this.Cutomer_dashboard.Background = true;
+            this.Cutomer_dashboard.Background_WidthPen = 4F;
+            this.Cutomer_dashboard.BackgroundPen = true;
+            this.Cutomer_dashboard.ColorBackground = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
+            this.Cutomer_dashboard.ColorBackground_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
+            this.Cutomer_dashboard.ColorBackground_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
+            this.Cutomer_dashboard.ColorBackground_Pen = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.Cutomer_dashboard.ColorLighting = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.Cutomer_dashboard.ColorPen_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
+            this.Cutomer_dashboard.ColorPen_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
+            this.Cutomer_dashboard.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            this.Cutomer_dashboard.Effect_1 = true;
+            this.Cutomer_dashboard.Effect_1_ColorBackground = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.Cutomer_dashboard.Effect_1_Transparency = 25;
+            this.Cutomer_dashboard.Effect_2 = true;
+            this.Cutomer_dashboard.Effect_2_ColorBackground = System.Drawing.Color.White;
+            this.Cutomer_dashboard.Effect_2_Transparency = 20;
+            this.Cutomer_dashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cutomer_dashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.Cutomer_dashboard.Lighting = false;
+            this.Cutomer_dashboard.LinearGradient_Background = false;
+            this.Cutomer_dashboard.LinearGradientPen = false;
+            this.Cutomer_dashboard.Location = new System.Drawing.Point(8, 591);
+            this.Cutomer_dashboard.Name = "Cutomer_dashboard";
+            this.Cutomer_dashboard.PenWidth = 15;
+            this.Cutomer_dashboard.Rounding = true;
+            this.Cutomer_dashboard.RoundingInt = 70;
+            this.Cutomer_dashboard.Size = new System.Drawing.Size(224, 50);
+            this.Cutomer_dashboard.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.Cutomer_dashboard.TabIndex = 10;
+            this.Cutomer_dashboard.Tag = "Cyber";
+            this.Cutomer_dashboard.TextButton = "Customer Login";
+            this.Cutomer_dashboard.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.Cutomer_dashboard.Timer_Effect_1 = 5;
+            this.Cutomer_dashboard.Timer_RGB = 300;
+            this.Cutomer_dashboard.Click += new System.EventHandler(this.Cutomer_dashboard_Click);
             // 
             // Logout_btn
             // 
@@ -89,12 +132,12 @@
             this.Logout_btn.Effect_2 = true;
             this.Logout_btn.Effect_2_ColorBackground = System.Drawing.Color.White;
             this.Logout_btn.Effect_2_Transparency = 20;
-            this.Logout_btn.Font = new System.Drawing.Font("Rockwell", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Logout_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.Logout_btn.Lighting = false;
             this.Logout_btn.LinearGradient_Background = false;
             this.Logout_btn.LinearGradientPen = false;
-            this.Logout_btn.Location = new System.Drawing.Point(8, 652);
+            this.Logout_btn.Location = new System.Drawing.Point(8, 704);
             this.Logout_btn.Name = "Logout_btn";
             this.Logout_btn.PenWidth = 15;
             this.Logout_btn.Rounding = true;
@@ -151,7 +194,7 @@
             this.Setting_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.Setting_btn.CornerRadius = 10;
             this.Setting_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Setting_btn.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Setting_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Setting_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.Setting_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Setting_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -176,7 +219,7 @@
             this.Message_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.Message_btn.CornerRadius = 10;
             this.Message_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Message_btn.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Message_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Message_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.Message_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Message_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -201,7 +244,7 @@
             this.Order_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.Order_btn.CornerRadius = 10;
             this.Order_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Order_btn.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Order_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Order_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.Order_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Order_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -226,7 +269,7 @@
             this.Customer_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.Customer_btn.CornerRadius = 10;
             this.Customer_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Customer_btn.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Customer_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Customer_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.Customer_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Customer_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -251,7 +294,7 @@
             this.parrotButton1.ClickTextColor = System.Drawing.Color.DodgerBlue;
             this.parrotButton1.CornerRadius = 10;
             this.parrotButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parrotButton1.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parrotButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.parrotButton1.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.parrotButton1.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.parrotButton1.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -339,7 +382,7 @@
             this.Staff_accout_btn.ClickTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.Staff_accout_btn.CornerRadius = 10;
             this.Staff_accout_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Staff_accout_btn.Font = new System.Drawing.Font("Rockwell", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Staff_accout_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Staff_accout_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
             this.Staff_accout_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Staff_accout_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
@@ -383,6 +426,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_container);
             this.Name = "StaffDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StaffDashboard";
             this.Load += new System.EventHandler(this.StaffDashboard_Load);
             this.panel1.ResumeLayout(false);
@@ -410,5 +454,6 @@
         private ReaLTaiizor.Controls.BigLabel bigLabel2;
         private ReaLTaiizor.Controls.ParrotButton Menu_btn;
         private System.Windows.Forms.Panel panel_container;
+        private ReaLTaiizor.Controls.CyberButton Cutomer_dashboard;
     }
 }

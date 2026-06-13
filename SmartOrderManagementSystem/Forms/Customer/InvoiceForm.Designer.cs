@@ -244,9 +244,9 @@
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(12, 296);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(142, 22);
+            this.label9.Size = new System.Drawing.Size(77, 22);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Customer Name:";
+            this.label9.Text = "Cashier:";
             // 
             // txtCashier
             // 

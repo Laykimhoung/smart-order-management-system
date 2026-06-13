@@ -96,6 +96,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
           
             CustomerLoginForm customerlogin = new CustomerLoginForm(full_name);
             customerlogin.Show();
+            this.Hide();
         }
     }
 }

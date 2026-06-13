@@ -87,7 +87,7 @@ namespace SmartOrderManagementSystem.Forms.Login
 
                             MessageBox.Show($"Welcome {fullName}!","Login Successful",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
-                            StaffDashboard staffForm = new StaffDashboard(123, "example");
+                            StaffDashboard staffForm = new StaffDashboard(123, username);
                             staffForm.Show();
 
                             this.Hide();

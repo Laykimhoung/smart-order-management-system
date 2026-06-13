@@ -20,12 +20,18 @@ namespace SmartOrderManagementSystem.Forms.Customer
         decimal _totalAmount;
         int _invoiceID;
         int _waitingNumber;
-        public InvoiceForm(int orderId, string customerName, decimal totalAmount, int waitingNumber)
+        string _staffname;
+        int _userId;
+        string _username;
+        public InvoiceForm(int orderId, string customerName, decimal totalAmount, int waitingNumber, string staffname, int userId, string username)
         {
+            _staffname = staffname;
+            _userId = userId;
             _orderId = orderId;
             _customerName = customerName;
             _totalAmount = totalAmount;
             _waitingNumber = waitingNumber;
+            _username = username;
             InitializeComponent();
         }
 
@@ -37,9 +43,12 @@ namespace SmartOrderManagementSystem.Forms.Customer
             txtCustomerName.Text = _customerName;
             lblTotalAmount.Text = $"${_totalAmount:F2}";
             txtWaitingNumber.Text = _waitingNumber.ToString();
+            txtCashier.Text = _staffname;
 
             LoadOrderItems();
         }
+
+        
 
         private void LoadOrderItems()
         {
@@ -183,6 +192,8 @@ namespace SmartOrderManagementSystem.Forms.Customer
             graphics.DrawString($"Ref Order: {txtOrderID.Text}", fontRegular, Brushes.Black, startX, startY);
             startY += 25;
             graphics.DrawString($"Customer Name: {txtCustomerName.Text}", fontRegular, Brushes.Black, startX, startY);
+            startY += 25;
+            graphics.DrawString($"Cashier: {txtCashier.Text}", fontRegular, Brushes.Black, startX, startY);
 
             startY += offset;
             graphics.DrawString("-------------------------------------------------------------------------------------------------------------------", fontRegular, Brushes.Black, startX, startY);
@@ -236,7 +247,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
                 PrintInvoiceToPdf();
 
-                CustomerDashboard dashboard = new CustomerDashboard(_customerName, "hhfhfgf");
+                CustomerDashboard dashboard = new CustomerDashboard(_customerName, _username, _userId);
                 dashboard.Show();
                 this.Close();
             }

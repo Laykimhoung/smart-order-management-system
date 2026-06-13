@@ -46,6 +46,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtWaitingNumber = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCashier = new System.Windows.Forms.TextBox();
             this.pnlHeader.SuspendLayout();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInvoiceItems)).BeginInit();
@@ -77,7 +79,7 @@
             this.pnlFooter.BackColor = System.Drawing.SystemColors.GrayText;
             this.pnlFooter.Controls.Add(this.btnFinishOrder);
             this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Location = new System.Drawing.Point(0, 612);
+            this.pnlFooter.Location = new System.Drawing.Point(0, 641);
             this.pnlFooter.Name = "pnlFooter";
             this.pnlFooter.Size = new System.Drawing.Size(605, 75);
             this.pnlFooter.TabIndex = 1;
@@ -157,7 +159,7 @@
             // 
             this.lblTotalAmount.AutoSize = true;
             this.lblTotalAmount.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(421, 534);
+            this.lblTotalAmount.Location = new System.Drawing.Point(421, 562);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(134, 26);
             this.lblTotalAmount.TabIndex = 2;
@@ -177,7 +179,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 309);
+            this.label6.Location = new System.Drawing.Point(13, 337);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 36);
             this.label6.TabIndex = 2;
@@ -188,7 +190,7 @@
             this.dgvInvoiceItems.AllowUserToDeleteRows = false;
             this.dgvInvoiceItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvInvoiceItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInvoiceItems.Location = new System.Drawing.Point(18, 350);
+            this.dgvInvoiceItems.Location = new System.Drawing.Point(18, 378);
             this.dgvInvoiceItems.Name = "dgvInvoiceItems";
             this.dgvInvoiceItems.ReadOnly = true;
             this.dgvInvoiceItems.RowHeadersWidth = 51;
@@ -200,7 +202,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Romnea", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(346, 530);
+            this.label7.Location = new System.Drawing.Point(346, 558);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 36);
             this.label7.TabIndex = 2;
@@ -236,20 +238,42 @@
             this.txtWaitingNumber.Size = new System.Drawing.Size(260, 30);
             this.txtWaitingNumber.TabIndex = 3;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(12, 296);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(142, 22);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Customer Name:";
+            // 
+            // txtCashier
+            // 
+            this.txtCashier.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCashier.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCashier.Location = new System.Drawing.Point(181, 288);
+            this.txtCashier.Name = "txtCashier";
+            this.txtCashier.ReadOnly = true;
+            this.txtCashier.Size = new System.Drawing.Size(260, 30);
+            this.txtCashier.TabIndex = 3;
+            // 
             // InvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 687);
+            this.ClientSize = new System.Drawing.Size(605, 716);
             this.Controls.Add(this.dgvInvoiceItems);
             this.Controls.Add(this.txtWaitingNumber);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtInvoiceDate);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCashier);
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTotalAmount);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtOrderID);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -291,5 +315,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtWaitingNumber;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtCashier;
     }
 }

@@ -44,11 +44,10 @@ namespace SmartOrderManagementSystem.Forms.Staff
                                   WHERE OrderDate BETWEEN @FromDate AND @ToDate
                                   GROUP BY CustomerID) o ON c.CustomerID = o.CustomerID
                                 
-                                LEFT JOIN(SELECT o.CustomerID, SUM(p.Price) AS Totalpaid 
+                                LEFT JOIN(SELECT o.CustomerID,  SUM(pr.Price) AS Totalpaid 
                                 FROM Orders o 
-                                INNER JOIN Invoices i ON o.OrderID = i.OrderID 
-                                INNER JOIN Payments p ON i.InvoiceID = p.InvoiceID
-                                INNER JOIN Products pr ON pr.ProductID = i.ProductID
+                                INNER JOIN OrderItems oi ON o.OrderID = oi.OrderID 
+                                INNER JOIN Products pr ON pr.ProductID = oi.ProductID
                                     WHERE o.OrderDate BETWEEN @FromDate AND @ToDate
                                     GROUP BY o.CustomerID) p ON c.CustomerID = p.CustomerID";
 
@@ -62,6 +61,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
                 DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
                 Customer_datagrideview.DataSource = dt;
                 // Rename the header text
+
                 Customer_datagrideview.Columns["CustomerID"].HeaderText = "ID";
                 Customer_datagrideview.Columns["CustomerName"].HeaderText = "Name";
                 Customer_datagrideview.Columns["Phone"].HeaderText = "Phone";
@@ -86,7 +86,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
                 Customer_datagrideview.Columns["CustomerName"].Resizable = DataGridViewTriState.False;
                 Customer_datagrideview.Columns["CustomerName"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                Customer_datagrideview.Columns["Phone"].Width = 100;
+                Customer_datagrideview.Columns["Phone"].Width = 80;
                 Customer_datagrideview.Columns["Phone"].Resizable = DataGridViewTriState.False;
                 Customer_datagrideview.Columns["Phone"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -100,7 +100,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
                 //Customer_datagrideview.Columns["TotalInvoiceAmount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 //Customer_datagrideview.Columns["TotalInvoiceAmount"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                Customer_datagrideview.Columns["TotalPaid"].Width = 70;
+                Customer_datagrideview.Columns["TotalPaid"].Width = 120;
                 Customer_datagrideview.Columns["TotalPaid"].Resizable = DataGridViewTriState.False;
                 Customer_datagrideview.Columns["TotalPaid"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 Customer_datagrideview.Columns["TotalPaid"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;

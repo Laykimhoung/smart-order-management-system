@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panelTotalOrders = new ReaLTaiizor.Controls.ParrotGradientPanel();
@@ -105,7 +105,7 @@
             this.lblTotalOrders.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalOrders.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalOrders.ForeColor = System.Drawing.Color.White;
-            this.lblTotalOrders.Location = new System.Drawing.Point(99, 85);
+            this.lblTotalOrders.Location = new System.Drawing.Point(78, 85);
             this.lblTotalOrders.Name = "lblTotalOrders";
             this.lblTotalOrders.Size = new System.Drawing.Size(60, 45);
             this.lblTotalOrders.TabIndex = 1;
@@ -149,7 +149,7 @@
             this.lblTotalCustomers.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalCustomers.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalCustomers.ForeColor = System.Drawing.Color.White;
-            this.lblTotalCustomers.Location = new System.Drawing.Point(106, 85);
+            this.lblTotalCustomers.Location = new System.Drawing.Point(82, 85);
             this.lblTotalCustomers.Name = "lblTotalCustomers";
             this.lblTotalCustomers.Size = new System.Drawing.Size(60, 45);
             this.lblTotalCustomers.TabIndex = 1;
@@ -237,7 +237,7 @@
             this.lblTotalRevenue.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalRevenue.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalRevenue.ForeColor = System.Drawing.Color.White;
-            this.lblTotalRevenue.Location = new System.Drawing.Point(64, 85);
+            this.lblTotalRevenue.Location = new System.Drawing.Point(29, 85);
             this.lblTotalRevenue.Name = "lblTotalRevenue";
             this.lblTotalRevenue.Size = new System.Drawing.Size(60, 45);
             this.lblTotalRevenue.TabIndex = 1;
@@ -271,14 +271,14 @@
             this.dgvRecentOrder.AllowUserToAddRows = false;
             this.dgvRecentOrder.AllowUserToDeleteRows = false;
             this.dgvRecentOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvRecentOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRecentOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRecentOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecentOrder.Location = new System.Drawing.Point(59, 332);
             this.dgvRecentOrder.Name = "dgvRecentOrder";

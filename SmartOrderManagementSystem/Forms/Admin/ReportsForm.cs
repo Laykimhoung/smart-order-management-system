@@ -49,7 +49,7 @@ namespace SmartOrderManagementSystem.Forms.Admin
                 dgvReports.DataSource =
                     DatabaseConnection.ExecuteQuery(query);
                 dgvReports.Columns["Total Price"]
-                    .DefaultCellStyle.Format = "N2";
+                    .DefaultCellStyle.Format = "$0.00";
 
                 dgvReports.Columns["Order ID"].FillWeight = 60;
 
@@ -137,23 +137,77 @@ namespace SmartOrderManagementSystem.Forms.Admin
         AND O.OrderDate BETWEEN @DateFrom AND @DateTo
         ORDER BY O.OrderID ASC";
 
+                DateTime dateFrom;
+                DateTime dateTo;
+
+                switch (cmbReportType.Text)
+                {
+                    case "Daily":
+
+                        dateFrom = dtpFrom.Value.Date;
+
+                        dateTo = dateFrom.AddDays(1);
+
+                        break;
+
+                    case "Weekly":
+
+                        dateFrom =
+                            dtpFrom.Value.Date.AddDays(
+                                -(int)dtpFrom.Value.DayOfWeek);
+
+                        dateTo =
+                            dateFrom.AddDays(7);
+
+                        break;
+
+                    case "Monthly":
+
+                        dateFrom =
+                            new DateTime(
+                                dtpFrom.Value.Year,
+                                dtpFrom.Value.Month,
+                                1);
+
+                        dateTo =
+                            dateFrom.AddMonths(1);
+
+                        break;
+
+                    case "Yearly":
+
+                        dateFrom =
+                            new DateTime(
+                                dtpFrom.Value.Year,
+                                1,
+                                1);
+
+                        dateTo =
+                            dateFrom.AddYears(1);
+
+                        break;
+
+                    default:
+
+                        dateFrom = dtpFrom.Value.Date;
+
+                        dateTo = dtpTo.Value.Date.AddDays(1);
+
+                        break;
+                }
+
                 SqlParameter[] parameters =
                 {
-            new SqlParameter(
-                "@DateFrom",
-                dtpFrom.Value.Date),
-
-            new SqlParameter(
-                "@DateTo",
-                dtpTo.Value.Date.AddDays(1))
-            };
+                    new SqlParameter("@DateFrom", dateFrom),
+                    new SqlParameter("@DateTo", dateTo)
+                };
 
                 dgvReports.DataSource =
                     DatabaseConnection.ExecuteQueryWithParams(
                         query,
                         parameters);
                 dgvReports.Columns["Total Price"]
-                    .DefaultCellStyle.Format = "N2";
+                    .DefaultCellStyle.Format = "$0.00";
 
                 dgvReports.Columns["Order ID"].FillWeight = 60;
 
@@ -181,43 +235,158 @@ namespace SmartOrderManagementSystem.Forms.Admin
             {
                 if (dgvReports.Rows.Count == 0)
                 {
-                    MessageBox.Show(
-                        "No data to export.");
-
+                    MessageBox.Show("No data to export.");
                     return;
                 }
 
-                SaveFileDialog save =
-                    new SaveFileDialog();
+                SaveFileDialog save = new SaveFileDialog();
 
-                save.Filter =
-                    "Excel File|*.xlsx";
+                save.Filter = "Excel File (*.xlsx)|*.xlsx";
 
                 save.FileName =
-                    cmbReportType.Text +
-                    "_Report.xlsx";
+                    cmbReportType.Text + "_Report.xlsx";
 
-                if (save.ShowDialog()
-                    == DialogResult.OK)
+                if (save.ShowDialog() == DialogResult.OK)
                 {
                     using (ExcelPackage package =
                         new ExcelPackage())
                     {
                         ExcelWorksheet ws =
-                            package.Workbook.Worksheets
-                            .Add("Reports");
+                            package.Workbook.Worksheets.Add(
+                                "Order Report");
 
-                        // Headers
+                        // ==================================
+                        // MAIN TITLE
+                        // ==================================
+
+                        ws.Cells["A1:E1"].Merge = true;
+
+                        ws.Cells["A1"].Value =
+                            "SMART ORDER MANAGEMENT SYSTEM";
+
+                        ws.Cells["A1"].Style.Font.Bold = true;
+                        ws.Cells["A1"].Style.Font.Size = 18;
+
+                        ws.Cells["A1"].Style.HorizontalAlignment =
+                            OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                        // ==================================
+                        // REPORT TITLE
+                        // ==================================
+
+                        string periodText = "";
+
+                        switch (cmbReportType.Text)
+                        {
+                            case "Daily":
+
+                                periodText =
+                                    DateTime.Now.ToString(
+                                        "dd/MM/yyyy");
+
+                                break;
+
+                            case "Weekly":
+
+                                DateTime startOfWeek =
+                                    DateTime.Now.Date.AddDays(
+                                        -(int)DateTime.Now.DayOfWeek);
+
+                                DateTime endOfWeek =
+                                    startOfWeek.AddDays(6);
+
+                                periodText =
+                                    startOfWeek.ToString("dd/MM/yyyy")
+                                    + " - " +
+                                    endOfWeek.ToString("dd/MM/yyyy");
+
+                                break;
+
+                            case "Monthly":
+
+                                periodText =
+                                    DateTime.Now.ToString(
+                                        "MMMM yyyy");
+
+                                break;
+
+                            case "Yearly":
+
+                                periodText =
+                                    DateTime.Now.Year.ToString();
+
+                                break;
+                        }
+
+                        ws.Cells["A3:E3"].Merge = true;
+
+                        ws.Cells["A3"].Value =
+                            cmbReportType.Text.ToUpper()
+                            + " ORDER REPORT";
+
+                        ws.Cells["A3"].Style.Font.Bold = true;
+                        ws.Cells["A3"].Style.Font.Size = 14;
+
+                        ws.Cells["A3"].Style.HorizontalAlignment =
+                            OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                        ws.Cells["A4:E4"].Merge = true;
+
+                        ws.Cells["A4"].Value =
+                            "Period: " + periodText;
+
+                        ws.Cells["A4"].Style.HorizontalAlignment =
+                            OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                        ws.Cells["A5:E5"].Merge = true;
+
+                        ws.Cells["A5"].Value =
+                            "Generated: "
+                            + DateTime.Now.ToString(
+                                "dd/MM/yyyy hh:mm tt");
+
+                        ws.Cells["A5"].Style.HorizontalAlignment =
+                            OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                        // ==================================
+                        // TABLE HEADER
+                        // ==================================
+
+                        int startRow = 7;
+
                         for (int i = 0;
                             i < dgvReports.Columns.Count;
                             i++)
                         {
-                            ws.Cells[1, i + 1].Value =
-                                dgvReports.Columns[i]
-                                .HeaderText;
+                            ws.Cells[startRow, i + 1].Value =
+                                dgvReports.Columns[i].HeaderText;
                         }
 
-                        // Data
+                        var headerRange =
+                            ws.Cells[
+                                startRow,
+                                1,
+                                startRow,
+                                dgvReports.Columns.Count];
+
+                        headerRange.Style.Font.Bold = true;
+
+                        headerRange.Style.Font.Color.SetColor(
+                            Color.White);
+
+                        headerRange.Style.Fill.PatternType =
+                            OfficeOpenXml.Style.ExcelFillStyle.Solid;
+
+                        headerRange.Style.Fill.BackgroundColor
+                            .SetColor(Color.DarkBlue);
+
+                        headerRange.Style.HorizontalAlignment =
+                            OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                        // ==================================
+                        // DATA
+                        // ==================================
+
                         for (int row = 0;
                             row < dgvReports.Rows.Count;
                             row++)
@@ -226,29 +395,133 @@ namespace SmartOrderManagementSystem.Forms.Admin
                                 col < dgvReports.Columns.Count;
                                 col++)
                             {
-                                ws.Cells[row + 2, col + 1]
-                                    .Value =
+                                ws.Cells[
+                                    row + startRow + 1,
+                                    col + 1].Value =
                                     dgvReports.Rows[row]
-                                    .Cells[col]
-                                    .Value;
+                                    .Cells[col].Value;
                             }
                         }
 
+                        int lastRow =
+                            startRow + dgvReports.Rows.Count;
+
+                        // ==================================
+                        // CENTER TABLE
+                        // ==================================
+
+                        ws.Cells[
+                            startRow,
+                            1,
+                            lastRow,
+                            dgvReports.Columns.Count]
+                            .Style.HorizontalAlignment =
+                            OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                        // ==================================
+                        // PRICE COLUMN FORMAT
+                        // Column D = Total Price
+                        // ==================================
+
+                        for (int row = startRow + 1;
+                            row <= lastRow;
+                            row++)
+                        {
+                            decimal price =
+                                Convert.ToDecimal(
+                                ws.Cells[row, 4].Value);
+
+                            ws.Cells[row, 4].Value =
+                                "$" + price.ToString("N2");
+                        }
+
+                        // ==================================
+                        // BORDER
+                        // ==================================
+
+                        var tableRange =
+                            ws.Cells[
+                                startRow,
+                                1,
+                                lastRow,
+                                dgvReports.Columns.Count];
+
+                        tableRange.Style.Border.Top.Style =
+                            OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+                        tableRange.Style.Border.Bottom.Style =
+                            OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+                        tableRange.Style.Border.Left.Style =
+                            OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+                        tableRange.Style.Border.Right.Style =
+                            OfficeOpenXml.Style.ExcelBorderStyle.Thin;
+
+                        // ==================================
+                        // TOTALS
+                        // ==================================
+
+                        decimal totalRevenue = 0;
+
+                        foreach (DataGridViewRow row
+                            in dgvReports.Rows)
+                        {
+                            if (row.Cells["Total Price"].Value != null)
+                            {
+                                totalRevenue +=
+                                    Convert.ToDecimal(
+                                    row.Cells["Total Price"].Value);
+                            }
+                        }
+
+                        ws.Cells[lastRow + 2, 1].Value =
+                            "Total Orders";
+
+                        ws.Cells[lastRow + 2, 2].Value =
+                            dgvReports.Rows.Count;
+
+                        ws.Cells[lastRow + 3, 1].Value =
+                            "Total Revenue";
+
+                        ws.Cells[lastRow + 3, 2].Value =
+                            "$" + totalRevenue.ToString("N2");
+
+                        ws.Cells[lastRow + 2, 1].Style.Font.Bold = true;
+                        ws.Cells[lastRow + 3, 1].Style.Font.Bold = true;
+
+                        ws.Cells[lastRow + 2, 2]
+                            .Style.HorizontalAlignment =
+                            OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                        ws.Cells[lastRow + 3, 2]
+                            .Style.HorizontalAlignment =
+                            OfficeOpenXml.Style.ExcelHorizontalAlignment.Center;
+
+                        // ==================================
+                        // AUTO FIT
+                        // ==================================
+
                         ws.Cells.AutoFitColumns();
 
-                        FileInfo file =
-                            new FileInfo(save.FileName);
-
-                        package.SaveAs(file);
+                        package.SaveAs(
+                            new FileInfo(save.FileName));
                     }
 
                     MessageBox.Show(
-                        "Excel exported successfully.");
+                        "Excel exported successfully.",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(
+                    ex.Message,
+                    "Export Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
     }

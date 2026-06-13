@@ -32,7 +32,9 @@ namespace SmartOrderManagementSystem.Forms.Admin
             {
                 // Total Orders
                 DataTable dtOrders = DatabaseConnection.ExecuteQuery(
-                    "SELECT COUNT(*) AS TotalOrders FROM Orders");
+                    @"SELECT COUNT(*) AS TotalOrders
+                      FROM Orders
+                      WHERE OrderStatus = 'Completed'");
 
                 lblTotalOrders.Text =
                     dtOrders.Rows[0]["TotalOrders"].ToString();
@@ -40,7 +42,10 @@ namespace SmartOrderManagementSystem.Forms.Admin
 
                 // Total Customers
                 DataTable dtCustomers = DatabaseConnection.ExecuteQuery(
-                    "SELECT COUNT(*) AS TotalCustomers FROM Customers");
+                    @"SELECT COUNT(DISTINCT CustomerID)
+                      AS TotalCustomers
+                      FROM Orders
+                      WHERE OrderStatus = 'Completed'");
 
                 lblTotalCustomers.Text =
                     dtCustomers.Rows[0]["TotalCustomers"].ToString();
@@ -59,8 +64,9 @@ namespace SmartOrderManagementSystem.Forms.Admin
 
                 // Total Revenue
                 DataTable dtRevenue = DatabaseConnection.ExecuteQuery(
-                    @"SELECT ISNULL(SUM(TotalAmount),0) AS Revenue
-                      FROM Orders");
+                @"SELECT ISNULL(SUM(TotalAmount),0) AS Revenue
+                  FROM Orders
+                  WHERE OrderStatus = 'Completed'");
 
                 lblTotalRevenue.Text =
                     "$" + Convert.ToDecimal(
@@ -75,7 +81,6 @@ namespace SmartOrderManagementSystem.Forms.Admin
                     MessageBoxIcon.Error);
             }
         }
-
         private void LoadRecentOrders()
         {
             try
@@ -92,10 +97,14 @@ namespace SmartOrderManagementSystem.Forms.Admin
             ON O.CustomerID = C.CustomerID
         INNER JOIN Users U
             ON O.UserID = U.UserID
+        WHERE O.OrderStatus = 'Completed'
         ORDER BY O.OrderDate DESC";
 
                 dgvRecentOrder.DataSource =
                     DatabaseConnection.ExecuteQuery(query);
+
+                dgvRecentOrder.Columns["Total Price"]
+                    .DefaultCellStyle.Format = "$0.00";
             }
             catch (Exception ex)
             {
@@ -138,7 +147,8 @@ namespace SmartOrderManagementSystem.Forms.Admin
                     @"SELECT COUNT(*) AS TodayOrders
               FROM Orders
               WHERE CAST(OrderDate AS DATE)
-              = CAST(GETDATE() AS DATE)");
+              = CAST(GETDATE() AS DATE)
+              AND OrderStatus = 'Completed'");
 
                 lblTodayOrder.Text =
                     "Today's Orders: " +
@@ -150,7 +160,8 @@ namespace SmartOrderManagementSystem.Forms.Admin
                     @"SELECT ISNULL(SUM(TotalAmount),0) AS TodayRevenue
               FROM Orders
               WHERE CAST(OrderDate AS DATE)
-              = CAST(GETDATE() AS DATE)");
+              = CAST(GETDATE() AS DATE)
+              AND OrderStatus = 'Completed'");
 
                 lblTodayRevenue.Text =
                     "Today's Revenue: $" +
@@ -165,7 +176,8 @@ namespace SmartOrderManagementSystem.Forms.Admin
               AS CustomersToday
               FROM Orders
               WHERE CAST(OrderDate AS DATE)
-              = CAST(GETDATE() AS DATE)");
+              = CAST(GETDATE() AS DATE)
+              AND OrderStatus = 'Completed'");
 
                 lblCustomerToday.Text =
                     "Customers Today: " +

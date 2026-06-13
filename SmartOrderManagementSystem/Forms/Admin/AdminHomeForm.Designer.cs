@@ -105,7 +105,7 @@
             this.lblTotalOrders.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalOrders.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalOrders.ForeColor = System.Drawing.Color.White;
-            this.lblTotalOrders.Location = new System.Drawing.Point(95, 85);
+            this.lblTotalOrders.Location = new System.Drawing.Point(99, 85);
             this.lblTotalOrders.Name = "lblTotalOrders";
             this.lblTotalOrders.Size = new System.Drawing.Size(60, 45);
             this.lblTotalOrders.TabIndex = 1;

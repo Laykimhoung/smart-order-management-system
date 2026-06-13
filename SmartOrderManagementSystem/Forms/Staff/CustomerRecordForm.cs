@@ -31,16 +31,24 @@ namespace SmartOrderManagementSystem.Forms.Staff
         }
         private void Load_Customer()
         { 
-                string query = @"SELECT c.CustomerID, c.CustomerName,c.Phone,
-                                ISNULL(o.TotalOrders,0) AS TotalOrders, ISNULL(p.TotalPaid,0) AS TotalPaid FROM Customers c
+                string query = @"SELECT c.CustomerID, 
+                                c.CustomerName,
+                                c.Phone,
+                                ISNULL(o.TotalOrders,0) AS TotalOrders, 
+                                ISNULL(p.TotalPaid,0) AS TotalPaid 
+                                FROM Customers c
                                 LEFT JOIN
                                 (
-                                  SELECT CustomerID, COUNT(*) AS TotalOrders
+                                  SELECT CustomerID, COUNT(*) AS TotalOrders    
                                   FROM Orders
                                   WHERE OrderDate BETWEEN @FromDate AND @ToDate
                                   GROUP BY CustomerID) o ON c.CustomerID = o.CustomerID
                                 
-                                LEFT JOIN(SELECT o.CustomerID, SUM(p.Amount) AS Totalpaid FROM Orders o INNER JOIN Invoices i ON o.OrderID = i.OrderID INNER JOIN Payments p ON i.InvoiceID = p.InvoiceID
+                                LEFT JOIN(SELECT o.CustomerID, SUM(p.Price) AS Totalpaid 
+                                FROM Orders o 
+                                INNER JOIN Invoices i ON o.OrderID = i.OrderID 
+                                INNER JOIN Payments p ON i.InvoiceID = p.InvoiceID
+                                INNER JOIN Products pr ON pr.ProductID = i.ProductID
                                     WHERE o.OrderDate BETWEEN @FromDate AND @ToDate
                                     GROUP BY o.CustomerID) p ON c.CustomerID = p.CustomerID";
 

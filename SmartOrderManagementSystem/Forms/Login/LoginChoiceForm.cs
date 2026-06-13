@@ -30,7 +30,7 @@ namespace SmartOrderManagementSystem.Forms.Login
 
         private void CusLogBut_Click(object sender, EventArgs e)
         {
-            CustomerLoginForm CusForm = new CustomerLoginForm();
+            CustomerLoginForm CusForm = new CustomerLoginForm("panuth");
             CusForm.Show();
             this.Hide();
         }
@@ -71,7 +71,7 @@ namespace SmartOrderManagementSystem.Forms.Login
 
         private void AdminLogBut_MouseLeave(object sender, EventArgs e)
         {
-            AdminLogBut.BackColor = CusOriCol;
+            AdminLogBut.BackColor = AdmOriCol;
         }
 
         private void StaffLogBut_MouseEnter(object sender, EventArgs e)

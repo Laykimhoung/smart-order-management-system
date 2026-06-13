@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,12 @@ namespace SmartOrderManagementSystem.Forms.Login
     {
         Color OriGoToCusBut;
         Color OriBackBut;
+        string _staffname;
 
-        public CustomerLoginForm()
+        public CustomerLoginForm(string staffname)
         {
             InitializeComponent();
+            _staffname = staffname;
 
             btnBack.Cursor = Cursors.Hand;
             btnGoToCusForm.Cursor = Cursors.Hand;
@@ -101,25 +104,87 @@ namespace SmartOrderManagementSystem.Forms.Login
 
         private void btnGoToCusForm_Click(object sender, EventArgs e)
         {
-            string name = txtName.Text;
-            string phoneNumber = txtPhNum.Text;
+            string name = txtName.Text.Trim();
+            string phoneNumber = txtPhNum.Text.Trim();
+
+            // Validate Name
             if (string.IsNullOrWhiteSpace(name) || name == "Enter your name")
             {
-                MessageBox.Show("Please enter your name.",
-                                "Alert",
-                                MessageBoxButtons.OK,
+                MessageBox.Show("Please enter your name.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                txtName.Focus();
+                return;
+            }
+
+            // Name length check
+            if (name.Length < 2 || name.Length > 50)
+            {
+                MessageBox.Show("Name must be at least 2 characters and at most 50 characters.", "Alert", MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
 
                 txtName.Focus();
                 return;
             }
-            if (!string.IsNullOrWhiteSpace(phoneNumber) && phoneNumber != "0123456789")
+
+            //if (name.Length > 50)
+            //{
+            //    MessageBox.Show("Name cannot exceed 50 characters.",
+            //                    "Alert",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Warning);
+
+            //    txtName.Focus();
+            //    return;
+            //}
+
+            // Name cannot contain numbers
+            //if (name.Any(char.IsDigit))
+            //{
+            //    MessageBox.Show("Name cannot contain numbers.",
+            //                    "Alert",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Warning);
+
+            //    txtName.Focus();
+            //    return;
+            //}
+
+            //if (name.Any(char.IsSymbol))
+            //{
+            //    MessageBox.Show("Name cannot contain symbol.",
+            //                    "Alert",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Warning);
+
+            //    txtName.Focus();
+            //    return;
+            //}
+
+            if (!name.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
+            {
+                MessageBox.Show("Name must contain letters and spaces only.", "Alert", MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                txtName.Focus();
+                return;
+            }
+
+            // Validate Phone Number
+            if (!string.IsNullOrWhiteSpace(phoneNumber) &&
+                phoneNumber != "0123456789")
             {
                 if (!phoneNumber.All(char.IsDigit))
                 {
-                    MessageBox.Show("Phone number must contain digits only.",
-                                    "Alert",
-                                    MessageBoxButtons.OK,
+                    MessageBox.Show("Phone number must contain digits only.", "Alert", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+
+                    txtPhNum.Focus();
+                    return;
+                }
+
+                if (phoneNumber.Length < 10 || phoneNumber.Length > 15)
+                {
+                    MessageBox.Show("Phone number must be between 10 and 15 digits.", "Alert", MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);
 
                     txtPhNum.Focus();
@@ -127,24 +192,61 @@ namespace SmartOrderManagementSystem.Forms.Login
                 }
             }
 
+            // Confirmation Message
+            DialogResult result = MessageBox.Show(
+                $"Name: {name}\n" +
+                $"Phone Number: {(phoneNumber == "0123456789" ? "Not Provided" : phoneNumber)}\n\n" +
+                "Start ordering?",
+                "Confirm Customer Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // Go to mi K'Nath form
+            if (result == DialogResult.No)
+            {
+                return;
+            }
 
-            //CustomerDashboard CusForm = new CustomerDashboard(name);
-            //CusForm.Show();
-            //this.Hide();
+            try
+            {
+                // DATABASE
+                using (SqlConnection conn = SmartOrderManagementSystem.Database.DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
 
+                    string query = @"INSERT INTO Customers (CustomerName, Phone)
+                         VALUES (@CustomerName, @Phone)";
 
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CustomerName", name);
 
-            // Insert data to database
+                        if (string.IsNullOrWhiteSpace(phoneNumber) || phoneNumber == "0123456789")
+                        {
+                            cmd.Parameters.AddWithValue("@Phone", DBNull.Value);
+                        }
+                        else
+                        {
+                            cmd.Parameters.AddWithValue("@Phone", phoneNumber);
+                        }
 
-            //Query....
+                        cmd.ExecuteNonQuery();
+                    }
+                }
 
+                // Go to Customer Dashboard
+                CustomerDashboard CusForm = new CustomerDashboard(name, _staffname);
+                CusForm.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving customer information:\n" + ex.Message, "Database Error", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
         private void CustomerLoginForm_Shown(object sender, EventArgs e)
         {
             this.ActiveControl = null;
         }
+        
     }
 }

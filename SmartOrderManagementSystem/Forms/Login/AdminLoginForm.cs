@@ -1,7 +1,10 @@
-﻿using System;
+﻿using SmartOrderManagementSystem.Database;
+using SmartOrderManagementSystem.Forms.Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,12 +18,98 @@ namespace SmartOrderManagementSystem.Forms.Login
         public AdminLoginForm()
         {
             InitializeComponent();
+
+            btnBack.Cursor = Cursors.Hand;
+            btnLogin.Cursor = Cursors.Hand;
+            chkShowPassword.Cursor = Cursors.Hand;
+        }
+        private void AdminLoginForm_Load(object sender, EventArgs e)
+        {
+            btnLogin.FlatAppearance.BorderSize = 0;
+
+            btnBack.FlatAppearance.BorderSize = 1;
+
+            txtPass.UseSystemPasswordChar = true;
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
             LoginChoiceForm LogChoice = new LoginChoiceForm();
             LogChoice.Show();
             this.Hide();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text.Trim();
+            string password = txtPass.Text.Trim();
+
+            // Username Validation
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                MessageBox.Show("Please enter your username.",
+                                "Login Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                txtUsername.Focus();
+                return;
+            }
+
+            // Password Validation
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please enter your password.",
+                                "Login Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+
+                txtPass.Focus();
+                return;
+            }
+
+            try
+            {
+                using (SqlConnection conn = DatabaseConnection.GetConnection())
+                {
+                    conn.Open();
+
+                    string query = @"SELECT COUNT(*) FROM Users U INNER JOIN Roles R ON U.RoleID = R.RoleID WHERE 
+                                   U.Username = @Username AND U.Password = @Password AND R.RoleName = 'Admin'";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", username);
+                        cmd.Parameters.AddWithValue("@Password", password);
+
+                        int count = (int)cmd.ExecuteScalar();
+
+                        if (count > 0)
+                        {
+                            MessageBox.Show("Welcome Admin!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            AdminDashboard dashboard = new AdminDashboard();
+                            dashboard.Show();
+
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            txtPass.Focus();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            txtPass.UseSystemPasswordChar = !chkShowPassword.Checked;
         }
     }
 }

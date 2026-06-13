@@ -19,11 +19,13 @@ namespace SmartOrderManagementSystem.Forms.Customer
         private DataTable cartTable;
         string loginUsername;
         int customerId;
+        string _staffname;
 
-        public CustomerDashboard(string Username)
+        public CustomerDashboard(string Username, string staffname)
         {
             InitializeComponent();
             loginUsername = Username;
+            _staffname = staffname;
         }
         private void CustomerDashboard_Load(object sender, EventArgs e)
         {
@@ -386,7 +388,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                         }
 
 
-                        string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, 'Order Created', 'Customer Dashboard');";
+                        string logQuery = "INSERT INTO OrderLogs (OrderID, Action) VALUES (@OrderID, 'Order Created');";
                         using (SqlCommand cmdLog = new SqlCommand(logQuery, conn, transaction))
                         {
                             cmdLog.Parameters.AddWithValue("@OrderID", orderId);
@@ -399,7 +401,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
                 if (MessageBox.Show($"Order placed successfully!\nYour Waiting Number is: {waitingNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(customerId, loginUsername);
+                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(customerId, loginUsername,_staffname);
                     orderDetailsForm.Show();
                     this.Hide();
                 }

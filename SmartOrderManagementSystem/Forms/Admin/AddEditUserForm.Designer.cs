@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblText = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.separator1 = new ReaLTaiizor.Controls.Separator();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFullName = new ReaLTaiizor.Controls.TextBoxEdit();
@@ -38,25 +38,25 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnSave = new ReaLTaiizor.Controls.Button();
-            this.crownComboBox1 = new ReaLTaiizor.Controls.CrownComboBox();
+            this.cmbRole = new ReaLTaiizor.Controls.CrownComboBox();
             this.txtUsername = new ReaLTaiizor.Controls.TextBoxEdit();
             this.btnCancel = new ReaLTaiizor.Controls.Button();
             this.txtPassword = new ReaLTaiizor.Controls.TextBoxEdit();
             this.txtEmail = new ReaLTaiizor.Controls.TextBoxEdit();
             this.txtPhone = new ReaLTaiizor.Controls.TextBoxEdit();
             this.label7 = new System.Windows.Forms.Label();
-            this.crownComboBox2 = new ReaLTaiizor.Controls.CrownComboBox();
+            this.cmbSex = new ReaLTaiizor.Controls.CrownComboBox();
             this.SuspendLayout();
             // 
-            // lblText
+            // lblTitle
             // 
-            this.lblText.AutoSize = true;
-            this.lblText.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold);
-            this.lblText.Location = new System.Drawing.Point(240, 22);
-            this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(78, 37);
-            this.lblText.TabIndex = 0;
-            this.lblText.Text = "Text";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(193, 22);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(78, 37);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Text";
             // 
             // separator1
             // 
@@ -162,19 +162,17 @@
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Save";
             this.btnSave.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // crownComboBox1
+            // cmbRole
             // 
-            this.crownComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.crownComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownComboBox1.FormattingEnabled = true;
-            this.crownComboBox1.Items.AddRange(new object[] {
-            "Admin",
-            "Staff"});
-            this.crownComboBox1.Location = new System.Drawing.Point(200, 555);
-            this.crownComboBox1.Name = "crownComboBox1";
-            this.crownComboBox1.Size = new System.Drawing.Size(323, 35);
-            this.crownComboBox1.TabIndex = 11;
+            this.cmbRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Location = new System.Drawing.Point(200, 555);
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(323, 35);
+            this.cmbRole.TabIndex = 11;
             // 
             // txtUsername
             // 
@@ -211,6 +209,7 @@
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtPassword
             // 
@@ -270,18 +269,15 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "Sex:";
             // 
-            // crownComboBox2
+            // cmbSex
             // 
-            this.crownComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.crownComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crownComboBox2.FormattingEnabled = true;
-            this.crownComboBox2.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.crownComboBox2.Location = new System.Drawing.Point(200, 483);
-            this.crownComboBox2.Name = "crownComboBox2";
-            this.crownComboBox2.Size = new System.Drawing.Size(323, 35);
-            this.crownComboBox2.TabIndex = 18;
+            this.cmbSex.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSex.FormattingEnabled = true;
+            this.cmbSex.Location = new System.Drawing.Point(200, 483);
+            this.cmbSex.Name = "cmbSex";
+            this.cmbSex.Size = new System.Drawing.Size(323, 35);
+            this.cmbSex.TabIndex = 18;
             // 
             // AddEditUserForm
             // 
@@ -289,14 +285,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(548, 705);
-            this.Controls.Add(this.crownComboBox2);
+            this.Controls.Add(this.cmbSex);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.crownComboBox1);
+            this.Controls.Add(this.cmbRole);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -306,10 +302,11 @@
             this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.separator1);
-            this.Controls.Add(this.lblText);
+            this.Controls.Add(this.lblTitle);
             this.Name = "AddEditUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditUserForm";
+            this.Load += new System.EventHandler(this.AddEditUserForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,7 +314,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblText;
+        private System.Windows.Forms.Label lblTitle;
         private ReaLTaiizor.Controls.Separator separator1;
         private System.Windows.Forms.Label label1;
         private ReaLTaiizor.Controls.TextBoxEdit txtFullName;
@@ -327,13 +324,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private ReaLTaiizor.Controls.Button btnSave;
-        private ReaLTaiizor.Controls.CrownComboBox crownComboBox1;
+        private ReaLTaiizor.Controls.CrownComboBox cmbRole;
         private ReaLTaiizor.Controls.TextBoxEdit txtUsername;
         private ReaLTaiizor.Controls.Button btnCancel;
         private ReaLTaiizor.Controls.TextBoxEdit txtPassword;
         private ReaLTaiizor.Controls.TextBoxEdit txtEmail;
         private ReaLTaiizor.Controls.TextBoxEdit txtPhone;
         private System.Windows.Forms.Label label7;
-        private ReaLTaiizor.Controls.CrownComboBox crownComboBox2;
+        private ReaLTaiizor.Controls.CrownComboBox cmbSex;
     }
 }

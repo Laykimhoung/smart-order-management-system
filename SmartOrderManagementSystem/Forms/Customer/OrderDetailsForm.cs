@@ -19,17 +19,21 @@ namespace SmartOrderManagementSystem.Forms.Customer
         int _orderId;
         int _customerId;
         string _customerName;
-        public OrderDetailsForm(int CustomerID, string CustomerName)
+        string _staffname;
+        public OrderDetailsForm(int CustomerID, string CustomerName, string staffname)
         {
             InitializeComponent();
             _customerId = CustomerID;
             _customerName = CustomerName;
+            _staffname = staffname;
         }
 
         private void OrderDetailsForm_Load(object sender, EventArgs e)
         {
             GetOrderId();
             LoadOrderData();
+            this.dgvItemOrder.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+            this.dgvItemOrder.DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Regular);
         }
         private void GetOrderId()
         {
@@ -83,9 +87,9 @@ namespace SmartOrderManagementSystem.Forms.Customer
                     txtCustomer.Text = row["CustomerName"].ToString();
                     txtWaitingNumber.Text = row["WaitingNumber"].ToString();
                     txtOrderDate.Text = Convert.ToDateTime(row["OrderDate"]).ToString("g");
-                    txtTotalAmount.Text = Convert.ToDecimal(row["TotalAmount"]).ToString("C");
+                    lblTotalAmount.Text = Convert.ToDecimal(row["TotalAmount"]).ToString("C");
                     txtNote.Text = row["Notes"].ToString();
-                    txtTotalAmount.Text = Convert.ToDecimal(row["TotalAmount"]).ToString("C");
+                    lblTotalAmount.Text = Convert.ToDecimal(row["TotalAmount"]).ToString("C");
                     txtStatus.Text = "Pending";
                     txtOrderDate.Text = Convert.ToDateTime(row["OrderDate"]).ToString("g");
                     lblDate.Text = Convert.ToDateTime(row["OrderDate"]).ToString("MMMM dd, yyyy");
@@ -98,7 +102,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 dgvItemOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvItemOrder.AllowUserToAddRows = false;
 
-                string QRText = $"ID:{txtOrderID.Text}|TICKET:{txtWaitingNumber.Text}|TOTAL:${txtTotalAmount.Text:F2}";
+                string QRText = $"ID:{txtOrderID.Text}|TICKET:{txtWaitingNumber.Text}|TOTAL:${lblTotalAmount.Text:F2}";
                 GenerateQR(QRText);
             }
             catch (Exception ex)
@@ -158,7 +162,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             }
 
 
-            string cleanAmount = txtTotalAmount.Text.Replace("$", "").Trim();
+            string cleanAmount = lblTotalAmount.Text.Replace("$", "").Trim();
             if (!decimal.TryParse(cleanAmount, out decimal totalAmount))
             {
                 MessageBox.Show("Invalid total amount format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -168,14 +172,14 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
             InvoiceForm invoiceForm = new InvoiceForm(_orderId, txtCustomer.Text, totalAmount, int.Parse(txtWaitingNumber.Text));
             invoiceForm.Show();
-            //this.Hide();
+            this.Hide();
         }
 
         private bool UpdateOrderStatusToComplete(int orderId)
         {
 
-            string updateQuery = "UPDATE Orders SET OrderStatue = 'Complete' WHERE OrderID = @OrderID;";
-            string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, 'Order Completed', 'Order Details Form');";
+            string updateQuery = "UPDATE Orders SET OrderStatus = 'Complete' WHERE OrderID = @OrderID;";
+            string logQuery = "INSERT INTO OrderLogs (OrderID, Action) VALUES (@OrderID, 'Order Completed');";
 
             using (SqlConnection conn = DatabaseConnection.GetConnection())
             {
@@ -212,8 +216,8 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
         private bool UpdateOrderStatus(int orderId, string status, string action)
         {
-            string updateQuery = "UPDATE Orders SET OrderStatue = @Status WHERE OrderID = @OrderID;";
-            string logQuery = "INSERT INTO OrderLogs (OrderID, Action, PerformedBy) VALUES (@OrderID, @Action, 'Order Details Form');";
+            string updateQuery = "UPDATE Orders SET OrderStatus = @Status WHERE OrderID = @OrderID;";
+            string logQuery = "INSERT INTO OrderLogs (OrderID, Action) VALUES (@OrderID, @Action);";
 
             using (SqlConnection conn = DatabaseConnection.GetConnection())
             {
@@ -253,7 +257,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             if (UpdateOrderStatus(_orderId, "Cancelled", "Order Cancelled"))
             {
                 MessageBox.Show("Order cancelled successfully.");
-                CustomerDashboard customerDashboard = new CustomerDashboard(_customerName);
+                CustomerDashboard customerDashboard = new CustomerDashboard(_customerName,_staffname);
                 customerDashboard.Show();
                 this.Hide();
             }

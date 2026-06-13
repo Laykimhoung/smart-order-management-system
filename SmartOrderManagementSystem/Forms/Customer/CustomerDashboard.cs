@@ -1,4 +1,5 @@
 ﻿using SmartOrderManagementSystem.Database;
+using SmartOrderManagementSystem.Forms.Login;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,9 @@ namespace SmartOrderManagementSystem.Forms.Customer
         string loginUsername;
         int customerId;
         string _staffname;
+        int userId;
 
-        public CustomerDashboard(string Username, string staffname)
+        public CustomerDashboard(string Username, string staffname, int UserID)
         {
             InitializeComponent();
             loginUsername = Username;
@@ -29,6 +31,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
         }
         private void CustomerDashboard_Load(object sender, EventArgs e)
         {
+            LoadUserID();
             LoadCustomerID();
             LoadCategory();
             LoadProducts(null);
@@ -36,19 +39,43 @@ namespace SmartOrderManagementSystem.Forms.Customer
             lblWelcome.Text = $"Welcome, {loginUsername}!";
         }
 
+        private void LoadUserID()
+        {
+            try
+            {
+                SqlParameter[] parameters = new SqlParameter[]
+                {
+                    new SqlParameter("@Staffname", _staffname)
+                };
+                DataTable dt = DatabaseConnection.ExecuteQueryWithParams("SELECT UserID FROM Users WHERE Username = @Staffname", parameters);
+                if (dt.Rows.Count > 0)
+                {
+                    userId = Convert.ToInt32(dt.Rows[0]["UserID"]);
+                }
+                else
+                {
+                    MessageBox.Show("User not found.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load user ID: {ex.Message}", "Database Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void LoadCustomerID()
         {
             try
             {
                 SqlParameter[] parameters = new SqlParameter[]
                 {
-            new SqlParameter("@Username", loginUsername)
+                    new SqlParameter("@Username", loginUsername)
                 };
 
                 DataTable dt = DatabaseConnection.ExecuteQueryWithParams(
                     @"SELECT TOP 1 CustomerID FROM Customers WHERE CustomerName = @Username 
-                    ORDER BY CustomerID DESC",
-                    parameters
+                    ORDER BY CustomerID DESC",parameters
                 );
 
                 if (dt.Rows.Count > 0)
@@ -57,15 +84,13 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 }
                 else
                 {
-                    MessageBox.Show("Customer not found.", "Error",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Customer not found.", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load customer: {ex.Message}", "Database Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load customer: {ex.Message}", "Database Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -339,7 +364,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
             int orderId;
 
-            int userId = 2;
+            int _userId = userId;
             int waitingNumber = GetNextWaitingNumber();
             string notes = txtNote.Text.Trim();
             string qrCodeText = $"QR_ORDER_{waitingNumber}";
@@ -364,7 +389,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                         {
                             cmdOrder.Parameters.AddWithValue("@WaitingNumber", waitingNumber);
                             cmdOrder.Parameters.AddWithValue("@CustomerID", customerId);
-                            cmdOrder.Parameters.AddWithValue("@UserID", userId);
+                            cmdOrder.Parameters.AddWithValue("@UserID", _userId);
                             cmdOrder.Parameters.AddWithValue("@TotalAmount", totalAmount);
                             cmdOrder.Parameters.AddWithValue("@Notes", string.IsNullOrEmpty(notes) ? (object)DBNull.Value : notes);
 
@@ -401,7 +426,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
                 if (MessageBox.Show($"Order placed successfully!\nYour Waiting Number is: {waitingNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(customerId, loginUsername,_staffname);
+                    OrderDetailsForm orderDetailsForm = new OrderDetailsForm(customerId, loginUsername,_userId, _staffname);
                     orderDetailsForm.Show();
                     this.Hide();
                 }
@@ -455,7 +480,9 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-
+            CustomerLoginForm cuslog = new CustomerLoginForm(_staffname);
+            cuslog.Show();
+            this.Hide();
         }
     }
 }

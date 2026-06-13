@@ -43,6 +43,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -51,13 +53,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnGoToCusForm);
             this.panel1.Controls.Add(this.txtPhNum);
             this.panel1.Controls.Add(this.txtName);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-8, -15);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(587, 832);
@@ -90,11 +94,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sitka Banner", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(33, 335);
+            this.label2.Location = new System.Drawing.Point(91, 354);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(478, 53);
+            this.label2.Size = new System.Drawing.Size(415, 53);
             this.label2.TabIndex = 1;
-            this.label2.Text = "📱 Phone Number (Optional)";
+            this.label2.Text = "Phone Number (Optional)";
             // 
             // btnGoToCusForm
             // 
@@ -138,11 +142,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Banner", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(36, 170);
+            this.label1.Location = new System.Drawing.Point(91, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 53);
+            this.label1.Size = new System.Drawing.Size(176, 53);
             this.label1.TabIndex = 0;
-            this.label1.Text = "👤Full Name";
+            this.label1.Text = "Full Name";
             // 
             // btnBack
             // 
@@ -212,6 +216,28 @@
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Sitka Banner", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(35, 170);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 53);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "👤";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Sitka Banner", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(33, 354);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 53);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "📱";
+            // 
             // CustomerLoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -254,5 +280,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -105,6 +105,7 @@
             // 
             // txtInvoiceID
             // 
+            this.txtInvoiceID.BackColor = System.Drawing.SystemColors.Control;
             this.txtInvoiceID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInvoiceID.Location = new System.Drawing.Point(181, 180);
             this.txtInvoiceID.Name = "txtInvoiceID";
@@ -124,6 +125,7 @@
             // 
             // txtInvoiceDate
             // 
+            this.txtInvoiceDate.BackColor = System.Drawing.SystemColors.Control;
             this.txtInvoiceDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInvoiceDate.Location = new System.Drawing.Point(181, 144);
             this.txtInvoiceDate.Name = "txtInvoiceDate";
@@ -143,6 +145,7 @@
             // 
             // txtOrderID
             // 
+            this.txtOrderID.BackColor = System.Drawing.SystemColors.Control;
             this.txtOrderID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOrderID.Location = new System.Drawing.Point(181, 216);
             this.txtOrderID.Name = "txtOrderID";
@@ -162,6 +165,7 @@
             // 
             // txtCustomerName
             // 
+            this.txtCustomerName.BackColor = System.Drawing.SystemColors.Control;
             this.txtCustomerName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCustomerName.Location = new System.Drawing.Point(181, 252);
             this.txtCustomerName.Name = "txtCustomerName";
@@ -181,9 +185,12 @@
             // 
             // dgvInvoiceItems
             // 
+            this.dgvInvoiceItems.AllowUserToDeleteRows = false;
+            this.dgvInvoiceItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvInvoiceItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInvoiceItems.Location = new System.Drawing.Point(18, 350);
             this.dgvInvoiceItems.Name = "dgvInvoiceItems";
+            this.dgvInvoiceItems.ReadOnly = true;
             this.dgvInvoiceItems.RowHeadersWidth = 51;
             this.dgvInvoiceItems.RowTemplate.Height = 24;
             this.dgvInvoiceItems.Size = new System.Drawing.Size(537, 168);
@@ -221,6 +228,7 @@
             // 
             // txtWaitingNumber
             // 
+            this.txtWaitingNumber.BackColor = System.Drawing.SystemColors.Control;
             this.txtWaitingNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWaitingNumber.Location = new System.Drawing.Point(181, 108);
             this.txtWaitingNumber.Name = "txtWaitingNumber";

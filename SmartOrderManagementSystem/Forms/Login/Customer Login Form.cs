@@ -110,44 +110,59 @@ namespace SmartOrderManagementSystem.Forms.Login
             // Validate Name
             if (string.IsNullOrWhiteSpace(name) || name == "Enter your name")
             {
-                MessageBox.Show("Please enter your name.",
-                                "Alert",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter your name.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 txtName.Focus();
                 return;
             }
 
             // Name length check
-            if (name.Length < 2)
+            if (name.Length < 2 || name.Length > 50)
             {
-                MessageBox.Show("Name must be at least 2 characters.",
-                                "Alert",
-                                MessageBoxButtons.OK,
+                MessageBox.Show("Name must be at least 2 characters and at most 50 characters.", "Alert", MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
 
                 txtName.Focus();
                 return;
             }
 
-            if (name.Length > 50)
-            {
-                MessageBox.Show("Name cannot exceed 50 characters.",
-                                "Alert",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+            //if (name.Length > 50)
+            //{
+            //    MessageBox.Show("Name cannot exceed 50 characters.",
+            //                    "Alert",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Warning);
 
-                txtName.Focus();
-                return;
-            }
+            //    txtName.Focus();
+            //    return;
+            //}
 
             // Name cannot contain numbers
-            if (name.Any(char.IsDigit))
+            //if (name.Any(char.IsDigit))
+            //{
+            //    MessageBox.Show("Name cannot contain numbers.",
+            //                    "Alert",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Warning);
+
+            //    txtName.Focus();
+            //    return;
+            //}
+
+            //if (name.Any(char.IsSymbol))
+            //{
+            //    MessageBox.Show("Name cannot contain symbol.",
+            //                    "Alert",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Warning);
+
+            //    txtName.Focus();
+            //    return;
+            //}
+
+            if (!name.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)))
             {
-                MessageBox.Show("Name cannot contain numbers.",
-                                "Alert",
-                                MessageBoxButtons.OK,
+                MessageBox.Show("Name must contain letters and spaces only.", "Alert", MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
 
                 txtName.Focus();
@@ -160,9 +175,7 @@ namespace SmartOrderManagementSystem.Forms.Login
             {
                 if (!phoneNumber.All(char.IsDigit))
                 {
-                    MessageBox.Show("Phone number must contain digits only.",
-                                    "Alert",
-                                    MessageBoxButtons.OK,
+                    MessageBox.Show("Phone number must contain digits only.", "Alert", MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);
 
                     txtPhNum.Focus();
@@ -171,9 +184,7 @@ namespace SmartOrderManagementSystem.Forms.Login
 
                 if (phoneNumber.Length < 10 || phoneNumber.Length > 15)
                 {
-                    MessageBox.Show("Phone number must be between 10 and 15 digits.",
-                                    "Alert",
-                                    MessageBoxButtons.OK,
+                    MessageBox.Show("Phone number must be between 10 and 15 digits.", "Alert", MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);
 
                     txtPhNum.Focus();
@@ -186,11 +197,7 @@ namespace SmartOrderManagementSystem.Forms.Login
                 $"Name: {name}\n" +
                 $"Phone Number: {(phoneNumber == "0123456789" ? "Not Provided" : phoneNumber)}\n\n" +
                 "Start ordering?",
-                "Confirm Customer Information",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            // ... (Keep your validation code up here) ...
+                "Confirm Customer Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.No)
             {
@@ -199,7 +206,7 @@ namespace SmartOrderManagementSystem.Forms.Login
 
             try
             {
-                // FIX: Call your helper class to get the correct connection
+                // DATABASE
                 using (SqlConnection conn = SmartOrderManagementSystem.Database.DatabaseConnection.GetConnection())
                 {
                     conn.Open();
@@ -231,9 +238,7 @@ namespace SmartOrderManagementSystem.Forms.Login
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error saving customer information:\n" + ex.Message,
-                                "Database Error",
-                                MessageBoxButtons.OK,
+                MessageBox.Show("Error saving customer information:\n" + ex.Message, "Database Error", MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
         }

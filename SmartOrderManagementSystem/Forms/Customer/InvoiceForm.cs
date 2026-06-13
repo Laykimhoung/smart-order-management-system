@@ -128,22 +128,24 @@ namespace SmartOrderManagementSystem.Forms.Customer
             PrintDocument printDoc = new PrintDocument();
             printDoc.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
 
-            
             printDoc.PrinterSettings.PrinterName = "Microsoft Print to PDF";
             printDoc.PrinterSettings.PrintToFile = true;
 
-            
             string dateStr = DateTime.Now.ToString("yyyyMMdd");
 
             
-            string directoryPath = @"D:\";
-            string fileName = $"INV-{_invoiceID:D5}_{dateStr}.pdf";
+            string directoryPath = @"C:\Invoice";
+
+            
+            if (!System.IO.Directory.Exists(directoryPath))
+            {
+                System.IO.Directory.CreateDirectory(directoryPath);
+            }
+
+            string fileName = $"INV-{_invoiceID:D5}-[{_customerName}]-{dateStr}.pdf";
             string fullPath = System.IO.Path.Combine(directoryPath, fileName);
 
-            
             printDoc.PrinterSettings.PrintFileName = fullPath;
-
-            
             printDoc.PrintController = new StandardPrintController();
 
             try

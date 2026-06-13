@@ -37,6 +37,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             LoadProducts(null);
             InitializeCart();
             lblWelcome.Text = $"Welcome, {loginUsername}!";
+            lblLoggedIn.Text = $"Logged in as: {loginUsername}";
         }
 
         private void LoadUserID()
@@ -219,7 +220,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
         private void InitializeCart()
         {
-            dgvCart.Font = new Font("Time New Roman", 12, FontStyle.Regular);
+            dgvCart.Font = new Font("Time New Roman", 11, FontStyle.Regular);
             cartTable = new DataTable();
             cartTable.Columns.Add("ProductID", typeof(int));
             cartTable.Columns.Add("Product", typeof(string));
@@ -235,6 +236,10 @@ namespace SmartOrderManagementSystem.Forms.Customer
 
             dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCart.AllowUserToAddRows = false;
+            if (dgvCart.Columns["Product"] != null) dgvCart.Columns["Product"].FillWeight = 160;   
+            if (dgvCart.Columns["Quantity"] != null) dgvCart.Columns["Quantity"].FillWeight = 70;  
+            if (dgvCart.Columns["Price"] != null) dgvCart.Columns["Price"].FillWeight = 80;       
+            if (dgvCart.Columns["Subtotal"] != null) dgvCart.Columns["Subtotal"].FillWeight = 90;
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)

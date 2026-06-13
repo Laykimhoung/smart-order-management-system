@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OfficeOpenXml;
 using System.IO;
+using PdfDocument = iTextSharp.text.Document;
+using PdfFont = iTextSharp.text.Font;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace SmartOrderManagementSystem.Forms.Admin
 {
@@ -64,6 +68,7 @@ namespace SmartOrderManagementSystem.Forms.Admin
         {
             cmbReportType.Items.Clear();
 
+            cmbReportType.Items.Add("");
             cmbReportType.Items.Add("Daily");
             cmbReportType.Items.Add("Weekly");
             cmbReportType.Items.Add("Monthly");
@@ -108,10 +113,15 @@ namespace SmartOrderManagementSystem.Forms.Admin
                 DataGridViewContentAlignment.MiddleCenter;
 
             dgvReports.ColumnHeadersDefaultCellStyle.Font =
-                new Font("Segoe UI", 11, FontStyle.Bold);
+                new System.Drawing.Font(
+                    "Segoe UI",
+                    11,
+                    System.Drawing.FontStyle.Bold);
 
             dgvReports.DefaultCellStyle.Font =
-                new Font("Segoe UI Semibold", 10);
+                new System.Drawing.Font(
+                    "Segoe UI Semibold",
+                    10);
 
             dgvReports.RowTemplate.Height = 38;
         }
@@ -140,60 +150,74 @@ namespace SmartOrderManagementSystem.Forms.Admin
                 DateTime dateFrom;
                 DateTime dateTo;
 
-                switch (cmbReportType.Text)
+                if (string.IsNullOrWhiteSpace(cmbReportType.Text))
                 {
-                    case "Daily":
+                    dateFrom = dtpFrom.Value.Date;
 
-                        dateFrom = dtpFrom.Value.Date;
+                    dateTo =
+                        dtpTo.Value.Date.AddDays(1);
+                }
+                else
+                {
+                    switch (cmbReportType.Text)
+                    {
+                        case "Daily":
 
-                        dateTo = dateFrom.AddDays(1);
+                            dateFrom =
+                                dtpFrom.Value.Date;
 
-                        break;
+                            dateTo =
+                                dateFrom.AddDays(1);
 
-                    case "Weekly":
+                            break;
 
-                        dateFrom =
-                            dtpFrom.Value.Date.AddDays(
-                                -(int)dtpFrom.Value.DayOfWeek);
+                        case "Weekly":
 
-                        dateTo =
-                            dateFrom.AddDays(7);
+                            dateFrom =
+                                dtpFrom.Value.Date.AddDays(
+                                    -(int)dtpFrom.Value.DayOfWeek);
 
-                        break;
+                            dateTo =
+                                dateFrom.AddDays(7);
 
-                    case "Monthly":
+                            break;
 
-                        dateFrom =
-                            new DateTime(
-                                dtpFrom.Value.Year,
-                                dtpFrom.Value.Month,
-                                1);
+                        case "Monthly":
 
-                        dateTo =
-                            dateFrom.AddMonths(1);
+                            dateFrom =
+                                new DateTime(
+                                    dtpFrom.Value.Year,
+                                    dtpFrom.Value.Month,
+                                    1);
 
-                        break;
+                            dateTo =
+                                dateFrom.AddMonths(1);
 
-                    case "Yearly":
+                            break;
 
-                        dateFrom =
-                            new DateTime(
-                                dtpFrom.Value.Year,
-                                1,
-                                1);
+                        case "Yearly":
 
-                        dateTo =
-                            dateFrom.AddYears(1);
+                            dateFrom =
+                                new DateTime(
+                                    dtpFrom.Value.Year,
+                                    1,
+                                    1);
 
-                        break;
+                            dateTo =
+                                dateFrom.AddYears(1);
 
-                    default:
+                            break;
 
-                        dateFrom = dtpFrom.Value.Date;
+                        default:
 
-                        dateTo = dtpTo.Value.Date.AddDays(1);
+                            dateFrom =
+                                dtpFrom.Value.Date;
 
-                        break;
+                            dateTo =
+                                dtpTo.Value.Date.AddDays(1);
+
+                            break;
+                    }
                 }
 
                 SqlParameter[] parameters =
@@ -239,12 +263,65 @@ namespace SmartOrderManagementSystem.Forms.Admin
                     return;
                 }
 
+                // =====================
+                // EXPORT CONFIRMATION
+                // =====================
+
+                string exportType;
+
+                if (string.IsNullOrWhiteSpace(
+                    cmbReportType.Text))
+                {
+                    exportType =
+                        "Custom Date Range";
+                }
+                else
+                {
+                    exportType =
+                        cmbReportType.Text;
+                }
+
+                string periodText = "";
+
+                if (string.IsNullOrWhiteSpace(
+                    cmbReportType.Text))
+                {
+                    periodText =
+                        dtpFrom.Value.ToString("dd/MM/yyyy")
+                        + " - " +
+                        dtpTo.Value.ToString("dd/MM/yyyy");
+                }
+                else
+                {
+                    periodText = cmbReportType.Text;
+                }
+
+                DialogResult confirm =
+                    MessageBox.Show(
+                        "Export current report?\n\n" +
+                        "Type: " + exportType +
+                        "\nPeriod: " + periodText,
+                        "Confirm Export",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.No)
+                {
+                    return;
+                }
+
+                // =====================
+                // SAVE FILE
+                // =====================
+
                 SaveFileDialog save = new SaveFileDialog();
 
                 save.Filter = "Excel File (*.xlsx)|*.xlsx";
 
                 save.FileName =
-                    cmbReportType.Text + "_Report.xlsx";
+                string.IsNullOrWhiteSpace(cmbReportType.Text)
+                ? "Custom_Report.xlsx"
+                : cmbReportType.Text + "_Report.xlsx";
 
                 if (save.ShowDialog() == DialogResult.OK)
                 {
@@ -272,57 +349,62 @@ namespace SmartOrderManagementSystem.Forms.Admin
 
                         // ==================================
                         // REPORT TITLE
-                        // ==================================
-
-                        string periodText = "";
-
-                        switch (cmbReportType.Text)
+                        // ==================================                       
+                        if (string.IsNullOrWhiteSpace(cmbReportType.Text))
                         {
-                            case "Daily":
+                            periodText =
+                                dtpFrom.Value.ToString("dd/MM/yyyy")
+                                + " - " +
+                                dtpTo.Value.ToString("dd/MM/yyyy");
+                        }
+                        else
+                        {
+                            switch (cmbReportType.Text)
+                            {
+                                case "Daily":
 
-                                periodText =
-                                    DateTime.Now.ToString(
-                                        "dd/MM/yyyy");
+                                    periodText =
+                                        dtpFrom.Value.ToString(
+                                            "dd/MM/yyyy");
 
-                                break;
+                                    break;
 
-                            case "Weekly":
+                                case "Weekly":
 
-                                DateTime startOfWeek =
-                                    DateTime.Now.Date.AddDays(
-                                        -(int)DateTime.Now.DayOfWeek);
+                                    DateTime startOfWeek =
+                                        dtpFrom.Value.Date.AddDays(
+                                            -(int)dtpFrom.Value.DayOfWeek);
 
-                                DateTime endOfWeek =
-                                    startOfWeek.AddDays(6);
+                                    DateTime endOfWeek =
+                                        startOfWeek.AddDays(6);
 
-                                periodText =
-                                    startOfWeek.ToString("dd/MM/yyyy")
-                                    + " - " +
-                                    endOfWeek.ToString("dd/MM/yyyy");
+                                    periodText =
+                                        startOfWeek.ToString("dd/MM/yyyy")
+                                        + " - " +
+                                        endOfWeek.ToString("dd/MM/yyyy");
 
-                                break;
+                                    break;
 
-                            case "Monthly":
+                                case "Monthly":
 
-                                periodText =
-                                    DateTime.Now.ToString(
-                                        "MMMM yyyy");
+                                    periodText =
+                                        dtpFrom.Value.ToString(
+                                            "MMMM yyyy");
 
-                                break;
+                                    break;
 
-                            case "Yearly":
+                                case "Yearly":
 
-                                periodText =
-                                    DateTime.Now.Year.ToString();
+                                    periodText =
+                                        dtpFrom.Value.Year.ToString();
 
-                                break;
+                                    break;
+                            }
                         }
 
                         ws.Cells["A3:E3"].Merge = true;
 
-                        ws.Cells["A3"].Value =
-                            cmbReportType.Text.ToUpper()
-                            + " ORDER REPORT";
+                        ws.Cells["A3"].Value = "ORDER REPORT";
 
                         ws.Cells["A3"].Style.Font.Bold = true;
                         ws.Cells["A3"].Style.Font.Size = 14;
@@ -520,6 +602,319 @@ namespace SmartOrderManagementSystem.Forms.Admin
                 MessageBox.Show(
                     ex.Message,
                     "Export Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+        private void btnExportPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvReports.Rows.Count == 0)
+                {
+                    MessageBox.Show(
+                        "No data to export.",
+                        "PDF Export",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return;
+                }
+
+                string periodText = "";
+
+                if (string.IsNullOrWhiteSpace(cmbReportType.Text))
+                {
+                    periodText =
+                        dtpFrom.Value.ToString("dd/MM/yyyy")
+                        + " - " +
+                        dtpTo.Value.ToString("dd/MM/yyyy");
+                }
+                else
+                {
+                    switch (cmbReportType.Text)
+                    {
+                        case "Daily":
+
+                            periodText =
+                                dtpFrom.Value.ToString(
+                                    "dd/MM/yyyy");
+
+                            break;
+
+                        case "Weekly":
+
+                            DateTime startOfWeek =
+                                dtpFrom.Value.Date.AddDays(
+                                    -(int)dtpFrom.Value.DayOfWeek);
+
+                            DateTime endOfWeek =
+                                startOfWeek.AddDays(6);
+
+                            periodText =
+                                startOfWeek.ToString("dd/MM/yyyy")
+                                + " - " +
+                                endOfWeek.ToString("dd/MM/yyyy");
+
+                            break;
+
+                        case "Monthly":
+
+                            periodText =
+                                dtpFrom.Value.ToString(
+                                    "MMMM yyyy");
+
+                            break;
+
+                        case "Yearly":
+
+                            periodText =
+                                dtpFrom.Value.Year.ToString();
+
+                            break;
+                    }
+                }
+
+                DialogResult confirm =
+                    MessageBox.Show(
+                        "Export current report as PDF?\n\n" +
+                        "Period: " + periodText,
+                        "Confirm Export",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                if (confirm == DialogResult.No)
+                {
+                    return;
+                }
+
+                SaveFileDialog save =
+                    new SaveFileDialog();
+
+                save.Filter =
+                    "PDF File (*.pdf)|*.pdf";
+
+                save.FileName =
+                    string.IsNullOrWhiteSpace(cmbReportType.Text)
+                    ? "Custom_Report.pdf"
+                    : cmbReportType.Text + "_Report.pdf";
+
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    Document document =
+                        new Document(
+                            PageSize.A4.Rotate(),
+                            20,
+                            20,
+                            20,
+                            20);
+
+                    PdfWriter.GetInstance(
+                        document,
+                        new FileStream(
+                            save.FileName,
+                            FileMode.Create));
+
+                    document.Open();
+
+                    iTextSharp.text.Font titleFont =
+                    FontFactory.GetFont(
+                        FontFactory.HELVETICA_BOLD,
+                        18);
+
+                    iTextSharp.text.Font subTitleFont =
+                        FontFactory.GetFont(
+                            FontFactory.HELVETICA_BOLD,
+                            14);
+
+                    iTextSharp.text.Font normalFont =
+                        FontFactory.GetFont(
+                            FontFactory.HELVETICA,
+                            11);
+
+                    Paragraph title =
+                        new Paragraph(
+                            new Phrase(
+                                "SMART ORDER MANAGEMENT SYSTEM",
+                                titleFont));
+
+                    title.Alignment =
+                        Element.ALIGN_CENTER;
+
+                    document.Add(title);
+
+                    document.Add(
+                        new Paragraph(" "));
+
+                    Paragraph reportTitle =
+                        new Paragraph(
+                            new Phrase(
+                                "ORDER REPORT",
+                                subTitleFont));
+
+                    reportTitle.Alignment =
+                        Element.ALIGN_CENTER;
+
+                    document.Add(reportTitle);
+
+                    Paragraph period =
+                        new Paragraph(
+                            new Phrase(
+                                "Period: " + periodText,
+                                normalFont));
+
+                    period.Alignment =
+                        Element.ALIGN_CENTER;
+
+                    document.Add(period);
+
+                    Paragraph generated =
+                        new Paragraph(
+                            new Phrase(
+                                "Generated: "
+                                + DateTime.Now.ToString(
+                                    "dd/MM/yyyy hh:mm tt"),
+                                normalFont));
+
+                    generated.Alignment =
+                        Element.ALIGN_CENTER;
+
+                    document.Add(generated);
+
+                    document.Add(
+                        new Paragraph(" "));
+
+                    PdfPTable table =
+                        new PdfPTable(
+                            dgvReports.Columns.Count);
+
+                    table.DefaultCell.HorizontalAlignment =
+                     Element.ALIGN_CENTER;
+
+                    table.DefaultCell.VerticalAlignment =
+                        Element.ALIGN_MIDDLE;
+
+                    table.WidthPercentage = 100;
+
+                    foreach (DataGridViewColumn col
+                        in dgvReports.Columns)
+                    {
+                        PdfPCell cell =
+                            new PdfPCell(
+                                new Phrase(
+                                    col.HeaderText,
+                                    normalFont));
+
+                        cell.BackgroundColor =
+                            BaseColor.DARK_GRAY;
+
+                        cell.VerticalAlignment =
+                        Element.ALIGN_MIDDLE;
+
+                        cell.HorizontalAlignment =
+                            Element.ALIGN_CENTER;
+
+                        cell.Phrase.Font.Color =
+                            BaseColor.WHITE;
+
+                        table.AddCell(cell);
+                    }
+
+                    foreach (DataGridViewRow row in dgvReports.Rows)
+                    {
+                        for (int col = 0; col < row.Cells.Count; col++)
+                        {
+                            string value =
+                                row.Cells[col].Value?.ToString() ?? "";
+
+                            // Total Price column
+                            if (col == 3)
+                            {
+                                value =
+                                    "$" +
+                                    Convert.ToDecimal(value)
+                                    .ToString("N2");
+                            }
+
+                            // Order Date column
+                            if (col == 4)
+                            {
+                                value =
+                                    value.Replace(" AM", "    AM")
+                                         .Replace(" PM", "    PM");
+                            }
+
+                            PdfPCell pdfCell =
+                                new PdfPCell(
+                                    new Phrase(value));
+
+                            pdfCell.HorizontalAlignment =
+                                Element.ALIGN_CENTER;
+
+                            pdfCell.VerticalAlignment =
+                                Element.ALIGN_MIDDLE;
+
+                            table.AddCell(pdfCell);
+                        }
+                    }
+
+                    document.Add(table);
+
+                    document.Add(
+                        new Paragraph(" "));
+
+                    decimal totalRevenue = 0;
+
+                    foreach (DataGridViewRow row
+                        in dgvReports.Rows)
+                    {
+                        if (row.Cells["Total Price"].Value
+                            != null)
+                        {
+                            totalRevenue +=
+                                Convert.ToDecimal(
+                                row.Cells["Total Price"].Value);
+                        }
+                    }
+
+                    Paragraph totalOrders =
+                        new Paragraph(
+                            new Phrase(
+                                "Total Orders : "
+                                + dgvReports.Rows.Count,
+                                subTitleFont));
+
+
+                    totalOrders.Alignment =
+                        Element.ALIGN_CENTER;
+
+                    document.Add(totalOrders);
+
+                    Paragraph totalRevenueText =
+                        new Paragraph(
+                            new Phrase(
+                                "Total Revenue : $"
+                                + totalRevenue.ToString("N2"),
+                                subTitleFont));
+
+                    document.Add(totalRevenueText);
+                    totalRevenueText.Alignment =
+                        Element.ALIGN_CENTER;
+
+                    document.Close();
+
+                    MessageBox.Show(
+                        "PDF exported successfully.",
+                        "Success",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    ex.Message,
+                    "PDF Export Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }

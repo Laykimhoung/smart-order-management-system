@@ -109,9 +109,9 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(50, 219);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 25);
+            this.label5.Size = new System.Drawing.Size(153, 25);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Report Type:";
+            this.label5.Text = "Specific Time:";
             // 
             // cmbReportType
             // 
@@ -195,6 +195,7 @@
             this.btnExportPDF.TextColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnExportPDF.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.btnExportPDF.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            this.btnExportPDF.Click += new System.EventHandler(this.btnExportPDF_Click);
             // 
             // btnExportExcel
             // 

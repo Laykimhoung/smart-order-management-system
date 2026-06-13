@@ -44,6 +44,7 @@
             this.Staff_accout_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
             this.panel_container = new System.Windows.Forms.Panel();
+            this.Cutomer_dashboard = new ReaLTaiizor.Controls.CyberButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +52,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(51)))), ((int)(((byte)(63)))));
+            this.panel1.Controls.Add(this.Cutomer_dashboard);
             this.panel1.Controls.Add(this.Logout_btn);
             this.panel1.Controls.Add(this.bigLabel1);
             this.panel1.Controls.Add(this.parrotPictureBox1);
@@ -94,7 +96,7 @@
             this.Logout_btn.Lighting = false;
             this.Logout_btn.LinearGradient_Background = false;
             this.Logout_btn.LinearGradientPen = false;
-            this.Logout_btn.Location = new System.Drawing.Point(8, 652);
+            this.Logout_btn.Location = new System.Drawing.Point(8, 704);
             this.Logout_btn.Name = "Logout_btn";
             this.Logout_btn.PenWidth = 15;
             this.Logout_btn.Rounding = true;
@@ -373,6 +375,47 @@
             this.panel_container.Size = new System.Drawing.Size(1300, 763);
             this.panel_container.TabIndex = 2;
             // 
+            // Cutomer_dashboard
+            // 
+            this.Cutomer_dashboard.Alpha = 20;
+            this.Cutomer_dashboard.BackColor = System.Drawing.Color.Transparent;
+            this.Cutomer_dashboard.Background = true;
+            this.Cutomer_dashboard.Background_WidthPen = 4F;
+            this.Cutomer_dashboard.BackgroundPen = true;
+            this.Cutomer_dashboard.ColorBackground = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
+            this.Cutomer_dashboard.ColorBackground_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
+            this.Cutomer_dashboard.ColorBackground_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
+            this.Cutomer_dashboard.ColorBackground_Pen = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.Cutomer_dashboard.ColorLighting = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.Cutomer_dashboard.ColorPen_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
+            this.Cutomer_dashboard.ColorPen_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
+            this.Cutomer_dashboard.CyberButtonStyle = ReaLTaiizor.Enum.Cyber.StateStyle.Custom;
+            this.Cutomer_dashboard.Effect_1 = true;
+            this.Cutomer_dashboard.Effect_1_ColorBackground = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.Cutomer_dashboard.Effect_1_Transparency = 25;
+            this.Cutomer_dashboard.Effect_2 = true;
+            this.Cutomer_dashboard.Effect_2_ColorBackground = System.Drawing.Color.White;
+            this.Cutomer_dashboard.Effect_2_Transparency = 20;
+            this.Cutomer_dashboard.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cutomer_dashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.Cutomer_dashboard.Lighting = false;
+            this.Cutomer_dashboard.LinearGradient_Background = false;
+            this.Cutomer_dashboard.LinearGradientPen = false;
+            this.Cutomer_dashboard.Location = new System.Drawing.Point(8, 591);
+            this.Cutomer_dashboard.Name = "Cutomer_dashboard";
+            this.Cutomer_dashboard.PenWidth = 15;
+            this.Cutomer_dashboard.Rounding = true;
+            this.Cutomer_dashboard.RoundingInt = 70;
+            this.Cutomer_dashboard.Size = new System.Drawing.Size(224, 50);
+            this.Cutomer_dashboard.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.Cutomer_dashboard.TabIndex = 10;
+            this.Cutomer_dashboard.Tag = "Cyber";
+            this.Cutomer_dashboard.TextButton = "Customer Login";
+            this.Cutomer_dashboard.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.Cutomer_dashboard.Timer_Effect_1 = 5;
+            this.Cutomer_dashboard.Timer_RGB = 300;
+            this.Cutomer_dashboard.Click += new System.EventHandler(this.Cutomer_dashboard_Click);
+            // 
             // StaffDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -410,5 +453,6 @@
         private ReaLTaiizor.Controls.BigLabel bigLabel2;
         private ReaLTaiizor.Controls.ParrotButton Menu_btn;
         private System.Windows.Forms.Panel panel_container;
+        private ReaLTaiizor.Controls.CyberButton Cutomer_dashboard;
     }
 }

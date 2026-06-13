@@ -17,6 +17,7 @@ namespace SmartOrderManagementSystem.Database
 
 
 
+
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);

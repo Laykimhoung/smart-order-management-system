@@ -25,8 +25,10 @@ namespace SmartOrderManagementSystem.Forms.Staff
         // load_activity_feed method to load the activity feed data into the datagridview
         private void Load_orderlog()
         {
-            string query = @"SELECT ol.LogID,o.OrderID,ol.Action,ol.ActionDate,ol.PerformedBy FROM OrderLogs ol
-                             LEFT JOIN Orders o ON o.OrderID = ol.OrderID GROUP BY ol.LogID,o.OrderID,ol.Action,ol.ActionDate,ol.PerformedBy ORDER BY ol.ActionDate DESC";
+            string query = @"SELECT ol.LogID,o.OrderID,ol.Action,ol.ActionDate,u.FullName AS [FullName] FROM OrderLogs ol
+                             INNER JOIN Orders o ON o.OrderID = ol.OrderID 
+                             INNER JOIN Users u ON u.UserID = o.UserID
+                             GROUP BY ol.LogID,o.OrderID,ol.Action,ol.ActionDate,u.FullName ORDER BY ol.ActionDate DESC";
             try
             {
                 DataTable dt = DatabaseConnection.ExecuteQuery(query);

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SmartOrderManagementSystem.Forms.Customer;
+using SmartOrderManagementSystem.Forms.Login;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace SmartOrderManagementSystem.Forms.Staff
 {
@@ -15,6 +18,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
         // Contructor that call for My profile that show the information of the staff ater log in 
         private string full_name;
         private int user_ID;
+     
 
         
 
@@ -23,6 +27,8 @@ namespace SmartOrderManagementSystem.Forms.Staff
             InitializeComponent();
             user_ID = UserID;
             full_name= Fullname;
+           
+            
         }
 
         private void StaffDashboard_Load(object sender, EventArgs e)
@@ -83,6 +89,13 @@ namespace SmartOrderManagementSystem.Forms.Staff
         private void Logout_btn_Click(object sender, EventArgs e)
         {
             //DialogResult result = MessageBox.Show("Are you sure")
+        }
+
+        private void Cutomer_dashboard_Click(object sender, EventArgs e)
+        {
+          
+            CustomerLoginForm customerlogin = new CustomerLoginForm(full_name);
+            customerlogin.Show();
         }
     }
 }

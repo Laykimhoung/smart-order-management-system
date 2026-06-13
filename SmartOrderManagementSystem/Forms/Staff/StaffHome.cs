@@ -36,6 +36,22 @@ namespace SmartOrderManagementSystem.Forms.Staff
                              LEFT JOIN Customers c ON o.CustomerID = c.CustomerID
                              GROUP BY o.OrderID, c.CustomerName,o.WaitingNumber,o.CustomerID,o.OrderStatus
                              ";
+            // Total Orders
+            DataTable dtOrders = DatabaseConnection.ExecuteQuery(
+                "SELECT COUNT(*) AS TotalOrders FROM Orders");
+            order_amount_lbl.Text = dtOrders.Rows[0]["TotalOrders"].ToString();
+
+            // Total Customers
+            DataTable dtCustomers = DatabaseConnection.ExecuteQuery(
+                "SELECT COUNT(*) AS TotalCustomers FROM Customers");
+            TotalCustomer_lbl.Text = dtCustomers.Rows[0]["TotalCustomers"].ToString();
+
+            // Today's Revenue
+            DataTable dtRevenue = DatabaseConnection.ExecuteQuery(
+                @"SELECT ISNULL(SUM(TotalAmount), 0) AS Revenue
+                      FROM Orders
+                      WHERE CAST(OrderDate AS DATE) = CAST(GETDATE() AS DATE)");
+            Income_lbl.Text = "$" + dtRevenue.Rows[0]["Revenue"].ToString();
             try
             {
                 DataTable dt = DatabaseConnection.ExecuteQuery(query);

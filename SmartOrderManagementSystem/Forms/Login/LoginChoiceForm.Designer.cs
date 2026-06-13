@@ -175,6 +175,7 @@
             this.Controls.Add(this.StaffLogBut);
             this.Controls.Add(this.CusLogBut);
             this.Name = "LoginChoiceForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Choice Form";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

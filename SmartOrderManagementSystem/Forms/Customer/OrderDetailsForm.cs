@@ -66,6 +66,10 @@ namespace SmartOrderManagementSystem.Forms.Customer
             LoadOrderData();
             this.dgvItemOrder.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Bold);
             this.dgvItemOrder.DefaultCellStyle.Font = new Font("Times New Roman", 12, FontStyle.Regular);
+            if (dgvItemOrder.Columns["Product"] != null) dgvItemOrder.Columns["Product"].FillWeight = 160;   
+            if (dgvItemOrder.Columns["Quantity"] != null) dgvItemOrder.Columns["Quantity"].FillWeight = 70;  
+            if (dgvItemOrder.Columns["Price"] != null) dgvItemOrder.Columns["Price"].FillWeight = 80;        
+            if (dgvItemOrder.Columns["Subtotal"] != null) dgvItemOrder.Columns["Subtotal"].FillWeight = 90;
         }
         private void GetOrderId()
         {
@@ -162,7 +166,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 dgvItemOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvItemOrder.AllowUserToAddRows = false;
 
-                string QRText = $"ID:{txtOrderID.Text}|TICKET:{txtWaitingNumber.Text}|TOTAL:${lblTotalAmount.Text:F2}";
+                string QRText = $"Date: {lblDate.Text}\nOrder Ref: ORD-{txtOrderID.Text}\nYour WaitingNumber: {txtWaitingNumber.Text}\nTOTAL Cost: {lblTotalAmount.Text:F2}";
                 GenerateQR(QRText);
             }
             catch (Exception ex)
@@ -317,7 +321,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             if (UpdateOrderStatus(_orderId, "Cancelled", "Order Cancelled"))
             {
                 MessageBox.Show("Order cancelled successfully.");
-                CustomerDashboard customerDashboard = new CustomerDashboard(_customerName, _staffname, _userId);
+                CustomerDashboard customerDashboard = new CustomerDashboard(_customerName, _username, _userId);
                 customerDashboard.Show();
                 this.Hide();
             }

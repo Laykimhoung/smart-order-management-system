@@ -38,7 +38,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
         private void InvoiceForm_Load(object sender, EventArgs e)
         {
             txtInvoiceDate.Text = DateTime.Now.ToString("g");
-            txtInvoiceID.Text = $"INV-{_invoiceID:D5}";
+            //txtInvoiceID.Text = $"INV-{_invoiceID:D5}";
             txtOrderID.Text = $"ORD-{_orderId:D5}";
             txtCustomerName.Text = _customerName;
             lblTotalAmount.Text = $"${_totalAmount:F2}";
@@ -46,9 +46,27 @@ namespace SmartOrderManagementSystem.Forms.Customer
             txtCashier.Text = _staffname;
 
             LoadOrderItems();
+            LoadInvoiID();
         }
 
-        
+        private void LoadInvoiID()
+        {
+            string query = "SELECT InvoiceID FROM Invoices WHERE OrderID = @OrderID";
+            SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@OrderID", _orderId) };
+            try
+            {
+                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
+                if (dt.Rows.Count > 0)
+                {
+                    _invoiceID = Convert.ToInt32(dt.Rows[0][0]);
+                    txtInvoiceID.Text = $"INV-{_invoiceID:D5}";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load Invoice ID: {ex.Message}", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void LoadOrderItems()
         {
@@ -82,7 +100,8 @@ namespace SmartOrderManagementSystem.Forms.Customer
                     using (SqlTransaction transaction = conn.BeginTransaction())
                     {
 
-                        string insertInvoiceQuery = @"INSERT INTO Invoices (OrderID, InvoiceDate) 
+                        /*
+                         string insertInvoiceQuery = @"INSERT INTO Invoices (OrderID, InvoiceDate) 
                                                      VALUES (@OrderID, GETDATE());
                                                      SELECT SCOPE_IDENTITY();";
 
@@ -91,6 +110,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                             cmdInvoice.Parameters.AddWithValue("@OrderID", _orderId);
                             _invoiceID = Convert.ToInt32(cmdInvoice.ExecuteScalar());
                         }
+                        */
 
 
                         string insertPaymentQuery = @"INSERT INTO Payments (InvoiceID, Amount, PaymentDate) 
@@ -187,11 +207,11 @@ namespace SmartOrderManagementSystem.Forms.Customer
             graphics.DrawString("INVOICE RECEIPT", fontHeader, Brushes.Black, startX, startY);
             startY += offset;
 
-            graphics.DrawString($"Invoice No: {txtInvoiceID.Text}", fontRegular, Brushes.Black, startX, startY);
+            graphics.DrawString($"Invoice No: INV-{txtInvoiceID.Text:D5}", fontRegular, Brushes.Black, startX, startY);
             startY += 25;
             graphics.DrawString($"Invoice Date: {txtInvoiceDate.Text}", fontRegular, Brushes.Black, startX, startY);
             startY += 25;
-            graphics.DrawString($"Ref Order: {txtOrderID.Text}", fontRegular, Brushes.Black, startX, startY);
+            graphics.DrawString($"Ref Order: {txtOrderID.Text:D5}", fontRegular, Brushes.Black, startX, startY);
             startY += 25;
             graphics.DrawString($"Customer Name: {txtCustomerName.Text}", fontRegular, Brushes.Black, startX, startY);
             startY += 25;
@@ -241,9 +261,9 @@ namespace SmartOrderManagementSystem.Forms.Customer
             if (SaveInvoiceAndPaymentToDatabase())
             {
 
-                txtInvoiceID.Text = _invoiceID.ToString();
+                txtInvoiceID.Text = _invoiceID.ToString("D5");
 
-                MessageBox.Show($"Payment and Invoice #{_invoiceID} saved successfully! Proceeding to print...",
+                MessageBox.Show($"Payment and Invoice #{_invoiceID:D5} saved successfully! Proceeding to print...",
                                 "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 

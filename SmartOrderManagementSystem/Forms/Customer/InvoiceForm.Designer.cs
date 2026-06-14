@@ -101,9 +101,9 @@
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(13, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 22);
+            this.label2.Size = new System.Drawing.Size(149, 22);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Invoice No:";
+            this.label2.Text = "Invoice No         :";
             // 
             // txtInvoiceID
             // 
@@ -119,11 +119,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 146);
+            this.label3.Location = new System.Drawing.Point(11, 146);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(117, 22);
+            this.label3.Size = new System.Drawing.Size(152, 22);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Invoice Date:";
+            this.label3.Text = "Invoice Date       :";
             // 
             // txtInvoiceDate
             // 
@@ -139,11 +139,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 219);
+            this.label4.Location = new System.Drawing.Point(12, 219);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 22);
+            this.label4.Size = new System.Drawing.Size(148, 22);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Invoice Ref:";
+            this.label4.Text = "Invoice Ref        :";
             // 
             // txtOrderID
             // 
@@ -212,21 +212,21 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 260);
+            this.label5.Location = new System.Drawing.Point(13, 260);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 22);
+            this.label5.Size = new System.Drawing.Size(151, 22);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Customer Name:";
+            this.label5.Text = "Customer           : ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 110);
+            this.label8.Location = new System.Drawing.Point(13, 108);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 22);
+            this.label8.Size = new System.Drawing.Size(149, 22);
             this.label8.TabIndex = 2;
-            this.label8.Text = "Waiting Number:";
+            this.label8.Text = "Waiting Number :";
             // 
             // txtWaitingNumber
             // 
@@ -244,9 +244,9 @@
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(12, 296);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 22);
+            this.label9.Size = new System.Drawing.Size(147, 22);
             this.label9.TabIndex = 2;
-            this.label9.Text = "Cashier:";
+            this.label9.Text = "Cashier              :";
             // 
             // txtCashier
             // 

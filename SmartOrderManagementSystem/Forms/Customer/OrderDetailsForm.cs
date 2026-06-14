@@ -70,6 +70,8 @@ namespace SmartOrderManagementSystem.Forms.Customer
             if (dgvItemOrder.Columns["Quantity"] != null) dgvItemOrder.Columns["Quantity"].FillWeight = 70;  
             if (dgvItemOrder.Columns["Price"] != null) dgvItemOrder.Columns["Price"].FillWeight = 80;        
             if (dgvItemOrder.Columns["Subtotal"] != null) dgvItemOrder.Columns["Subtotal"].FillWeight = 90;
+           this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            dgvItemOrder.BorderStyle = BorderStyle.None;
         }
         private void GetOrderId()
         {
@@ -212,7 +214,26 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 MessageBox.Show("No valid order is currently loaded to generate an invoice.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            string qt = "INSERT INTO Invoices(OrderID, InvoiceDate) VALUES(@OrderID, @InvoiceDate);";
+            using (SqlConnection conn = DatabaseConnection.GetConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(qt, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@OrderID", _orderId);
+                        cmd.Parameters.AddWithValue("@InvoiceDate", txtOrderDate.Text);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to create invoice: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            
 
             if (UpdateOrderStatusToComplete(_orderId))
             {

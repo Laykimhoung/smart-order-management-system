@@ -37,7 +37,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             LoadProducts(null);
             InitializeCart();
             lblWelcome.Text = $"Welcome, {loginUsername}!";
-            lblLoggedIn.Text = $"Logged in as: {loginUsername}";
+            lblLoggedIn.Text = $"Logged in as: {loginUsername}";3
         }
 
         private void LoadUserID()

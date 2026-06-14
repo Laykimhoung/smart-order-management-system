@@ -101,7 +101,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Romnea", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(603, 10);
+            this.label1.Location = new System.Drawing.Point(562, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(402, 55);
             this.label1.TabIndex = 0;
@@ -130,7 +130,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1098, 88);
+            this.groupBox1.Location = new System.Drawing.Point(1098, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(567, 669);
             this.groupBox1.TabIndex = 5;
@@ -218,7 +218,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus,
             this.lblLoggedIn});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 808);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 771);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1736, 26);
             this.statusStrip1.TabIndex = 6;
@@ -242,7 +242,7 @@
             this.flpProducts.BackColor = System.Drawing.Color.LightGray;
             this.flpProducts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flpProducts.BackgroundImage")));
             this.flpProducts.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpProducts.Location = new System.Drawing.Point(236, 167);
+            this.flpProducts.Location = new System.Drawing.Point(236, 159);
             this.flpProducts.Name = "flpProducts";
             this.flpProducts.Size = new System.Drawing.Size(836, 590);
             this.flpProducts.TabIndex = 7;
@@ -252,7 +252,7 @@
             this.flpCategories.BackColor = System.Drawing.Color.RosyBrown;
             this.flpCategories.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flpCategories.BackgroundImage")));
             this.flpCategories.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpCategories.Location = new System.Drawing.Point(236, 88);
+            this.flpCategories.Location = new System.Drawing.Point(236, 80);
             this.flpCategories.Name = "flpCategories";
             this.flpCategories.Size = new System.Drawing.Size(836, 73);
             this.flpCategories.TabIndex = 8;
@@ -267,7 +267,7 @@
             this.panel2.Location = new System.Drawing.Point(0, -3);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(230, 760);
+            this.panel2.Size = new System.Drawing.Size(230, 752);
             this.panel2.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel2.TabIndex = 9;
             this.panel2.Text = "panel2";
@@ -313,7 +313,7 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.label8);
             this.panel3.EdgeColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(1671, -20);
+            this.panel3.Location = new System.Drawing.Point(1671, -28);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
             this.panel3.Size = new System.Drawing.Size(28, 792);
@@ -339,7 +339,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(247)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1736, 834);
+            this.ClientSize = new System.Drawing.Size(1736, 797);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flpCategories);

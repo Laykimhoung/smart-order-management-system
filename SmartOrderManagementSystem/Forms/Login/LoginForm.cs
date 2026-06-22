@@ -71,7 +71,7 @@ namespace SmartOrderManagementSystem.Forms.Login
                 {
                     conn.Open();
 
-                    string query = @"SELECT U.FullName FROM Users U INNER JOIN Roles R ON U.RoleID = R.RoleID WHERE
+                    string query = @"SELECT U.FullName,U.UserID, R.RoleName FROM Users U INNER JOIN Roles R ON U.RoleID = R.RoleID WHERE
                                    U.Username = @Username AND U.Password = @Password AND R.RoleName IN ('Admin', 'Staff')";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -79,25 +79,28 @@ namespace SmartOrderManagementSystem.Forms.Login
                         cmd.Parameters.AddWithValue("@Username", username);
                         cmd.Parameters.AddWithValue("@Password", password);
 
-                        object result = cmd.ExecuteScalar();
-
-                        if (result != null)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            string fullName = result.ToString();
+                            if (reader.Read())
+                            {
+                               int userID = reader.GetInt32(reader.GetOrdinal("UserID"));
+                               string fullName = reader.GetString(reader.GetOrdinal("FullName"));
 
-                            MessageBox.Show($"Welcome {fullName}!","Login Successful",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
-                            StaffDashboard staffForm = new StaffDashboard(123, username);
-                            staffForm.Show();
+                               MessageBox.Show($"Welcome {fullName}!", "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                               StaffDashboard staffForm = new StaffDashboard(userID, username);
+                                  staffForm.Show();
 
-                            this.Hide();
+                                 this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtPass.Focus();
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("Invalid username or password.","Login Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
-                            txtPass.Focus();
-                        }
+                         
                     }
                 }
             }

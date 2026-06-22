@@ -69,7 +69,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
                     Phonenumber_txt.Text = row["Phone"].ToString();
                     Role_txt.Text = row["RoleName"].ToString();
                     Sex_txt.Text = row["Sex"].ToString();
-                    username_txt.Text = row["username"].ToString();
+                    username_txt.Text = row["Username"].ToString();
 
                     // name under the photo in Profil
                     Name_lbl.Text = row["Fullname"].ToString();

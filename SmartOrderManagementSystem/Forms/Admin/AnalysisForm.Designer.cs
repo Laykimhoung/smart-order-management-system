@@ -43,33 +43,33 @@
             this.cmbPeriod = new ReaLTaiizor.Controls.DungeonComboBox();
             this.btnApply = new ReaLTaiizor.Controls.CyberButton();
             this.panelOrders = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblTotalOrders = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panelRevenue = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblRevenue = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panelCustomers = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblCustomers = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panelProducts = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblProducts = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.grpRevenueTrend = new System.Windows.Forms.GroupBox();
-            this.chartRevenueTrend = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartRevenue = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.grpTopSelling = new System.Windows.Forms.GroupBox();
-            this.chartTopSelling = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartTopProducts = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.grpLeastSelling = new System.Windows.Forms.GroupBox();
-            this.chartLeastSelling = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartLeastProducts = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panelOrders.SuspendLayout();
             this.panelRevenue.SuspendLayout();
             this.panelCustomers.SuspendLayout();
             this.panelProducts.SuspendLayout();
             this.grpRevenueTrend.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartRevenueTrend)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).BeginInit();
             this.grpTopSelling.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTopSelling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTopProducts)).BeginInit();
             this.grpLeastSelling.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartLeastSelling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLeastProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -175,28 +175,29 @@
             this.btnApply.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.btnApply.Timer_Effect_1 = 5;
             this.btnApply.Timer_RGB = 300;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // panelOrders
             // 
             this.panelOrders.AccessibleDescription = "";
-            this.panelOrders.BackColor = System.Drawing.Color.MistyRose;
-            this.panelOrders.Controls.Add(this.label8);
+            this.panelOrders.BackColor = System.Drawing.Color.OrangeRed;
+            this.panelOrders.Controls.Add(this.lblTotalOrders);
             this.panelOrders.Controls.Add(this.label4);
             this.panelOrders.Location = new System.Drawing.Point(53, 166);
             this.panelOrders.Name = "panelOrders";
             this.panelOrders.Size = new System.Drawing.Size(250, 95);
             this.panelOrders.TabIndex = 5;
             // 
-            // label8
+            // lblTotalOrders
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label8.Location = new System.Drawing.Point(91, 46);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 37);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "67";
+            this.lblTotalOrders.AutoSize = true;
+            this.lblTotalOrders.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalOrders.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTotalOrders.Location = new System.Drawing.Point(91, 46);
+            this.lblTotalOrders.Name = "lblTotalOrders";
+            this.lblTotalOrders.Size = new System.Drawing.Size(51, 37);
+            this.lblTotalOrders.TabIndex = 1;
+            this.lblTotalOrders.Text = "67";
             // 
             // label4
             // 
@@ -211,24 +212,24 @@
             // panelRevenue
             // 
             this.panelRevenue.AccessibleDescription = "";
-            this.panelRevenue.BackColor = System.Drawing.Color.MistyRose;
-            this.panelRevenue.Controls.Add(this.label9);
+            this.panelRevenue.BackColor = System.Drawing.Color.OrangeRed;
+            this.panelRevenue.Controls.Add(this.lblRevenue);
             this.panelRevenue.Controls.Add(this.label5);
             this.panelRevenue.Location = new System.Drawing.Point(372, 166);
             this.panelRevenue.Name = "panelRevenue";
             this.panelRevenue.Size = new System.Drawing.Size(250, 95);
             this.panelRevenue.TabIndex = 6;
             // 
-            // label9
+            // lblRevenue
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label9.Location = new System.Drawing.Point(80, 46);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 37);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "$1,250";
+            this.lblRevenue.AutoSize = true;
+            this.lblRevenue.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRevenue.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblRevenue.Location = new System.Drawing.Point(80, 46);
+            this.lblRevenue.Name = "lblRevenue";
+            this.lblRevenue.Size = new System.Drawing.Size(110, 37);
+            this.lblRevenue.TabIndex = 2;
+            this.lblRevenue.Text = "$1,250";
             // 
             // label5
             // 
@@ -243,24 +244,24 @@
             // panelCustomers
             // 
             this.panelCustomers.AccessibleDescription = "";
-            this.panelCustomers.BackColor = System.Drawing.Color.MistyRose;
-            this.panelCustomers.Controls.Add(this.label10);
+            this.panelCustomers.BackColor = System.Drawing.Color.OrangeRed;
+            this.panelCustomers.Controls.Add(this.lblCustomers);
             this.panelCustomers.Controls.Add(this.label6);
             this.panelCustomers.Location = new System.Drawing.Point(682, 166);
             this.panelCustomers.Name = "panelCustomers";
             this.panelCustomers.Size = new System.Drawing.Size(250, 95);
             this.panelCustomers.TabIndex = 6;
             // 
-            // label10
+            // lblCustomers
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label10.Location = new System.Drawing.Point(105, 46);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 37);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "67";
+            this.lblCustomers.AutoSize = true;
+            this.lblCustomers.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCustomers.Location = new System.Drawing.Point(105, 46);
+            this.lblCustomers.Name = "lblCustomers";
+            this.lblCustomers.Size = new System.Drawing.Size(51, 37);
+            this.lblCustomers.TabIndex = 3;
+            this.lblCustomers.Text = "67";
             // 
             // label6
             // 
@@ -275,24 +276,24 @@
             // panelProducts
             // 
             this.panelProducts.AccessibleDescription = "";
-            this.panelProducts.BackColor = System.Drawing.Color.MistyRose;
-            this.panelProducts.Controls.Add(this.label11);
+            this.panelProducts.BackColor = System.Drawing.Color.OrangeRed;
+            this.panelProducts.Controls.Add(this.lblProducts);
             this.panelProducts.Controls.Add(this.label7);
             this.panelProducts.Location = new System.Drawing.Point(995, 166);
             this.panelProducts.Name = "panelProducts";
             this.panelProducts.Size = new System.Drawing.Size(250, 95);
             this.panelProducts.TabIndex = 6;
             // 
-            // label11
+            // lblProducts
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label11.Location = new System.Drawing.Point(118, 46);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 37);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "67";
+            this.lblProducts.AutoSize = true;
+            this.lblProducts.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProducts.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblProducts.Location = new System.Drawing.Point(102, 46);
+            this.lblProducts.Name = "lblProducts";
+            this.lblProducts.Size = new System.Drawing.Size(51, 37);
+            this.lblProducts.TabIndex = 4;
+            this.lblProducts.Text = "67";
             // 
             // label7
             // 
@@ -306,7 +307,7 @@
             // 
             // grpRevenueTrend
             // 
-            this.grpRevenueTrend.Controls.Add(this.chartRevenueTrend);
+            this.grpRevenueTrend.Controls.Add(this.chartRevenue);
             this.grpRevenueTrend.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpRevenueTrend.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.grpRevenueTrend.Location = new System.Drawing.Point(55, 278);
@@ -316,28 +317,28 @@
             this.grpRevenueTrend.TabStop = false;
             this.grpRevenueTrend.Text = "Revenue Trend";
             // 
-            // chartRevenueTrend
+            // chartRevenue
             // 
             chartArea1.Name = "ChartArea1";
-            this.chartRevenueTrend.ChartAreas.Add(chartArea1);
-            this.chartRevenueTrend.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartRevenue.ChartAreas.Add(chartArea1);
+            this.chartRevenue.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.Name = "Legend1";
-            this.chartRevenueTrend.Legends.Add(legend1);
-            this.chartRevenueTrend.Location = new System.Drawing.Point(3, 23);
-            this.chartRevenueTrend.Name = "chartRevenueTrend";
+            this.chartRevenue.Legends.Add(legend1);
+            this.chartRevenue.Location = new System.Drawing.Point(3, 23);
+            this.chartRevenue.Name = "chartRevenue";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             series1.YValuesPerPoint = 6;
-            this.chartRevenueTrend.Series.Add(series1);
-            this.chartRevenueTrend.Size = new System.Drawing.Size(1184, 192);
-            this.chartRevenueTrend.TabIndex = 0;
-            this.chartRevenueTrend.Text = "chart1";
+            this.chartRevenue.Series.Add(series1);
+            this.chartRevenue.Size = new System.Drawing.Size(1184, 192);
+            this.chartRevenue.TabIndex = 0;
+            this.chartRevenue.Text = "chart1";
             // 
             // grpTopSelling
             // 
-            this.grpTopSelling.Controls.Add(this.chartTopSelling);
+            this.grpTopSelling.Controls.Add(this.chartTopProducts);
             this.grpTopSelling.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
             this.grpTopSelling.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.grpTopSelling.Location = new System.Drawing.Point(58, 502);
@@ -347,26 +348,26 @@
             this.grpTopSelling.TabStop = false;
             this.grpTopSelling.Text = "Top Selling Products";
             // 
-            // chartTopSelling
+            // chartTopProducts
             // 
             chartArea2.Name = "ChartArea1";
-            this.chartTopSelling.ChartAreas.Add(chartArea2);
-            this.chartTopSelling.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartTopProducts.ChartAreas.Add(chartArea2);
+            this.chartTopProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             legend2.Name = "Legend1";
-            this.chartTopSelling.Legends.Add(legend2);
-            this.chartTopSelling.Location = new System.Drawing.Point(3, 23);
-            this.chartTopSelling.Name = "chartTopSelling";
+            this.chartTopProducts.Legends.Add(legend2);
+            this.chartTopProducts.Location = new System.Drawing.Point(3, 23);
+            this.chartTopProducts.Name = "chartTopProducts";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
-            this.chartTopSelling.Series.Add(series2);
-            this.chartTopSelling.Size = new System.Drawing.Size(574, 198);
-            this.chartTopSelling.TabIndex = 0;
-            this.chartTopSelling.Text = "chart1";
+            this.chartTopProducts.Series.Add(series2);
+            this.chartTopProducts.Size = new System.Drawing.Size(574, 198);
+            this.chartTopProducts.TabIndex = 0;
+            this.chartTopProducts.Text = "chart1";
             // 
             // grpLeastSelling
             // 
-            this.grpLeastSelling.Controls.Add(this.chartLeastSelling);
+            this.grpLeastSelling.Controls.Add(this.chartLeastProducts);
             this.grpLeastSelling.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold);
             this.grpLeastSelling.ForeColor = System.Drawing.Color.Red;
             this.grpLeastSelling.Location = new System.Drawing.Point(662, 502);
@@ -376,22 +377,22 @@
             this.grpLeastSelling.TabStop = false;
             this.grpLeastSelling.Text = "Least Selling Products";
             // 
-            // chartLeastSelling
+            // chartLeastProducts
             // 
             chartArea3.Name = "ChartArea1";
-            this.chartLeastSelling.ChartAreas.Add(chartArea3);
-            this.chartLeastSelling.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartLeastProducts.ChartAreas.Add(chartArea3);
+            this.chartLeastProducts.Dock = System.Windows.Forms.DockStyle.Fill;
             legend3.Name = "Legend1";
-            this.chartLeastSelling.Legends.Add(legend3);
-            this.chartLeastSelling.Location = new System.Drawing.Point(3, 23);
-            this.chartLeastSelling.Name = "chartLeastSelling";
+            this.chartLeastProducts.Legends.Add(legend3);
+            this.chartLeastProducts.Location = new System.Drawing.Point(3, 23);
+            this.chartLeastProducts.Name = "chartLeastProducts";
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
             series3.Name = "Series1";
-            this.chartLeastSelling.Series.Add(series3);
-            this.chartLeastSelling.Size = new System.Drawing.Size(574, 198);
-            this.chartLeastSelling.TabIndex = 0;
-            this.chartLeastSelling.Text = "chart1";
+            this.chartLeastProducts.Series.Add(series3);
+            this.chartLeastProducts.Size = new System.Drawing.Size(574, 198);
+            this.chartLeastProducts.TabIndex = 0;
+            this.chartLeastProducts.Text = "chart1";
             // 
             // AnalysisForm
             // 
@@ -412,6 +413,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AnalysisForm";
             this.Text = "AnalysisForm";
+            this.Load += new System.EventHandler(this.AnalysisForm_Load);
             this.panelOrders.ResumeLayout(false);
             this.panelOrders.PerformLayout();
             this.panelRevenue.ResumeLayout(false);
@@ -421,11 +423,11 @@
             this.panelProducts.ResumeLayout(false);
             this.panelProducts.PerformLayout();
             this.grpRevenueTrend.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartRevenueTrend)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartRevenue)).EndInit();
             this.grpTopSelling.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartTopSelling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartTopProducts)).EndInit();
             this.grpLeastSelling.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartLeastSelling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLeastProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,18 +445,18 @@
         private System.Windows.Forms.Panel panelCustomers;
         private System.Windows.Forms.Panel panelProducts;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblTotalOrders;
+        private System.Windows.Forms.Label lblRevenue;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblCustomers;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblProducts;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox grpRevenueTrend;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenueTrend;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartRevenue;
         private System.Windows.Forms.GroupBox grpTopSelling;
         private System.Windows.Forms.GroupBox grpLeastSelling;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartTopSelling;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartLeastSelling;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTopProducts;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartLeastProducts;
     }
 }

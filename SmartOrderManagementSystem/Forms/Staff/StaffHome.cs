@@ -125,8 +125,11 @@ namespace SmartOrderManagementSystem.Forms.Staff
                 dashboard.ShowSubForm(new Activity_Feed());
             }
         }
-       
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

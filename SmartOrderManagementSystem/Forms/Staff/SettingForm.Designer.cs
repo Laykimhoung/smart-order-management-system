@@ -36,6 +36,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Staff_information_panel = new ReaLTaiizor.Controls.Panel();
+            this.Role_txt = new System.Windows.Forms.TextBox();
+            this.Sex_txt = new System.Windows.Forms.TextBox();
             this.Phonenumber_txt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -49,11 +51,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Userid_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.Sex_txt = new System.Windows.Forms.TextBox();
-            this.Role_txt = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Profile_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Staff_information_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -61,7 +63,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cooper Black", 18F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            this.label2.Location = new System.Drawing.Point(89, 22);
+            this.label2.Location = new System.Drawing.Point(71, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 35);
             this.label2.TabIndex = 4;
@@ -75,10 +77,10 @@
             this.Profile_panel.Controls.Add(this.pictureBox1);
             this.Profile_panel.Controls.Add(this.label1);
             this.Profile_panel.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Profile_panel.Location = new System.Drawing.Point(21, 153);
+            this.Profile_panel.Location = new System.Drawing.Point(21, 128);
             this.Profile_panel.Name = "Profile_panel";
             this.Profile_panel.Padding = new System.Windows.Forms.Padding(5);
-            this.Profile_panel.Size = new System.Drawing.Size(367, 564);
+            this.Profile_panel.Size = new System.Drawing.Size(367, 589);
             this.Profile_panel.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.Profile_panel.TabIndex = 5;
             this.Profile_panel.Text = "panel1";
@@ -125,14 +127,14 @@
             // 
             // Name_lbl
             // 
-            this.Name_lbl.AutoSize = true;
             this.Name_lbl.Font = new System.Drawing.Font("Rockwell", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name_lbl.ForeColor = System.Drawing.Color.White;
-            this.Name_lbl.Location = new System.Drawing.Point(132, 289);
+            this.Name_lbl.Location = new System.Drawing.Point(8, 293);
             this.Name_lbl.Name = "Name_lbl";
-            this.Name_lbl.Size = new System.Drawing.Size(111, 37);
+            this.Name_lbl.Size = new System.Drawing.Size(351, 69);
             this.Name_lbl.TabIndex = 8;
             this.Name_lbl.Text = "SO TA";
+            this.Name_lbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
@@ -149,7 +151,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cooper Black", 18F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(106, 20);
+            this.label1.Location = new System.Drawing.Point(122, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 35);
             this.label1.TabIndex = 6;
@@ -175,13 +177,29 @@
             this.Staff_information_panel.Controls.Add(this.Userid_txt);
             this.Staff_information_panel.Controls.Add(this.label4);
             this.Staff_information_panel.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Staff_information_panel.Location = new System.Drawing.Point(417, 153);
+            this.Staff_information_panel.Location = new System.Drawing.Point(417, 128);
             this.Staff_information_panel.Name = "Staff_information_panel";
             this.Staff_information_panel.Padding = new System.Windows.Forms.Padding(5);
-            this.Staff_information_panel.Size = new System.Drawing.Size(856, 563);
+            this.Staff_information_panel.Size = new System.Drawing.Size(856, 588);
             this.Staff_information_panel.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.Staff_information_panel.TabIndex = 6;
             this.Staff_information_panel.Text = "panel2";
+            // 
+            // Role_txt
+            // 
+            this.Role_txt.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Role_txt.Location = new System.Drawing.Point(50, 487);
+            this.Role_txt.Name = "Role_txt";
+            this.Role_txt.Size = new System.Drawing.Size(341, 39);
+            this.Role_txt.TabIndex = 26;
+            // 
+            // Sex_txt
+            // 
+            this.Sex_txt.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sex_txt.Location = new System.Drawing.Point(464, 265);
+            this.Sex_txt.Name = "Sex_txt";
+            this.Sex_txt.Size = new System.Drawing.Size(341, 39);
+            this.Sex_txt.TabIndex = 25;
             // 
             // Phonenumber_txt
             // 
@@ -294,6 +312,7 @@
             // 
             // Userid_txt
             // 
+            this.Userid_txt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Userid_txt.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Userid_txt.Location = new System.Drawing.Point(50, 158);
             this.Userid_txt.Name = "Userid_txt";
@@ -311,21 +330,15 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Staff Information";
             // 
-            // Sex_txt
+            // pictureBox2
             // 
-            this.Sex_txt.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sex_txt.Location = new System.Drawing.Point(464, 265);
-            this.Sex_txt.Name = "Sex_txt";
-            this.Sex_txt.Size = new System.Drawing.Size(341, 39);
-            this.Sex_txt.TabIndex = 25;
-            // 
-            // Role_txt
-            // 
-            this.Role_txt.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Role_txt.Location = new System.Drawing.Point(50, 487);
-            this.Role_txt.Name = "Role_txt";
-            this.Role_txt.Size = new System.Drawing.Size(341, 39);
-            this.Role_txt.TabIndex = 26;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(-1, 1);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(66, 60);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
             // 
             // SettingForm
             // 
@@ -333,6 +346,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1300, 763);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.Staff_information_panel);
             this.Controls.Add(this.Profile_panel);
             this.Controls.Add(this.label2);
@@ -345,6 +359,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Staff_information_panel.ResumeLayout(false);
             this.Staff_information_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +389,6 @@
         private System.Windows.Forms.TextBox Phonenumber_txt;
         private System.Windows.Forms.TextBox Role_txt;
         private System.Windows.Forms.TextBox Sex_txt;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

@@ -363,7 +363,7 @@
             this.Notification_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Notification_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Notification_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Notification_btn.Location = new System.Drawing.Point(1262, -2);
+            this.Notification_btn.Location = new System.Drawing.Point(1180, 0);
             this.Notification_btn.Name = "Notification_btn";
             this.Notification_btn.Size = new System.Drawing.Size(65, 70);
             this.Notification_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -387,9 +387,9 @@
             this.Staff_accout_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Staff_accout_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Staff_accout_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Staff_accout_btn.Location = new System.Drawing.Point(1353, 5);
+            this.Staff_accout_btn.Location = new System.Drawing.Point(1337, 7);
             this.Staff_accout_btn.Name = "Staff_accout_btn";
-            this.Staff_accout_btn.Size = new System.Drawing.Size(155, 55);
+            this.Staff_accout_btn.Size = new System.Drawing.Size(181, 55);
             this.Staff_accout_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.Staff_accout_btn.TabIndex = 2;
             this.Staff_accout_btn.TextColor = System.Drawing.Color.Gray;
@@ -402,7 +402,7 @@
             this.bigLabel2.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel2.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.bigLabel2.Location = new System.Drawing.Point(313, 25);
+            this.bigLabel2.Location = new System.Drawing.Point(313, 9);
             this.bigLabel2.Name = "bigLabel2";
             this.bigLabel2.Size = new System.Drawing.Size(248, 32);
             this.bigLabel2.TabIndex = 10;

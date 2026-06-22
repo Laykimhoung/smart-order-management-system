@@ -1711,6 +1711,9 @@
         mAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="order_amount_lbl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAhQAAAIUCAYAAABCerXlAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
@@ -6264,6 +6267,9 @@
         R44cOXLkyJEjR44cOXLkyJEjR44cOXLkyJEjR46+d/r/9HtOF3oQtVgAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="TotalCustomer_lbl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAhQAAAIUCAYAAABCerXlAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
@@ -11229,6 +11235,9 @@
         UAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="Income_lbl.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAhQAAAIUCAYAAABCerXlAAAABGdBTUEAALGPC/xhBQAAQEdJREFUeF7t

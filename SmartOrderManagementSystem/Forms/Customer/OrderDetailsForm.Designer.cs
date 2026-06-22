@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetailsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtOrderID = new System.Windows.Forms.TextBox();
@@ -43,6 +42,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvItemOrder = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
             this.btnGetInvoice = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -53,7 +53,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.picQRCode = new System.Windows.Forms.PictureBox();
-            this.lblTotalAmount = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemOrder)).BeginInit();
@@ -65,7 +64,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.txtStatus);
             this.groupBox1.Controls.Add(this.txtOrderID);
             this.groupBox1.Controls.Add(this.txtOrderDate);
@@ -79,7 +78,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(629, 292);
+            this.groupBox1.Size = new System.Drawing.Size(629, 315);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Order Information";
@@ -192,14 +191,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
             this.groupBox2.Controls.Add(this.dgvItemOrder);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.lblTotalAmount);
             this.groupBox2.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 323);
+            this.groupBox2.Location = new System.Drawing.Point(12, 332);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(629, 267);
+            this.groupBox2.Size = new System.Drawing.Size(629, 299);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Items Ordered";
@@ -207,12 +205,12 @@
             // dgvItemOrder
             // 
             this.dgvItemOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItemOrder.Location = new System.Drawing.Point(25, 38);
+            this.dgvItemOrder.Location = new System.Drawing.Point(26, 49);
             this.dgvItemOrder.Name = "dgvItemOrder";
             this.dgvItemOrder.ReadOnly = true;
             this.dgvItemOrder.RowHeadersWidth = 51;
             this.dgvItemOrder.RowTemplate.Height = 24;
-            this.dgvItemOrder.Size = new System.Drawing.Size(584, 165);
+            this.dgvItemOrder.Size = new System.Drawing.Size(584, 207);
             this.dgvItemOrder.TabIndex = 2;
             // 
             // label6
@@ -221,40 +219,53 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(209, 208);
+            this.label6.Location = new System.Drawing.Point(266, 255);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(169, 41);
             this.label6.TabIndex = 0;
             this.label6.Text = "Total Amount:";
             // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAmount.Location = new System.Drawing.Point(484, 259);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(75, 35);
+            this.lblTotalAmount.TabIndex = 0;
+            this.lblTotalAmount.Text = "Total";
+            this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // btnGetInvoice
             // 
+            this.btnGetInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(99)))), ((int)(((byte)(235)))));
             this.btnGetInvoice.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGetInvoice.Location = new System.Drawing.Point(177, 645);
+            this.btnGetInvoice.Location = new System.Drawing.Point(188, 654);
             this.btnGetInvoice.Name = "btnGetInvoice";
             this.btnGetInvoice.Size = new System.Drawing.Size(123, 55);
             this.btnGetInvoice.TabIndex = 1;
             this.btnGetInvoice.Text = "Invoice";
-            this.btnGetInvoice.UseVisualStyleBackColor = true;
+            this.btnGetInvoice.UseVisualStyleBackColor = false;
             this.btnGetInvoice.Click += new System.EventHandler(this.btnGetInvoice_Click);
             // 
             // btnBack
             // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.btnBack.Font = new System.Drawing.Font("Romnea", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(379, 645);
+            this.btnBack.Location = new System.Drawing.Point(390, 654);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(123, 55);
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Cancel";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // groupBox3
             // 
-            this.groupBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox3.BackgroundImage")));
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(803, 27);
+            this.groupBox3.Location = new System.Drawing.Point(703, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(549, 238);
             this.groupBox3.TabIndex = 2;
@@ -307,11 +318,10 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox4.BackgroundImage")));
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.picQRCode);
             this.groupBox4.Font = new System.Drawing.Font("Romnea", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(856, 284);
+            this.groupBox4.Location = new System.Drawing.Point(756, 269);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(457, 438);
             this.groupBox4.TabIndex = 3;
@@ -340,25 +350,12 @@
             this.picQRCode.TabIndex = 0;
             this.picQRCode.TabStop = false;
             // 
-            // lblTotalAmount
-            // 
-            this.lblTotalAmount.AutoSize = true;
-            this.lblTotalAmount.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalAmount.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalAmount.Location = new System.Drawing.Point(427, 212);
-            this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(75, 35);
-            this.lblTotalAmount.TabIndex = 0;
-            this.lblTotalAmount.Text = "Total";
-            this.lblTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // OrderDetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Salmon;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1379, 734);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ClientSize = new System.Drawing.Size(1267, 735);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnBack);

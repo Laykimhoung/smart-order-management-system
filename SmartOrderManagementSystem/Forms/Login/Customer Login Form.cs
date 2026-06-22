@@ -232,7 +232,7 @@ namespace SmartOrderManagementSystem.Forms.Login
                 }
 
                 // Go to Customer Dashboard
-                CustomerDashboard CusForm = new CustomerDashboard(name, _staffname);
+                CustomerDashboard CusForm = new CustomerDashboard(name, _staffname, 1);
                 CusForm.Show();
                 this.Hide();
             }

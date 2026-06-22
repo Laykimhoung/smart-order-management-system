@@ -20,25 +20,52 @@ namespace SmartOrderManagementSystem.Forms.Customer
         decimal _totalAmount;
         int _invoiceID;
         int _waitingNumber;
-        public InvoiceForm(int orderId, string customerName, decimal totalAmount, int waitingNumber)
+        string _staffname;
+        int _userId;
+        string _username;
+        public InvoiceForm(int orderId, string customerName, decimal totalAmount, int waitingNumber, string staffname, int userId, string username)
         {
+            _staffname = staffname;
+            _userId = userId;
             _orderId = orderId;
             _customerName = customerName;
             _totalAmount = totalAmount;
             _waitingNumber = waitingNumber;
+            _username = username;
             InitializeComponent();
         }
 
         private void InvoiceForm_Load(object sender, EventArgs e)
         {
             txtInvoiceDate.Text = DateTime.Now.ToString("g");
-            txtInvoiceID.Text = $"INV-{_invoiceID:D5}";
+            //txtInvoiceID.Text = $"INV-{_invoiceID:D5}";
             txtOrderID.Text = $"ORD-{_orderId:D5}";
             txtCustomerName.Text = _customerName;
             lblTotalAmount.Text = $"${_totalAmount:F2}";
             txtWaitingNumber.Text = _waitingNumber.ToString();
+            txtCashier.Text = _staffname;
 
             LoadOrderItems();
+            LoadInvoiID();
+        }
+
+        private void LoadInvoiID()
+        {
+            string query = "SELECT InvoiceID FROM Invoices WHERE OrderID = @OrderID";
+            SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@OrderID", _orderId) };
+            try
+            {
+                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
+                if (dt.Rows.Count > 0)
+                {
+                    _invoiceID = Convert.ToInt32(dt.Rows[0][0]);
+                    txtInvoiceID.Text = $"INV-{_invoiceID:D5}";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load Invoice ID: {ex.Message}", "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadOrderItems()
@@ -73,7 +100,8 @@ namespace SmartOrderManagementSystem.Forms.Customer
                     using (SqlTransaction transaction = conn.BeginTransaction())
                     {
 
-                        string insertInvoiceQuery = @"INSERT INTO Invoices (OrderID, InvoiceDate) 
+                        /*
+                         string insertInvoiceQuery = @"INSERT INTO Invoices (OrderID, InvoiceDate) 
                                                      VALUES (@OrderID, GETDATE());
                                                      SELECT SCOPE_IDENTITY();";
 
@@ -82,6 +110,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                             cmdInvoice.Parameters.AddWithValue("@OrderID", _orderId);
                             _invoiceID = Convert.ToInt32(cmdInvoice.ExecuteScalar());
                         }
+                        */
 
 
                         string insertPaymentQuery = @"INSERT INTO Payments (InvoiceID, Amount, PaymentDate) 
@@ -119,22 +148,24 @@ namespace SmartOrderManagementSystem.Forms.Customer
             PrintDocument printDoc = new PrintDocument();
             printDoc.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
 
-            
             printDoc.PrinterSettings.PrinterName = "Microsoft Print to PDF";
             printDoc.PrinterSettings.PrintToFile = true;
 
-            
             string dateStr = DateTime.Now.ToString("yyyyMMdd");
 
             
-            string directoryPath = @"D:\";
-            string fileName = $"INV-{_invoiceID:D5}_{dateStr}.pdf";
+            string directoryPath = @"C:\Invoice";
+
+            
+            if (!System.IO.Directory.Exists(directoryPath))
+            {
+                System.IO.Directory.CreateDirectory(directoryPath);
+            }
+
+            string fileName = $"INV-{_invoiceID:D5}-[{_customerName}]-{dateStr}.pdf";
             string fullPath = System.IO.Path.Combine(directoryPath, fileName);
 
-            
             printDoc.PrinterSettings.PrintFileName = fullPath;
-
-            
             printDoc.PrintController = new StandardPrintController();
 
             try
@@ -176,13 +207,15 @@ namespace SmartOrderManagementSystem.Forms.Customer
             graphics.DrawString("INVOICE RECEIPT", fontHeader, Brushes.Black, startX, startY);
             startY += offset;
 
-            graphics.DrawString($"Invoice No: {txtInvoiceID.Text}", fontRegular, Brushes.Black, startX, startY);
+            graphics.DrawString($"Invoice No: INV-{txtInvoiceID.Text:D5}", fontRegular, Brushes.Black, startX, startY);
             startY += 25;
             graphics.DrawString($"Invoice Date: {txtInvoiceDate.Text}", fontRegular, Brushes.Black, startX, startY);
             startY += 25;
-            graphics.DrawString($"Ref Order: {txtOrderID.Text}", fontRegular, Brushes.Black, startX, startY);
+            graphics.DrawString($"Ref Order: {txtOrderID.Text:D5}", fontRegular, Brushes.Black, startX, startY);
             startY += 25;
             graphics.DrawString($"Customer Name: {txtCustomerName.Text}", fontRegular, Brushes.Black, startX, startY);
+            startY += 25;
+            graphics.DrawString($"Cashier: {txtCashier.Text}", fontRegular, Brushes.Black, startX, startY);
 
             startY += offset;
             graphics.DrawString("-------------------------------------------------------------------------------------------------------------------", fontRegular, Brushes.Black, startX, startY);
@@ -228,15 +261,15 @@ namespace SmartOrderManagementSystem.Forms.Customer
             if (SaveInvoiceAndPaymentToDatabase())
             {
 
-                txtInvoiceID.Text = _invoiceID.ToString();
+                txtInvoiceID.Text = _invoiceID.ToString("D5");
 
-                MessageBox.Show($"Payment and Invoice #{_invoiceID} saved successfully! Proceeding to print...",
+                MessageBox.Show($"Payment and Invoice #{_invoiceID:D5} saved successfully! Proceeding to print...",
                                 "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 PrintInvoiceToPdf();
 
-                CustomerDashboard dashboard = new CustomerDashboard(_customerName, "hhfhfgf");
+                CustomerDashboard dashboard = new CustomerDashboard(_customerName, _username, _userId);
                 dashboard.Show();
                 this.Close();
             }

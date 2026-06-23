@@ -429,7 +429,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                     }
                 }
 
-                if (MessageBox.Show($"Order placed successfully!\nYour Waiting Number is: {waitingNumber}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                if (MessageBox.Show($"Order placed successfully!\nYour Waiting Number is: {Convert.ToInt32(waitingNumber).ToString("0000")}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     OrderDetailsForm orderDetailsForm = new OrderDetailsForm(customerId, loginUsername,_userId, _staffname);
                     orderDetailsForm.Show();

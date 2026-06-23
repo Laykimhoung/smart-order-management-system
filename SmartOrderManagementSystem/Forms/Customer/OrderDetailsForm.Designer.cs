@@ -287,7 +287,7 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(152, 142);
+            this.lblDate.Location = new System.Drawing.Point(169, 142);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(58, 26);
             this.lblDate.TabIndex = 0;
@@ -298,7 +298,7 @@
             // 
             this.txtWaitingNumber.AutoSize = true;
             this.txtWaitingNumber.Font = new System.Drawing.Font("Times New Roman", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWaitingNumber.Location = new System.Drawing.Point(208, 53);
+            this.txtWaitingNumber.Location = new System.Drawing.Point(193, 53);
             this.txtWaitingNumber.Name = "txtWaitingNumber";
             this.txtWaitingNumber.Size = new System.Drawing.Size(119, 68);
             this.txtWaitingNumber.TabIndex = 0;

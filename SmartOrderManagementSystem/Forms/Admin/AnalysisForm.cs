@@ -39,9 +39,9 @@ namespace SmartOrderManagementSystem.Forms.Admin
             {
                 string period = cmbPeriod.Text;
 
-                string dateFilter = "";
+                string dateFilter = "1=1";
 
-                switch (period)
+                switch (cmbPeriod.Text)
                 {
                     case "Daily":
                         dateFilter =
@@ -62,6 +62,10 @@ namespace SmartOrderManagementSystem.Forms.Admin
                     case "Yearly":
                         dateFilter =
                             "YEAR(OrderDate)=YEAR(GETDATE())";
+                        break;
+
+                    case "All":
+                        dateFilter = "1=1";
                         break;
                 }
 
@@ -110,13 +114,78 @@ WHERE {dateFilter}");
 
             chartRevenue.Series.Add("Revenue");
 
-            string query = @"
+            chartRevenue.Series["Revenue"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting
+                .SeriesChartType.Spline;
+
+            chartRevenue.Series["Revenue"].BorderWidth = 3;
+
+            chartRevenue.Legends[0].Enabled = false;
+
+            chartRevenue.ChartAreas[0]
+                .AxisX.MajorGrid.Enabled = false;
+
+            chartRevenue.ChartAreas[0]
+                .AxisY.MajorGrid.LineColor =
+                Color.LightGray;
+
+            string query = "";
+
+            switch (cmbPeriod.Text)
+            {
+                case "Daily":
+
+                    query = @"
 SELECT
-CAST(OrderDate AS DATE) AS OrderDay,
+FORMAT(OrderDate,'HH:mm') AS Label,
 SUM(TotalAmount) AS Revenue
 FROM Orders
-GROUP BY CAST(OrderDate AS DATE)
-ORDER BY OrderDay";
+WHERE CAST(OrderDate AS DATE)=CAST(GETDATE() AS DATE)
+GROUP BY FORMAT(OrderDate,'HH:mm')
+ORDER BY Label";
+
+                    break;
+
+                case "Weekly":
+
+                    query = @"
+SELECT
+FORMAT(OrderDate,'ddd') AS Label,
+SUM(TotalAmount) AS Revenue
+FROM Orders
+WHERE OrderDate >= DATEADD(DAY,-7,GETDATE())
+GROUP BY FORMAT(OrderDate,'ddd')
+ORDER BY MIN(OrderDate)";
+
+                    break;
+
+                case "Monthly":
+
+                    query = @"
+SELECT
+DAY(OrderDate) AS Label,
+SUM(TotalAmount) AS Revenue
+FROM Orders
+WHERE MONTH(OrderDate)=MONTH(GETDATE())
+AND YEAR(OrderDate)=YEAR(GETDATE())
+GROUP BY DAY(OrderDate)
+ORDER BY Label";
+
+                    break;
+
+                default:
+
+                    query = @"
+SELECT
+DATENAME(MONTH,OrderDate) AS Label,
+SUM(TotalAmount) AS Revenue
+FROM Orders
+GROUP BY DATENAME(MONTH,OrderDate),
+MONTH(OrderDate)
+ORDER BY MONTH(OrderDate)";
+
+                    break;
+            }
 
             DataTable dt =
                 DatabaseConnection.ExecuteQuery(query);
@@ -125,8 +194,7 @@ ORDER BY OrderDay";
             {
                 chartRevenue.Series["Revenue"]
                     .Points.AddXY(
-                        Convert.ToDateTime(row["OrderDay"])
-                        .ToString("dd/MM"),
+                        row["Label"],
                         row["Revenue"]);
             }
         }
@@ -136,13 +204,43 @@ ORDER BY OrderDay";
 
             chartTopProducts.Series.Add("Products");
 
-            string query = @"
-SELECT TOP 5
-P.ProductName,
-SUM(OI.Quantity) AS Qty
+            chartTopProducts.Series["Products"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting
+                .SeriesChartType.Bar;
+
+            chartTopProducts.Series["Products"]
+                .IsValueShownAsLabel = true;
+
+            chartTopProducts.Legends[0].Enabled = false;
+
+            int topCount = 10;
+
+            switch (cmbPeriod.Text)
+            {
+                case "Daily":
+                    topCount = 5;
+                    break;
+
+                case "Weekly":
+                    topCount = 7;
+                    break;
+
+                case "Monthly":
+                    topCount = 10;
+                    break;
+
+                case "Yearly":
+                    topCount = 15;
+                    break;
+            }
+
+            string query = $@"
+SELECT TOP {topCount}
+    P.ProductName,
+    SUM(OI.Quantity) AS Qty
 FROM OrderItems OI
 INNER JOIN Products P
-ON OI.ProductID = P.ProductID
+    ON OI.ProductID = P.ProductID
 GROUP BY P.ProductName
 ORDER BY Qty DESC";
 
@@ -153,7 +251,7 @@ ORDER BY Qty DESC";
             {
                 chartTopProducts.Series["Products"]
                     .Points.AddXY(
-                        row["ProductName"].ToString(),
+                        row["ProductName"],
                         row["Qty"]);
             }
         }
@@ -163,13 +261,43 @@ ORDER BY Qty DESC";
 
             chartLeastProducts.Series.Add("Products");
 
-            string query = @"
-SELECT TOP 5
-P.ProductName,
-SUM(OI.Quantity) AS Qty
+            chartLeastProducts.Series["Products"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting
+                .SeriesChartType.Bar;
+
+            chartLeastProducts.Series["Products"]
+                .IsValueShownAsLabel = true;
+
+            chartLeastProducts.Legends[0].Enabled = false;
+
+            int topCount = 10;
+
+            switch (cmbPeriod.Text)
+            {
+                case "Daily":
+                    topCount = 5;
+                    break;
+
+                case "Weekly":
+                    topCount = 7;
+                    break;
+
+                case "Monthly":
+                    topCount = 10;
+                    break;
+
+                case "Yearly":
+                    topCount = 15;
+                    break;
+            }
+
+            string query = $@"
+SELECT TOP {topCount}
+    P.ProductName,
+    SUM(OI.Quantity) AS Qty
 FROM OrderItems OI
 INNER JOIN Products P
-ON OI.ProductID = P.ProductID
+    ON OI.ProductID = P.ProductID
 GROUP BY P.ProductName
 ORDER BY Qty ASC";
 
@@ -180,7 +308,7 @@ ORDER BY Qty ASC";
             {
                 chartLeastProducts.Series["Products"]
                     .Points.AddXY(
-                        row["ProductName"].ToString(),
+                        row["ProductName"],
                         row["Qty"]);
             }
         }

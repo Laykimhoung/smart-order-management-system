@@ -12,7 +12,7 @@ namespace SmartOrderManagementSystem.Database
     {
         //Use your own local database connection string here
         private static readonly string connectionString =
-       @"Server=DESKTOP-4TFML11;Database=SmartOrderDB;User Id=Vannath;Password=200107;TrustServerCertificate=True;";
+       @"Server=PROTECT-ME;Database=SmartOrderDB;User Id=sa;Password=sa;TrustServerCertificate=True;";
 
 
 

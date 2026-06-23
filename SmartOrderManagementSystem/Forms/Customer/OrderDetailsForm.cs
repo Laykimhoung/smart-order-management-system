@@ -151,7 +151,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                     DataRow row = header.Rows[0];
                     txtOrderID.Text = row["OrderID"].ToString();
                     txtCustomer.Text = row["CustomerName"].ToString();
-                    txtWaitingNumber.Text = row["WaitingNumber"].ToString();
+                    txtWaitingNumber.Text = Convert.ToInt32(row["WaitingNumber"]).ToString("0000");
                     txtOrderDate.Text = Convert.ToDateTime(row["OrderDate"]).ToString("g");
                     lblTotalAmount.Text = Convert.ToDecimal(row["TotalAmount"]).ToString("C");
                     txtNote.Text = row["Notes"].ToString();
@@ -168,7 +168,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
                 dgvItemOrder.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvItemOrder.AllowUserToAddRows = false;
 
-                string QRText = $"Date: {lblDate.Text}\nOrder Ref: ORD-{txtOrderID.Text}\nYour WaitingNumber: {txtWaitingNumber.Text}\nTOTAL Cost: {lblTotalAmount.Text:F2}";
+                string QRText = $"Date: {lblDate.Text}\nOrder Ref: ORD-{txtOrderID.Text}\nYour WaitingNumber: {Convert.ToInt32(txtWaitingNumber.Text).ToString("0000")}\nTOTAL Cost: {lblTotalAmount.Text:F2}";
                 GenerateQR(QRText);
             }
             catch (Exception ex)

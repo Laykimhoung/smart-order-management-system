@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SmartOrderManagementSystem.Database;
 
 namespace SmartOrderManagementSystem.Forms.Admin
 {

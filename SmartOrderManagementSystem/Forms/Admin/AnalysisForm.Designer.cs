@@ -193,7 +193,7 @@
             this.lblTotalOrders.AutoSize = true;
             this.lblTotalOrders.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalOrders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTotalOrders.Location = new System.Drawing.Point(91, 46);
+            this.lblTotalOrders.Location = new System.Drawing.Point(78, 46);
             this.lblTotalOrders.Name = "lblTotalOrders";
             this.lblTotalOrders.Size = new System.Drawing.Size(51, 37);
             this.lblTotalOrders.TabIndex = 1;

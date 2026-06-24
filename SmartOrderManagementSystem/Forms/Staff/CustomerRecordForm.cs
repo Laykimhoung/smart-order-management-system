@@ -24,39 +24,40 @@ namespace SmartOrderManagementSystem.Forms.Staff
         private void CustomerRecordForm_Load(object sender, EventArgs e)
         {
             // Set the default to the current month
-            From_date.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month-1, 1);
+            From_date.Value = new DateTime(2025, 9, 1);
             To_date.Value = DateTime.Now;
             Load_Customer();
        
         }
-        private void Load_Customer()
+        private void Load_Customer(DateTime? fromDate = null, DateTime? toDate = null)
         { 
                 string query = @"SELECT c.CustomerID, 
                                 c.CustomerName,
                                 c.Phone,
-                                ISNULL(o.TotalOrders,0) AS TotalOrders, 
-                                ISNULL(p.TotalPaid,0) AS TotalPaid 
+                                o.TotalOrders, 
+                                p.TotalPaid 
                                 FROM Customers c
-                                LEFT JOIN
+                                INNER JOIN
                                 (
                                   SELECT CustomerID, COUNT(*) AS TotalOrders    
                                   FROM Orders
                                   WHERE OrderDate BETWEEN @FromDate AND @ToDate
                                   GROUP BY CustomerID) o ON c.CustomerID = o.CustomerID
                                 
-                                LEFT JOIN(SELECT o.CustomerID,  SUM(pr.Price) AS Totalpaid 
+                                INNER JOIN(SELECT o.CustomerID,  SUM(pr.Price * oi.Quantity) AS Totalpaid 
                                 FROM Orders o 
                                 INNER JOIN OrderItems oi ON o.OrderID = oi.OrderID 
                                 INNER JOIN Products pr ON pr.ProductID = oi.ProductID
                                     WHERE o.OrderDate BETWEEN @FromDate AND @ToDate
                                     GROUP BY o.CustomerID) p ON c.CustomerID = p.CustomerID";
-
+            DateTime from = fromDate ?? From_date.Value.Date;
+            DateTime to = toDate ?? To_date.Value.Date.AddDays(1);
             try
             {
                 SqlParameter[] parameters = new SqlParameter[]
  {
-    new SqlParameter("@FromDate", From_date.Value.Date),
-    new SqlParameter("@ToDate",   To_date.Value.Date.AddDays(1))
+    new SqlParameter("@FromDate", from),
+    new SqlParameter("@ToDate",   to)
  };
                 DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
                 Customer_datagrideview.DataSource = dt;
@@ -113,59 +114,45 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void filter_btn_Click(object sender, EventArgs e)
         {
-            string query = @"SELECT c.CustomerID, c.CustomerName,c.Phone,
-                                ISNULL(o.TotalOrders,0) AS TotalOrders, ISNULL(p.TotalPaid,0) AS TotalPaid FROM Customers c
-                                LEFT JOIN
-                                (
-                                  SELECT CustomerID, COUNT(*) AS TotalOrders
-                                  FROM Orders
-                                  WHERE OrderDate BETWEEN @FromDate AND @ToDate
-                                  GROUP BY CustomerID) o ON c.CustomerID = o.CustomerID
-                              
-                                LEFT JOIN(SELECT o.CustomerID, SUM(p.Amount) AS Totalpaid FROM Orders o INNER JOIN Invoices i ON o.OrderID = i.OrderID INNER JOIN Payments p ON i.InvoiceID = p.InvoiceID
-                                    WHERE o.OrderDate BETWEEN @FromDate AND @ToDate
-                                    GROUP BY o.CustomerID) p ON c.CustomerID = p.CustomerID";
-            try
+            DateTime fromDate = From_date.Value.Date;
+            DateTime toDate = To_date.Value.Date;
+            if (fromDate > toDate)
             {
-                SqlParameter[] parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@FromDate", From_date.Value.Date),
-                    new SqlParameter("@ToDate", To_date.Value.Date.AddDays(1)) // Include the entire end date
-                };
-                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
-                Customer_datagrideview.DataSource = dt;
-                //ApplyGridStyle();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to filter orders.\n" + ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("From date cannot be greater than To Date.", "Invalid Date Range",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             //call the load_customer
-            Load_Customer();
+            Load_Customer(fromDate, toDate.AddDays(1));
 
         }
         // Search the data in datagridview
         private void Search_txt_TextChanged(object sender, EventArgs e)
         {
-            string search = Search_txt.Text.ToLower();
+            string search = Search_txt.Text.Trim().ToLower();
            Customer_datagrideview.CurrentCell = null;
            Customer_datagrideview.ClearSelection();
-
             foreach (DataGridViewRow row in Customer_datagrideview.Rows)
             {
                 if (row.IsNewRow) continue;
 
-                row.Visible = row.Cells["CustomerName"].Value?.ToString().ToLower().Contains(search) == true
-                   || row.Cells["CustomerID"].Value?.ToString().Contains(search) == true;
+                if (string.IsNullOrEmpty(search))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = row.Cells["CustomerName"].Value?.ToString().ToLower().Contains(search) == true
+                               || row.Cells["CustomerID"].Value?.ToString().Contains(search) == true;
+                }
             }
         }
         // Refrexh Button to reload the data
         private void Refresh_btn_Click(object sender, EventArgs e)
         {
-            From_date.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
+            Search_txt.Text = "";
+            From_date.Value = new DateTime(2025, 9, 1);
             To_date.Value = DateTime.Now;
             Load_Customer();
         }

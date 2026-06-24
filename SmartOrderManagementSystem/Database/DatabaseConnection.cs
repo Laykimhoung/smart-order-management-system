@@ -12,12 +12,7 @@ namespace SmartOrderManagementSystem.Database
     {
         //Use your own local database connection string here
         private static readonly string connectionString =
-       @"Server=PROTECT-ME;Database=SmartOrderDB;User Id=sa;Password=sa;TrustServerCertificate=True;";
-
-
-
-
-
+      @"Server=PROTECT-ME;Database=SmartOrderDB;User Id=sa;Password=sa;TrustServerCertificate=True;";
 
 
         public static SqlConnection GetConnection()
@@ -46,6 +41,7 @@ namespace SmartOrderManagementSystem.Database
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
+
                     if (parameters != null)
                     {
                         cmd.Parameters.AddRange(parameters);

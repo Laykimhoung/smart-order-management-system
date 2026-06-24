@@ -71,7 +71,7 @@ namespace SmartOrderManagementSystem.Forms.Login
                 {
                     conn.Open();
 
-                    string query = @"SELECT U.FullName,U.UserID, R.RoleName FROM Users U INNER JOIN Roles R ON U.RoleID = R.RoleID WHERE
+                    string query = @"SELECT U.FullName,U.UserID,U.Username,U.Password, R.RoleName FROM Users U INNER JOIN Roles R ON U.RoleID = R.RoleID WHERE
                                    U.Username = @Username AND U.Password = @Password AND R.RoleName IN ('Admin', 'Staff')";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))

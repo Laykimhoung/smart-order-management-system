@@ -42,7 +42,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             txtOrderID.Text = $"ORD-{_orderId:D5}";
             txtCustomerName.Text = _customerName;
             lblTotalAmount.Text = $"${_totalAmount:F2}";
-            txtWaitingNumber.Text = _waitingNumber.ToString();
+            txtWaitingNumber.Text = _waitingNumber.ToString("0000");
             txtCashier.Text = _staffname;
 
             LoadOrderItems();
@@ -202,7 +202,7 @@ namespace SmartOrderManagementSystem.Forms.Customer
             startY += 45;
             graphics.DrawString("Waiting Number:", fontRegular, Brushes.Black, pageWidth / 2, startY, centerFormat);
             startY += 30;
-            graphics.DrawString($" {txtWaitingNumber.Text}", fontwaiting, Brushes.Red, pageWidth / 2, startY, centerFormat);
+            graphics.DrawString(Convert.ToInt32(txtWaitingNumber.Text).ToString("0000"), fontwaiting, Brushes.Red, pageWidth / 2, startY, centerFormat);
             startY += 30;
             graphics.DrawString("INVOICE RECEIPT", fontHeader, Brushes.Black, startX, startY);
             startY += offset;

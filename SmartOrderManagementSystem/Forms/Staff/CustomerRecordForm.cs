@@ -15,6 +15,8 @@ namespace SmartOrderManagementSystem.Forms.Staff
 {
     public partial class CustomerRecordForm : Form
     {
+        //TImer
+        private Timer refresh;
         
         public CustomerRecordForm()
         {
@@ -23,150 +25,176 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void CustomerRecordForm_Load(object sender, EventArgs e)
         {
+            // Current date 
+            Current_date_lbl.Text = DateTime.Now.ToString("ddd, dd MMM yyyy");
+
             // Set the default to the current month
-            From_date.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month-1, 1);
-            To_date.Value = DateTime.Now;
+            From_date.Value = DateTime.Today;
+            To_date.Value = DateTime.Today;
             Load_Customer();
-       
+
+            refresh = new Timer();
+            refresh.Interval = 5000;
+            refresh.Tick += (s,args) =>
+            {
+                if (this.IsDisposed || !this.IsHandleCreated) return;
+                Load_Customer(From_date.Value.Date, To_date.Value.Date);
+            };
+            refresh.Start();
+
+            this.FormClosing += (s, args) =>
+            {
+                refresh.Stop();
+                refresh.Dispose();
+            };
         }
-        private void Load_Customer()
+       
+        
+        private void Load_Customer(DateTime? fromDate = null, DateTime? toDate = null)
         { 
                 string query = @"SELECT c.CustomerID, 
                                 c.CustomerName,
                                 c.Phone,
-                                ISNULL(o.TotalOrders,0) AS TotalOrders, 
-                                ISNULL(p.TotalPaid,0) AS TotalPaid 
+                                o.TotalOrders, 
+                                p.TotalPaid 
                                 FROM Customers c
-                                LEFT JOIN
+                                INNER JOIN
                                 (
                                   SELECT CustomerID, COUNT(*) AS TotalOrders    
                                   FROM Orders
-                                  WHERE OrderDate BETWEEN @FromDate AND @ToDate
+                                  WHERE CAST(OrderDate AS DATE) >= CAST(@FromDate AS DATE)
+                                   AND CAST(OrderDate AS DATE) <= CAST(@ToDate AS DATE)
                                   GROUP BY CustomerID) o ON c.CustomerID = o.CustomerID
                                 
-                                LEFT JOIN(SELECT o.CustomerID,  SUM(pr.Price) AS Totalpaid 
+                                INNER JOIN(SELECT o.CustomerID,  SUM(pr.Price * oi.Quantity) AS Totalpaid 
                                 FROM Orders o 
                                 INNER JOIN OrderItems oi ON o.OrderID = oi.OrderID 
                                 INNER JOIN Products pr ON pr.ProductID = oi.ProductID
-                                    WHERE o.OrderDate BETWEEN @FromDate AND @ToDate
-                                    GROUP BY o.CustomerID) p ON c.CustomerID = p.CustomerID";
+                                    WHERE  CAST(o.OrderDate AS DATE) >= CAST(@FromDate AS DATE)
+                                     AND CAST(o.OrderDate AS DATE) <= CAST(@ToDate AS DATE)
+                                    GROUP BY o.CustomerID) p ON c.CustomerID = p.CustomerID
+                                    ORDER BY o.TotalOrders DESC";
+            DateTime from = fromDate ?? From_date.Value.Date;
+            DateTime to = toDate ?? To_date.Value.Date;
 
-            try
+            Task.Run(() =>
             {
-                SqlParameter[] parameters = new SqlParameter[]
- {
-    new SqlParameter("@FromDate", From_date.Value.Date),
-    new SqlParameter("@ToDate",   To_date.Value.Date.AddDays(1))
- };
-                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
-                Customer_datagrideview.DataSource = dt;
-                // Rename the header text
+                try
+                {
+                    SqlParameter[] parameters = new SqlParameter[]
+                    {
+                        new SqlParameter("@FromDate", from),
+                        new SqlParameter("@ToDate",   to)
+                    };
+                    DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
 
-                Customer_datagrideview.Columns["CustomerID"].HeaderText = "ID";
-                Customer_datagrideview.Columns["CustomerName"].HeaderText = "Name";
-                Customer_datagrideview.Columns["Phone"].HeaderText = "Phone";
-          
-                Customer_datagrideview.Columns["TotalOrders"].HeaderText = "Orders";
-               // Customer_datagrideview.Columns["TotalInvoiceAmount"].HeaderText = "Invoice";
-                Customer_datagrideview.Columns["TotalPaid"].HeaderText = "Paid";
+                    this.Invoke((Action)(() =>
+                    {
+                        if (this.IsDisposed || !this.IsHandleCreated) return;
 
-                // Formatting the currency columns
-                //Customer_datagrideview.Columns["TotalInvoiceAmount"].DefaultCellStyle.Format = "C2";
-                //Customer_datagrideview.Columns["TotalInvoiceAmount"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.GetCultureInfo("en-US");
-                Customer_datagrideview.Columns["TotalPaid"].DefaultCellStyle.Format = "C2";
-                Customer_datagrideview.Columns["TotalPaid"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.GetCultureInfo("en-US");
+                        Customer_datagrideview.DataSource = dt;
+                        // Rename the header text
 
-                // Resize the size of somes columns and alignment
-                Customer_datagrideview.Columns["CustomerID"].Width = 50;
-                Customer_datagrideview.Columns["CustomerID"].Resizable = DataGridViewTriState.False;
-                Customer_datagrideview.Columns["CustomerID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                Customer_datagrideview.Columns["CustomerID"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        Customer_datagrideview.Columns["CustomerID"].HeaderText = "ID";
+                        Customer_datagrideview.Columns["CustomerName"].HeaderText = "Name";
+                        Customer_datagrideview.Columns["Phone"].HeaderText = "Phone";
 
-                Customer_datagrideview.Columns["CustomerName"].Width = 100;
-                Customer_datagrideview.Columns["CustomerName"].Resizable = DataGridViewTriState.False;
-                Customer_datagrideview.Columns["CustomerName"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        Customer_datagrideview.Columns["TotalOrders"].HeaderText = "Orders";
+                        // Customer_datagrideview.Columns["TotalInvoiceAmount"].HeaderText = "Invoice";
+                        Customer_datagrideview.Columns["TotalPaid"].HeaderText = "Paid";
 
-                Customer_datagrideview.Columns["Phone"].Width = 80;
-                Customer_datagrideview.Columns["Phone"].Resizable = DataGridViewTriState.False;
-                Customer_datagrideview.Columns["Phone"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        // Formatting the currency columns
+                        //Customer_datagrideview.Columns["TotalInvoiceAmount"].DefaultCellStyle.Format = "C2";
+                        //Customer_datagrideview.Columns["TotalInvoiceAmount"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.GetCultureInfo("en-US");
+                        Customer_datagrideview.Columns["TotalPaid"].DefaultCellStyle.Format = "C2";
+                        Customer_datagrideview.Columns["TotalPaid"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.GetCultureInfo("en-US");
 
-                Customer_datagrideview.Columns["TotalOrders"].Width = 60;
-                Customer_datagrideview.Columns["TotalOrders"].Resizable = DataGridViewTriState.False;
-                Customer_datagrideview.Columns["TotalOrders"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                Customer_datagrideview.Columns["TotalOrders"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        // Resize the size of somes columns and alignment
+                        Customer_datagrideview.Columns["CustomerID"].Width = 50;
+                        Customer_datagrideview.Columns["CustomerID"].Resizable = DataGridViewTriState.False;
+                        Customer_datagrideview.Columns["CustomerID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        Customer_datagrideview.Columns["CustomerID"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                //Customer_datagrideview.Columns["TotalInvoiceAmount"].Width = 70;
-                //Customer_datagrideview.Columns["TotalInvoiceAmount"].Resizable = DataGridViewTriState.False;
-                //Customer_datagrideview.Columns["TotalInvoiceAmount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                //Customer_datagrideview.Columns["TotalInvoiceAmount"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        Customer_datagrideview.Columns["CustomerName"].Width = 100;
+                        Customer_datagrideview.Columns["CustomerName"].Resizable = DataGridViewTriState.False;
+                        Customer_datagrideview.Columns["CustomerName"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                Customer_datagrideview.Columns["TotalPaid"].Width = 120;
-                Customer_datagrideview.Columns["TotalPaid"].Resizable = DataGridViewTriState.False;
-                Customer_datagrideview.Columns["TotalPaid"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                Customer_datagrideview.Columns["TotalPaid"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to load customer data." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                        Customer_datagrideview.Columns["Phone"].Width = 80;
+                        Customer_datagrideview.Columns["Phone"].Resizable = DataGridViewTriState.False;
+                        Customer_datagrideview.Columns["Phone"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                        Customer_datagrideview.Columns["TotalOrders"].Width = 60;
+                        Customer_datagrideview.Columns["TotalOrders"].Resizable = DataGridViewTriState.False;
+                        Customer_datagrideview.Columns["TotalOrders"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        Customer_datagrideview.Columns["TotalOrders"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                        //Customer_datagrideview.Columns["TotalInvoiceAmount"].Width = 70;
+                        //Customer_datagrideview.Columns["TotalInvoiceAmount"].Resizable = DataGridViewTriState.False;
+                        //Customer_datagrideview.Columns["TotalInvoiceAmount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        //Customer_datagrideview.Columns["TotalInvoiceAmount"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                        Customer_datagrideview.Columns["TotalPaid"].Width = 120;
+                        Customer_datagrideview.Columns["TotalPaid"].Resizable = DataGridViewTriState.False;
+                        Customer_datagrideview.Columns["TotalPaid"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        Customer_datagrideview.Columns["TotalPaid"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    this.Invoke((Action)(() =>
+                {
+                    if (this.IsDisposed || !this.IsHandleCreated) return;
+                    MessageBox.Show("Failed to load customer data: " + ex.Message, "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }));
+
+                }
+            });
+            
         }
 
         private void filter_btn_Click(object sender, EventArgs e)
         {
-            string query = @"SELECT c.CustomerID, c.CustomerName,c.Phone,
-                                ISNULL(o.TotalOrders,0) AS TotalOrders, ISNULL(p.TotalPaid,0) AS TotalPaid FROM Customers c
-                                LEFT JOIN
-                                (
-                                  SELECT CustomerID, COUNT(*) AS TotalOrders
-                                  FROM Orders
-                                  WHERE OrderDate BETWEEN @FromDate AND @ToDate
-                                  GROUP BY CustomerID) o ON c.CustomerID = o.CustomerID
-                              
-                                LEFT JOIN(SELECT o.CustomerID, SUM(p.Amount) AS Totalpaid FROM Orders o INNER JOIN Invoices i ON o.OrderID = i.OrderID INNER JOIN Payments p ON i.InvoiceID = p.InvoiceID
-                                    WHERE o.OrderDate BETWEEN @FromDate AND @ToDate
-                                    GROUP BY o.CustomerID) p ON c.CustomerID = p.CustomerID";
-            try
+            DateTime fromDate = From_date.Value.Date;
+            DateTime toDate = To_date.Value.Date;
+            if (fromDate > toDate)
             {
-                SqlParameter[] parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@FromDate", From_date.Value.Date),
-                    new SqlParameter("@ToDate", To_date.Value.Date.AddDays(1)) // Include the entire end date
-                };
-                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
-                Customer_datagrideview.DataSource = dt;
-                //ApplyGridStyle();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to filter orders.\n" + ex.Message, "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("From date cannot be greater than To Date.", "Invalid Date Range",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             //call the load_customer
-            Load_Customer();
+            Load_Customer(fromDate, toDate);
 
         }
         // Search the data in datagridview
         private void Search_txt_TextChanged(object sender, EventArgs e)
         {
-            string search = Search_txt.Text.ToLower();
+            string search = Search_txt.Text.Trim().ToLower();
            Customer_datagrideview.CurrentCell = null;
            Customer_datagrideview.ClearSelection();
-
             foreach (DataGridViewRow row in Customer_datagrideview.Rows)
             {
                 if (row.IsNewRow) continue;
 
-                row.Visible = row.Cells["CustomerName"].Value?.ToString().ToLower().Contains(search) == true
-                   || row.Cells["CustomerID"].Value?.ToString().Contains(search) == true;
+                if (string.IsNullOrEmpty(search))
+                {
+                    row.Visible = true;
+                }
+                else
+                {
+                    row.Visible = row.Cells["CustomerName"].Value?.ToString().ToLower().Contains(search) == true
+                               || row.Cells["CustomerID"].Value?.ToString().Contains(search) == true;
+                }
             }
         }
         // Refrexh Button to reload the data
         private void Refresh_btn_Click(object sender, EventArgs e)
         {
-            From_date.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1);
-            To_date.Value = DateTime.Now;
+            Search_txt.Text = "";
+            From_date.Value = DateTime.Today;
+            To_date.Value = DateTime.Today;
             Load_Customer();
         }
 

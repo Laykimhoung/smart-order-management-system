@@ -15,16 +15,37 @@ namespace SmartOrderManagementSystem.Forms.Staff
     {
 
         private string full_name;
+        private Timer refresh;
         public StaffHome(string Fullname)
         {
             InitializeComponent();
             full_name = Fullname;
         }
 
+       
+
         private void StaffHome_Load(object sender, EventArgs e)
         {
+            // Show current date
+            Current_date_lbl.Text = DateTime.Now.ToString("ddd, dd MMM yyyy");
             Load_recentorder();
             Load_orderlog();
+
+            // Refresh the data 
+            Timer refresh = new Timer();
+            refresh.Interval = 5000;
+            refresh.Tick += (s, args) => {
+                if (this.IsDisposed || !this.IsHandleCreated) return;
+                Load_recentorder();
+                Load_orderlog();
+            };
+            refresh.Start();
+
+            this.FormClosing += (s, args) =>
+            {
+                refresh.Stop();
+                refresh.Dispose();
+            };
 
         }
 
@@ -32,18 +53,18 @@ namespace SmartOrderManagementSystem.Forms.Staff
         private void Load_recentorder()
         {
             string query = @"SELECT o.OrderID, c.CustomerName, o.WaitingNumber,o.OrderStatus FROM Orders o
-                             LEFT JOIN OrderItems oi ON o.OrderID = oi.OrderID
+                            
                              LEFT JOIN Customers c ON o.CustomerID = c.CustomerID
-                             GROUP BY o.OrderID, c.CustomerName,o.WaitingNumber,o.CustomerID,o.OrderStatus
+                              WHERE CAST(o.OrderDate AS DATE) = CAST(GETDATE() AS DATE)
+                                Order BY o.OrderID DESC
                              ";
             // Total Orders
-            DataTable dtOrders = DatabaseConnection.ExecuteQuery(
-                "SELECT COUNT(*) AS TotalOrders FROM Orders");
+            DataTable dtOrders = DatabaseConnection.ExecuteQuery("SELECT COUNT(*) AS TotalOrders FROM Orders  WHERE CAST(OrderDate AS DATE) = CAST(GETDATE() AS DATE)");
             order_amount_lbl.Text = dtOrders.Rows[0]["TotalOrders"].ToString();
 
             // Total Customers
             DataTable dtCustomers = DatabaseConnection.ExecuteQuery(
-                "SELECT COUNT(*) AS TotalCustomers FROM Customers");
+                "SELECT COUNT(DISTINCT CustomerID) AS TotalCustomers FROM Orders WHERE CAST(OrderDate AS DATE) = CAST(GETDATE() AS DATE)");
             TotalCustomer_lbl.Text = dtCustomers.Rows[0]["TotalCustomers"].ToString();
 
             // Today's Revenue
@@ -83,7 +104,8 @@ namespace SmartOrderManagementSystem.Forms.Staff
         private void Load_orderlog()
         {
             string query = @"SELECT ol.LogID,o.OrderID,ol.Action FROM OrderLogs ol
-                            LEFT JOIN Orders o ON o.OrderID = ol.OrderID GROUP BY ol.LogID,o.OrderID,ol.Action";
+                            LEFT JOIN Orders o ON o.OrderID = ol.OrderID 
+                            WHERE CAST(o.OrderDate AS DATE) = CAST(GETDATE() AS DATE) ORDER BY ol.LogID DESC";
             try
             {
                 DataTable dt = DatabaseConnection.ExecuteQuery(query);
@@ -127,6 +149,11 @@ namespace SmartOrderManagementSystem.Forms.Staff
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

@@ -312,10 +312,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            this.panel2.Controls.Add(this.Menu_btn);
             this.panel2.Controls.Add(this.Notification_btn);
             this.panel2.Controls.Add(this.Staff_accout_btn);
             this.panel2.Controls.Add(this.bigLabel2);
+            this.panel2.Controls.Add(this.Menu_btn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.EdgeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -363,7 +363,7 @@
             this.Notification_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
             this.Notification_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
             this.Notification_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Notification_btn.Location = new System.Drawing.Point(1180, 0);
+            this.Notification_btn.Location = new System.Drawing.Point(1244, 3);
             this.Notification_btn.Name = "Notification_btn";
             this.Notification_btn.Size = new System.Drawing.Size(65, 70);
             this.Notification_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
@@ -402,7 +402,7 @@
             this.bigLabel2.BackColor = System.Drawing.Color.Transparent;
             this.bigLabel2.Font = new System.Drawing.Font("Cooper Black", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bigLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.bigLabel2.Location = new System.Drawing.Point(313, 9);
+            this.bigLabel2.Location = new System.Drawing.Point(298, 14);
             this.bigLabel2.Name = "bigLabel2";
             this.bigLabel2.Size = new System.Drawing.Size(248, 32);
             this.bigLabel2.TabIndex = 10;

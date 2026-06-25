@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerRecordForm));
             this.label1 = new System.Windows.Forms.Label();
             this.Customer_datagrideview = new System.Windows.Forms.DataGridView();
             this.panel1 = new ReaLTaiizor.Controls.Panel();
+            this.Refresh_btn = new ReaLTaiizor.Controls.Button();
             this.filter_btn = new ReaLTaiizor.Controls.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,10 +44,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Search_txt = new ReaLTaiizor.Controls.DungeonTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Refresh_btn = new ReaLTaiizor.Controls.Button();
+            this.panel4 = new ReaLTaiizor.Controls.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.Current_date_lbl = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Customer_datagrideview)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,33 +68,31 @@
             // 
             // Customer_datagrideview
             // 
-            this.Customer_datagrideview.AllowUserToAddRows = false;
-            this.Customer_datagrideview.AllowUserToDeleteRows = false;
             this.Customer_datagrideview.AllowUserToResizeColumns = false;
             this.Customer_datagrideview.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Customer_datagrideview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Customer_datagrideview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.Customer_datagrideview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Customer_datagrideview.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Customer_datagrideview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Customer_datagrideview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Customer_datagrideview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.Customer_datagrideview.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.NullValue = null;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Customer_datagrideview.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.NullValue = null;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Customer_datagrideview.DefaultCellStyle = dataGridViewCellStyle12;
             this.Customer_datagrideview.EnableHeadersVisualStyles = false;
             this.Customer_datagrideview.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.Customer_datagrideview.Location = new System.Drawing.Point(9, 186);
@@ -97,7 +101,6 @@
             this.Customer_datagrideview.RowHeadersVisible = false;
             this.Customer_datagrideview.RowHeadersWidth = 51;
             this.Customer_datagrideview.RowTemplate.Height = 35;
-            this.Customer_datagrideview.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.Customer_datagrideview.Size = new System.Drawing.Size(1276, 565);
             this.Customer_datagrideview.TabIndex = 2;
             // 
@@ -120,6 +123,27 @@
             this.panel1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.panel1.TabIndex = 8;
             this.panel1.Text = "panel1";
+            // 
+            // Refresh_btn
+            // 
+            this.Refresh_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            this.Refresh_btn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.Refresh_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Refresh_btn.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.Refresh_btn.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Refresh_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Refresh_btn.Image = null;
+            this.Refresh_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Refresh_btn.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.Refresh_btn.Location = new System.Drawing.Point(1099, 14);
+            this.Refresh_btn.Name = "Refresh_btn";
+            this.Refresh_btn.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.Refresh_btn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
+            this.Refresh_btn.Size = new System.Drawing.Size(154, 39);
+            this.Refresh_btn.TabIndex = 15;
+            this.Refresh_btn.Text = "Refresh";
+            this.Refresh_btn.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.Refresh_btn.Click += new System.EventHandler(this.Refresh_btn_Click);
             // 
             // filter_btn
             // 
@@ -221,26 +245,50 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // Refresh_btn
+            // panel4
             // 
-            this.Refresh_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            this.Refresh_btn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
-            this.Refresh_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Refresh_btn.EnteredBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.Refresh_btn.EnteredColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Refresh_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Refresh_btn.Image = null;
-            this.Refresh_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Refresh_btn.InactiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Refresh_btn.Location = new System.Drawing.Point(1099, 14);
-            this.Refresh_btn.Name = "Refresh_btn";
-            this.Refresh_btn.PressedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.Refresh_btn.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
-            this.Refresh_btn.Size = new System.Drawing.Size(154, 39);
-            this.Refresh_btn.TabIndex = 15;
-            this.Refresh_btn.Text = "Refresh";
-            this.Refresh_btn.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.Refresh_btn.Click += new System.EventHandler(this.Refresh_btn_Click);
+            this.panel4.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel4.Controls.Add(this.pictureBox5);
+            this.panel4.Controls.Add(this.Current_date_lbl);
+            this.panel4.EdgeColor = System.Drawing.Color.LightGray;
+            this.panel4.Location = new System.Drawing.Point(985, 33);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(5);
+            this.panel4.Size = new System.Drawing.Size(290, 52);
+            this.panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel4.TabIndex = 12;
+            this.panel4.Text = "panel4";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(231, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(55, 44);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 8;
+            this.pictureBox5.TabStop = false;
+            // 
+            // Current_date_lbl
+            // 
+            this.Current_date_lbl.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Current_date_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            this.Current_date_lbl.Location = new System.Drawing.Point(8, 10);
+            this.Current_date_lbl.Name = "Current_date_lbl";
+            this.Current_date_lbl.Size = new System.Drawing.Size(217, 35);
+            this.Current_date_lbl.TabIndex = 8;
+            this.Current_date_lbl.Text = "Date";
+            this.Current_date_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(81, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(277, 19);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "View customer\'s information and order.\r\n";
             // 
             // CustomerRecordForm
             // 
@@ -248,6 +296,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1300, 763);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Customer_datagrideview);
@@ -261,6 +311,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,5 +332,9 @@
         private ReaLTaiizor.Controls.DungeonTextBox Search_txt;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ReaLTaiizor.Controls.Button Refresh_btn;
+        private ReaLTaiizor.Controls.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label Current_date_lbl;
+        private System.Windows.Forms.Label label5;
     }
 }

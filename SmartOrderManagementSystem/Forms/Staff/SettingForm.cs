@@ -32,20 +32,13 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void SettingForm_Load(object sender, EventArgs e)
         {
-            // Add selecting sex
-            //Sex_combobox.Items.AddRange(new string[] { "Male", "Female" });
+            // Current date
+            Current_date_lbl.Text = DateTime.Now.ToString("ddd, dd MMM yyyy");
             Load_user_staffinfo();
         }
 
-        // Load the staff information into the setting form
-        // Declare the constructure of the query to get the staff information from the database
-        //private int Staff_id;
-
-        //public void Profile_Form(int StaffID)
-        //{
-        //    InitializeComponent();
-        //    Staff_id = StaffID;
-        //}
+       
+       
         private void Load_user_staffinfo()
         {
             string query = @"SELECT u.UserID,u.Username,u.FullName,u.Email,u.Phone,r.RoleName,u.Sex

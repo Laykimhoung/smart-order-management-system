@@ -15,11 +15,6 @@ namespace SmartOrderManagementSystem.Database
        @"Server=MSI\MYSQLSERVER;Database=SmartOrderDB;User Id=sa;Password=sa;TrustServerCertificate=True;";
 
 
-
-
-
-
-
         public static SqlConnection GetConnection()
         {
             return new SqlConnection(connectionString);
@@ -46,6 +41,7 @@ namespace SmartOrderManagementSystem.Database
             {
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
+
                     if (parameters != null)
                     {
                         cmd.Parameters.AddRange(parameters);

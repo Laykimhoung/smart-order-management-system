@@ -44,9 +44,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Search_txt = new ReaLTaiizor.Controls.DungeonTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new ReaLTaiizor.Controls.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.Current_date_lbl = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Orderlog_datagrodview)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -237,12 +243,59 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel4.Controls.Add(this.pictureBox5);
+            this.panel4.Controls.Add(this.Current_date_lbl);
+            this.panel4.EdgeColor = System.Drawing.Color.LightGray;
+            this.panel4.Location = new System.Drawing.Point(985, 33);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(5);
+            this.panel4.Size = new System.Drawing.Size(290, 52);
+            this.panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel4.TabIndex = 11;
+            this.panel4.Text = "panel4";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(231, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(55, 44);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 8;
+            this.pictureBox5.TabStop = false;
+            // 
+            // Current_date_lbl
+            // 
+            this.Current_date_lbl.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Current_date_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            this.Current_date_lbl.Location = new System.Drawing.Point(8, 10);
+            this.Current_date_lbl.Name = "Current_date_lbl";
+            this.Current_date_lbl.Size = new System.Drawing.Size(217, 35);
+            this.Current_date_lbl.TabIndex = 8;
+            this.Current_date_lbl.Text = "Date";
+            this.Current_date_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(76, 51);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(257, 19);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "View order log and payment method.";
+            // 
             // Activity_Feed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1300, 763);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Orderlog_datagrodview);
             this.Controls.Add(this.label1);
@@ -255,6 +308,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +329,9 @@
         private System.Windows.Forms.Label label2;
         private ReaLTaiizor.Controls.DungeonTextBox Search_txt;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private ReaLTaiizor.Controls.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label Current_date_lbl;
+        private System.Windows.Forms.Label label5;
     }
 }

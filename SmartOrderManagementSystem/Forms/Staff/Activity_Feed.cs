@@ -16,6 +16,8 @@ namespace SmartOrderManagementSystem.Forms.Staff
 {
     public partial class Activity_Feed: Form
     {
+        // Timer
+        private Timer refresh;
         public Activity_Feed()
         {
             InitializeComponent();
@@ -23,43 +25,84 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void Activity_feed_Load(object sender, EventArgs e)
         {
-            From_date.Value = new DateTime(2025, 9, 1);
-            To_date.Value = DateTime.Now;
+
+            //Current date
+            Current_date_lbl.Text = DateTime.Now.ToString("ddd, dd MMM yyyy");
+            From_date.Value = DateTime.Today;
+            To_date.Value = DateTime.Today;
             Load_orderlog();
+
+            refresh = new Timer();
+            refresh.Interval = 5000;
+            refresh.Tick += (s,args) =>
+            {
+                if (this.IsDisposed || !this.IsHandleCreated) return;
+                Load_orderlog(Search_txt.Text.Trim(), From_date.Value.Date, To_date.Value.Date);
+            };
+            refresh.Start();
+
+            this.FormClosing += (s, args) =>
+            {
+                refresh.Stop();
+                refresh.Dispose();
+            };
         }
+        
         // load_activity_feed method to load the activity feed data into the datagridview
         private void Load_orderlog(string search = "", DateTime? fromDate = null, DateTime? toDate = null)
         {
-            string query = @"SELECT ol.LogID,o.OrderID,ol.Action,ol.ActionDate,u.FullName AS [FullName] FROM OrderLogs ol
-                             INNER JOIN Orders o ON o.OrderID = ol.OrderID 
-                             INNER JOIN Users u ON u.UserID = o.UserID
-                             WHERE
-                             (@Search = '' OR u.FullName LIKE @Search)
-                             AND (@FromDate is null or cast (ol.ActionDate as DATE) >= @FromDate)
-                             AND (@ToDate is null or cast(ol.ActionDate as DATE)<= @ToDate)
-                             GROUP BY ol.LogID,o.OrderID,ol.Action,ol.ActionDate,u.FullName ORDER BY ol.ActionDate DESC";
-            try
-            {
-                SqlParameter[] parameters = new SqlParameter[]
-        {
-            new SqlParameter("@Search",   string.IsNullOrEmpty(search) ? "" : $"%{search}%"),
-            new SqlParameter("@FromDate", fromDate.HasValue ? (object)fromDate.Value : DBNull.Value),
-            new SqlParameter("@ToDate",   toDate.HasValue   ? (object)toDate.Value   : DBNull.Value)
-        };
-                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
-                Orderlog_datagrodview.DataSource = dt;
+            string query = @"SELECT ol.LogID,ol.OrderID,ol.Action,ol.ActionDate,
+                                (SELECT u.FullName FROM Users u 
+                            
+                             INNER JOIN Orders o  ON u.UserID = o.UserID
+                             WHERE o.OrderID= ol.OrderID) AS FullName
+                                From OrderLogs ol
+                                Where 
+                             (@Search = '' OR (SELECT u.FullName FROM Users u 
+                               INNER JOIN Orders o ON u.UserID = o.UserID
+                                WHERE o.OrderID = ol.OrderID) LIKE @Search)
+                             AND CAST(ol.ActionDate AS DATE) >= CAST(@FromDate AS DATE)
+                             AND CAST(ol.ActionDate AS DATE) <= CAST(@ToDate AS DATE)
+                              ORDER BY ol.ActionDate DESC";
 
-                //Resize each column and alignment
-                Orderlog_datagrodview.Columns["LogID"].Width = 100;
-                Orderlog_datagrodview.Columns["LogID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            DateTime? from = fromDate ?? From_date.Value.Date;
+            DateTime? to = toDate ?? To_date.Value.Date;
 
-                Orderlog_datagrodview.Columns["OrderID"].Width = 100;
-                Orderlog_datagrodview.Columns["OrderID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            }
-            catch (Exception ex)
+            Task.Run(() =>
             {
-                MessageBox.Show("Error loading activity feed: " + ex.Message);
-            }
+                try
+                {
+                    SqlParameter[] parameters = new SqlParameter[]
+                    {
+                        new SqlParameter("@Search",   string.IsNullOrEmpty(search) ? "" : $"%{search}%"),
+                        new SqlParameter("@FromDate", fromDate.HasValue ? (object)fromDate.Value : DBNull.Value),
+                        new SqlParameter("@ToDate",   toDate.HasValue   ? (object)toDate.Value   : DBNull.Value)
+                    };
+                    DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
+
+                    this.Invoke((Action)(() =>
+                    {
+                        if (this.IsDisposed || !this.IsHandleCreated) return;
+
+                        Orderlog_datagrodview.DataSource = dt;
+
+                        //Resize each column and alignment
+                        Orderlog_datagrodview.Columns["LogID"].Width = 100;
+                        Orderlog_datagrodview.Columns["LogID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+                        Orderlog_datagrodview.Columns["OrderID"].Width = 100;
+                        Orderlog_datagrodview.Columns["OrderID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    this.Invoke((Action)(() =>
+                    {
+                        if (this.IsDisposed || !this.IsHandleCreated) return;
+                        MessageBox.Show("Error loading activity feed: " + ex.Message);
+                    }));
+                }
+            }); 
         }
 
         private void filter_btn_Click(object sender, EventArgs e)

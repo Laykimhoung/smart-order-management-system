@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerRecordForm));
             this.label1 = new System.Windows.Forms.Label();
             this.Customer_datagrideview = new System.Windows.Forms.DataGridView();
@@ -44,9 +44,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Search_txt = new ReaLTaiizor.Controls.DungeonTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new ReaLTaiizor.Controls.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.Current_date_lbl = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Customer_datagrideview)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -64,29 +70,29 @@
             // 
             this.Customer_datagrideview.AllowUserToResizeColumns = false;
             this.Customer_datagrideview.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Customer_datagrideview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Customer_datagrideview.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.Customer_datagrideview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Customer_datagrideview.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Customer_datagrideview.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Customer_datagrideview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Customer_datagrideview.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.Customer_datagrideview.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Customer_datagrideview.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.NullValue = null;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Customer_datagrideview.DefaultCellStyle = dataGridViewCellStyle12;
             this.Customer_datagrideview.EnableHeadersVisualStyles = false;
             this.Customer_datagrideview.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.Customer_datagrideview.Location = new System.Drawing.Point(9, 186);
@@ -95,7 +101,6 @@
             this.Customer_datagrideview.RowHeadersVisible = false;
             this.Customer_datagrideview.RowHeadersWidth = 51;
             this.Customer_datagrideview.RowTemplate.Height = 35;
-            this.Customer_datagrideview.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.Customer_datagrideview.Size = new System.Drawing.Size(1276, 565);
             this.Customer_datagrideview.TabIndex = 2;
             // 
@@ -240,12 +245,59 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel4.Controls.Add(this.pictureBox5);
+            this.panel4.Controls.Add(this.Current_date_lbl);
+            this.panel4.EdgeColor = System.Drawing.Color.LightGray;
+            this.panel4.Location = new System.Drawing.Point(985, 33);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(5);
+            this.panel4.Size = new System.Drawing.Size(290, 52);
+            this.panel4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.panel4.TabIndex = 12;
+            this.panel4.Text = "panel4";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(231, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(55, 44);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 8;
+            this.pictureBox5.TabStop = false;
+            // 
+            // Current_date_lbl
+            // 
+            this.Current_date_lbl.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Current_date_lbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            this.Current_date_lbl.Location = new System.Drawing.Point(8, 10);
+            this.Current_date_lbl.Name = "Current_date_lbl";
+            this.Current_date_lbl.Size = new System.Drawing.Size(217, 35);
+            this.Current_date_lbl.TabIndex = 8;
+            this.Current_date_lbl.Text = "Date";
+            this.Current_date_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(81, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(277, 19);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "View customer\'s information and order.\r\n";
+            // 
             // CustomerRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1300, 763);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Customer_datagrideview);
@@ -259,6 +311,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +332,9 @@
         private ReaLTaiizor.Controls.DungeonTextBox Search_txt;
         private System.Windows.Forms.PictureBox pictureBox1;
         private ReaLTaiizor.Controls.Button Refresh_btn;
+        private ReaLTaiizor.Controls.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label Current_date_lbl;
+        private System.Windows.Forms.Label label5;
     }
 }

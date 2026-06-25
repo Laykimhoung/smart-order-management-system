@@ -88,7 +88,11 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void Logout_btn_Click(object sender, EventArgs e)
         {
-            //DialogResult result = MessageBox.Show("Are you sure")
+            
+                LoginChoiceForm loginChoice = new LoginChoiceForm();
+                loginChoice.Show();
+                this.Close();
+            
         }
 
         private void Cutomer_dashboard_Click(object sender, EventArgs e)

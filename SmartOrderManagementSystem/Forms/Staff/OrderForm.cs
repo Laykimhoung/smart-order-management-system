@@ -16,6 +16,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
 {
     public partial class OrderForm : Form
     {
+        private Timer refresh; // auto refresh data
         public OrderForm()
         {
             InitializeComponent();
@@ -23,78 +24,115 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
-          
+            // Current date
+            Current_date_lbl.Text = DateTime.Now.ToString("ddd, dd MMM yyyy");
             // Set the default to the current month
-            From_date.Value = new DateTime(2025, 9, 1);
-            To_date.Value = DateTime.Now;
+            From_date.Value = DateTime.Today;
+            To_date.Value = DateTime.Today;
             Load_Order();
+
+            // auto refresh
+            refresh = new Timer();
+            refresh.Interval = 5000;
+            refresh.Tick += (s, args) =>
+            {
+                if (this.IsDisposed || !this.IsHandleCreated) return;
+                Load_Order(From_date.Value.Date, To_date.Value.Date);
+            };
+            refresh.Start();
+
+            this.FormClosing += (s, args) =>
+            {
+                refresh.Stop();
+                refresh.Dispose();
+            };
         }
 
         private void Load_Order(DateTime? fromDate = null, DateTime? toDate = null)
         {
-            //string query = @"SELECT o.OrderID, o.OrderDate,c.CustomerName,o.WaitingNumber,o.OrderStatus, o.Notes,STRING_AGG(p.ProductName, ', ') AS Products, SUM(p.Price *oi.Quantity) AS TotalPrice FROM Orders o
-            //                    INNER JOIN OrderItems oi ON o.OrderID = oi.OrderID
-            //                    INNER JOIN Products p ON oi.ProductID = p.ProductID
-            //                    INNER JOIN Customers c ON o.CustomerID = c.CustomerID
-            //                    WHERE o.OrderDate BETWEEN @FromDate AND @ToDate
+           
 
-            //                    GROUP BY o.OrderID,o.OrderDate, o.WaitingNumber,o.Notes,c.CustomerName,o.OrderStatus
-            //                    ORDER BY o.OrderDate DESC";
-
-            string query = @"SELECT o.OrderID, o.OrderDate, c.CustomerName,o.WaitingNumber, o.OrderStatus,
-                                o.Notes, STRING_AGG(p.ProductName, ', ') AS Products, SUM(p.Price * oi.Quantity) AS TotalPrice From Orders o
-                            INNER JOIN OrderItems oi ON o.OrderID =oi.OrderID
-                            INNER JOIN Products p ON oi.ProductID = p.ProductID
+            string query = @"SELECT o.OrderID, 
+                                    o.OrderDate, 
+                                    c.CustomerName,
+                                    o.WaitingNumber,
+                                    o.OrderStatus,
+                                    o.Notes,
+                                    o.TotalAmount AS TotalPrice,
+                                    (SELECT STRING_AGG(p.ProductName, ', ')
+                                    From OrderItems oi
+                                        INNER JOIN Products p ON oi.ProductID = p.ProductID
+                                        WHERE oi.OrderID = o.OrderID) AS Products 
+                                FROM Orders o
                             INNER JOIN Customers c ON o.CustomerID = c.CustomerID
 
-                              WHERE o.OrderDate >= @FromDate AND o.OrderDate < @ToDate
-                            GROUP BY o.OrderID, o.OrderDate, o.WaitingNumber,o.Notes, c.CustomerName, o.OrderStatus
+                              WHERE CAST(o.OrderDate AS DATE) >= CAST(@FromDate AS DATE)
+                                AND CAST(o.OrderDate AS DATE) <=  CAST (@ToDate AS DATE)
                             ORDER BY o.OrderDate DESC";
 
             DateTime from = fromDate ?? From_date.Value.Date;
-            DateTime to = toDate ?? To_date.Value.Date.AddDays(1);
-            try
+            DateTime to = toDate ?? To_date.Value.Date;
+            Task.Run(() =>
             {
-                 SqlParameter[] parameters = new SqlParameter[]
-                    {
+                try
+                {
+                    SqlParameter[] parameters = new SqlParameter[]
+                  {
                         new SqlParameter("@FromDate", from),
                         new SqlParameter("@ToDate",   to)
-                    };
-                DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
-                Order_datagridview.DataSource = dt;
-                //ApplyGridStyle();
+                  };
+                    DataTable dt = DatabaseConnection.ExecuteQueryWithParams(query, parameters);
 
-                // Set column headers
-                Order_datagridview.Columns["TotalPrice"].HeaderText = "Total Price";
-                Order_datagridview.Columns["OrderID"].HeaderText = "ID";
-                Order_datagridview.Columns["OrderDate"].HeaderText = "Date";
-                Order_datagridview.Columns["WaitingNumber"].HeaderText = "Waiting Number";
-                Order_datagridview.Columns["OrderStatus"].HeaderText = "Status";
-                Order_datagridview.Columns["Notes"].HeaderText = "Notes";
-                Order_datagridview.Columns["Products"].HeaderText = "Products";
-                Order_datagridview.Columns["CustomerName"].HeaderText = "Customer Name";
+                    this.Invoke((Action)(() =>
+                    {
+                        if (this.IsDisposed || !this.IsHandleCreated) return;
 
-                // Resize columns to fit content and alignment the text
-                Order_datagridview.Columns["OrderID"].Width = 50;
-                Order_datagridview.Columns["OrderID"].Resizable = DataGridViewTriState.False;
-                Order_datagridview.Columns["OrderID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        Order_datagridview.DataSource = dt;
+                       // ApplyGridColumns();
 
-                Order_datagridview.Columns["WaitingNumber"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-              //  Order_datagridview.Columns["WaitingNumber"].Width = 70;
 
-                Order_datagridview.Columns["Products"].DefaultCellStyle.WrapMode= DataGridViewTriState.True;
+                        // Set column headers
+                        Order_datagridview.Columns["TotalPrice"].HeaderText = "Total Price";
+                        Order_datagridview.Columns["OrderID"].HeaderText = "ID";
+                        Order_datagridview.Columns["OrderDate"].HeaderText = "Date";
+                        Order_datagridview.Columns["WaitingNumber"].HeaderText = "Waiting Number";
+                        Order_datagridview.Columns["OrderStatus"].HeaderText = "Status";
+                        Order_datagridview.Columns["Notes"].HeaderText = "Notes";
+                        Order_datagridview.Columns["Products"].HeaderText = "Products";
+                        Order_datagridview.Columns["CustomerName"].HeaderText = "Customer Name";
 
-                Order_datagridview.Columns["Notes"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                        // Resize columns to fit content and alignment the text
+                        Order_datagridview.Columns["OrderID"].Width = 50;
+                        Order_datagridview.Columns["OrderID"].Resizable = DataGridViewTriState.False;
+                        Order_datagridview.Columns["OrderID"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-                Order_datagridview.Columns["TotalPrice"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                Order_datagridview.Columns["TotalPrice"].DefaultCellStyle.Format = "C2"; // Format as currency
-                Order_datagridview.Columns["TotalPrice"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.GetCultureInfo("en-US"); // Set culture for currency formatting
-               // Order_datagridview.Columns["TotalPrice"].Width = 80;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed to load Order." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                        Order_datagridview.Columns["WaitingNumber"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        //  Order_datagridview.Columns["WaitingNumber"].Width = 70;
+
+                        Order_datagridview.Columns["Products"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+                        Order_datagridview.Columns["Notes"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+                        Order_datagridview.Columns["TotalPrice"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        Order_datagridview.Columns["TotalPrice"].DefaultCellStyle.Format = "C2"; // Format as currency
+                        Order_datagridview.Columns["TotalPrice"].DefaultCellStyle.FormatProvider = System.Globalization.CultureInfo.GetCultureInfo("en-US"); // Set culture for currency formatting
+                                                                                                                                                             // Order_datagridview.Columns["TotalPrice"].Width = 80;
+                    }));
+
+                }
+                catch (Exception ex)
+                {
+                    this.Invoke((Action)(() =>
+                    {
+                        if (this.IsDisposed || !this.IsHandleCreated) return;
+                        MessageBox.Show("Failed to load Order: " + ex.Message, "Error",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }));
+                }
+
+
+            });
+         
         }
         
 
@@ -137,7 +175,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
 
         private void Refresh_btn_Click(object sender, EventArgs e)
         {
-            From_date.Value = new DateTime(2025, 9, 1);
+            From_date.Value = DateTime.Today;
             To_date.Value = DateTime.Today;
 
             Load_Order();

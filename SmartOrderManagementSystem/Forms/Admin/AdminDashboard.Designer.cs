@@ -37,6 +37,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelSidebar = new System.Windows.Forms.Panel();
+            this.separator2 = new ReaLTaiizor.Controls.Separator();
+            this.separator1 = new ReaLTaiizor.Controls.Separator();
             this.labelAdmin = new ReaLTaiizor.Controls.BigLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnLogOut = new ReaLTaiizor.Controls.CyberButton();
@@ -45,8 +47,6 @@
             this.btnHome = new ReaLTaiizor.Controls.ParrotButton();
             this.btnReport = new ReaLTaiizor.Controls.ParrotButton();
             this.btnUser = new ReaLTaiizor.Controls.ParrotButton();
-            this.separator1 = new ReaLTaiizor.Controls.Separator();
-            this.separator2 = new ReaLTaiizor.Controls.Separator();
             this.AdminForm.WorkingArea.SuspendLayout();
             this.AdminForm.SuspendLayout();
             this.panelTopbar.SuspendLayout();
@@ -189,6 +189,26 @@
             this.panelSidebar.Name = "panelSidebar";
             this.panelSidebar.Size = new System.Drawing.Size(250, 861);
             this.panelSidebar.TabIndex = 2;
+            // 
+            // separator2
+            // 
+            this.separator2.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.separator2.LineColor = System.Drawing.Color.Black;
+            this.separator2.Location = new System.Drawing.Point(0, 760);
+            this.separator2.Name = "separator2";
+            this.separator2.Size = new System.Drawing.Size(251, 10);
+            this.separator2.TabIndex = 17;
+            this.separator2.Text = "separator2";
+            // 
+            // separator1
+            // 
+            this.separator1.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.separator1.LineColor = System.Drawing.Color.Black;
+            this.separator1.Location = new System.Drawing.Point(1, 230);
+            this.separator1.Name = "separator1";
+            this.separator1.Size = new System.Drawing.Size(251, 10);
+            this.separator1.TabIndex = 16;
+            this.separator1.Text = "separator1";
             // 
             // labelAdmin
             // 
@@ -378,26 +398,6 @@
             this.btnUser.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.btnUser.Vertical_Alignment = System.Drawing.StringAlignment.Center;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
-            // 
-            // separator1
-            // 
-            this.separator1.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.separator1.LineColor = System.Drawing.Color.Black;
-            this.separator1.Location = new System.Drawing.Point(1, 230);
-            this.separator1.Name = "separator1";
-            this.separator1.Size = new System.Drawing.Size(251, 10);
-            this.separator1.TabIndex = 16;
-            this.separator1.Text = "separator1";
-            // 
-            // separator2
-            // 
-            this.separator2.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.separator2.LineColor = System.Drawing.Color.Black;
-            this.separator2.Location = new System.Drawing.Point(0, 760);
-            this.separator2.Name = "separator2";
-            this.separator2.Size = new System.Drawing.Size(251, 10);
-            this.separator2.TabIndex = 17;
-            this.separator2.Text = "separator2";
             // 
             // AdminDashboard
             // 

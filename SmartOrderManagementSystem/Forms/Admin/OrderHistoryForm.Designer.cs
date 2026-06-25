@@ -28,28 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtSearchOrder = new ReaLTaiizor.Controls.AloneTextBox();
-            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dtpToDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new ReaLTaiizor.Controls.HopeRoundButton();
             this.btnRefresh = new ReaLTaiizor.Controls.HopeRoundButton();
             this.btnViewDetails = new ReaLTaiizor.Controls.HopeRoundButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.dgvOrderHistory = new ReaLTaiizor.Controls.PoisonDataGridView();
-            this.colOrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWaitingNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTotalOrders = new System.Windows.Forms.Label();
+            this.dgvOrderHistory = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new ReaLTaiizor.Controls.SmallTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbStaff = new ReaLTaiizor.Controls.PoisonComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderHistory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,31 +78,14 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Search Order:";
             // 
-            // txtSearchOrder
+            // dtpFrom
             // 
-            this.txtSearchOrder.BackColor = System.Drawing.Color.Transparent;
-            this.txtSearchOrder.EnabledCalc = true;
-            this.txtSearchOrder.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchOrder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(133)))), ((int)(((byte)(142)))));
-            this.txtSearchOrder.Location = new System.Drawing.Point(214, 123);
-            this.txtSearchOrder.MaxLength = 32767;
-            this.txtSearchOrder.MultiLine = false;
-            this.txtSearchOrder.Name = "txtSearchOrder";
-            this.txtSearchOrder.ReadOnly = false;
-            this.txtSearchOrder.Size = new System.Drawing.Size(417, 40);
-            this.txtSearchOrder.TabIndex = 3;
-            this.txtSearchOrder.Text = "Text";
-            this.txtSearchOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtSearchOrder.UseSystemPasswordChar = false;
-            // 
-            // dtpFromDate
-            // 
-            this.dtpFromDate.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFromDate.Location = new System.Drawing.Point(148, 193);
-            this.dtpFromDate.Name = "dtpFromDate";
-            this.dtpFromDate.Size = new System.Drawing.Size(171, 30);
-            this.dtpFromDate.TabIndex = 4;
+            this.dtpFrom.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(148, 193);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(184, 30);
+            this.dtpFrom.TabIndex = 4;
             // 
             // label4
             // 
@@ -130,14 +107,14 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "To:";
             // 
-            // dtpToDate
+            // dtpTo
             // 
-            this.dtpToDate.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpToDate.Location = new System.Drawing.Point(460, 193);
-            this.dtpToDate.Name = "dtpToDate";
-            this.dtpToDate.Size = new System.Drawing.Size(171, 30);
-            this.dtpToDate.TabIndex = 7;
+            this.dtpTo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTo.Location = new System.Drawing.Point(460, 193);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(171, 30);
+            this.dtpTo.TabIndex = 7;
             // 
             // btnSearch
             // 
@@ -149,15 +126,16 @@
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnSearch.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             this.btnSearch.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
-            this.btnSearch.Location = new System.Drawing.Point(55, 260);
+            this.btnSearch.Location = new System.Drawing.Point(648, 123);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.btnSearch.Size = new System.Drawing.Size(190, 44);
+            this.btnSearch.Size = new System.Drawing.Size(161, 40);
             this.btnSearch.SuccessColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
             this.btnSearch.TabIndex = 10;
             this.btnSearch.Text = "Search";
             this.btnSearch.TextColor = System.Drawing.Color.White;
             this.btnSearch.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnRefresh
             // 
@@ -169,7 +147,7 @@
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnRefresh.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             this.btnRefresh.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
-            this.btnRefresh.Location = new System.Drawing.Point(575, 260);
+            this.btnRefresh.Location = new System.Drawing.Point(798, 304);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             this.btnRefresh.Size = new System.Drawing.Size(190, 44);
@@ -178,6 +156,7 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextColor = System.Drawing.Color.White;
             this.btnRefresh.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnViewDetails
             // 
@@ -189,7 +168,7 @@
             this.btnViewDetails.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnViewDetails.HoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             this.btnViewDetails.InfoColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
-            this.btnViewDetails.Location = new System.Drawing.Point(1059, 260);
+            this.btnViewDetails.Location = new System.Drawing.Point(1069, 304);
             this.btnViewDetails.Name = "btnViewDetails";
             this.btnViewDetails.PrimaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
             this.btnViewDetails.Size = new System.Drawing.Size(190, 44);
@@ -198,102 +177,17 @@
             this.btnViewDetails.Text = "View Details";
             this.btnViewDetails.TextColor = System.Drawing.Color.White;
             this.btnViewDetails.WarningColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(162)))), ((int)(((byte)(60)))));
+            this.btnViewDetails.Click += new System.EventHandler(this.btnViewDetails_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(50, 323);
+            this.label6.Location = new System.Drawing.Point(50, 333);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(221, 25);
             this.label6.TabIndex = 13;
             this.label6.Text = "Order History Table:";
-            // 
-            // dgvOrderHistory
-            // 
-            this.dgvOrderHistory.AllowUserToAddRows = false;
-            this.dgvOrderHistory.AllowUserToDeleteRows = false;
-            this.dgvOrderHistory.AllowUserToResizeRows = false;
-            this.dgvOrderHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrderHistory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvOrderHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvOrderHistory.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dgvOrderHistory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderHistory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvOrderHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrderHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colOrderID,
-            this.colWaitingNumber,
-            this.colCustomerName,
-            this.colTotalAmount,
-            this.colOrderDate});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrderHistory.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvOrderHistory.EnableHeadersVisualStyles = false;
-            this.dgvOrderHistory.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvOrderHistory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvOrderHistory.Location = new System.Drawing.Point(55, 361);
-            this.dgvOrderHistory.MultiSelect = false;
-            this.dgvOrderHistory.Name = "dgvOrderHistory";
-            this.dgvOrderHistory.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderHistory.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvOrderHistory.RowHeadersVisible = false;
-            this.dgvOrderHistory.RowHeadersWidth = 51;
-            this.dgvOrderHistory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvOrderHistory.RowTemplate.Height = 24;
-            this.dgvOrderHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrderHistory.Size = new System.Drawing.Size(1194, 352);
-            this.dgvOrderHistory.TabIndex = 14;
-            // 
-            // colOrderID
-            // 
-            this.colOrderID.HeaderText = "Order ID";
-            this.colOrderID.MinimumWidth = 6;
-            this.colOrderID.Name = "colOrderID";
-            // 
-            // colWaitingNumber
-            // 
-            this.colWaitingNumber.HeaderText = "Waiting No";
-            this.colWaitingNumber.MinimumWidth = 6;
-            this.colWaitingNumber.Name = "colWaitingNumber";
-            // 
-            // colCustomerName
-            // 
-            this.colCustomerName.HeaderText = "Customer Name";
-            this.colCustomerName.MinimumWidth = 6;
-            this.colCustomerName.Name = "colCustomerName";
-            // 
-            // colTotalAmount
-            // 
-            this.colTotalAmount.HeaderText = "Total Price";
-            this.colTotalAmount.MinimumWidth = 6;
-            this.colTotalAmount.Name = "colTotalAmount";
-            // 
-            // colOrderDate
-            // 
-            this.colOrderDate.HeaderText = "Order Date";
-            this.colOrderDate.MinimumWidth = 6;
-            this.colOrderDate.Name = "colOrderDate";
             // 
             // lblTotalOrders
             // 
@@ -305,27 +199,79 @@
             this.lblTotalOrders.TabIndex = 15;
             this.lblTotalOrders.Text = "Total Orders:";
             // 
+            // dgvOrderHistory
+            // 
+            this.dgvOrderHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderHistory.Location = new System.Drawing.Point(55, 374);
+            this.dgvOrderHistory.Name = "dgvOrderHistory";
+            this.dgvOrderHistory.RowHeadersWidth = 51;
+            this.dgvOrderHistory.RowTemplate.Height = 24;
+            this.dgvOrderHistory.Size = new System.Drawing.Size(1217, 375);
+            this.dgvOrderHistory.TabIndex = 16;
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.BackColor = System.Drawing.Color.Transparent;
+            this.txtSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.txtSearch.CustomBGColor = System.Drawing.Color.White;
+            this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.DimGray;
+            this.txtSearch.Location = new System.Drawing.Point(214, 130);
+            this.txtSearch.MaxLength = 32767;
+            this.txtSearch.Multiline = false;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.ReadOnly = false;
+            this.txtSearch.Size = new System.Drawing.Size(417, 33);
+            this.txtSearch.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            this.txtSearch.TabIndex = 17;
+            this.txtSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtSearch.UseSystemPasswordChar = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(50, 260);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 25);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Staff:";
+            // 
+            // cmbStaff
+            // 
+            this.cmbStaff.FormattingEnabled = true;
+            this.cmbStaff.ItemHeight = 24;
+            this.cmbStaff.Location = new System.Drawing.Point(147, 255);
+            this.cmbStaff.Name = "cmbStaff";
+            this.cmbStaff.Size = new System.Drawing.Size(185, 30);
+            this.cmbStaff.TabIndex = 19;
+            this.cmbStaff.UseSelectable = true;
+            this.cmbStaff.SelectedIndexChanged += new System.EventHandler(this.cmbStaff_SelectedIndexChanged);
+            // 
             // OrderHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1332, 725);
-            this.Controls.Add(this.lblTotalOrders);
+            this.Controls.Add(this.cmbStaff);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvOrderHistory);
+            this.Controls.Add(this.lblTotalOrders);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnViewDetails);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.dtpToDate);
+            this.Controls.Add(this.dtpTo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dtpFromDate);
-            this.Controls.Add(this.txtSearchOrder);
+            this.Controls.Add(this.dtpFrom);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "OrderHistoryForm";
             this.Text = "OrderHistoryForm";
+            this.Load += new System.EventHandler(this.OrderHistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -337,21 +283,18 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private ReaLTaiizor.Controls.AloneTextBox txtSearchOrder;
-        private System.Windows.Forms.DateTimePicker dtpFromDate;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dtpToDate;
+        private System.Windows.Forms.DateTimePicker dtpTo;
         private ReaLTaiizor.Controls.HopeRoundButton btnSearch;
         private ReaLTaiizor.Controls.HopeRoundButton btnRefresh;
         private ReaLTaiizor.Controls.HopeRoundButton btnViewDetails;
         private System.Windows.Forms.Label label6;
-        private ReaLTaiizor.Controls.PoisonDataGridView dgvOrderHistory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOrderID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWaitingNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCustomerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotalAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colOrderDate;
         private System.Windows.Forms.Label lblTotalOrders;
+        private System.Windows.Forms.DataGridView dgvOrderHistory;
+        private ReaLTaiizor.Controls.SmallTextBox txtSearch;
+        private System.Windows.Forms.Label label7;
+        private ReaLTaiizor.Controls.PoisonComboBox cmbStaff;
     }
 }

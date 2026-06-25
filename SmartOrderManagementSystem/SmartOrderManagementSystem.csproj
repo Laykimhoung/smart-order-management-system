@@ -71,10 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DatabaseConnection.cs" />
-    <Compile Include="Database\OrderRepository.cs" />
-    <Compile Include="Database\ProductRepository.cs" />
-    <Compile Include="Database\ReportRepository.cs" />
-    <Compile Include="Database\UserRepository.cs" />
     <Compile Include="Forms\Admin\AddEditUserForm.cs">
       <SubType>Form</SubType>
     </Compile>

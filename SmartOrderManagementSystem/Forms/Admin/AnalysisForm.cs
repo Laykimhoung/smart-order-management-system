@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SmartOrderManagementSystem.Forms.Admin
 {
@@ -29,6 +30,8 @@ namespace SmartOrderManagementSystem.Forms.Admin
 
             cmbPeriod.SelectedIndex = 0;
 
+            StyleCharts();
+
             LoadSummaryCards();
             LoadRevenueChart();
             LoadTopProductsChart();
@@ -36,10 +39,16 @@ namespace SmartOrderManagementSystem.Forms.Admin
         }
         private void btnApply_Click(object sender, EventArgs e)
         {
+            chartRevenue.Visible = false;
+            chartTopProducts.Visible = false;
+            chartLeastProducts.Visible = false;
+
             LoadSummaryCards();
             LoadRevenueChart();
             LoadTopProductsChart();
             LoadLeastProductsChart();
+
+            timerChart.Start();
         }
         private void LoadSummaryCards()
         {
@@ -120,6 +129,30 @@ WHERE {dateFilter}");
         {
             chartRevenue.Series.Clear();
             chartRevenue.Series.Add("Revenue");
+
+            var revenueSeries =
+    chartRevenue.Series["Revenue"];
+
+            revenueSeries.Color =
+                Color.FromArgb(52, 152, 219);
+
+            revenueSeries.BorderWidth = 4;
+
+            revenueSeries.MarkerStyle =
+                System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+
+            revenueSeries.MarkerSize = 7;
+            revenueSeries.SmartLabelStyle.Enabled = true;
+
+            revenueSeries.MarkerColor =
+                Color.White;
+
+            revenueSeries.MarkerBorderColor =
+                Color.FromArgb(52, 152, 219);
+
+            revenueSeries.MarkerBorderWidth = 3;
+
+            revenueSeries.ShadowOffset = 2;
 
             chartRevenue.Series["Revenue"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting
@@ -422,12 +455,30 @@ ORDER BY Qty DESC";
             DataTable dt =
                 DatabaseConnection.ExecuteQuery(query);
 
+            Color[] colors =
+{
+    Color.FromArgb(52,152,219),
+    Color.FromArgb(46,204,113),
+    Color.FromArgb(241,196,15),
+    Color.FromArgb(230,126,34),
+    Color.FromArgb(155,89,182)
+};
+
+            int index = 0;
+
             foreach (DataRow row in dt.Rows)
             {
-                chartTopProducts.Series["Products"]
+                int point =
+                    chartTopProducts.Series["Products"]
                     .Points.AddXY(
                         row["ProductName"],
                         row["Qty"]);
+
+                chartTopProducts.Series["Products"]
+                    .Points[point].Color =
+                    colors[index];
+
+                index++;
             }
         }
         private void LoadLeastProductsChart()
@@ -438,18 +489,63 @@ ORDER BY Qty DESC";
 
             chartLeastProducts.Series["Products"].ChartType =
                 System.Windows.Forms.DataVisualization.Charting
-                .SeriesChartType.Bar;
+                .SeriesChartType.Doughnut;
 
-            chartLeastProducts.Legends[0].Enabled = false;
+            chartLeastProducts.Series["Products"]
+["PieLabelStyle"] = "Outside";
+
+            chartLeastProducts.Series["Products"]
+            ["DoughnutRadius"] = "82";
+
+            chartLeastProducts.Series["Products"]
+            .BorderWidth = 3;
+
+            chartLeastProducts.Series["Products"]
+            .BorderColor = Color.White;
+
+            chartLeastProducts.Legends.Clear();
+
+            Legend legend = new Legend();
+
+            legend.Docking =
+                Docking.Right;
+
+            legend.Font =
+    new Font("Segoe UI", 10, FontStyle.Bold);
+
+            legend.MaximumAutoSize = 30;
+
+            legend.Title = "Products";
+
+            legend.TitleFont =
+                new Font("Segoe UI", 10, FontStyle.Bold);
+
+            legend.BackColor =
+                Color.White;
+
+            legend.ForeColor =
+                Color.DimGray;
+
+            legend.Alignment =
+                StringAlignment.Near;
+
+            chartLeastProducts.Legends.Add(legend);
 
             chartLeastProducts.ChartAreas[0]
                 .AxisX.MajorGrid.Enabled = false;
 
             chartLeastProducts.ChartAreas[0]
-                .AxisY.MajorGrid.Enabled = false;
+                .AxisY.MajorGrid.Enabled = false;         
 
-            chartLeastProducts.Series["Products"]
-                ["PointWidth"] = "0.6";
+            chartTopProducts.Series["Products"]
+    .IsValueShownAsLabel = true;
+
+            chartTopProducts.Series["Products"]
+                .Font =
+                new Font("Segoe UI", 9, FontStyle.Bold);
+
+            chartTopProducts.Series["Products"]
+                .ShadowOffset = 2;
 
             chartLeastProducts.BackColor =
                 Color.White;
@@ -495,12 +591,44 @@ ORDER BY Qty ASC";
             DataTable dt =
                 DatabaseConnection.ExecuteQuery(query);
 
+            Color[] colors =
+{
+    Color.FromArgb(231,76,60),
+    Color.FromArgb(241,196,15),
+    Color.FromArgb(52,152,219),
+    Color.FromArgb(46,204,113),
+    Color.FromArgb(155,89,182)
+};
+
+            int index = 0;
+
             foreach (DataRow row in dt.Rows)
             {
-                chartLeastProducts.Series["Products"]
+                int point =
+                    chartLeastProducts.Series["Products"]
                     .Points.AddXY(
                         row["ProductName"],
                         row["Qty"]);
+
+                chartLeastProducts.Series["Products"]
+                    .Points[point].Color =
+                    colors[index];
+
+                chartLeastProducts.Series["Products"]
+    .Points[point].LegendText =
+    row["ProductName"].ToString();
+
+                chartLeastProducts.Series["Products"]
+    .Points[point].Label =
+    row["Qty"].ToString();
+
+                chartLeastProducts.Series["Products"]
+                    .Points[point].ToolTip =
+                    row["ProductName"] +
+                    "\nSold : " +
+                    row["Qty"];
+
+                index++;
             }
         }
         private string GetDateFilter()
@@ -523,6 +651,66 @@ ORDER BY Qty ASC";
                 default:
                     return "1=1";
             }
+        }
+        private void StyleCharts()
+        {
+            // Revenue Chart
+            chartRevenue.BackColor = Color.White;
+            chartRevenue.ChartAreas[0].BackColor = Color.White;
+
+            chartRevenue.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chartRevenue.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.Gainsboro;
+            chartRevenue.ChartAreas[0].AxisY.MajorGrid.LineDashStyle =
+                System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+
+            chartRevenue.ChartAreas[0].AxisX.LineColor = Color.Gainsboro;
+            chartRevenue.ChartAreas[0].AxisY.LineColor = Color.Gainsboro;
+
+            chartRevenue.ChartAreas[0].AxisX.LabelStyle.Font =
+                new Font("Segoe UI", 9);
+
+            chartRevenue.ChartAreas[0].AxisY.LabelStyle.Font =
+                new Font("Segoe UI", 9);
+
+            chartRevenue.ChartAreas[0].AxisX.LabelStyle.ForeColor =
+                Color.DimGray;
+
+            chartRevenue.ChartAreas[0].AxisY.LabelStyle.ForeColor =
+                Color.DimGray;
+
+
+            // Top Product Chart
+            chartTopProducts.BackColor = Color.White;
+            chartTopProducts.ChartAreas[0].BackColor = Color.White;
+
+            chartTopProducts.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chartTopProducts.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+
+            chartTopProducts.ChartAreas[0].AxisX.LabelStyle.Font =
+                new Font("Segoe UI", 9);
+
+            chartTopProducts.ChartAreas[0].AxisY.LabelStyle.Font =
+                new Font("Segoe UI", 9);
+
+
+            // Least Product Chart
+            chartLeastProducts.BackColor = Color.White;
+            chartLeastProducts.ChartAreas[0].BackColor = Color.White;
+            chartLeastProducts.ChartAreas[0].Position.Auto = false;
+
+            chartLeastProducts.ChartAreas[0].Position.X = 2;
+            chartLeastProducts.ChartAreas[0].Position.Y = 5;
+            chartLeastProducts.ChartAreas[0].Position.Width = 72;
+            chartLeastProducts.ChartAreas[0].Position.Height = 90;
+        }
+
+        private void timerChart_Tick(object sender, EventArgs e)
+        {
+            chartRevenue.Visible = true;
+            chartTopProducts.Visible = true;
+            chartLeastProducts.Visible = true;
+
+            timerChart.Stop();
         }
     }
 }

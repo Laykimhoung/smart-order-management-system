@@ -20,11 +20,11 @@ namespace SmartOrderManagementSystem.Forms.Login
             InitializeComponent();
 
             StaffLogBut.Cursor = Cursors.Hand;
-            CusLogBut.Cursor = Cursors.Hand;
+            
             AdminLogBut.Cursor = Cursors.Hand;
 
             StaOriCol = StaffLogBut.BackColor;
-            CusOriCol = CusLogBut.BackColor;
+            
             AdmOriCol = AdminLogBut.BackColor;
         }
 
@@ -54,15 +54,6 @@ namespace SmartOrderManagementSystem.Forms.Login
             Application.Exit();
         }
 
-        private void CusLogBut_MouseEnter(object sender, EventArgs e)
-        {
-            CusLogBut.BackColor = Color.DarkBlue;
-        }
-
-        private void CusLogBut_MouseLeave(object sender, EventArgs e)
-        {
-            CusLogBut.BackColor = CusOriCol;
-        }
 
         private void AdminLogBut_MouseEnter(object sender, EventArgs e)
         {

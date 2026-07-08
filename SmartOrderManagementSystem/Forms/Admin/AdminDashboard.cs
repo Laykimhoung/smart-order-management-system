@@ -1,4 +1,5 @@
 ﻿using SmartOrderManagementSystem.Database;
+using SmartOrderManagementSystem.Forms.Login;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,6 +76,26 @@ namespace SmartOrderManagementSystem.Forms.Admin
         {
             OpenChildForm(new AnalysisForm());
             lbWelcome.Text = "Analysis";
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to logout?",
+                "Logout",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+
+                LoginChoiceForm login = new LoginChoiceForm();
+
+                login.ShowDialog();
+
+                this.Close();
+            }
         }
     }
 }

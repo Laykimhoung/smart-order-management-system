@@ -243,7 +243,7 @@
             this.btnLogOut.ColorBackground = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.btnLogOut.ColorBackground_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.btnLogOut.ColorBackground_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
-            this.btnLogOut.ColorBackground_Pen = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(200)))), ((int)(((byte)(238)))));
+            this.btnLogOut.ColorBackground_Pen = System.Drawing.Color.Red;
             this.btnLogOut.ColorLighting = System.Drawing.Color.Yellow;
             this.btnLogOut.ColorPen_1 = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(68)))));
             this.btnLogOut.ColorPen_2 = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(63)))), ((int)(((byte)(86)))));
@@ -273,6 +273,7 @@
             this.btnLogOut.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             this.btnLogOut.Timer_Effect_1 = 5;
             this.btnLogOut.Timer_RGB = 100;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnAnalysis
             // 

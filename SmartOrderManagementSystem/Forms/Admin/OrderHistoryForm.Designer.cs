@@ -74,9 +74,9 @@
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(50, 138);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 25);
+            this.label3.Size = new System.Drawing.Size(155, 25);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Search Order:";
+            this.label3.Text = "Search Name:";
             // 
             // dtpFrom
             // 

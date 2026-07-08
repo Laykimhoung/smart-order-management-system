@@ -86,7 +86,7 @@ namespace SmartOrderManagementSystem.Forms.Admin
             try
             {
                 string query = @"
-        SELECT TOP 10
+        SELECT TOP 50
             O.OrderID AS [Order ID],
             C.CustomerName AS [Customer Name],
             U.FullName AS [Staff Name],

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetailsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtOrderID = new System.Windows.Forms.TextBox();
@@ -362,6 +363,7 @@
             this.Controls.Add(this.btnGetInvoice);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrderDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderDetailsForm";

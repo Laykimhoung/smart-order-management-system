@@ -40,10 +40,10 @@
             this.Customer_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.parrotButton1 = new ReaLTaiizor.Controls.ParrotButton();
             this.panel2 = new ReaLTaiizor.Controls.Panel();
-            this.Menu_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Notification_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.Staff_accout_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.bigLabel2 = new ReaLTaiizor.Controls.BigLabel();
+            this.Menu_btn = new ReaLTaiizor.Controls.ParrotButton();
             this.panel_container = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -326,29 +326,6 @@
             this.panel2.TabIndex = 1;
             this.panel2.Text = "panel2";
             // 
-            // Menu_btn
-            // 
-            this.Menu_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
-            this.Menu_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Menu_btn.ButtonImage")));
-            this.Menu_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
-            this.Menu_btn.ButtonText = "";
-            this.Menu_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Menu_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
-            this.Menu_btn.CornerRadius = 10;
-            this.Menu_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Menu_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
-            this.Menu_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
-            this.Menu_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
-            this.Menu_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
-            this.Menu_btn.Location = new System.Drawing.Point(246, 3);
-            this.Menu_btn.Name = "Menu_btn";
-            this.Menu_btn.Size = new System.Drawing.Size(61, 54);
-            this.Menu_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.Menu_btn.TabIndex = 4;
-            this.Menu_btn.TextColor = System.Drawing.Color.DodgerBlue;
-            this.Menu_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            this.Menu_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
-            // 
             // Notification_btn
             // 
             this.Notification_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
@@ -408,6 +385,29 @@
             this.bigLabel2.TabIndex = 10;
             this.bigLabel2.Text = "Staff DashBoard";
             // 
+            // Menu_btn
+            // 
+            this.Menu_btn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(64)))), ((int)(((byte)(79)))));
+            this.Menu_btn.ButtonImage = ((System.Drawing.Image)(resources.GetObject("Menu_btn.ButtonImage")));
+            this.Menu_btn.ButtonStyle = ReaLTaiizor.Controls.ParrotButton.Style.MaterialRounded;
+            this.Menu_btn.ButtonText = "";
+            this.Menu_btn.ClickBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
+            this.Menu_btn.ClickTextColor = System.Drawing.Color.DodgerBlue;
+            this.Menu_btn.CornerRadius = 10;
+            this.Menu_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Menu_btn.Horizontal_Alignment = System.Drawing.StringAlignment.Center;
+            this.Menu_btn.HoverBackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(90)))), ((int)(((byte)(105)))));
+            this.Menu_btn.HoverTextColor = System.Drawing.Color.DodgerBlue;
+            this.Menu_btn.ImagePosition = ReaLTaiizor.Controls.ParrotButton.ImgPosition.Left;
+            this.Menu_btn.Location = new System.Drawing.Point(246, 3);
+            this.Menu_btn.Name = "Menu_btn";
+            this.Menu_btn.Size = new System.Drawing.Size(61, 54);
+            this.Menu_btn.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.Menu_btn.TabIndex = 4;
+            this.Menu_btn.TextColor = System.Drawing.Color.DodgerBlue;
+            this.Menu_btn.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.Menu_btn.Vertical_Alignment = System.Drawing.StringAlignment.Center;
+            // 
             // panel_container
             // 
             this.panel_container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(60)))), ((int)(((byte)(66)))));
@@ -425,6 +425,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel_container);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StaffDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StaffDashboard";

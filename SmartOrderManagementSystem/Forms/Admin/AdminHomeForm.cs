@@ -86,29 +86,50 @@ namespace SmartOrderManagementSystem.Forms.Admin
             try
             {
                 string query = @"
-        SELECT TOP 50
-            O.OrderID AS [Order ID],
-            C.CustomerName AS [Customer Name],
-            U.FullName AS [Staff Name],
-            O.TotalAmount AS [Total Price],
-            O.OrderDate AS [Time]
-        FROM Orders O
-        INNER JOIN Customers C
-            ON O.CustomerID = C.CustomerID
-        INNER JOIN Users U
-            ON O.UserID = U.UserID
-        WHERE O.OrderStatus = 'Completed'
-        ORDER BY O.OrderDate DESC";
+SELECT TOP 20
+    O.OrderID AS [Order ID],
+    C.CustomerName AS [Customer Name],
+    U.FullName AS [Staff Name],
+    O.TotalAmount AS [Total Price],
+    FORMAT(O.OrderDate,'dd/MM/yyyy hh:mm tt') AS [Order Time]
+FROM Orders O
+INNER JOIN Customers C
+    ON O.CustomerID = C.CustomerID
+INNER JOIN Users U
+    ON O.UserID = U.UserID
+WHERE O.OrderStatus = 'Completed'
+ORDER BY O.OrderID DESC";
 
                 dgvRecentOrder.DataSource =
                     DatabaseConnection.ExecuteQuery(query);
 
                 dgvRecentOrder.Columns["Total Price"]
                     .DefaultCellStyle.Format = "$0.00";
+
+                dgvRecentOrder.DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+
+                dgvRecentOrder.Columns["Customer Name"]
+                    .DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleLeft;
+
+                dgvRecentOrder.Columns["Staff Name"]
+                    .DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleLeft;
+
+                dgvRecentOrder.Columns["Order ID"].FillWeight = 15;
+                dgvRecentOrder.Columns["Customer Name"].FillWeight = 30;
+                dgvRecentOrder.Columns["Staff Name"].FillWeight = 25;
+                dgvRecentOrder.Columns["Total Price"].FillWeight = 15;
+                dgvRecentOrder.Columns["Order Time"].FillWeight = 25;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(
+                    ex.Message,
+                    "Load Recent Orders",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
         private void StyleRecentOrdersGrid()

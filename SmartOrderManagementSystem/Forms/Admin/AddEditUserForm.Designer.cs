@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditUserForm));
             this.lblTitle = new System.Windows.Forms.Label();
             this.separator1 = new ReaLTaiizor.Controls.Separator();
             this.label1 = new System.Windows.Forms.Label();
@@ -303,6 +304,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddEditUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddEditUserForm";

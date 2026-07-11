@@ -31,6 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetailsForm));
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpOrderInfo = new System.Windows.Forms.GroupBox();
+            this.lblOrderDateValue = new System.Windows.Forms.Label();
+            this.lblStatusValue = new System.Windows.Forms.Label();
+            this.lblStaffNameValue = new System.Windows.Forms.Label();
+            this.lblCustomerNameValue = new System.Windows.Forms.Label();
+            this.lblWaitingNoValue = new System.Windows.Forms.Label();
+            this.lblOrderIDValue = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.lblOrderDate = new System.Windows.Forms.Label();
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.lblWaitingNumber = new System.Windows.Forms.Label();
@@ -42,14 +50,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnGenerateInvoice = new ReaLTaiizor.Controls.ParrotButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblOrderIDValue = new System.Windows.Forms.Label();
-            this.lblWaitingNoValue = new System.Windows.Forms.Label();
-            this.lblCustomerNameValue = new System.Windows.Forms.Label();
-            this.lblStaffNameValue = new System.Windows.Forms.Label();
-            this.lblStatusValue = new System.Windows.Forms.Label();
-            this.lblOrderDateValue = new System.Windows.Forms.Label();
             this.dgvOrderItems = new System.Windows.Forms.DataGridView();
             this.lblTotalItemsValue = new System.Windows.Forms.Label();
             this.lblTotalAmountValue = new System.Windows.Forms.Label();
@@ -88,6 +88,86 @@
             this.grpOrderInfo.TabIndex = 1;
             this.grpOrderInfo.TabStop = false;
             this.grpOrderInfo.Text = "Order Information";
+            // 
+            // lblOrderDateValue
+            // 
+            this.lblOrderDateValue.AutoSize = true;
+            this.lblOrderDateValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderDateValue.Location = new System.Drawing.Point(239, 243);
+            this.lblOrderDateValue.Name = "lblOrderDateValue";
+            this.lblOrderDateValue.Size = new System.Drawing.Size(206, 26);
+            this.lblOrderDateValue.TabIndex = 13;
+            this.lblOrderDateValue.Text = "22/06/2026 09:15 PM\n";
+            // 
+            // lblStatusValue
+            // 
+            this.lblStatusValue.AutoSize = true;
+            this.lblStatusValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusValue.Location = new System.Drawing.Point(239, 201);
+            this.lblStatusValue.Name = "lblStatusValue";
+            this.lblStatusValue.Size = new System.Drawing.Size(113, 26);
+            this.lblStatusValue.TabIndex = 12;
+            this.lblStatusValue.Text = "Completed";
+            // 
+            // lblStaffNameValue
+            // 
+            this.lblStaffNameValue.AutoSize = true;
+            this.lblStaffNameValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffNameValue.Location = new System.Drawing.Point(239, 162);
+            this.lblStaffNameValue.Name = "lblStaffNameValue";
+            this.lblStaffNameValue.Size = new System.Drawing.Size(152, 26);
+            this.lblStaffNameValue.TabIndex = 11;
+            this.lblStaffNameValue.Text = "Lay Kimhoung";
+            // 
+            // lblCustomerNameValue
+            // 
+            this.lblCustomerNameValue.AutoSize = true;
+            this.lblCustomerNameValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerNameValue.Location = new System.Drawing.Point(239, 121);
+            this.lblCustomerNameValue.Name = "lblCustomerNameValue";
+            this.lblCustomerNameValue.Size = new System.Drawing.Size(114, 26);
+            this.lblCustomerNameValue.TabIndex = 10;
+            this.lblCustomerNameValue.Text = "John Weak";
+            // 
+            // lblWaitingNoValue
+            // 
+            this.lblWaitingNoValue.AutoSize = true;
+            this.lblWaitingNoValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaitingNoValue.Location = new System.Drawing.Point(239, 83);
+            this.lblWaitingNoValue.Name = "lblWaitingNoValue";
+            this.lblWaitingNoValue.Size = new System.Drawing.Size(45, 26);
+            this.lblWaitingNoValue.TabIndex = 9;
+            this.lblWaitingNoValue.Text = "501";
+            // 
+            // lblOrderIDValue
+            // 
+            this.lblOrderIDValue.AutoSize = true;
+            this.lblOrderIDValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderIDValue.Location = new System.Drawing.Point(239, 44);
+            this.lblOrderIDValue.Name = "lblOrderIDValue";
+            this.lblOrderIDValue.Size = new System.Drawing.Size(56, 26);
+            this.lblOrderIDValue.TabIndex = 8;
+            this.lblOrderIDValue.Text = "1001";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(39, 243);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 26);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Order Date:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(39, 201);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 26);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Status:";
             // 
             // lblOrderDate
             // 
@@ -210,86 +290,6 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Total Items :";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(39, 201);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 26);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Status:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(39, 243);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 26);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Order Date:";
-            // 
-            // lblOrderIDValue
-            // 
-            this.lblOrderIDValue.AutoSize = true;
-            this.lblOrderIDValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderIDValue.Location = new System.Drawing.Point(239, 44);
-            this.lblOrderIDValue.Name = "lblOrderIDValue";
-            this.lblOrderIDValue.Size = new System.Drawing.Size(56, 26);
-            this.lblOrderIDValue.TabIndex = 8;
-            this.lblOrderIDValue.Text = "1001";
-            // 
-            // lblWaitingNoValue
-            // 
-            this.lblWaitingNoValue.AutoSize = true;
-            this.lblWaitingNoValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWaitingNoValue.Location = new System.Drawing.Point(239, 83);
-            this.lblWaitingNoValue.Name = "lblWaitingNoValue";
-            this.lblWaitingNoValue.Size = new System.Drawing.Size(45, 26);
-            this.lblWaitingNoValue.TabIndex = 9;
-            this.lblWaitingNoValue.Text = "501";
-            // 
-            // lblCustomerNameValue
-            // 
-            this.lblCustomerNameValue.AutoSize = true;
-            this.lblCustomerNameValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerNameValue.Location = new System.Drawing.Point(239, 121);
-            this.lblCustomerNameValue.Name = "lblCustomerNameValue";
-            this.lblCustomerNameValue.Size = new System.Drawing.Size(114, 26);
-            this.lblCustomerNameValue.TabIndex = 10;
-            this.lblCustomerNameValue.Text = "John Weak";
-            // 
-            // lblStaffNameValue
-            // 
-            this.lblStaffNameValue.AutoSize = true;
-            this.lblStaffNameValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffNameValue.Location = new System.Drawing.Point(239, 162);
-            this.lblStaffNameValue.Name = "lblStaffNameValue";
-            this.lblStaffNameValue.Size = new System.Drawing.Size(152, 26);
-            this.lblStaffNameValue.TabIndex = 11;
-            this.lblStaffNameValue.Text = "Lay Kimhoung";
-            // 
-            // lblStatusValue
-            // 
-            this.lblStatusValue.AutoSize = true;
-            this.lblStatusValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusValue.Location = new System.Drawing.Point(239, 201);
-            this.lblStatusValue.Name = "lblStatusValue";
-            this.lblStatusValue.Size = new System.Drawing.Size(113, 26);
-            this.lblStatusValue.TabIndex = 12;
-            this.lblStatusValue.Text = "Completed";
-            // 
-            // lblOrderDateValue
-            // 
-            this.lblOrderDateValue.AutoSize = true;
-            this.lblOrderDateValue.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderDateValue.Location = new System.Drawing.Point(239, 243);
-            this.lblOrderDateValue.Name = "lblOrderDateValue";
-            this.lblOrderDateValue.Size = new System.Drawing.Size(206, 26);
-            this.lblOrderDateValue.TabIndex = 13;
-            this.lblOrderDateValue.Text = "22/06/2026 09:15 PM\n";
-            // 
             // dgvOrderItems
             // 
             this.dgvOrderItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -338,6 +338,7 @@
             this.Controls.Add(this.separator1);
             this.Controls.Add(this.grpOrderInfo);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrderDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderDetailsForm";

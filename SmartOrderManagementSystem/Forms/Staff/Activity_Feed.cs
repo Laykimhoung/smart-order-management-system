@@ -33,7 +33,7 @@ namespace SmartOrderManagementSystem.Forms.Staff
             Load_orderlog();
 
             refresh = new Timer();
-            refresh.Interval = 5000;
+            refresh.Interval = 500;
             refresh.Tick += (s,args) =>
             {
                 if (this.IsDisposed || !this.IsHandleCreated) return;

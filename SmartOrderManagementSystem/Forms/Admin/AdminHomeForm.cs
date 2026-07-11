@@ -90,7 +90,7 @@ SELECT TOP 20
     O.OrderID AS [Order ID],
     C.CustomerName AS [Customer Name],
     U.FullName AS [Staff Name],
-    O.TotalAmount AS [Total Price],
+    CAST(O.TotalAmount AS DECIMAL(10,2)) AS [Total Price],
     FORMAT(O.OrderDate,'dd/MM/yyyy hh:mm tt') AS [Order Time]
 FROM Orders O
 INNER JOIN Customers C
@@ -98,13 +98,18 @@ INNER JOIN Customers C
 INNER JOIN Users U
     ON O.UserID = U.UserID
 WHERE O.OrderStatus = 'Completed'
-ORDER BY O.OrderID DESC";
+ORDER BY
+    O.OrderDate DESC,
+    O.OrderID DESC;";
 
                 dgvRecentOrder.DataSource =
                     DatabaseConnection.ExecuteQuery(query);
 
                 dgvRecentOrder.Columns["Total Price"]
                     .DefaultCellStyle.Format = "$0.00";
+
+                dgvRecentOrder.AutoSizeColumnsMode =
+                    DataGridViewAutoSizeColumnsMode.Fill;
 
                 dgvRecentOrder.DefaultCellStyle.Alignment =
                     DataGridViewContentAlignment.MiddleCenter;
@@ -163,46 +168,56 @@ ORDER BY O.OrderID DESC";
         {
             try
             {
+                string latestDateQuery = @"
+SELECT CAST(MAX(OrderDate) AS DATE)
+FROM Orders";
+
+                DataTable dtLatest =
+                    DatabaseConnection.ExecuteQuery(latestDateQuery);
+
+                string latestDate =
+                    Convert.ToDateTime(dtLatest.Rows[0][0])
+                    .ToString("yyyy-MM-dd");
+
                 // Today's Orders
-                DataTable dtOrders = DatabaseConnection.ExecuteQuery(
-                    @"SELECT COUNT(*) AS TodayOrders
-              FROM Orders
-              WHERE CAST(OrderDate AS DATE)
-              = CAST(GETDATE() AS DATE)
-              AND OrderStatus = 'Completed'");
+                DataTable dtOrders =
+                    DatabaseConnection.ExecuteQuery($@"
+SELECT COUNT(*) AS Total
+FROM Orders
+WHERE CAST(OrderDate AS DATE) = '{latestDate}'
+AND OrderStatus = 'Completed'");
 
                 lblTodayOrder.Text =
-                    "Today's Orders: " +
-                    dtOrders.Rows[0]["TodayOrders"].ToString();
+                    "Today's Orders : " +
+                    dtOrders.Rows[0]["Total"];
 
 
                 // Today's Revenue
-                DataTable dtRevenue = DatabaseConnection.ExecuteQuery(
-                    @"SELECT ISNULL(SUM(TotalAmount),0) AS TodayRevenue
-              FROM Orders
-              WHERE CAST(OrderDate AS DATE)
-              = CAST(GETDATE() AS DATE)
-              AND OrderStatus = 'Completed'");
+                DataTable dtRevenue =
+                    DatabaseConnection.ExecuteQuery($@"
+SELECT ISNULL(SUM(TotalAmount),0) AS Revenue
+FROM Orders
+WHERE CAST(OrderDate AS DATE) = '{latestDate}'
+AND OrderStatus = 'Completed'");
 
                 lblTodayRevenue.Text =
-                    "Today's Revenue: $" +
+                    "Today's Revenue : $" +
                     Convert.ToDecimal(
-                        dtRevenue.Rows[0]["TodayRevenue"])
-                        .ToString("N2");
+                        dtRevenue.Rows[0]["Revenue"])
+                    .ToString("N2");
 
 
-                // Customers Today
-                DataTable dtCustomers = DatabaseConnection.ExecuteQuery(
-                    @"SELECT COUNT(DISTINCT CustomerID)
-              AS CustomersToday
-              FROM Orders
-              WHERE CAST(OrderDate AS DATE)
-              = CAST(GETDATE() AS DATE)
-              AND OrderStatus = 'Completed'");
+                // Today's Customers
+                DataTable dtCustomers =
+                    DatabaseConnection.ExecuteQuery($@"
+SELECT COUNT(DISTINCT CustomerID) AS Customers
+FROM Orders
+WHERE CAST(OrderDate AS DATE) = '{latestDate}'
+AND OrderStatus = 'Completed'");
 
                 lblCustomerToday.Text =
-                    "Customers Today: " +
-                    dtCustomers.Rows[0]["CustomersToday"].ToString();
+                    "Customers Today : " +
+                    dtCustomers.Rows[0]["Customers"];
             }
             catch (Exception ex)
             {

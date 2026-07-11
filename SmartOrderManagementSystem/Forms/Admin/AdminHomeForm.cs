@@ -90,14 +90,14 @@ SELECT TOP 20
     O.OrderID AS [Order ID],
     C.CustomerName AS [Customer Name],
     U.FullName AS [Staff Name],
-    CAST(O.TotalAmount AS DECIMAL(10,2)) AS [Total Price],
+    O.TotalAmount AS [Total Price],
     FORMAT(O.OrderDate,'dd/MM/yyyy hh:mm tt') AS [Order Time]
 FROM Orders O
 INNER JOIN Customers C
     ON O.CustomerID = C.CustomerID
 INNER JOIN Users U
     ON O.UserID = U.UserID
-WHERE O.OrderStatus = 'Completed'
+WHERE O.OrderStatus='Complete'
 ORDER BY
     O.OrderDate DESC,
     O.OrderID DESC;";
@@ -168,56 +168,39 @@ ORDER BY
         {
             try
             {
-                string latestDateQuery = @"
-SELECT CAST(MAX(OrderDate) AS DATE)
-FROM Orders";
-
-                DataTable dtLatest =
-                    DatabaseConnection.ExecuteQuery(latestDateQuery);
-
-                string latestDate =
-                    Convert.ToDateTime(dtLatest.Rows[0][0])
-                    .ToString("yyyy-MM-dd");
-
-                // Today's Orders
-                DataTable dtOrders =
-                    DatabaseConnection.ExecuteQuery($@"
-SELECT COUNT(*) AS Total
+                string query = @"
+SELECT
+    COUNT(*) AS Orders,
+    ISNULL(SUM(TotalAmount),0) AS Revenue,
+    COUNT(DISTINCT CustomerID) AS Customers
 FROM Orders
-WHERE CAST(OrderDate AS DATE) = '{latestDate}'
-AND OrderStatus = 'Completed'");
+WHERE
+CAST(OrderDate AS DATE)=
+(
+    SELECT MAX(CAST(OrderDate AS DATE))
+    FROM Orders
+)
+AND OrderStatus='Complete'";
 
-                lblTodayOrder.Text =
-                    "Today's Orders : " +
-                    dtOrders.Rows[0]["Total"];
+                DataTable dt =
+                    DatabaseConnection.ExecuteQuery(query);
 
+                if (dt.Rows.Count > 0)
+                {
+                    lblTodayOrder.Text =
+                        "Today's Orders : " +
+                        dt.Rows[0]["Orders"];
 
-                // Today's Revenue
-                DataTable dtRevenue =
-                    DatabaseConnection.ExecuteQuery($@"
-SELECT ISNULL(SUM(TotalAmount),0) AS Revenue
-FROM Orders
-WHERE CAST(OrderDate AS DATE) = '{latestDate}'
-AND OrderStatus = 'Completed'");
+                    lblTodayRevenue.Text =
+                        "Today's Revenue : $" +
+                        Convert.ToDecimal(
+                            dt.Rows[0]["Revenue"])
+                        .ToString("N2");
 
-                lblTodayRevenue.Text =
-                    "Today's Revenue : $" +
-                    Convert.ToDecimal(
-                        dtRevenue.Rows[0]["Revenue"])
-                    .ToString("N2");
-
-
-                // Today's Customers
-                DataTable dtCustomers =
-                    DatabaseConnection.ExecuteQuery($@"
-SELECT COUNT(DISTINCT CustomerID) AS Customers
-FROM Orders
-WHERE CAST(OrderDate AS DATE) = '{latestDate}'
-AND OrderStatus = 'Completed'");
-
-                lblCustomerToday.Text =
-                    "Customers Today : " +
-                    dtCustomers.Rows[0]["Customers"];
+                    lblCustomerToday.Text =
+                        "Customers Today : " +
+                        dt.Rows[0]["Customers"];
+                }
             }
             catch (Exception ex)
             {

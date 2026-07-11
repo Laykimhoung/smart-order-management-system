@@ -47,7 +47,7 @@ namespace SmartOrderManagementSystem.Forms.Admin
             ON O.CustomerID = C.CustomerID
         INNER JOIN Users U
             ON O.UserID = U.UserID
-        WHERE O.OrderStatus = 'Completed'
+        WHERE O.OrderStatus IN ('Completed','Complete')
         ORDER BY O.OrderID ASC";
 
                 dgvReports.DataSource =
@@ -143,7 +143,7 @@ namespace SmartOrderManagementSystem.Forms.Admin
             ON O.CustomerID = C.CustomerID
         INNER JOIN Users U
             ON O.UserID = U.UserID
-        WHERE O.OrderStatus = 'Completed'
+        WHERE O.OrderStatus IN ('Completed','Complete')
         AND O.OrderDate BETWEEN @DateFrom AND @DateTo
         ORDER BY O.OrderID ASC";
 

@@ -287,10 +287,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Icons\" />
-    <Folder Include="Assets\Images\" />
     <Folder Include="Reports\Excel\" />
     <Folder Include="Reports\PDF\" />
+    <Folder Include="SQL\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Forms\Staff\pic\admin_bg.png" />
@@ -305,7 +304,6 @@
     <Content Include="Forms\Staff\pic\report_bg.png" />
     <Content Include="Forms\Staff\pic\setting2.png" />
     <Content Include="Forms\Staff\pic\staff_admin.png" />
-    <Content Include="SQL\SmartOrderDB.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
